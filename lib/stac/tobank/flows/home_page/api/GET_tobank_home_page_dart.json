@@ -1,4 +1,4 @@
-{
+﻿{
   "type": "stateFull",
   "onInit": {
     "actionType": "setValue",
@@ -838,7 +838,7 @@
                                     },
                                     {
                                       "actionType": "navigate",
-                                      "fileName": "dashboard_cards_management",
+                                      "fileName": "card_management_root",
                                       "navMode": "dart",
                                       "navigationStyle": "push"
                                     }
@@ -988,7 +988,7 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "fileName": "dashboard_cards_management",
+                                    "fileName": "card_management_root",
                                     "navMode": "dart",
                                     "navigationStyle": "push"
                                   }
@@ -1117,7 +1117,7 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "fileName": "dashboard_cards_management",
+                                    "fileName": "card_management_root",
                                     "navMode": "dart",
                                     "navigationStyle": "push"
                                   }
@@ -1246,7 +1246,7 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "fileName": "dashboard_cards_management",
+                                    "fileName": "card_management_root",
                                     "navMode": "dart",
                                     "navigationStyle": "push"
                                   }
@@ -1375,7 +1375,7 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "fileName": "dashboard_cards_management",
+                                    "fileName": "card_management_root",
                                     "navMode": "dart",
                                     "navigationStyle": "push"
                                   }
@@ -1504,7 +1504,7 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "fileName": "dashboard_cards_management",
+                                    "fileName": "card_management_root",
                                     "navMode": "dart",
                                     "navigationStyle": "push"
                                   }
@@ -1633,7 +1633,7 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "fileName": "dashboard_cards_management",
+                                    "fileName": "card_management_root",
                                     "navMode": "dart",
                                     "navigationStyle": "push"
                                   }

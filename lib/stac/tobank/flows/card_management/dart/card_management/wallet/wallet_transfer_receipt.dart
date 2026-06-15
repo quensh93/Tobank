@@ -1,8 +1,8 @@
-import 'package:stac/stac.dart';
+﻿import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
-@StacScreen(screenName: 'dashboard_wallet_transfer_receipt')
+@StacScreen(screenName: 'card_management_wallet_receipt')
 StacWidget dashboardWalletTransferReceipt() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',

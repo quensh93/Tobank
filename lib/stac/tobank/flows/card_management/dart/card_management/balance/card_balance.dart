@@ -1,9 +1,9 @@
-import 'package:stac/stac.dart';
+﻿import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 
-@StacScreen(screenName: 'dashboard_card_balance')
+@StacScreen(screenName: 'card_management_balance')
 StacWidget dashboardCardBalance() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(

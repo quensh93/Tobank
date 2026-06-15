@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+﻿import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -9,7 +9,7 @@ const _secondaryPinConfirmFieldId = 'secondary_pin_confirm';
 const _secondaryPinEnabledKey =
     'cardsManagement.secondaryPinChange.submitEnabled';
 
-@StacScreen(screenName: 'dashboard_secondary_pin_change')
+@StacScreen(screenName: 'card_management_secondary_pin_change')
 StacWidget dashboardSecondaryPinChange() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
@@ -233,7 +233,7 @@ StacWidget dashboardSecondaryPinChange() {
             StacCustomReactiveElevatedButton(
               enabledKey: _secondaryPinEnabledKey,
               onPressed: NavigationAction(
-                fileName: 'dashboard_secondary_pin_result',
+                fileName: 'card_management_secondary_pin_result',
                 navMode: NavModes.dart,
                 navigationStyle: NavigationStyle.push,
               ).toJson(),

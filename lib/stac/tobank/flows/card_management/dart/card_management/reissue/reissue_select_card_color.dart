@@ -1,10 +1,10 @@
-import 'package:stac/stac.dart';
+﻿import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
-@StacScreen(screenName: 'dashboard_card_reissue_select_card_color')
+@StacScreen(screenName: 'card_management_reissue_color')
 StacWidget dashboardCardReissueSelectCardColor() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(
@@ -52,7 +52,7 @@ StacWidget dashboardCardReissueSelectCardColor() {
                 positiveAction: StacSequenceAction(
                   actions: [
                     const StacCloseDialogAction(),
-                    NavigationAction(fileName: 'dashboard_card_reissue_receipt', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                    NavigationAction(fileName: 'card_management_reissue_receipt', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                   ],
                 ),
                 negativeAction: const StacCloseDialogAction(),

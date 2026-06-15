@@ -18,6 +18,7 @@ const bool _showDepositMoreOptions = true;
 
 const bool _showNotificationApiReal = true;
 const bool _showDashboardRealNavigation = true;
+const bool _showCardManagementReal = true;
 const bool _showGiftCardApiReal = true;
 const bool _showTransferReal = true;
 const bool _showChargeApiReal = true;
@@ -129,6 +130,11 @@ StacWidget tobankMenuDart() {
           _buildSingleButtonMenuItemCard(
             title: 'داشبورد',
             widgetType: 'dashboard_menu',
+          ),
+        if (_showCardManagementReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'مدیریت کارت',
+            widgetType: 'card_management_menu',
           ),
         if (_showGiftCardApiReal)
           _buildSingleButtonMenuItemCard(

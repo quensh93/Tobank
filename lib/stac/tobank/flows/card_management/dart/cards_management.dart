@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+﻿import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
@@ -17,7 +17,7 @@ const _servicePlaceholderContent =
     '{{appStrings.cardsManagement.services.placeholder}}';
 const _walletTransferMockDestinationWallet = 'سینایی';
 
-@StacScreen(screenName: 'dashboard_cards_management')
+@StacScreen(screenName: 'card_management_root')
 StacWidget dashboardCardsManagement() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
@@ -678,7 +678,7 @@ StacWidget _buildNonTobankServices() {
           title: _serviceBalanceTitle,
           iconRegistryKey: 'appAssets.current.icons.cardBalance',
           onTap: NavigationAction(
-            fileName: 'dashboard_card_balance',
+            fileName: 'card_management_balance',
             navMode: NavModes.dart,
             navigationStyle: NavigationStyle.push,
           ),
@@ -864,7 +864,7 @@ StacWidget _cardDetailsBottomSheet() {
               actions: [
                 const StacCloseDialogAction(),
                 NavigationAction(
-                  fileName: 'dashboard_card_edit',
+                  fileName: 'card_management_edit',
                   navMode: NavModes.dart,
                   navigationStyle: NavigationStyle.push,
                 ),
@@ -888,7 +888,7 @@ StacWidget _cardDetailsBottomSheet() {
                       actions: [
                         const StacCloseDialogAction(),
                         NavigationAction(
-                          fileName: 'dashboard_cards_management',
+                          fileName: 'card_management_root',
                           navMode: NavModes.dart,
                           navigationStyle: NavigationStyle.pushAndRemoveAll,
                         ),
@@ -2433,7 +2433,7 @@ StacWidget _walletTransferConfirmBottomSheet() {
                   const StacCloseDialogAction(),
                   const StacCloseDialogAction(),
                   NavigationAction(
-                    fileName: 'dashboard_wallet_transfer_receipt',
+                    fileName: 'card_management_wallet_receipt',
                     navMode: NavModes.dart,
                     navigationStyle: NavigationStyle.push,
                   ),
@@ -2609,12 +2609,12 @@ StacWidget _primaryPinSelectBottomSheet() {
                 StacCustomVisibility(
                   visible: '[[cardsManagement.pin.primaryEventIsGet]]',
                   child: _pinContinueButton(
-                    screenName: 'dashboard_primary_pin_get',
+                    screenName: 'card_management_primary_pin_get',
                   ).toJson(),
                   replacement: StacCustomVisibility(
                     visible: '[[cardsManagement.pin.primaryEventIsChange]]',
                     child: _pinContinueButton(
-                      screenName: 'dashboard_primary_pin_change',
+                      screenName: 'card_management_primary_pin_change',
                     ).toJson(),
                     replacement: _pinDisabledButton().toJson(),
                   ).toJson(),
@@ -2834,12 +2834,12 @@ StacWidget _secondaryPinSelectBottomSheet() {
                 StacCustomVisibility(
                   visible: '[[cardsManagement.pin.secondaryEventIsGet]]',
                   child: _secContinueButton(
-                    screenName: 'dashboard_secondary_pin_get',
+                    screenName: 'card_management_secondary_pin_get',
                   ).toJson(),
                   replacement: StacCustomVisibility(
                     visible: '[[cardsManagement.pin.secondaryEventIsChange]]',
                     child: _secContinueButton(
-                      screenName: 'dashboard_secondary_pin_change',
+                      screenName: 'card_management_secondary_pin_change',
                     ).toJson(),
                     replacement: _secDisabledButton().toJson(),
                   ).toJson(),
@@ -3104,7 +3104,7 @@ StacWidget _reissuePostalCodeBottomSheet() {
                 actions: [
                   const StacCloseDialogAction(),
                   NavigationAction(
-                    fileName: 'dashboard_card_reissue_request',
+                    fileName: 'card_management_reissue_request',
                     navMode: NavModes.dart,
                     navigationStyle: NavigationStyle.push,
                   ),
@@ -3374,7 +3374,7 @@ StacWidget _blockSubmitButton() {
         actions: [
           const StacCloseDialogAction(),
           NavigationAction(
-            fileName: 'dashboard_cards_management',
+            fileName: 'card_management_root',
             navMode: NavModes.dart,
             navigationStyle: NavigationStyle.pushAndRemoveAll,
           ),

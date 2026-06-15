@@ -1,4 +1,4 @@
-{
+﻿{
   "type": "stateFull",
   "onInit": {
     "actionType": "setValue",
@@ -104,7 +104,7 @@
                   },
                   {
                     "actionType": "navigate",
-                    "fileName": "dashboard_card_reissue_receipt",
+                    "fileName": "card_management_reissue_receipt",
                     "navMode": "localJson",
                     "navigationStyle": "push"
                   }

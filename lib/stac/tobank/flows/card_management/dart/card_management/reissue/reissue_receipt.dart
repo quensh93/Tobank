@@ -1,8 +1,8 @@
-import 'package:stac/stac.dart';
+﻿import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
-@StacScreen(screenName: 'dashboard_card_reissue_receipt')
+@StacScreen(screenName: 'card_management_reissue_receipt')
 StacWidget dashboardCardReissueReceipt() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
@@ -66,7 +66,7 @@ StacWidget dashboardCardReissueReceipt() {
           ),
           StacExpanded(child: StacSizedBox(height: 0)),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'dashboard_cards_management', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
+            onPressed: NavigationAction(fileName: 'card_management_root', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 8),
               minimumSize: const StacSize(0, 56),

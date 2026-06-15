@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+﻿import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -771,7 +771,7 @@ StacAction _openCardsManagementAction(int selectedIndex) {
         key: 'cardsManagement.initialPage',
         value: selectedIndex,
       ),
-      NavigationAction(fileName: 'dashboard_cards_management', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      NavigationAction(fileName: 'card_management_root', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
     ],
   );
 }
@@ -879,7 +879,7 @@ StacWidget _buildCardsFixedAddButtonOverlay() {
 
 StacWidget _buildCardsAddButton() {
   return StacGestureDetector(
-    onTap: NavigationAction(fileName: 'dashboard_add_new_card', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+    onTap: NavigationAction(fileName: 'card_management_add_card', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
     child: StacContainer(
       width: 56,
       height: 56,

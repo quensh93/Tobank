@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+﻿import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -8,7 +8,7 @@ const _expireDateFieldId = 'addNewCard.expireDate';
 const _cardTitleFieldId = 'addNewCard.title';
 const _submitEnabledKey = 'addNewCard.submitEnabled';
 
-@StacScreen(screenName: 'dashboard_add_new_card')
+@StacScreen(screenName: 'card_management_add_card')
 StacWidget dashboardAddNewCard() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',

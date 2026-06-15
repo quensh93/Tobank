@@ -1,4 +1,4 @@
-{
+﻿{
   "appBar": {
     "leading": {
       "padding": {
@@ -1402,7 +1402,7 @@
                                                 },
                                                 {
                                                   "actionType": "navigate",
-                                                  "fileName": "dashboard_card_edit",
+                                                  "fileName": "card_management_edit",
                                                   "navMode": "localJson",
                                                   "navigationStyle": "push"
                                                 }
@@ -1655,7 +1655,7 @@
                                                         },
                                                         {
                                                           "actionType": "navigate",
-                                                          "fileName": "dashboard_cards_management",
+                                                          "fileName": "card_management_root",
                                                           "navMode": "localJson",
                                                           "navigationStyle": "pushAndRemoveAll"
                                                         },
@@ -3764,7 +3764,7 @@
                                                 },
                                                 {
                                                   "actionType": "navigate",
-                                                  "fileName": "dashboard_card_edit",
+                                                  "fileName": "card_management_edit",
                                                   "navMode": "localJson",
                                                   "navigationStyle": "push"
                                                 }
@@ -4017,7 +4017,7 @@
                                                         },
                                                         {
                                                           "actionType": "navigate",
-                                                          "fileName": "dashboard_cards_management",
+                                                          "fileName": "card_management_root",
                                                           "navMode": "localJson",
                                                           "navigationStyle": "pushAndRemoveAll"
                                                         },
@@ -6385,7 +6385,7 @@
                                                 },
                                                 {
                                                   "actionType": "navigate",
-                                                  "fileName": "dashboard_card_edit",
+                                                  "fileName": "card_management_edit",
                                                   "navMode": "localJson",
                                                   "navigationStyle": "push"
                                                 }
@@ -6638,7 +6638,7 @@
                                                         },
                                                         {
                                                           "actionType": "navigate",
-                                                          "fileName": "dashboard_cards_management",
+                                                          "fileName": "card_management_root",
                                                           "navMode": "localJson",
                                                           "navigationStyle": "pushAndRemoveAll"
                                                         },
@@ -8747,7 +8747,7 @@
                                                 },
                                                 {
                                                   "actionType": "navigate",
-                                                  "fileName": "dashboard_card_edit",
+                                                  "fileName": "card_management_edit",
                                                   "navMode": "localJson",
                                                   "navigationStyle": "push"
                                                 }
@@ -9000,7 +9000,7 @@
                                                         },
                                                         {
                                                           "actionType": "navigate",
-                                                          "fileName": "dashboard_cards_management",
+                                                          "fileName": "card_management_root",
                                                           "navMode": "localJson",
                                                           "navigationStyle": "pushAndRemoveAll"
                                                         },
@@ -11962,7 +11962,7 @@
                                                                 },
                                                                 {
                                                                   "actionType": "navigate",
-                                                                  "fileName": "dashboard_wallet_transfer_receipt",
+                                                                  "fileName": "card_management_wallet_receipt",
                                                                   "navMode": "localJson",
                                                                   "navigationStyle": "push"
                                                                 }
@@ -16049,7 +16049,7 @@
                                                     },
                                                     {
                                                       "actionType": "navigate",
-                                                      "fileName": "dashboard_secondary_pin_get",
+                                                      "fileName": "card_management_secondary_pin_get",
                                                       "navMode": "localJson",
                                                       "navigationStyle": "push"
                                                     }
@@ -16157,7 +16157,7 @@
                                                       },
                                                       {
                                                         "actionType": "navigate",
-                                                        "fileName": "dashboard_secondary_pin_change",
+                                                        "fileName": "card_management_secondary_pin_change",
                                                         "navMode": "localJson",
                                                         "navigationStyle": "push"
                                                       }
@@ -17513,7 +17513,7 @@
                                                     },
                                                     {
                                                       "actionType": "navigate",
-                                                      "fileName": "dashboard_primary_pin_get",
+                                                      "fileName": "card_management_primary_pin_get",
                                                       "navMode": "localJson",
                                                       "navigationStyle": "push"
                                                     }
@@ -17621,7 +17621,7 @@
                                                       },
                                                       {
                                                         "actionType": "navigate",
-                                                        "fileName": "dashboard_primary_pin_change",
+                                                        "fileName": "card_management_primary_pin_change",
                                                         "navMode": "localJson",
                                                         "navigationStyle": "push"
                                                       }
@@ -19135,7 +19135,7 @@
                                                   },
                                                   {
                                                     "actionType": "navigate",
-                                                    "fileName": "dashboard_cards_management",
+                                                    "fileName": "card_management_root",
                                                     "navMode": "localJson",
                                                     "navigationStyle": "pushAndRemoveAll"
                                                   },
@@ -20269,7 +20269,7 @@
                                               },
                                               {
                                                 "actionType": "navigate",
-                                                "fileName": "dashboard_card_reissue_request",
+                                                "fileName": "card_management_reissue_request",
                                                 "navMode": "localJson",
                                                 "navigationStyle": "push"
                                               }
@@ -20617,7 +20617,7 @@
                         },
                         "onTap": {
                           "actionType": "navigate",
-                          "fileName": "dashboard_card_balance",
+                          "fileName": "card_management_balance",
                           "navMode": "localJson",
                           "navigationStyle": "push"
                         },
@@ -21744,7 +21744,7 @@
                                               },
                                               {
                                                 "actionType": "navigate",
-                                                "fileName": "dashboard_card_reissue_request",
+                                                "fileName": "card_management_reissue_request",
                                                 "navMode": "localJson",
                                                 "navigationStyle": "push"
                                               }

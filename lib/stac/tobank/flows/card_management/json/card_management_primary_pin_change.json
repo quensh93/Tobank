@@ -1,4 +1,4 @@
-{
+﻿{
   "appBar": {
     "leading": {
       "padding": {
@@ -464,7 +464,7 @@
             "enabledKey": "cardsManagement.primaryPinChange.submitEnabled",
             "onPressed": {
               "actionType": "navigate",
-              "fileName": "dashboard_primary_pin_result",
+              "fileName": "card_management_primary_pin_result",
               "navMode": "localJson",
               "navigationStyle": "push"
             },

@@ -9,6 +9,7 @@ class FlowRegistry {
 
   static const Set<String> flows = {
     'biometric_test',
+    'card_management',
     'cartable',
     'charge',
     'child_loan',

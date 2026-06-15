@@ -1,8 +1,8 @@
-import 'package:stac/stac.dart';
+﻿import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
-@StacScreen(screenName: 'dashboard_primary_pin_result')
+@StacScreen(screenName: 'card_management_primary_pin_result')
 StacWidget dashboardPrimaryPinResult() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
@@ -55,7 +55,7 @@ StacWidget dashboardPrimaryPinResult() {
           ),
           StacSizedBox(height: 48),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'dashboard_cards_management', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
+            onPressed: NavigationAction(fileName: 'card_management_root', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 8),
               minimumSize: const StacSize(0, 56),

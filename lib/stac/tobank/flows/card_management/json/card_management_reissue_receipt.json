@@ -1,4 +1,4 @@
-{
+﻿{
   "appBar": {
     "automaticallyImplyLeading": false,
     "title": {
@@ -109,7 +109,7 @@
         },
         {
           "onPressed": {
-            "fileName": "dashboard_cards_management",
+            "fileName": "card_management_root",
             "navMode": "localJson",
             "navigationStyle": "pushAndRemoveAll",
             "actionType": "navigate"

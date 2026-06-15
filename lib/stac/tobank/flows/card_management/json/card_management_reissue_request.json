@@ -1,4 +1,4 @@
-{
+﻿{
   "type": "stateFull",
   "onInit": {
     "actionType": "setValue",
@@ -544,7 +544,7 @@
               "enabledKey": "cardsManagement.reissue.addressNextEnabled",
               "onPressed": {
                 "actionType": "navigate",
-                "fileName": "dashboard_card_reissue_select_card_color",
+                "fileName": "card_management_reissue_color",
                 "navMode": "localJson",
                 "navigationStyle": "push"
               },

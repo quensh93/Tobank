@@ -1,4 +1,4 @@
-{
+﻿{
   "length": 4,
   "initialIndex": 3,
   "child": {
@@ -13638,7 +13638,7 @@
                                             },
                                             {
                                               "actionType": "navigate",
-                                              "fileName": "dashboard_cards_management",
+                                              "fileName": "card_management_root",
                                               "navMode": "localJson",
                                               "navigationStyle": "push"
                                             }
@@ -13991,7 +13991,7 @@
                                           },
                                           {
                                             "actionType": "navigate",
-                                            "fileName": "dashboard_cards_management",
+                                            "fileName": "card_management_root",
                                             "navMode": "localJson",
                                             "navigationStyle": "push"
                                           }
@@ -14311,7 +14311,7 @@
                                           },
                                           {
                                             "actionType": "navigate",
-                                            "fileName": "dashboard_cards_management",
+                                            "fileName": "card_management_root",
                                             "navMode": "localJson",
                                             "navigationStyle": "push"
                                           }
@@ -14631,7 +14631,7 @@
                                           },
                                           {
                                             "actionType": "navigate",
-                                            "fileName": "dashboard_cards_management",
+                                            "fileName": "card_management_root",
                                             "navMode": "localJson",
                                             "navigationStyle": "push"
                                           }
@@ -14951,7 +14951,7 @@
                                           },
                                           {
                                             "actionType": "navigate",
-                                            "fileName": "dashboard_cards_management",
+                                            "fileName": "card_management_root",
                                             "navMode": "localJson",
                                             "navigationStyle": "push"
                                           }
@@ -15271,7 +15271,7 @@
                                           },
                                           {
                                             "actionType": "navigate",
-                                            "fileName": "dashboard_cards_management",
+                                            "fileName": "card_management_root",
                                             "navMode": "localJson",
                                             "navigationStyle": "push"
                                           }
@@ -15591,7 +15591,7 @@
                                           },
                                           {
                                             "actionType": "navigate",
-                                            "fileName": "dashboard_cards_management",
+                                            "fileName": "card_management_root",
                                             "navMode": "localJson",
                                             "navigationStyle": "push"
                                           }
@@ -22625,7 +22625,7 @@
                         },
                         "onTap": {
                           "actionType": "navigate",
-                          "fileName": "dashboard_add_new_card",
+                          "fileName": "card_management_add_card",
                           "navMode": "localJson",
                           "navigationStyle": "push"
                         },
