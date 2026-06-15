@@ -1,6 +1,7 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory/dart/widgets/promissory_detail_row.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory/dart/widgets/promissory_divider.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -245,8 +246,9 @@ StacWidget _buildPdfCard() {
               textDirection: StacTextDirection.rtl,
               children: [
               StacGestureDetector(
-                onTap: const StacNavigateAction(
-                  routeName: 'promissory_guarantee_preview_page',
+                onTap: const NavigationAction(
+                  fileName: 'promissory_guarantee_preview_page',
+                  navMode: NavModes.dart,
                   navigationStyle: NavigationStyle.push,
                 ),
                 child: StacPadding(
