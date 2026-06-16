@@ -8,22 +8,7 @@ const bool _showCardIssueByFlag = true;
 @StacScreen(screenName: 'deposit_more_options_intro')
 StacWidget depositMoreOptionsIntro() {
   return StacStatefulWidget(
-    onInit: StacSequenceAction(
-      actions: [
-        const StacCustomSetValueAction(
-          values: [
-            {'key': 'deposit_more_show_card_issue', 'value': _showCardIssueByFlag},
-          ],
-        ),
-        StacShowBottomSheetAction(
-          isScrollControlled: true,
-          useSafeArea: true,
-          backgroundColor: '{{appColors.current.background.surface}}',
-          barrierColor: '#8B000000',
-          sheet: _buildDepositServicesBottomSheet().toJson(),
-        ),
-      ],
-    ),
+    onInit: showDepositMoreOptionsBottomSheetAction(),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       body: StacCenter(
@@ -59,6 +44,28 @@ StacWidget depositMoreOptionsIntro() {
         ),
       ),
     ),
+  );
+}
+
+StacAction showDepositMoreOptionsBottomSheetAction() {
+  return StacSequenceAction(
+    actions: [
+      const StacCustomSetValueAction(
+        values: [
+          {
+            'key': 'deposit_more_show_card_issue',
+            'value': _showCardIssueByFlag,
+          },
+        ],
+      ),
+      StacShowBottomSheetAction(
+        isScrollControlled: true,
+        useSafeArea: true,
+        backgroundColor: '{{appColors.current.background.surface}}',
+        barrierColor: '#8B000000',
+        sheet: _buildDepositServicesBottomSheet().toJson(),
+      ),
+    ],
   );
 }
 
@@ -379,4 +386,3 @@ StacWidget _depositDetailsItem({
     ),
   );
 }
-

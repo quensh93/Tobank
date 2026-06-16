@@ -3,7 +3,12 @@ import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
+
+import '../../../../../stac_core/navigation/nav_modes.dart';
+import '../../deposit_more_options/dart/deposit_more_options_intro.dart'
+    as deposit_more_options_dart;
+import '../../deposit_turnover/dart/deposit_turnover_intro.dart'
+    as deposit_turnover_dart;
 
 @StacScreen(screenName: 'tobank_home_page_dart')
 StacWidget tobankHomePageDart() {
@@ -330,51 +335,76 @@ StacWidget _buildServicesTab() {
           children: [
             _buildServicesRow(
               first: _buildServiceGridItem(
-                label: 'کارت به کارت',
-                iconPath: '{{appAssets.current.icons.cardToCard}}',
-              ),
-              second: _buildServiceGridItem(
                 label: 'چک صیادی',
                 iconPath: '{{appAssets.current.icons.checkReceive}}',
               ),
-              third: _buildServiceGridItem(
-                label: 'موجودی',
-                iconPath: '{{appAssets.current.icons.cardBalance}}',
-              ),
-              fourth: _buildServiceGridItem(
+              second: _buildServiceGridItem(
                 label: 'شارژ',
                 iconPath: '{{appAssets.current.icons.simCharge}}',
+                onTap: const StacSequenceAction(
+                  actions: [
+                    StacCustomSetValueAction(
+                      key: 'crChargeFlowInitialized',
+                      value: false,
+                    ),
+                    NavigationAction(
+                      fileName: 'charge_intro',
+                      navMode: NavModes.dart,
+                      navigationStyle: NavigationStyle.push,
+                    ),
+                  ],
+                ),
+              ),
+              third: _buildServiceGridItem(
+                label: 'بسته اینترنت',
+                iconPath: '{{appAssets.current.icons.internet}}',
+                onTap: const StacSequenceAction(
+                  actions: [
+                    StacCustomSetValueAction(
+                      key: 'crChargeFlowInitialized',
+                      value: false,
+                    ),
+                    NavigationAction(
+                      fileName: 'internet_pakage_intro',
+                      navMode: NavModes.dart,
+                      navigationStyle: NavigationStyle.push,
+                    ),
+                  ],
+                ),
+              ),
+              fourth: _buildServiceGridItem(
+                label: 'خدمات سفر',
+                iconPath: '{{appAssets.current.icons.megagasht}}',
+                onTap: NavigationAction(
+                  fileName: 'tobank_travel_services_page',
+                  navMode: NavModes.dart,
+                  navigationStyle: NavigationStyle.push,
+                ),
               ),
             ),
             StacSizedBox(height: 16),
             _buildServicesRow(
               first: _buildServiceGridItem(
-                label: 'بسته اینترنت',
-                iconPath: '{{appAssets.current.icons.internet}}',
-              ),
-              second: _buildServiceGridItem(
-                label: 'خدمات سفر',
-                iconPath: '{{appAssets.current.icons.megagasht}}',
-                onTap: NavigationAction(fileName: 'tobank_travel_services_page', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
-              ),
-              third: _buildServiceGridItem(
                 label: 'کارت هدیه',
                 iconPath: '{{appAssets.current.icons.giftCard}}',
+                onTap: NavigationAction(
+                  fileName: 'gift_card_intro',
+                  navMode: NavModes.dart,
+                  navigationStyle: NavigationStyle.push,
+                ),
               ),
-              fourth: _buildServiceGridItem(
+              second: _buildServiceGridItem(
                 label: 'قبض',
                 iconPath: '{{appAssets.current.icons.invoice}}',
               ),
-            ),
-            StacSizedBox(height: 16),
-            _buildServicesRow(
-              first: _buildServiceGridItem(
+              third: _buildServiceGridItem(
                 label: 'پذیرندگی',
                 iconPath: '{{appAssets.current.icons.acceptor}}',
-                onTap: NavigationAction(fileName: 'tobank_acceptor_services_page', navMode: NavModes.dart),
+                onTap: NavigationAction(
+                  fileName: 'tobank_acceptor_services_page',
+                  navMode: NavModes.dart,
+                ),
               ),
-              second: StacSizedBox(),
-              third: StacSizedBox(),
               fourth: StacSizedBox(),
             ),
           ],
@@ -773,7 +803,11 @@ StacAction _openCardsManagementAction(int selectedIndex) {
         key: 'cardsManagement.initialPage',
         value: selectedIndex,
       ),
-      NavigationAction(fileName: 'card_management_root', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      NavigationAction(
+        fileName: 'card_management_root',
+        navMode: NavModes.dart,
+        navigationStyle: NavigationStyle.push,
+      ),
     ],
   );
 }
@@ -881,7 +915,11 @@ StacWidget _buildCardsFixedAddButtonOverlay() {
 
 StacWidget _buildCardsAddButton() {
   return StacGestureDetector(
-    onTap: NavigationAction(fileName: 'card_management_add_card', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+    onTap: NavigationAction(
+      fileName: 'card_management_add_card',
+      navMode: NavModes.dart,
+      navigationStyle: NavigationStyle.push,
+    ),
     child: StacContainer(
       width: 56,
       height: 56,
@@ -936,7 +974,11 @@ StacWidget _buildDepositsTab() {
               title: 'سایر خدمات',
               subtitle: 'سفته الکترونیک ...',
               iconPath: '{{appAssets.current.icons.promissory}}',
-              onTap: NavigationAction(fileName: 'tobank_special_services_page', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+              onTap: NavigationAction(
+                fileName: 'tobank_special_services_page',
+                navMode: NavModes.dart,
+                navigationStyle: NavigationStyle.push,
+              ),
             ),
           ),
           StacSizedBox(width: 12),
@@ -945,6 +987,11 @@ StacWidget _buildDepositsTab() {
               title: 'انواع تسهیلات',
               subtitle: 'ازدواج، کارت اعتباری ...',
               iconPath: '{{appAssets.current.icons.creditCard}}',
+              onTap: NavigationAction(
+                fileName: 'tobank_facilities_page',
+                navMode: NavModes.dart,
+                navigationStyle: NavigationStyle.push,
+              ),
             ),
           ),
         ],
@@ -988,7 +1035,11 @@ StacWidget _buildUnauthenticatedDepositsState() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'authentication_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'authentication_intro',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               backgroundColor:
                   '{{appColors.current.button.primary.backgroundColor}}',
@@ -1050,7 +1101,11 @@ StacWidget _buildAuthCardPage() {
               ),
             ),
             StacFilledButton(
-              onPressed: NavigationAction(fileName: 'authentication_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+              onPressed: NavigationAction(
+                fileName: 'authentication_intro',
+                navMode: NavModes.dart,
+                navigationStyle: NavigationStyle.push,
+              ),
               style: StacButtonStyle(
                 backgroundColor:
                     '{{appColors.current.button.primary.backgroundColor}}',
@@ -1311,7 +1366,7 @@ StacWidget _buildExistingDepositCard({
             ),
           ),
           StacSizedBox(height: 16),
-          _buildQuickActionsRow(),
+          _buildQuickActionsRow(enabled: true),
         ],
       ),
     ),
@@ -1386,7 +1441,7 @@ StacWidget _buildDepositBalanceRow() {
   );
 }
 
-StacWidget _buildQuickActionsRow() {
+StacWidget _buildQuickActionsRow({bool enabled = false}) {
   return StacPadding(
     padding: StacEdgeInsets.only(left: 16, right: 4),
     child: StacRow(
@@ -1396,14 +1451,31 @@ StacWidget _buildQuickActionsRow() {
         _buildQuickAction(
           label: 'گردش سپرده',
           iconPath: '{{appAssets.current.icons.shareDeposit}}',
+          enabled: enabled,
+          onPressed: enabled
+              ? deposit_turnover_dart.showDepositTurnoverBottomSheetAction()
+              : null,
         ),
         _buildQuickAction(
           label: 'انتقال وجه',
           iconPath: '{{appAssets.current.icons.transferAmount}}',
+          enabled: enabled,
+          onPressed: enabled
+              ? NavigationAction(
+                  fileName: 'transfer_amount',
+                  navMode: NavModes.dart,
+                  navigationStyle: NavigationStyle.push,
+                )
+              : null,
         ),
         _buildQuickAction(
           label: 'بیشتر',
           iconPath: '{{appAssets.current.icons.more}}',
+          enabled: enabled,
+          onPressed: enabled
+              ? deposit_more_options_dart
+                    .showDepositMoreOptionsBottomSheetAction()
+              : null,
         ),
       ],
     ),
@@ -1413,46 +1485,54 @@ StacWidget _buildQuickActionsRow() {
 StacWidget _buildQuickAction({
   required String label,
   required String iconPath,
+  bool enabled = true,
+  StacAction? onPressed,
 }) {
   return StacTextButton(
+    onPressed: onPressed,
     style: StacButtonStyle(
       padding: StacEdgeInsets.all(0),
       minimumSize: const StacSize(0, 0),
       tapTargetSize: StacMaterialTapTargetSize.shrinkWrap,
     ),
-    child: StacColumn(
-      children: [
-        StacContainer(
-          width: 44,
-          height: 44,
-          decoration: StacBoxDecoration(
-            color: '{{appColors.current.background.surfaceContainerLowest}}',
-            borderRadius: StacBorderRadius.all(8),
-            border: StacBorder.all(
-              color: '{{appColors.current.input.borderEnabled}}',
-              width: 0.5,
+    child: StacCustomOpacity(
+      opacity: enabled ? 1 : 0.4,
+      child: StacColumn(
+        children: [
+          StacContainer(
+            width: 44,
+            height: 44,
+            decoration: StacBoxDecoration(
+              color: '{{appColors.current.background.surfaceContainerLowest}}',
+              borderRadius: StacBorderRadius.all(8),
+              border: StacBorder.all(
+                color: '{{appColors.current.input.borderEnabled}}',
+                width: 0.5,
+              ),
+            ),
+            alignment: StacAlignment.center,
+            child: StacImage(
+              src: iconPath,
+              imageType: StacImageType.asset,
+              width: 28,
+              height: 28,
             ),
           ),
-          alignment: StacAlignment.center,
-          child: StacImage(
-            src: iconPath,
-            imageType: StacImageType.asset,
-            width: 28,
-            height: 28,
+          StacSizedBox(height: 8),
+          StacText(
+            data: label,
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.center,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w500,
+              color: enabled
+                  ? '{{appColors.current.text.title}}'
+                  : '{{appColors.current.text.subtitle}}',
+            ),
           ),
-        ),
-        StacSizedBox(height: 8),
-        StacText(
-          data: label,
-          textDirection: StacTextDirection.rtl,
-          textAlign: StacTextAlign.center,
-          style: StacCustomTextStyle(
-            fontSize: 14,
-            fontWeight: StacFontWeight.w500,
-            color: '{{appColors.current.text.title}}',
-          ),
-        ),
-      ],
+        ],
+      ).toJson(),
     ),
   );
 }
@@ -1623,4 +1703,3 @@ StacWidget _buildStaticCustomerClubBanner() {
     ),
   );
 }
-

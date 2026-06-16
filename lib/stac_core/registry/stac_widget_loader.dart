@@ -9,6 +9,8 @@ import '../../../stac/tobank/flows/home_page/dart/home_page.dart'
     as home_page_dart;
 import '../../../stac/tobank/flows/home_page/dart/tobank_special_services_page.dart'
     as tobank_special_services_page_dart;
+import '../../../stac/tobank/flows/home_page/dart/facilities_page.dart'
+    as facilities_page_dart;
 import '../../../stac/tobank/flows/home_page/dart/travel_services_page.dart'
     as travel_services_page_dart;
 import '../../../stac/tobank/flows/home_page/dart/acceptor_services_page.dart'
@@ -308,6 +310,8 @@ class StacWidgetLoader {
     'tobank_home_page_dart': () => home_page_dart.tobankHomePageDart().toJson(),
     'tobank_special_services_page': () =>
         tobank_special_services_page_dart.tobankSpecialServicesPage().toJson(),
+    'tobank_facilities_page': () =>
+        facilities_page_dart.tobankFacilitiesPage().toJson(),
     'tobank_travel_services_page': () =>
         travel_services_page_dart.tobankTravelServicesPage().toJson(),
     'tobank_acceptor_services_page': () =>

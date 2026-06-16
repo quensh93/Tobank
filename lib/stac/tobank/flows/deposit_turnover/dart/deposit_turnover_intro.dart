@@ -6,26 +6,7 @@ import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 @StacScreen(screenName: 'deposit_turnover_intro')
 StacWidget depositTurnoverIntro() {
   return StacStatefulWidget(
-    onInit: StacSequenceAction(
-      actions: [
-        const StacCustomSetValueAction(
-          values: [
-            {'key': 'dtFilterLatestSelected', 'value': true},
-            {'key': 'dtFilterTimeSelected', 'value': false},
-            {'key': 'dtFromDate', 'value': '۱۴۰۵/۰۱/۲۹'},
-            {'key': 'dtToDate', 'value': '۱۴۰۵/۰۲/۲۸'},
-          ],
-        ),
-        StacShowBottomSheetAction(
-          title: 'deposit_filter',
-          isScrollControlled: true,
-          useSafeArea: true,
-          backgroundColor: '#00000000',
-          barrierColor: '#8B000000',
-          sheet: _buildDepositTurnoverBottomSheet().toJson(),
-        ),
-      ],
-    ),
+    onInit: showDepositTurnoverBottomSheetAction(),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       body: StacPadding(
@@ -65,6 +46,29 @@ StacWidget depositTurnoverIntro() {
         ),
       ),
     ),
+  );
+}
+
+StacAction showDepositTurnoverBottomSheetAction() {
+  return StacSequenceAction(
+    actions: [
+      const StacCustomSetValueAction(
+        values: [
+          {'key': 'dtFilterLatestSelected', 'value': true},
+          {'key': 'dtFilterTimeSelected', 'value': false},
+          {'key': 'dtFromDate', 'value': '۱۴۰۵/۰۱/۲۹'},
+          {'key': 'dtToDate', 'value': '۱۴۰۵/۰۲/۲۸'},
+        ],
+      ),
+      StacShowBottomSheetAction(
+        title: 'deposit_filter',
+        isScrollControlled: true,
+        useSafeArea: true,
+        backgroundColor: '#00000000',
+        barrierColor: '#8B000000',
+        sheet: _buildDepositTurnoverBottomSheet().toJson(),
+      ),
+    ],
   );
 }
 
@@ -467,4 +471,3 @@ StacWidget _dateFieldCard({
     ),
   );
 }
-

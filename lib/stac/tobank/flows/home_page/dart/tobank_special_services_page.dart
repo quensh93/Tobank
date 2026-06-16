@@ -1,7 +1,8 @@
 import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
-import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
+
+import '../../../../../stac_core/navigation/nav_modes.dart';
 
 @StacScreen(screenName: 'tobank_special_services_page')
 StacWidget tobankSpecialServicesPage() {
@@ -66,7 +67,6 @@ StacWidget tobankSpecialServicesPage() {
               title: 'خدمات اینترنت بانک',
               subtitle: 'فعال سازی خدمات و صدور رمز',
               iconPath: 'assets/icons/ic_menu_internet.svg',
-              onTap: NavigationAction(fileName: 'charge_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             ),
           ),
           StacSizedBox(height: 16),
