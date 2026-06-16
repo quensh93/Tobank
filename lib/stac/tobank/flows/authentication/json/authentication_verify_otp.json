@@ -377,10 +377,10 @@
                   "type": "text"
                 },
                 "onPressed": {
+                  "actionType": "navigate",
                   "fileName": "authentication_national_card_front",
-                  "navMode": "dart",
-                  "navigationStyle": "push",
-                  "actionType": "navigate"
+                  "navMode": "localJson",
+                  "navigationStyle": "push"
                 }
               },
               "type": "padding"

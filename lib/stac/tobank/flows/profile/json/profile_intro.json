@@ -235,10 +235,10 @@
                               "type": "container"
                             },
                             "onTap": {
+                              "actionType": "navigate",
                               "fileName": "profile_bank_info",
-                              "navMode": "dart",
-                              "navigationStyle": "push",
-                              "actionType": "navigate"
+                              "navMode": "localJson",
+                              "navigationStyle": "push"
                             },
                             "type": "gestureDetector"
                           },
@@ -310,10 +310,10 @@
                               "type": "container"
                             },
                             "onTap": {
+                              "actionType": "navigate",
                               "fileName": "profile_invite_friends",
-                              "navMode": "dart",
-                              "navigationStyle": "push",
-                              "actionType": "navigate"
+                              "navMode": "localJson",
+                              "navigationStyle": "push"
                             },
                             "type": "gestureDetector"
                           },
@@ -385,10 +385,10 @@
                               "type": "container"
                             },
                             "onTap": {
+                              "actionType": "navigate",
                               "fileName": "profile_destinations",
-                              "navMode": "dart",
-                              "navigationStyle": "push",
-                              "actionType": "navigate"
+                              "navMode": "localJson",
+                              "navigationStyle": "push"
                             },
                             "type": "gestureDetector"
                           },
@@ -460,10 +460,10 @@
                               "type": "container"
                             },
                             "onTap": {
+                              "actionType": "navigate",
                               "fileName": "profile_settings",
-                              "navMode": "dart",
-                              "navigationStyle": "push",
-                              "actionType": "navigate"
+                              "navMode": "localJson",
+                              "navigationStyle": "push"
                             },
                             "type": "gestureDetector"
                           },
@@ -535,10 +535,10 @@
                               "type": "container"
                             },
                             "onTap": {
+                              "actionType": "navigate",
                               "fileName": "profile_rules",
-                              "navMode": "dart",
-                              "navigationStyle": "push",
-                              "actionType": "navigate"
+                              "navMode": "localJson",
+                              "navigationStyle": "push"
                             },
                             "type": "gestureDetector"
                           },
@@ -610,10 +610,10 @@
                               "type": "container"
                             },
                             "onTap": {
+                              "actionType": "navigate",
                               "fileName": "profile_about",
-                              "navMode": "dart",
-                              "navigationStyle": "push",
-                              "actionType": "navigate"
+                              "navMode": "localJson",
+                              "navigationStyle": "push"
                             },
                             "type": "gestureDetector"
                           },
@@ -685,10 +685,10 @@
                               "type": "container"
                             },
                             "onTap": {
+                              "actionType": "navigate",
                               "fileName": "profile_contact",
-                              "navMode": "dart",
-                              "navigationStyle": "push",
-                              "actionType": "navigate"
+                              "navMode": "localJson",
+                              "navigationStyle": "push"
                             },
                             "type": "gestureDetector"
                           }

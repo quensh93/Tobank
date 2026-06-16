@@ -697,7 +697,8 @@
                                                   },
                                                   {
                                                     "fileName": "cartable_detail",
-                                                    "navMode": "dart",
+                                                    "navMode": "localJson",
+                                                    "pathOverride": "lib/stac/tobank/flows/cartable/json/cartable_detail.json",
                                                     "actionType": "navigate"
                                                   }
                                                 ]
@@ -956,7 +957,8 @@
                                                   },
                                                   {
                                                     "fileName": "cartable_detail",
-                                                    "navMode": "dart",
+                                                    "navMode": "localJson",
+                                                    "pathOverride": "lib/stac/tobank/flows/cartable/json/cartable_detail.json",
                                                     "actionType": "navigate"
                                                   }
                                                 ]
@@ -1203,7 +1205,8 @@
                                                   },
                                                   {
                                                     "fileName": "cartable_detail",
-                                                    "navMode": "dart",
+                                                    "navMode": "localJson",
+                                                    "pathOverride": "lib/stac/tobank/flows/cartable/json/cartable_detail.json",
                                                     "actionType": "navigate"
                                                   }
                                                 ]
@@ -1450,7 +1453,8 @@
                                                   },
                                                   {
                                                     "fileName": "cartable_detail",
-                                                    "navMode": "dart",
+                                                    "navMode": "localJson",
+                                                    "pathOverride": "lib/stac/tobank/flows/cartable/json/cartable_detail.json",
                                                     "actionType": "navigate"
                                                   }
                                                 ]
@@ -1661,7 +1665,8 @@
                                             },
                                             {
                                               "fileName": "cartable_detail",
-                                              "navMode": "dart",
+                                              "navMode": "localJson",
+                                              "pathOverride": "lib/stac/tobank/flows/cartable/json/cartable_detail.json",
                                               "actionType": "navigate"
                                             }
                                           ]

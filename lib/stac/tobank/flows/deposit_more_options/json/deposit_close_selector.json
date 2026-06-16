@@ -358,7 +358,8 @@
                                     {
                                       "actionType": "navigate",
                                       "fileName": "deposit_close_result",
-                                      "navMode": "dart",
+                                      "navMode": "localJson",
+                                      "pathOverride": "lib/stac/tobank/flows/deposit_more_options/json/deposit_close_result.json",
                                       "navigationStyle": "push"
                                     }
                                   ]

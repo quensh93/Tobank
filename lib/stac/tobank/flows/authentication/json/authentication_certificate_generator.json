@@ -218,6 +218,13 @@
                       },
                       "keyboardType": "text",
                       "textInputAction": "next",
+                      "maxLength": 40,
+                      "inputFormatters": [
+                        {
+                          "type": "allow",
+                          "rule": "[A-Za-z ]"
+                        }
+                      ],
                       "validatorRules": [
                         {
                           "rule": "matches",
@@ -262,14 +269,7 @@
                             ]
                           }
                         ]
-                      },
-                      "maxLength": 40,
-                      "inputFormatters": [
-                        {
-                          "type": "allow",
-                          "rule": "[A-Za-z ]"
-                        }
-                      ]
+                      }
                     },
                     {
                       "height": 18.0,
@@ -372,6 +372,13 @@
                       },
                       "keyboardType": "text",
                       "textInputAction": "next",
+                      "maxLength": 60,
+                      "inputFormatters": [
+                        {
+                          "type": "allow",
+                          "rule": "[A-Za-z ]"
+                        }
+                      ],
                       "validatorRules": [
                         {
                           "rule": "matches",
@@ -416,14 +423,7 @@
                             ]
                           }
                         ]
-                      },
-                      "maxLength": 60,
-                      "inputFormatters": [
-                        {
-                          "type": "allow",
-                          "rule": "[A-Za-z ]"
-                        }
-                      ]
+                      }
                     },
                     {
                       "height": 18.0,
@@ -526,6 +526,7 @@
                       },
                       "keyboardType": "emailAddress",
                       "textInputAction": "next",
+                      "maxLength": 80,
                       "validatorRules": [
                         {
                           "rule": "matches",
@@ -570,8 +571,7 @@
                             ]
                           }
                         ]
-                      },
-                      "maxLength": 80
+                      }
                     },
                     {
                       "height": 18.0,
@@ -674,6 +674,13 @@
                       },
                       "keyboardType": "phone",
                       "textInputAction": "done",
+                      "maxLength": 11,
+                      "inputFormatters": [
+                        {
+                          "type": "allow",
+                          "rule": "[0-9]"
+                        }
+                      ],
                       "validatorRules": [
                         {
                           "rule": "matches",
@@ -718,14 +725,7 @@
                             ]
                           }
                         ]
-                      },
-                      "maxLength": 11,
-                      "inputFormatters": [
-                        {
-                          "type": "allow",
-                          "rule": "[0-9]"
-                        }
-                      ]
+                      }
                     }
                   ],
                   "type": "column"
@@ -745,10 +745,10 @@
                 "enabledKey": "isAuthenticationCertificateInfoValid",
                 "enabled": false,
                 "onPressed": {
+                  "actionType": "navigate",
                   "fileName": "authentication_final",
-                  "navMode": "dart",
-                  "navigationStyle": "push",
-                  "actionType": "navigate"
+                  "navMode": "localJson",
+                  "navigationStyle": "push"
                 },
                 "style": {
                   "backgroundColor": "{{appColors.current.primary.color}}",

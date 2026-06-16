@@ -1681,7 +1681,8 @@
                                                             },
                                                             {
                                                               "fileName": "charge_payment",
-                                                              "navMode": "dart",
+                                                              "navMode": "localJson",
+                                                              "pathOverride": "lib/stac/tobank/flows/charge/json/charge_payment.json",
                                                               "navigationStyle": "push",
                                                               "actionType": "navigate"
                                                             }
@@ -1779,7 +1780,8 @@
                                                           },
                                                           {
                                                             "fileName": "charge_payment",
-                                                            "navMode": "dart",
+                                                            "navMode": "localJson",
+                                                            "pathOverride": "lib/stac/tobank/flows/charge/json/charge_payment.json",
                                                             "navigationStyle": "push",
                                                             "actionType": "navigate"
                                                           }
@@ -3674,7 +3676,8 @@
                                                             },
                                                             {
                                                               "fileName": "charge_payment",
-                                                              "navMode": "dart",
+                                                              "navMode": "localJson",
+                                                              "pathOverride": "lib/stac/tobank/flows/charge/json/charge_payment.json",
                                                               "navigationStyle": "push",
                                                               "actionType": "navigate"
                                                             }
@@ -3772,7 +3775,8 @@
                                                           },
                                                           {
                                                             "fileName": "charge_payment",
-                                                            "navMode": "dart",
+                                                            "navMode": "localJson",
+                                                            "pathOverride": "lib/stac/tobank/flows/charge/json/charge_payment.json",
                                                             "navigationStyle": "push",
                                                             "actionType": "navigate"
                                                           }
@@ -5667,7 +5671,8 @@
                                                             },
                                                             {
                                                               "fileName": "charge_payment",
-                                                              "navMode": "dart",
+                                                              "navMode": "localJson",
+                                                              "pathOverride": "lib/stac/tobank/flows/charge/json/charge_payment.json",
                                                               "navigationStyle": "push",
                                                               "actionType": "navigate"
                                                             }
@@ -5765,7 +5770,8 @@
                                                           },
                                                           {
                                                             "fileName": "charge_payment",
-                                                            "navMode": "dart",
+                                                            "navMode": "localJson",
+                                                            "pathOverride": "lib/stac/tobank/flows/charge/json/charge_payment.json",
                                                             "navigationStyle": "push",
                                                             "actionType": "navigate"
                                                           }
@@ -6367,7 +6373,8 @@
                     {
                       "onPressed": {
                         "fileName": "charge_add_sim",
-                        "navMode": "dart",
+                        "navMode": "localJson",
+                        "pathOverride": "lib/stac/tobank/flows/charge/json/charge_add_sim.json",
                         "navigationStyle": "push",
                         "actionType": "navigate"
                       },

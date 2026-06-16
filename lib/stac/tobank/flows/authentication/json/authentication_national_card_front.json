@@ -590,7 +590,7 @@
                   "onPressed": {
                     "actionType": "navigate",
                     "fileName": "authentication_old_national_card",
-                    "navMode": "dart",
+                    "navMode": "localJson",
                     "navigationStyle": "push"
                   },
                   "style": {
@@ -682,7 +682,7 @@
                   "onPressed": {
                     "actionType": "navigate",
                     "fileName": "authentication_national_card_back",
-                    "navMode": "dart",
+                    "navMode": "localJson",
                     "navigationStyle": "push"
                   }
                 }

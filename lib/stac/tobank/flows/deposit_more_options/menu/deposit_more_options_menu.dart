@@ -62,7 +62,12 @@ StacWidget depositMoreOptionsMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'deposit_more_options_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              navMode: NavModes.localJson,
+              pathOverride:
+                  'lib/stac/tobank/flows/deposit_more_options/json/deposit_more_options_intro.json',
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:

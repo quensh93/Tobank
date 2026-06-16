@@ -153,10 +153,10 @@
           },
           "child": {
             "onPressed": {
+              "actionType": "navigate",
               "fileName": "authentication_verify_otp",
-              "navMode": "dart",
-              "navigationStyle": "push",
-              "actionType": "navigate"
+              "navMode": "localJson",
+              "navigationStyle": "push"
             },
             "style": {
               "foregroundColor": "{{appColors.current.primary.onPrimary}}",

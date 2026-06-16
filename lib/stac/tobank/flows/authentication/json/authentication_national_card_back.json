@@ -634,7 +634,7 @@
               "onPressed": {
                 "actionType": "navigate",
                 "fileName": "authentication_selfie",
-                "navMode": "dart",
+                "navMode": "localJson",
                 "navigationStyle": "push"
               }
             },

@@ -358,7 +358,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "fileName": "gift_card_message",
-                              "navMode": "dart",
+                              "navMode": "localJson",
+                              "pathOverride": "lib/stac/tobank/flows/gift_card/json/gift_card_message.json",
                               "navigationStyle": "push"
                             }
                           },
@@ -579,7 +580,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "fileName": "gift_card_message",
-                              "navMode": "dart",
+                              "navMode": "localJson",
+                              "pathOverride": "lib/stac/tobank/flows/gift_card/json/gift_card_message.json",
                               "navigationStyle": "push"
                             }
                           },
@@ -805,7 +807,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "fileName": "gift_card_message",
-                              "navMode": "dart",
+                              "navMode": "localJson",
+                              "pathOverride": "lib/stac/tobank/flows/gift_card/json/gift_card_message.json",
                               "navigationStyle": "push"
                             }
                           },
@@ -1026,7 +1029,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "fileName": "gift_card_message",
-                              "navMode": "dart",
+                              "navMode": "localJson",
+                              "pathOverride": "lib/stac/tobank/flows/gift_card/json/gift_card_message.json",
                               "navigationStyle": "push"
                             }
                           },
@@ -1252,7 +1256,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "fileName": "gift_card_message",
-                              "navMode": "dart",
+                              "navMode": "localJson",
+                              "pathOverride": "lib/stac/tobank/flows/gift_card/json/gift_card_message.json",
                               "navigationStyle": "push"
                             }
                           },
@@ -1473,7 +1478,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "fileName": "gift_card_message",
-                              "navMode": "dart",
+                              "navMode": "localJson",
+                              "pathOverride": "lib/stac/tobank/flows/gift_card/json/gift_card_message.json",
                               "navigationStyle": "push"
                             }
                           },
@@ -1699,7 +1705,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "fileName": "gift_card_message",
-                              "navMode": "dart",
+                              "navMode": "localJson",
+                              "pathOverride": "lib/stac/tobank/flows/gift_card/json/gift_card_message.json",
                               "navigationStyle": "push"
                             }
                           },
@@ -1920,7 +1927,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "fileName": "gift_card_message",
-                              "navMode": "dart",
+                              "navMode": "localJson",
+                              "pathOverride": "lib/stac/tobank/flows/gift_card/json/gift_card_message.json",
                               "navigationStyle": "push"
                             }
                           },

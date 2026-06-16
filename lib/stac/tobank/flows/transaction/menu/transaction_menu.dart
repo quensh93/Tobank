@@ -43,7 +43,12 @@ StacWidget transactionRealMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'transaction_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              navMode: NavModes.localJson,
+              pathOverride:
+                  'lib/stac/tobank/flows/transaction/json/transaction_intro.json',
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:

@@ -823,7 +823,7 @@
                       "onPressed": {
                         "actionType": "navigate",
                         "fileName": "authentication_postal_code",
-                        "navMode": "dart",
+                        "navMode": "localJson",
                         "navigationStyle": "push"
                       },
                       "style": {

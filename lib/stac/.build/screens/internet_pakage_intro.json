@@ -528,10 +528,10 @@
                                             ]
                                           },
                                           {
+                                            "actionType": "navigate",
                                             "fileName": "internet_pakage_list",
-                                            "navMode": "localJson",
-                                            "navigationStyle": "push",
-                                            "actionType": "navigate"
+                                            "navMode": "dart",
+                                            "navigationStyle": "push"
                                           }
                                         ]
                                       },
@@ -1228,10 +1228,10 @@
                                             ]
                                           },
                                           {
+                                            "actionType": "navigate",
                                             "fileName": "internet_pakage_list",
-                                            "navMode": "localJson",
-                                            "navigationStyle": "push",
-                                            "actionType": "navigate"
+                                            "navMode": "dart",
+                                            "navigationStyle": "push"
                                           }
                                         ]
                                       },
@@ -1928,10 +1928,10 @@
                                             ]
                                           },
                                           {
+                                            "actionType": "navigate",
                                             "fileName": "internet_pakage_list",
-                                            "navMode": "localJson",
-                                            "navigationStyle": "push",
-                                            "actionType": "navigate"
+                                            "navMode": "dart",
+                                            "navigationStyle": "push"
                                           }
                                         ]
                                       },
@@ -2487,10 +2487,10 @@
                   "children": [
                     {
                       "onPressed": {
+                        "actionType": "navigate",
                         "fileName": "internet_pakage_add_sim",
-                        "navMode": "localJson",
-                        "navigationStyle": "push",
-                        "actionType": "navigate"
+                        "navMode": "dart",
+                        "navigationStyle": "push"
                       },
                       "style": {
                         "foregroundColor": "{{appColors.current.primary.onPrimary}}",

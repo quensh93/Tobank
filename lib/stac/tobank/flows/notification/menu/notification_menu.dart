@@ -61,7 +61,12 @@ StacWidget notificationRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'notification_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              navMode: NavModes.localJson,
+              pathOverride:
+                  'lib/stac/tobank/flows/notification/json/notification_intro.json',
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -70,7 +75,7 @@ StacWidget notificationRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگیری از JSON محلی',
+              data: 'بارگذاری از JSON محلی',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,

@@ -268,7 +268,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -348,7 +348,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -486,7 +486,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -566,7 +566,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -704,7 +704,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -784,7 +784,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -922,7 +922,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1002,7 +1002,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1140,7 +1140,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1220,7 +1220,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1358,7 +1358,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1438,7 +1438,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1553,7 +1553,7 @@
                         "mainAxisSize": "min",
                         "children": [
                           {
-                            "src": "assets/icons/ic_package_empty_list_light.svg",
+                            "src": "assets/icons/ic_internet_pakage_empty_list_light.svg",
                             "imageType": "asset",
                             "width": 144.0,
                             "height": 144.0,
@@ -1614,7 +1614,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1694,7 +1694,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1832,7 +1832,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1912,7 +1912,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2050,7 +2050,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2130,7 +2130,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2268,7 +2268,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2348,7 +2348,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2486,7 +2486,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2566,7 +2566,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2704,7 +2704,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2784,7 +2784,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2931,7 +2931,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3011,7 +3011,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3149,7 +3149,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3229,7 +3229,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3367,7 +3367,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3447,7 +3447,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3585,7 +3585,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3665,7 +3665,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3803,7 +3803,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3883,7 +3883,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -4021,7 +4021,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -4101,7 +4101,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_package.svg",
+                                          "src": "assets/icons/ic_internet_pakage.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -4263,10 +4263,10 @@
                   },
                   "child": {
                     "onPressed": {
+                      "actionType": "navigate",
                       "fileName": "internet_pakage_payment",
-                      "navMode": "localJson",
-                      "navigationStyle": "push",
-                      "actionType": "navigate"
+                      "navMode": "dart",
+                      "navigationStyle": "push"
                     },
                     "style": {
                       "foregroundColor": "{{appColors.current.primary.onPrimary}}",

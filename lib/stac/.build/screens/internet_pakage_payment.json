@@ -42,7 +42,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "شارژ",
+        "data": "اینترنت",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -142,7 +142,7 @@
               "textDirection": "rtl",
               "children": [
                 {
-                  "data": "مبلغ شارژ + مالیات",
+                  "data": "مبلغ بسته + مالیات",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.subtitle}}",
@@ -1726,8 +1726,8 @@
                           "value": "۱۰ مهر ۱۴۰۳ - ۱۴:۵۳"
                         },
                         {
-                          "key": "crPayReceiptPackage",
-                          "value": "خرید شارژ {{crActiveSimOperator}}"
+                          "key": "crPayReceiptInternetPakage",
+                          "value": "خرید بسته {{crActiveSimOperator}}"
                         },
                         {
                           "key": "crPayReceiptVia",
@@ -1744,11 +1744,10 @@
                       ]
                     },
                     {
-                      "fileName": "charge_payment_success",
-                      "navMode": "localJson",
-                      "pathOverride": "lib/stac/tobank/flows/charge/json/charge_payment_success.json",
-                      "navigationStyle": "push",
-                      "actionType": "navigate"
+                      "actionType": "navigate",
+                      "fileName": "internet_pakage_payment_success",
+                      "navMode": "dart",
+                      "navigationStyle": "push"
                     }
                   ]
                 },

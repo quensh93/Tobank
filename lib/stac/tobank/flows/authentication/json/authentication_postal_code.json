@@ -579,10 +579,10 @@
                   "type": "text"
                 },
                 "onPressed": {
+                  "actionType": "navigate",
                   "fileName": "authentication_signature",
-                  "navMode": "dart",
-                  "navigationStyle": "push",
-                  "actionType": "navigate"
+                  "navMode": "localJson",
+                  "navigationStyle": "push"
                 }
               },
               "type": "padding"

@@ -294,7 +294,8 @@
             "enabledKey": "depositCloseConfirmRulesChecked",
             "onPressed": {
               "fileName": "deposit_close_selector",
-              "navMode": "dart",
+              "navMode": "localJson",
+              "pathOverride": "lib/stac/tobank/flows/deposit_more_options/json/deposit_close_selector.json",
               "navigationStyle": "push",
               "actionType": "navigate"
             },

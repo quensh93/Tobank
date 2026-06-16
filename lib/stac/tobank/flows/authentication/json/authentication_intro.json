@@ -567,10 +567,10 @@
               "enabledKey": "isAuthenticationRulesAccepted",
               "enabled": false,
               "onPressed": {
+                "actionType": "navigate",
                 "fileName": "authentication_preregister",
-                "navMode": "dart",
-                "navigationStyle": "push",
-                "actionType": "navigate"
+                "navMode": "localJson",
+                "navigationStyle": "push"
               },
               "style": {
                 "backgroundColor": "{{appColors.current.primary.color}}",

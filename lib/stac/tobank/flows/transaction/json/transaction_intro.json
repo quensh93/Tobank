@@ -919,7 +919,8 @@
                               },
                               "onTap": {
                                 "fileName": "transaction_filter",
-                                "navMode": "dart",
+                                "navMode": "localJson",
+                                "pathOverride": "lib/stac/tobank/flows/transaction/json/transaction_filter.json",
                                 "navigationStyle": "push",
                                 "actionType": "navigate"
                               },

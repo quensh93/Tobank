@@ -458,8 +458,8 @@
                         {
                           "src": "assets/icons/ic_tobank_red.svg",
                           "imageType": "asset",
-                          "width": 40.0,
-                          "height": 18.0,
+                          "width": 47.0,
+                          "height": 25.0,
                           "fit": "contain",
                           "type": "image"
                         },

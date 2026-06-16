@@ -115,7 +115,8 @@
               "onSuccess": {
                 "actionType": "navigate",
                 "fileName": "deposit_card_issue_result",
-                "navMode": "dart",
+                "navMode": "localJson",
+                "pathOverride": "lib/stac/tobank/flows/deposit_more_options/json/deposit_card_issue_result.json",
                 "navigationStyle": "push"
               },
               "onFailure": {

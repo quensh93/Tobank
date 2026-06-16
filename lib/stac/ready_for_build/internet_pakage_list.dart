@@ -184,7 +184,7 @@ StacWidget _internetPakageItem({
       textDirection: StacTextDirection.rtl,
       children: [
         StacImage(
-          src: 'assets/icons/ic_package.svg',
+          src: 'assets/icons/ic_internet_pakage.svg',
           imageType: StacImageType.asset,
           width: 34,
           height: 34,
@@ -274,7 +274,7 @@ StacWidget _buildMonthlyEmptyState() {
       mainAxisSize: StacMainAxisSize.min,
       children: [
         StacImage(
-          src: 'assets/icons/ic_package_empty_list_light.svg',
+          src: 'assets/icons/ic_internet_pakage_empty_list_light.svg',
           imageType: StacImageType.asset,
           width: 144,
           height: 144,

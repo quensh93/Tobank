@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "شارژ",
+      "data": "اینترنت",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -69,7 +69,7 @@
           {
             "child": {
               "type": "receiptRepaintBoundary",
-              "boundaryKey": "chargeRealReceiptContent",
+              "boundaryKey": "packageRealReceiptContent",
               "child": {
                 "child": {
                   "crossAxisAlignment": "stretch",
@@ -290,7 +290,7 @@
                                   "type": "expanded"
                                 },
                                 {
-                                  "data": "{{crPayReceiptPackage}}",
+                                  "data": "{{crPayReceiptInternetPakage}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -458,8 +458,8 @@
                         {
                           "src": "assets/icons/ic_tobank_red.svg",
                           "imageType": "asset",
-                          "width": 47.0,
-                          "height": 25.0,
+                          "width": 100.0,
+                          "height": 100.0,
                           "fit": "contain",
                           "type": "image"
                         },
@@ -522,9 +522,9 @@
                   "onPressed": {
                     "actionType": "transferReceipt",
                     "mode": "shareText",
-                    "title": "رسید خرید شارژ",
+                    "title": "رسید خرید بسته",
                     "pixelRatio": 3.0,
-                    "boundaryKey": "chargeRealReceiptContent"
+                    "boundaryKey": "packageRealReceiptContent"
                   },
                   "style": {
                     "fixedSize": {
@@ -588,9 +588,9 @@
                   "onPressed": {
                     "actionType": "transferReceipt",
                     "mode": "shareImage",
-                    "title": "رسید خرید شارژ",
+                    "title": "رسید خرید بسته",
                     "pixelRatio": 3.0,
-                    "boundaryKey": "chargeRealReceiptContent"
+                    "boundaryKey": "packageRealReceiptContent"
                   },
                   "style": {
                     "fixedSize": {

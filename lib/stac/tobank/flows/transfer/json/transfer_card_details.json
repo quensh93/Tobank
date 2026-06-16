@@ -623,7 +623,8 @@
                   },
                   {
                     "fileName": "transfer_confirm",
-                    "navMode": "dart",
+                    "navMode": "localJson",
+                    "pathOverride": "lib/stac/tobank/flows/transfer/json/transfer_confirm.json",
                     "navigationStyle": "push",
                     "actionType": "navigate"
                   }

@@ -114,7 +114,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "شارژ",
+        "data": "اینترنت",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -169,7 +169,7 @@
                       "crossAxisAlignment": "stretch",
                       "children": [
                         {
-                          "data": "شماره سیم کارت اعتباری را وارد کنید",
+                          "data": "شماره سیم کارت را وارد کنید",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -856,11 +856,10 @@
                             "value": "__STAC_OPEN__crAddEnteredPhone}}"
                           },
                           {
-                            "fileName": "charge_package_list",
-                            "navMode": "localJson",
-                            "pathOverride": "lib/stac/tobank/flows/charge/json/charge_package_list.json",
-                            "navigationStyle": "push",
-                            "actionType": "navigate"
+                            "actionType": "navigate",
+                            "fileName": "internet_pakage_list",
+                            "navMode": "dart",
+                            "navigationStyle": "push"
                           }
                         ]
                       }
@@ -930,7 +929,6 @@
                           },
                           {
                             "actionType": "showBottomSheet",
-                            "title": "sim_action",
                             "sheet": {
                               "padding": {
                                 "left": 14.0,
@@ -953,7 +951,9 @@
                               },
                               "margin": {
                                 "left": 16.0,
-                                "right": 16.0
+                                "top": 24.0,
+                                "right": 16.0,
+                                "bottom": 24.0
                               },
                               "child": {
                                 "mainAxisSize": "min",
@@ -1112,7 +1112,6 @@
                       },
                       "onPressed": {
                         "actionType": "showBottomSheet",
-                        "title": "sim_edit",
                         "sheet": {
                           "padding": {
                             "left": 14.0,
@@ -1856,7 +1855,6 @@
                                     },
                                     {
                                       "actionType": "showBottomSheet",
-                                      "title": "sim_add",
                                       "sheet": {
                                         "padding": {
                                           "left": 14.0,
@@ -2322,130 +2320,138 @@
                                                 "actionType": "sequence",
                                                 "actions": [
                                                   {
-                                                    "actionType": "setValue",
-                                                    "values": [
+                                                    "navigationStyle": "pop",
+                                                    "actionType": "navigate"
+                                                  },
+                                                  {
+                                                    "actionType": "sequence",
+                                                    "actions": [
                                                       {
-                                                        "key": "crSimHasItems",
-                                                        "value": true
+                                                        "actionType": "setValue",
+                                                        "values": [
+                                                          {
+                                                            "key": "crSimHasItems",
+                                                            "value": true
+                                                          },
+                                                          {
+                                                            "key": "crSimShowDuplicateBanner",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crSim3Visible",
+                                                            "value": true
+                                                          },
+                                                          {
+                                                            "key": "crSim1Selected",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crSim2Selected",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crSim3Selected",
+                                                            "value": true
+                                                          },
+                                                          {
+                                                            "key": "crShowSimActionSheet",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crShowSimEditSheet",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crShowSimDeleteDialog",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crAddShowOperatorSheet",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crAddShowSimTypeSheet",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crSim3Operator",
+                                                            "value": "همراه اول",
+                                                            "condition": "crAddOpMciSel"
+                                                          },
+                                                          {
+                                                            "key": "crSim3Logo",
+                                                            "value": "assets/icons/ic_hamrah_aval.svg",
+                                                            "condition": "crAddOpMciSel"
+                                                          },
+                                                          {
+                                                            "key": "crSim3Operator",
+                                                            "value": "ایرانسل",
+                                                            "condition": "crAddOpIrancellSel"
+                                                          },
+                                                          {
+                                                            "key": "crSim3Logo",
+                                                            "value": "assets/icons/ic_irancell.svg",
+                                                            "condition": "crAddOpIrancellSel"
+                                                          },
+                                                          {
+                                                            "key": "crSim3Operator",
+                                                            "value": "رایتل",
+                                                            "condition": "crAddOpRightelSel"
+                                                          },
+                                                          {
+                                                            "key": "crSim3Logo",
+                                                            "value": "assets/icons/ic_rightel.svg",
+                                                            "condition": "crAddOpRightelSel"
+                                                          },
+                                                          {
+                                                            "key": "crActiveSimOperator",
+                                                            "value": "همراه اول",
+                                                            "condition": "crAddOpMciSel"
+                                                          },
+                                                          {
+                                                            "key": "crActiveSimLogo",
+                                                            "value": "assets/icons/ic_hamrah_aval.svg",
+                                                            "condition": "crAddOpMciSel"
+                                                          },
+                                                          {
+                                                            "key": "crActiveSimOperator",
+                                                            "value": "ایرانسل",
+                                                            "condition": "crAddOpIrancellSel"
+                                                          },
+                                                          {
+                                                            "key": "crActiveSimLogo",
+                                                            "value": "assets/icons/ic_irancell.svg",
+                                                            "condition": "crAddOpIrancellSel"
+                                                          },
+                                                          {
+                                                            "key": "crActiveSimOperator",
+                                                            "value": "رایتل",
+                                                            "condition": "crAddOpRightelSel"
+                                                          },
+                                                          {
+                                                            "key": "crActiveSimLogo",
+                                                            "value": "assets/icons/ic_rightel.svg",
+                                                            "condition": "crAddOpRightelSel"
+                                                          }
+                                                        ]
                                                       },
                                                       {
-                                                        "key": "crSimShowDuplicateBanner",
-                                                        "value": false
+                                                        "actionType": "setValue",
+                                                        "key": "crSim3Number",
+                                                        "value": "__STAC_OPEN__crAddEnteredPhone}}"
                                                       },
                                                       {
-                                                        "key": "crSim3Visible",
-                                                        "value": true
+                                                        "actionType": "setValue",
+                                                        "key": "crActiveSimNumber",
+                                                        "value": "__STAC_OPEN__crAddEnteredPhone}}"
                                                       },
                                                       {
-                                                        "key": "crSim1Selected",
-                                                        "value": false
-                                                      },
-                                                      {
-                                                        "key": "crSim2Selected",
-                                                        "value": false
-                                                      },
-                                                      {
-                                                        "key": "crSim3Selected",
-                                                        "value": true
-                                                      },
-                                                      {
-                                                        "key": "crShowSimActionSheet",
-                                                        "value": false
-                                                      },
-                                                      {
-                                                        "key": "crShowSimEditSheet",
-                                                        "value": false
-                                                      },
-                                                      {
-                                                        "key": "crShowSimDeleteDialog",
-                                                        "value": false
-                                                      },
-                                                      {
-                                                        "key": "crAddShowOperatorSheet",
-                                                        "value": false
-                                                      },
-                                                      {
-                                                        "key": "crAddShowSimTypeSheet",
-                                                        "value": false
-                                                      },
-                                                      {
-                                                        "key": "crSim3Operator",
-                                                        "value": "همراه اول",
-                                                        "condition": "crAddOpMciSel"
-                                                      },
-                                                      {
-                                                        "key": "crSim3Logo",
-                                                        "value": "assets/icons/ic_hamrah_aval.svg",
-                                                        "condition": "crAddOpMciSel"
-                                                      },
-                                                      {
-                                                        "key": "crSim3Operator",
-                                                        "value": "ایرانسل",
-                                                        "condition": "crAddOpIrancellSel"
-                                                      },
-                                                      {
-                                                        "key": "crSim3Logo",
-                                                        "value": "assets/icons/ic_irancell.svg",
-                                                        "condition": "crAddOpIrancellSel"
-                                                      },
-                                                      {
-                                                        "key": "crSim3Operator",
-                                                        "value": "رایتل",
-                                                        "condition": "crAddOpRightelSel"
-                                                      },
-                                                      {
-                                                        "key": "crSim3Logo",
-                                                        "value": "assets/icons/ic_rightel.svg",
-                                                        "condition": "crAddOpRightelSel"
-                                                      },
-                                                      {
-                                                        "key": "crActiveSimOperator",
-                                                        "value": "همراه اول",
-                                                        "condition": "crAddOpMciSel"
-                                                      },
-                                                      {
-                                                        "key": "crActiveSimLogo",
-                                                        "value": "assets/icons/ic_hamrah_aval.svg",
-                                                        "condition": "crAddOpMciSel"
-                                                      },
-                                                      {
-                                                        "key": "crActiveSimOperator",
-                                                        "value": "ایرانسل",
-                                                        "condition": "crAddOpIrancellSel"
-                                                      },
-                                                      {
-                                                        "key": "crActiveSimLogo",
-                                                        "value": "assets/icons/ic_irancell.svg",
-                                                        "condition": "crAddOpIrancellSel"
-                                                      },
-                                                      {
-                                                        "key": "crActiveSimOperator",
-                                                        "value": "رایتل",
-                                                        "condition": "crAddOpRightelSel"
-                                                      },
-                                                      {
-                                                        "key": "crActiveSimLogo",
-                                                        "value": "assets/icons/ic_rightel.svg",
-                                                        "condition": "crAddOpRightelSel"
+                                                        "actionType": "navigate",
+                                                        "fileName": "internet_pakage_list",
+                                                        "navMode": "dart",
+                                                        "navigationStyle": "push"
                                                       }
                                                     ]
-                                                  },
-                                                  {
-                                                    "actionType": "setValue",
-                                                    "key": "crSim3Number",
-                                                    "value": "__STAC_OPEN__crAddEnteredPhone}}"
-                                                  },
-                                                  {
-                                                    "actionType": "setValue",
-                                                    "key": "crActiveSimNumber",
-                                                    "value": "__STAC_OPEN__crAddEnteredPhone}}"
-                                                  },
-                                                  {
-                                                    "fileName": "charge_package_list",
-                                                    "navMode": "localJson",
-                                                    "pathOverride": "lib/stac/tobank/flows/charge/json/charge_package_list.json",
-                                                    "navigationStyle": "push",
-                                                    "actionType": "navigate"
                                                   }
                                                 ]
                                               },

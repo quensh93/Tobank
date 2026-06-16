@@ -229,10 +229,10 @@
                 "enabledKey": "authenticationHasSelectedJob",
                 "enabled": false,
                 "onPressed": {
+                  "actionType": "navigate",
                   "fileName": "test",
-                  "navMode": "dart",
-                  "navigationStyle": "push",
-                  "actionType": "navigate"
+                  "navMode": "localJson",
+                  "navigationStyle": "push"
                 },
                 "style": {
                   "foregroundColor": "{{appColors.current.primary.onPrimary}}",

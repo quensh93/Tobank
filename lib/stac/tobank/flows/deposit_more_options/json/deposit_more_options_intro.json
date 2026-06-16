@@ -153,7 +153,8 @@
                             "result": {
                               "actionType": "navigate",
                               "fileName": "deposit_card_issue_address",
-                              "navMode": "dart",
+                              "navMode": "localJson",
+                              "pathOverride": "lib/stac/tobank/flows/deposit_more_options/json/deposit_card_issue_address.json",
                               "navigationStyle": "push"
                             }
                           },
@@ -252,7 +253,8 @@
                       "result": {
                         "actionType": "navigate",
                         "fileName": "deposit_close_confirm",
-                        "navMode": "dart",
+                        "navMode": "localJson",
+                        "pathOverride": "lib/stac/tobank/flows/deposit_more_options/json/deposit_close_confirm.json",
                         "navigationStyle": "push"
                       }
                     },
@@ -903,7 +905,8 @@
                                 "result": {
                                   "actionType": "navigate",
                                   "fileName": "deposit_card_issue_address",
-                                  "navMode": "dart",
+                                  "navMode": "localJson",
+                                  "pathOverride": "lib/stac/tobank/flows/deposit_more_options/json/deposit_card_issue_address.json",
                                   "navigationStyle": "push"
                                 }
                               },
@@ -1002,7 +1005,8 @@
                           "result": {
                             "actionType": "navigate",
                             "fileName": "deposit_close_confirm",
-                            "navMode": "dart",
+                            "navMode": "localJson",
+                            "pathOverride": "lib/stac/tobank/flows/deposit_more_options/json/deposit_close_confirm.json",
                             "navigationStyle": "push"
                           }
                         },

@@ -224,10 +224,10 @@
                         },
                         "onTap": {
                           "actionType": "showGuideOptionsBottomSheet",
-                          "title": "راهنما",
+                          "title": "??????",
                           "options": [
                             {
-                              "title": "راهنمای تصویری",
+                              "title": "??????? ??????",
                               "iconAsset": "{{appAssets.icons.visualTutorialCurrent}}",
                               "onTap": {
                                 "actionType": "launchUrl",
@@ -236,7 +236,7 @@
                               }
                             },
                             {
-                              "title": "راهنمای صوتی",
+                              "title": "??????? ????",
                               "iconAsset": "{{appAssets.icons.voiceTutorialCurrent}}",
                               "onTap": {
                                 "actionType": "playAudioUrl",
@@ -399,14 +399,14 @@
                                   },
                                   "onTap": {
                                     "actionType": "showPhotoTipsBottomSheet",
-                                    "title": "نکات قابل توجه عکس",
+                                    "title": "???? ???? ???? ???",
                                     "iconAsset": "{{appAssets.icons.cameraCurrent}}",
                                     "tips": [
-                                      "پوشش مناسب رعایت شود",
-                                      "عکس باید واضح و بدون تاری باشد",
-                                      "پس زمینه یکنواخت باشد",
-                                      "عدم وجود هرگونه فرد دیگر در تصویر",
-                                      "تصویر رخ کامل صورت فرد را نشان دهد (بدون عینک آفتابی، ماسک یا سایه‌های شدید)"
+                                      "???? ????? ????? ???",
+                                      "??? ???? ???? ? ???? ???? ????",
+                                      "?? ????? ??????? ????",
+                                      "??? ???? ?????? ??? ???? ?? ?????",
+                                      "????? ?? ???? ???? ??? ?? ???? ??? (???? ???? ??????? ???? ?? ???????? ????)"
                                     ],
                                     "previewAsset": "https://appapi.tobank.ir/api/v1.0/media/ekyc/personal_picture_sample.png",
                                     "continueAction": {
@@ -420,12 +420,12 @@
                                       "cropAspectRatioX": 3,
                                       "cropAspectRatioY": 4,
                                       "previewBeforeConfirm": true,
-                                      "previewSheetTitle": "عکس گرفته شده مورد تایید شما است؟",
-                                      "confirmButtonText": "تایید",
-                                      "retryButtonText": "بازگشت"
+                                      "previewSheetTitle": "??? ????? ??? ???? ????? ??? ????",
+                                      "confirmButtonText": "?????",
+                                      "retryButtonText": "??????"
                                     },
-                                    "continueText": "ادامه",
-                                    "cancelText": "بازگشت"
+                                    "continueText": "?????",
+                                    "cancelText": "??????"
                                   },
                                   "type": "gestureDetector"
                                 }
@@ -503,7 +503,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "حذف",
+                                            "data": "???",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -639,14 +639,14 @@
                                   },
                                   "onTap": {
                                     "actionType": "showPhotoTipsBottomSheet",
-                                    "title": "نکات قابل توجه ویدیو",
+                                    "title": "???? ???? ???? ?????",
                                     "iconAsset": "{{appAssets.icons.videoCurrent}}",
                                     "tips": [
-                                      "پوشش مناسب رعایت شود",
-                                      "فیلم باید واضح و بدون تاری باشد",
-                                      "پس‌زمینه یکدست (ترجیحا سفید یا روشن)",
-                                      "تنها یک نفر در تصویر حضور داشته باشد",
-                                      "ویدیو باید کامل صورت کاربر را پوشش دهد (بدون عینک افتابی، ماسک یا سایه های شدید)"
+                                      "???? ????? ????? ???",
+                                      "???? ???? ???? ? ???? ???? ????",
+                                      "???????? ????? (?????? ???? ?? ????)",
+                                      "???? ?? ??? ?? ????? ???? ????? ????",
+                                      "????? ???? ???? ???? ????? ?? ???? ??? (???? ???? ??????? ???? ?? ???? ??? ????)"
                                     ],
                                     "previewAsset": "https://appapi.tobank.ir/api/v1.0/media/ekyc/face_movement_video.mp4",
                                     "continueAction": {
@@ -658,12 +658,12 @@
                                       "source": "camera",
                                       "cameraDevice": "front",
                                       "previewBeforeConfirm": true,
-                                      "previewSheetTitle": "ویدیوی گرفته شده مورد تایید شما است؟",
-                                      "confirmButtonText": "تایید",
-                                      "retryButtonText": "بازگشت"
+                                      "previewSheetTitle": "?????? ????? ??? ???? ????? ??? ????",
+                                      "confirmButtonText": "?????",
+                                      "retryButtonText": "??????"
                                     },
-                                    "continueText": "ادامه",
-                                    "cancelText": "بازگشت"
+                                    "continueText": "?????",
+                                    "cancelText": "??????"
                                   },
                                   "type": "gestureDetector"
                                 }
@@ -711,7 +711,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "حذف",
+                                            "data": "???",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",

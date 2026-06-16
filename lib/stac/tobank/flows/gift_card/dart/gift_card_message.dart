@@ -25,7 +25,7 @@ StacWidget giftCardRealMessage() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: '???? ????',
+        title: 'کارت هدیه',
       ),
       body: StacForm(
         child: StacColumn(
@@ -41,7 +41,7 @@ StacWidget giftCardRealMessage() {
                       textDirection: StacTextDirection.rtl,
                       children: [
                         StacText(
-                          data: '???? ????',
+                          data: 'کارت هدیه',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.right,
                           style: StacCustomTextStyle(
@@ -86,7 +86,7 @@ StacWidget giftCardRealMessage() {
                         keyboardType: 'multiline',
                         textInputAction: 'newline',
                         decoration: StacInputDecoration(
-                          hintText: '??? ????????? ?? ??????? (?? ?? ???????)',
+                          hintText: 'متن دلخواهتان را بنویسید (تا ۴۰ کاراکتر)',
                           hintStyle: StacCustomTextStyle(
                             fontSize: 16,
                             fontWeight: StacFontWeight.w500,
@@ -129,7 +129,7 @@ StacWidget giftCardRealMessage() {
                       textDirection: StacTextDirection.rtl,
                       children: [
                         StacText(
-                          data: '??? ???\u200c??? ???????',
+                          data: 'متن پیش‌فرض جایگزین',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.right,
                           style: StacCustomTextStyle(
@@ -152,32 +152,32 @@ StacWidget giftCardRealMessage() {
                     ),
                     StacSizedBox(height: 14),
                     _buildPresetMessageCard(
-                      message: '????? ?????',
+                      message: 'تولدت مبارک',
                       selectedKey: 'giftCardRealMessageOption1Selected',
                       optionId: 1,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
-                      message: '?????? ????? ???? ?????',
+                      message: 'سالروز زمینی شدنت مبارک',
                       selectedKey: 'giftCardRealMessageOption2Selected',
                       optionId: 2,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
                       message:
-                          '???? ?? ?? ?? ???? ????? ?????? ?? ?? ???? ? ??? ??',
+                          'روزی که تو به دنیا آمدی، قلبمان پر از شادی و عشق شد',
                       selectedKey: 'giftCardRealMessageOption3Selected',
                       optionId: 3,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
-                      message: '?? ?????? ???? ??? ???? ???????? ???? ????',
+                      message: 'چه فرخنده روزی است تولد زیباترین دختر دنیا',
                       selectedKey: 'giftCardRealMessageOption4Selected',
                       optionId: 4,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
-                      message: '???????? ??????? ?? ?????? ??? ??????? ????',
+                      message: 'امیدوارم روزگارت به زیبایی قلب مهربانت باشد',
                       selectedKey: 'giftCardRealMessageOption5Selected',
                       optionId: 5,
                     ),
@@ -236,7 +236,7 @@ StacWidget giftCardRealMessage() {
                   elevation: 0,
                 ).toJson(),
                 child: StacText(
-                  data: '?????',
+                  data: 'ادامه',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 18,
@@ -256,10 +256,10 @@ StacWidget giftCardRealMessage() {
 StacAction _giftCardMessageGuideBottomSheetAction() {
   return _proxyLegacyBottomSheetAction(const {
     'actionType': 'showGiftCardMessageGuideBottomSheet',
-    'title': '??????',
+    'title': 'راهنما',
     'description':
-        '?? ???? ???? ??? ??????? ??? ?? ??????? ??????? ?? ?????? ???? ?? ?? ???? ??? ?????? ???? ?? ??? ?????? ???? ??? ??????? ??????? ?? ???',
-    'closeText': '????',
+        'در صورت ورود متن دلخواه، یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود',
+    'closeText': 'بستن',
   });
 }
 
@@ -278,7 +278,6 @@ StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
     ).toJson(),
   );
 }
-
 
 StacWidget _buildPresetMessageCard({
   required String message,
@@ -370,4 +369,3 @@ StacWidget _buildPresetMessageCard({
     ),
   );
 }
-

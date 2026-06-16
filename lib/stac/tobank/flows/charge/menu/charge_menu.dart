@@ -48,7 +48,12 @@ StacWidget chargeRealMenu() {
                   key: 'crChargeFlowInitialized',
                   value: false,
                 ),
-                NavigationAction(fileName: 'charge_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
+                NavigationAction(
+                  navMode: NavModes.localJson,
+                  pathOverride:
+                      'lib/stac/tobank/flows/charge/json/charge_intro.json',
+                  navigationStyle: NavigationStyle.push,
+                ),
               ],
             ),
             style: StacButtonStyle(
@@ -97,4 +102,3 @@ StacWidget chargeRealMenu() {
     ),
   );
 }
-

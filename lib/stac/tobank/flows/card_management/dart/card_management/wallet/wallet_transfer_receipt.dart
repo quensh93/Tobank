@@ -1,4 +1,4 @@
-﻿import 'package:stac/stac.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
@@ -6,7 +6,11 @@ import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 StacWidget dashboardWalletTransferReceipt() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildTobankFlowAppBar(title: '{{appStrings.cardsManagement.wallet.receiptTitle}}', showBack: true, backOnRight: true),
+    appBar: buildTobankFlowAppBar(
+      title: '{{appStrings.cardsManagement.wallet.receiptTitle}}',
+      showBack: true,
+      backOnRight: true,
+    ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: StacColumn(
@@ -50,10 +54,10 @@ StacWidget dashboardWalletTransferReceipt() {
             children: [
               StacExpanded(
                 child: _actionChip(
-                  label: '????????????',
+                  label: 'اشتراک‌گذاری',
                   iconAsset: '{{appAssets.current.icons.share}}',
                   onTap: const StacCustomSnackBarAction(
-                    title: '????????????',
+                    title: 'اشتراک‌گذاری',
                     detail: '{{appStrings.common.comingSoon}}',
                     duration: 3000,
                   ),
@@ -62,10 +66,10 @@ StacWidget dashboardWalletTransferReceipt() {
               StacSizedBox(width: 12),
               StacExpanded(
                 child: _actionChip(
-                  label: '????? ????',
+                  label: 'چاپ رسید',
                   iconAsset: '{{appAssets.icons.printReceipt}}',
                   onTap: const StacCustomSnackBarAction(
-                    title: '????? ????',
+                    title: 'چاپ رسید',
                     detail: '{{appStrings.common.comingSoon}}',
                     duration: 3000,
                   ),
@@ -89,7 +93,10 @@ StacWidget _receiptCard() {
     child: StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
-        _receiptRow(label: '{{appStrings.cardsManagement.wallet.from}}', value: '{{appStrings.cardsManagement.wallet.title}}'),
+        _receiptRow(
+          label: '{{appStrings.cardsManagement.wallet.from}}',
+          value: '{{appStrings.cardsManagement.wallet.title}}',
+        ),
         StacSizedBox(height: 16),
         _receiptRowRegistry(
           label: '{{appStrings.cardsManagement.wallet.to}}',
@@ -101,9 +108,15 @@ StacWidget _receiptCard() {
           valueKey: 'cardsManagement.wallet.transferAmount',
         ),
         StacSizedBox(height: 16),
-        _receiptRow(label: '{{appStrings.cardsManagement.wallet.statusLabel}}', value: '????'),
+        _receiptRow(
+          label: '{{appStrings.cardsManagement.wallet.statusLabel}}',
+          value: 'موفق',
+        ),
         StacSizedBox(height: 16),
-        _receiptRow(label: '{{appStrings.cardsManagement.wallet.trackingNumber}}', value: '1234567890'),
+        _receiptRow(
+          label: '{{appStrings.cardsManagement.wallet.trackingNumber}}',
+          value: '1234567890',
+        ),
       ],
     ),
   );
@@ -115,21 +128,23 @@ StacWidget _receiptRow({required String label, required String value}) {
     mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
     children: [
       StacText(
-        data: value,
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w600,
-          color: '{{appColors.current.text.title}}',
-        ),
-      ),
-      StacText(
         data: label,
         textDirection: StacTextDirection.rtl,
+        textAlign: StacTextAlign.right,
         style: StacCustomTextStyle(
           fontSize: 14,
           fontWeight: StacFontWeight.w400,
           color: '{{appColors.current.text.hint}}',
+        ),
+      ),
+      StacText(
+        data: value,
+        textDirection: StacTextDirection.rtl,
+        textAlign: StacTextAlign.left,
+        style: StacCustomTextStyle(
+          fontSize: 14,
+          fontWeight: StacFontWeight.w600,
+          color: '{{appColors.current.text.title}}',
         ),
       ),
     ],
@@ -145,21 +160,23 @@ StacWidget _receiptRowRegistry({
     mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
     children: [
       StacText(
-        data: '{{$valueKey}}',
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w600,
-          color: '{{appColors.current.text.title}}',
-        ),
-      ),
-      StacText(
         data: label,
         textDirection: StacTextDirection.rtl,
+        textAlign: StacTextAlign.right,
         style: StacCustomTextStyle(
           fontSize: 14,
           fontWeight: StacFontWeight.w400,
           color: '{{appColors.current.text.hint}}',
+        ),
+      ),
+      StacText(
+        data: '{{$valueKey}}',
+        textDirection: StacTextDirection.rtl,
+        textAlign: StacTextAlign.left,
+        style: StacCustomTextStyle(
+          fontSize: 14,
+          fontWeight: StacFontWeight.w600,
+          color: '{{appColors.current.text.title}}',
         ),
       ),
     ],

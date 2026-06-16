@@ -500,7 +500,7 @@ class StacWidgetLoader {
     'charge_menu': () => charge_menu_dart.chargeRealMenu().toJson(),
     'charge_intro': () => charge_intro_dart.chargeRealIntro().toJson(),
     'charge_add_sim': () => charge_add_sim_dart.chargeRealAddSim().toJson(),
-    'charge_internet_pakage_list': () =>
+    'charge_package_list': () =>
         charge_package_list_dart.chargeRealPackageList().toJson(),
     'charge_payment': () => charge_payment_dart.chargeRealPayment().toJson(),
     'charge_payment_success': () =>

@@ -186,8 +186,8 @@ StacWidget _buildSloganSection() {
       StacImage(
         src: 'assets/icons/ic_tobank_red.svg',
         imageType: StacImageType.asset,
-        width: 40,
-        height: 18,
+        height: 100,
+        width: 100,
         fit: StacBoxFit.contain,
       ),
       StacSizedBox(width: 10),

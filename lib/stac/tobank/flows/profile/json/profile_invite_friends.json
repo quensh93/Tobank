@@ -379,7 +379,7 @@
           "onTap": {
             "actionType": "navigate",
             "fileName": "profile_customer_referrals",
-            "navMode": "dart",
+            "navMode": "localJson",
             "navigationStyle": "push"
           },
           "type": "gestureDetector"

@@ -1745,7 +1745,7 @@
                     },
                     {
                       "fileName": "internet_pakage_payment_success",
-                      "navMode": "dart",
+                      "navMode": "localJson",
                       "navigationStyle": "push",
                       "actionType": "navigate"
                     }

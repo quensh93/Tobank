@@ -120,7 +120,8 @@
                       "continueAction": {
                         "actionType": "navigate",
                         "fileName": "gift_card_select_amount",
-                        "navMode": "dart",
+                        "navMode": "localJson",
+                        "pathOverride": "lib/stac/tobank/flows/gift_card/json/gift_card_select_amount.json",
                         "navigationStyle": "push"
                       }
                     },

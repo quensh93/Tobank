@@ -221,10 +221,10 @@
                   "type": "container"
                 },
                 "onTap": {
+                  "actionType": "navigate",
                   "fileName": "authentication_signature_visual_guide",
-                  "navMode": "dart",
-                  "navigationStyle": "push",
-                  "actionType": "navigate"
+                  "navMode": "localJson",
+                  "navigationStyle": "push"
                 },
                 "type": "gestureDetector"
               },
