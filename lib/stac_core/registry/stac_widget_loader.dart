@@ -294,7 +294,18 @@ class StacWidgetLoader {
 
   /// Registry of widget type to loader function mappings.
   /// Extensible - new widget types can be registered without modifying this class.
-  static final Map<String, Map<String, dynamic> Function()> _widgetLoaders = {
+  static final Map<String, Map<String, dynamic> Function()> _widgetLoaders =
+      const bool.fromEnvironment('API', defaultValue: false)
+          ? <String, Map<String, dynamic> Function()>{}
+          : _buildDevWidgetLoaders();
+
+  /// Dev-only Dart screen registry. Built only when `API` is false.
+  ///
+  /// With `--dart-define=API=true` the [_widgetLoaders] ternary const-folds to an
+  /// empty map, this method is never called, and the AOT tree-shaker drops its
+  /// body plus every referenced screen builder class from the release binary.
+  static Map<String, Map<String, dynamic> Function()>
+  _buildDevWidgetLoaders() => {
     'user_credit_validation_receipt': () =>
         user_credit_validation_receipt_dart.userCreditValidationReceipt().toJson(),
     'user_credit_validation_preview': () =>

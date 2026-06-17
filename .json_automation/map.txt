@@ -1,0 +1,6 @@
+MAP ipaam.form.mobile
+ipaam.form.mobile                 [?]     1   1   http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile/1
+  config                          [?]     1   1   http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config/1
+    assets                        [?]     3   3   http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config.assets/1
+    colors                        [?]     3   3   http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config.colors/1
+    strings                       [?]     3   3   http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config.strings/1

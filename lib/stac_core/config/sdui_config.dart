@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:stac/stac.dart';
 
 /// Central configuration for the Server-Driven UI (SDUI) backend.
@@ -53,6 +54,7 @@ class SduiConfig {
   static const String bizBaseUrl = String.fromEnvironment(
     'SDUI_BIZ_BASE_URL',
     defaultValue: 'http://192.168.107.22:8280/api/digitalbanking',
+    //defaultValue: 'https://stage-esb.arshamnovin.ir/api/digitalbanking',
   );
 
   /// Build a full digitalbanking URL from a relative [path].
@@ -99,12 +101,15 @@ class SduiConfig {
 
   // --- Feature flags ---
 
-  /// When true, app starts from the real promissory API flow instead of PreLaunchScreen.
+  /// When true, app starts from the server-driven API flow (fetches the
+  /// `login_real_splash` screen from the real backend) instead of PreLaunchScreen.
   ///
-  /// Usage: flutter run --dart-define=START_APP_FROM_PROMISSORY_REAL_FLOW=true
-  static const bool startFromPromissoryRealFlow = bool.fromEnvironment(
-    'START_APP_FROM_PROMISSORY_REAL_FLOW',
-    defaultValue: false,
+  /// Defaults to [kReleaseMode]: release builds (end-user APK) start from the API
+  /// flow automatically; debug builds open PreLaunchScreen (dev menu). Override
+  /// either way with `--dart-define=START_APP_FROM_API=true|false`.
+  static const bool startFromApi = bool.fromEnvironment(
+    'START_APP_FROM_API',
+    defaultValue: kReleaseMode,
   );
 
   // --- Screens ---

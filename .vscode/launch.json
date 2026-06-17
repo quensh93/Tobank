@@ -7,6 +7,8 @@
       "type": "dart",
       "program": "lib/main.dart",
       "toolArgs": [
+        "--flavor",
+        "dev",
         "--no-pub",
         "-d",
         "chrome"
@@ -17,68 +19,37 @@
       ]
     },
     {
-      "name": "Flutter (Mock API)",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main.dart",
-      "args": [
-        "--web-browser-flag",
-        "--disable-web-security",
-        "--web-browser-flag",
-        "--user-data-dir=/tmp/flutter_chrome_dev_test"
-      ]
-    },
-    {
-      "name": "Flutter (Supabase)",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main.dart",
-      "toolArgs": [
-        "--dart-define=SUPABASE_URL=https://yjhedjtbtqnxudxgodhc.supabase.co",
-        "--dart-define=SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlqaGVkanRidHFueHVkeGdvZGhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMzIxNjUsImV4cCI6MjA3ODkwODE2NX0.Jh_2TouVA1sEPKwLNC-NqWgOMtEOv3hr3KVoONHZG7o"
-      ]
-    },
-    {
       "name": "Flutter (Profile Mode)",
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
-      "flutterMode": "profile"
+      "flutterMode": "profile",
+      "toolArgs": [
+        "--flavor",
+        "dev"
+      ]
     },
     {
       "name": "Flutter (Release Mode)",
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
-      "flutterMode": "release"
-    },
-    {
-      "name": "Flutter (Simple Logger)",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main.dart",
+      "flutterMode": "release",
       "toolArgs": [
-        "--dart-define=SIMPLE_LOGGER=true"
+        "--flavor",
+        "dev"
       ]
     },
     {
-      "name": "Flutter (Mock API - Simple Logger)",
+      "name": "Flutter (Simulate End-User)",
       "request": "launch",
       "type": "dart",
       "program": "lib/main.dart",
       "toolArgs": [
-        "--dart-define=SIMPLE_LOGGER=true"
-      ]
-    },
-    {
-      "name": "Flutter (Supabase - Simple Logger)",
-      "request": "launch",
-      "type": "dart",
-      "program": "lib/main.dart",
-      "toolArgs": [
-        "--dart-define=SIMPLE_LOGGER=true",
-        "--dart-define=SUPABASE_URL=https://yjhedjtbtqnxudxgodhc.supabase.co",
-        "--dart-define=SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlqaGVkanRidHFueHVkeGdvZGhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMzIxNjUsImV4cCI6MjA3ODkwODE2NX0.Jh_2TouVA1sEPKwLNC-NqWgOMtEOv3hr3KVoONHZG7o"
+        "--flavor",
+        "prod",
+        "--dart-define=API=true",
+        "--dart-define=START_APP_FROM_API=true"
       ]
     }
   ]

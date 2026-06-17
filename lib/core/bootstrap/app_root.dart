@@ -159,7 +159,7 @@ class _AppRootState extends ConsumerState<AppRoot> {
 
   @override
   Widget build(BuildContext context) {
-    final homeWidget = SduiConfig.startFromPromissoryRealFlow
+    final homeWidget = SduiConfig.startFromApi
         ? const PromissoryRealLoaderScreen()
         : const PreLaunchScreen();
 

@@ -104,32 +104,53 @@ flutter:
 
 
 
-    # Flows
+    # Flows — dev-only mock JSON + local API. Tagged flavors:[dev] so a
+    # `--flavor prod` build excludes them (server-driven, apiJson only).
 
-    - lib/stac/tobank/flows/login/json/
-    - lib/stac/tobank/flows/login/api/
+    - path: lib/stac/tobank/flows/login/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/login/api/
+      flavors: [dev]
 
 
     # Promissory Flow
 
-    - lib/stac/tobank/flows/promissory/json/
-    - lib/stac/tobank/flows/promissory/api/
-    - lib/stac/tobank/flows/promissory_guarantee/json/
-    - lib/stac/tobank/flows/authentication/json/
-    - lib/stac/tobank/flows/transaction/json/
-    - lib/stac/tobank/flows/notification/json/
-    - lib/stac/tobank/flows/deposit_turnover/json/
-    - lib/stac/tobank/flows/deposit_more_options/json/
-    - lib/stac/tobank/flows/profile/json/
-    - lib/stac/tobank/flows/dashboard/json/
-    - lib/stac/tobank/flows/card_management/json/
-    - lib/stac/tobank/flows/home_page/json/
-    - lib/stac/tobank/flows/transfer/json/
-    - lib/stac/tobank/flows/gift_card/json/
-    - lib/stac/tobank/flows/internet_pakage/json/
-    - lib/stac/tobank/flows/user_credit_validation/json/
-    - lib/stac/tobank/flows/installment_payment/json/
-    - lib/stac/tobank/flows/installment_payment/json_upload/
+    - path: lib/stac/tobank/flows/promissory/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/promissory/api/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/promissory_guarantee/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/authentication/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/transaction/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/notification/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/deposit_turnover/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/deposit_more_options/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/profile/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/dashboard/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/card_management/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/home_page/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/transfer/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/gift_card/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/internet_pakage/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/user_credit_validation/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/installment_payment/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/installment_payment/json_upload/
+      flavors: [dev]
 
 
 

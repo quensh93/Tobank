@@ -47,6 +47,16 @@ android {
         versionName = flutter.versionName
     }
 
+    // Build flavors gate flavor-conditional assets in pubspec.yaml.
+    //   --flavor dev  -> bundles dev-only mock JSON (flows/*/json, flows/*/api)
+    //   --flavor prod -> excludes them (server-driven, apiJson only)
+    // Both flavors share the same applicationId (no suffix) to keep signing/config intact.
+    flavorDimensions += "env"
+    productFlavors {
+        create("dev") { dimension = "env" }
+        create("prod") { dimension = "env" }
+    }
+
     signingConfigs {
         create("release") {
             keyAlias = keystoreProperties["keyAlias"] as String?

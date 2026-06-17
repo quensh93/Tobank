@@ -1,0 +1,1194 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://192.168.179.21:8101/api/configurations",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/v1.0/configs/disable/{id}": {
+      "put": {
+        "tags": [
+          "config-controller"
+        ],
+        "operationId": "disable",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultConfigResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/configs/active/{id}": {
+      "put": {
+        "tags": [
+          "config-controller"
+        ],
+        "operationId": "active",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultConfigResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/message/add": {
+      "post": {
+        "tags": [
+          "message-controller"
+        ],
+        "operationId": "add",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddMessageRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultMessageModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/configs/tree/{path-key}/{build}/{start}/{end}": {
+      "post": {
+        "tags": [
+          "config-controller"
+        ],
+        "operationId": "tree",
+        "parameters": [
+          {
+            "name": "path-key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "build",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "start",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "end",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResolveConfigRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageModelConfigResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/configs/tree/value/{path-key}/{build}/{start}/{end}": {
+      "post": {
+        "tags": [
+          "config-controller"
+        ],
+        "operationId": "treeValue",
+        "parameters": [
+          {
+            "name": "path-key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "build",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "start",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "end",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResolveConfigRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageModelMapStringObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/configs/resolve/{path-key}/{build}": {
+      "post": {
+        "tags": [
+          "config-controller"
+        ],
+        "operationId": "resolve",
+        "parameters": [
+          {
+            "name": "path-key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "build",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResolveConfigRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageModelConfigResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/configs/resolve/value/{path-key}/{build}": {
+      "post": {
+        "tags": [
+          "config-controller"
+        ],
+        "operationId": "resolveValue",
+        "parameters": [
+          {
+            "name": "path-key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "build",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResolveConfigRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageModelMapStringObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/configs/all": {
+      "post": {
+        "tags": [
+          "config-controller"
+        ],
+        "operationId": "all",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageModelConfigResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/configs/all/last-version": {
+      "post": {
+        "tags": [
+          "config-controller"
+        ],
+        "operationId": "allLastReversion",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultPageModelConfigResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/configs/add": {
+      "post": {
+        "tags": [
+          "config-controller"
+        ],
+        "operationId": "add_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddConfigRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultConfigResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/message/resolve/{app}": {
+      "get": {
+        "tags": [
+          "message-controller"
+        ],
+        "operationId": "resolve_1",
+        "parameters": [
+          {
+            "name": "app",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultResolvedMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/configs/get/{id}": {
+      "get": {
+        "tags": [
+          "config-controller"
+        ],
+        "operationId": "get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultConfigByIdResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/configs/delete/{id}": {
+      "delete": {
+        "tags": [
+          "config-controller"
+        ],
+        "operationId": "delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultConfigResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ConfigResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "rootId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "depth": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pathKey": {
+            "type": "string"
+          },
+          "childrenCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "key": {
+            "type": "string"
+          },
+          "build": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "reversion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string"
+          },
+          "dimension": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "value": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "schema": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedBy": {
+            "type": "string"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "client": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "deviceCode": {
+            "type": "string"
+          },
+          "appVersion": {
+            "type": "string"
+          },
+          "channel": {
+            "type": "string"
+          },
+          "os": {
+            "type": "string"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "activity": {
+            "type": "string",
+            "enum": [
+              "DISABLE",
+              "ACTIVE"
+            ]
+          }
+        }
+      },
+      "Meta": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string"
+          },
+          "traceId": {
+            "type": "string"
+          }
+        }
+      },
+      "ResultConfigResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ConfigResponse"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "Status": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "AddMessageRequest": {
+        "type": "object",
+        "properties": {
+          "app": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MessageItem"
+            }
+          }
+        }
+      },
+      "MessageItem": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "MessageModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "app": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MessageItem"
+            }
+          }
+        }
+      },
+      "ResultMessageModel": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "data": {
+            "$ref": "#/components/schemas/MessageModel"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "ResolveConfigRequest": {
+        "type": "object",
+        "properties": {
+          "operator": {
+            "type": "string",
+            "enum": [
+              "is",
+              "contains",
+              "subset"
+            ]
+          },
+          "dimension": {
+            "type": "object",
+            "additionalProperties": {}
+          }
+        },
+        "required": [
+          "operator"
+        ]
+      },
+      "PageModelConfigResponse": {
+        "type": "object",
+        "properties": {
+          "pages": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigResponse"
+            }
+          }
+        }
+      },
+      "ResultPageModelConfigResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageModelConfigResponse"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "PageModelMapStringObject": {
+        "type": "object",
+        "properties": {
+          "pages": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {}
+            }
+          }
+        }
+      },
+      "ResultPageModelMapStringObject": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageModelMapStringObject"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "Filter": {
+        "type": "object",
+        "properties": {
+          "property": {
+            "type": "string"
+          },
+          "value": {},
+          "operator": {
+            "type": "string"
+          }
+        }
+      },
+      "QueryRequest": {
+        "type": "object",
+        "properties": {
+          "filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Filter"
+            },
+            "uniqueItems": true
+          },
+          "sorts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Sort"
+            },
+            "uniqueItems": true
+          }
+        }
+      },
+      "Sort": {
+        "type": "object",
+        "properties": {
+          "property": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "meaningful": {
+            "type": "boolean"
+          }
+        }
+      },
+      "AddConfigRequest": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._-]+$"
+          },
+          "build": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "parentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 0
+          },
+          "dimension": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "value": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "schema": {
+            "type": "object",
+            "additionalProperties": {}
+          }
+        },
+        "required": [
+          "build",
+          "dimension",
+          "key",
+          "value"
+        ]
+      },
+      "ResolvedMessage": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResolvedMessageItem"
+            }
+          }
+        }
+      },
+      "ResolvedMessageItem": {
+        "type": "object",
+        "properties": {
+          "series": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "http": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "desc": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ResultResolvedMessage": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ResolvedMessage"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "ConfigByIdResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "rootId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "depth": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pathKey": {
+            "type": "string"
+          },
+          "childrenCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "key": {
+            "type": "string"
+          },
+          "build": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "reversion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string"
+          },
+          "dimension": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "value": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "schema": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedBy": {
+            "type": "string"
+          },
+          "updatedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "client": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "deviceCode": {
+            "type": "string"
+          },
+          "appVersion": {
+            "type": "string"
+          },
+          "channel": {
+            "type": "string"
+          },
+          "os": {
+            "type": "string"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "activity": {
+            "type": "string",
+            "enum": [
+              "DISABLE",
+              "ACTIVE"
+            ]
+          }
+        }
+      },
+      "ResultConfigByIdResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ConfigByIdResponse"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,114 @@
 # ToBank SDUI - STAC Hybrid App Framework
 
+## 🏗️ Build Commands & Modes
+
+This project ships local Dart screens + mock JSON for development, but can build a lean **server-driven (API-only)** APK that excludes them. Two independent switches control what lands in the APK:
+
+| Switch | Controls | Mechanism |
+|--------|----------|-----------|
+| `--flavor` | JSON assets (`flows/*/json/`, `flows/*/api/`) | pubspec `flavors: [dev]` tags |
+| `--dart-define=API=true` | Dart screen code (`flows/*/dart/` via `StacWidgetLoader`) | `bool.fromEnvironment('API')` tree-shake |
+
+> Only the dev-only mock dirs (`flows/*/json`, `flows/*/api`) are tagged `flavors: [dev]`. Shared assets (`config/`, `design_system/`, `.build/`) are **untagged**, so they bundle in every build — a no-flavor build won't crash, it just omits the dev mock JSON. Pass `--flavor dev` to get the local JSON/Dart flows.
+
+### Entry screen (which screen shows on launch)
+
+Controlled by `SduiConfig.startFromApi`, default = `kReleaseMode`:
+
+| Build | Default entry | Override |
+|-------|---------------|----------|
+| `--release` (end-user APK) | **API flow** — fetches `login_real_splash` from backend | `--dart-define=START_APP_FROM_API=false` |
+| debug (`flutter run`) | `PreLaunchScreen` (dev menu) | `--dart-define=START_APP_FROM_API=true` |
+
+End-user release APK auto-starts the server-driven API flow — no flag needed.
+
+### Build matrix — what each command excludes
+
+| State | Command | JSON assets (`json/`+`api/`) | Dart screens (`dart/`) | Shared config | Use case |
+|-------|---------|:--:|:--:|:--:|----------|
+| **1. Full dev** | `flutter build apk --flavor dev --release` | ✅ in | ✅ in | ✅ in | everything bundled |
+| **2. Dev, API code path** | `flutter build apk --flavor dev --release --dart-define=API=true` | ✅ in | ❌ out | ✅ in | test API mode, keep mock assets |
+| **3. Prod, assets-only strip** | `flutter build apk --flavor prod --release` | ❌ out | ✅ in | ✅ in | mocks gone, dart code dead weight |
+| **4. Lean production ✅** | `flutter build apk --flavor prod --release --dart-define=API=true` | ❌ out | ❌ out | ✅ in | **end-user server-driven APK** |
+
+✅ in = bundled in APK   ❌ out = excluded from APK
+
+### Recommended end-user build
+
+```bash
+flutter build apk --flavor prod --release --dart-define=API=true
+```
+
+**Excludes:** all `lib/stac/tobank/flows/*/json/`, all `lib/stac/tobank/flows/*/api/`, all `dart/` screen code.
+**Keeps:** `lib/stac_core/` (engine), `lib/stac/config/` + `lib/stac/design_system/` (shared, tagged `[dev,prod]`), promissory service parsers, `lib/core/`.
+**Entry:** auto-starts API flow (release default — no `START_APP_FROM_API` flag needed).
+
+> iOS: swap `apk` for `ios` — same flags (iOS flavor schemes must be configured first; not yet set up). **Web is different — see the Web / PWA section below** (no `--flavor`, requires `--no-tree-shake-icons`).
+
+### Dev / Debug — run on device or emulator
+
+> Pass `--flavor dev` on every `flutter run` so the dev-only mock JSON (`flows/*/json`, `flows/*/api`) is bundled — otherwise local-JSON/Dart nav flows fail to load. Shared config is untagged so the app still starts without a flavor, just without those flows. `.vscode/launch.json` configs already include `--flavor dev`.
+
+#### A) Everything active — JSON + Dart files all bundled (normal dev)
+
+```bash
+flutter run --flavor dev
+```
+
+- ✅ Local JSON screens (`navMode: localJson`) work
+- ✅ Dart screens (`navMode: dart`) work
+- ✅ Mock API files + shared config bundled
+- Use for: building/testing flows locally without backend
+
+#### B) Simulate end-user app — no JSON, no Dart files (server-driven only)
+
+```bash
+flutter run --flavor prod --dart-define=API=true --dart-define=START_APP_FROM_API=true
+```
+
+- ❌ Local JSON screens excluded
+- ❌ Dart screens excluded
+- ✅ Only `apiJson` nav works — all screens fetched from backend
+- ✅ Starts from API flow (`START_APP_FROM_API=true` needed — debug run defaults to dev menu)
+- Use for: verifying the real end-user behaves correctly before a release build
+
+> Note: `flutter run` is debug mode, so `startFromApi` defaults to `false` (dev menu). Pass `START_APP_FROM_API=true` to force the API entry. A real `--release` APK starts from API automatically.
+
+> VS Code: add matching launch configs — `"toolArgs": ["--flavor","dev"]` for (A) and `"toolArgs": ["--flavor","prod","--dart-define=API=true","--dart-define=START_APP_FROM_API=true"]` for (B).
+
+### Web / PWA builds — NOT the same as Android
+
+⚠️ The `--flavor` **flag** is not accepted by `flutter build web` — passing it fails with `"Could not find an option named 'flavor'."` So **omit `--flavor`** on web builds.
+
+**But** the pubspec `flavors: [dev]` **tags** are still honored by the web asset bundler. A no-flavor build = "no flavor active" ⇒ all `flavors:[dev]` assets are **automatically excluded**. So the dev-only mock JSON drops out of a web build with no extra work — no post-build cleanup needed. (Verified: 0 `flows/*/json` + `flows/*/api` entries in `build/web`.)
+
+⚠️ `--no-tree-shake-icons` is **required** — the SDUI engine constructs `IconData` dynamically from JSON codepoints; web icon tree-shaking rejects non-const `IconData` and the build fails without this flag.
+
+| Switch | Android | Web (`build web`) |
+|--------|:--:|:--:|
+| `--dart-define=API=true` (strip Dart screens) | ✅ | ✅ |
+| `--dart-define=START_APP_FROM_API` (entry) | ✅ | ✅ |
+| `kReleaseMode` auto-entry (release) | ✅ | ✅ |
+| pubspec `flavors:[dev]` tag (strip JSON assets) | ✅ (needs `--flavor`) | ✅ (auto — no flavor = excluded) |
+| `--flavor` **flag** | ✅ | ❌ build error — omit it |
+
+#### Web end-user build
+
+```bash
+flutter build web --release --dart-define=API=true --no-tree-shake-icons
+```
+
+- ✅ Dart screen code stripped (`API=true`)
+- ✅ Entry auto-starts API flow (release default)
+- ✅ JSON mock files (`flows/*/json/`, `*/api/`) **auto-excluded** (no flavor active ⇒ dev-tagged assets dropped)
+- ✅ Shared config (`config/`, `design_system/`) kept (untagged)
+
+> Note: because `flutter build web` can't take `--flavor dev`, you **cannot** produce a web build that *includes* the dev mock JSON. For local web dev with mock JSON use `flutter run -d chrome --flavor dev` (run accepts the flag). Web release = server-driven only, which is the intended web target.
+
+> Security note: on web, **all** bundled assets are HTTP-downloadable via the browser. Keeping SDUI JSON fully off-client = serve screens from the backend (`apiJson`), never bundle them — which this build already does.
+
+---
+
 A production-ready Flutter application built on the **STAC (Server-Driven UI)** framework, enabling dynamic UI rendering from JSON configurations. This project combines Clean Architecture principles with server-driven UI capabilities to create maintainable, testable, and flexible mobile applications.
 
 ## 🌟 Key Features
