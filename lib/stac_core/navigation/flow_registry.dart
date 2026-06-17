@@ -31,6 +31,8 @@ class FlowRegistry {
     'authentication',
   };
 
+  static const Map<String, String> flowAliases = {'tobank': 'home_page'};
+
   /// Returns the flow that owns [fileName] by longest-prefix match.
   ///
   /// The `'${f}_'` boundary check ensures `deposit` never shadows
@@ -41,6 +43,14 @@ class FlowRegistry {
     for (final flow in flows) {
       final isMatch = fileName == flow || fileName.startsWith('${flow}_');
       if (isMatch && (best == null || flow.length > best.length)) {
+        best = flow;
+      }
+    }
+    for (final entry in flowAliases.entries) {
+      final alias = entry.key;
+      final flow = entry.value;
+      final isMatch = fileName == alias || fileName.startsWith('${alias}_');
+      if (isMatch && (best == null || alias.length > best.length)) {
         best = flow;
       }
     }

@@ -1,8 +1,7 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
-
-import '../../../../../stac_core/navigation/nav_modes.dart';
+import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 
 @StacScreen(screenName: 'tobank_special_services_page')
 StacWidget tobankSpecialServicesPage() {

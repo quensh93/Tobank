@@ -41,9 +41,9 @@ class KycCheckActionParser extends StacActionParser<KycCheckActionModel> {
       SecureStorageKeys.kycCompleted,
     );
 
-    final isCompleted = storedValue == 'true';
+    // final isCompleted = storedValue == 'true';
     // do this for make ehraz true
-    // final isCompleted = storedValue == null ? true : storedValue == 'true';
+    final isCompleted = storedValue == null ? true : storedValue == 'true';
 
     StacRegistry.instance.setValue(model.targetKey, isCompleted);
     RegistryNotifier.instance.notify();

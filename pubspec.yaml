@@ -124,6 +124,7 @@ flutter:
     - lib/stac/tobank/flows/dashboard/json/
     - lib/stac/tobank/flows/card_management/json/
     - lib/stac/tobank/flows/charge/json/
+    - lib/stac/tobank/flows/child_loan/json/
     - lib/stac/tobank/flows/home_page/json/
     - lib/stac/tobank/flows/transfer/json/
     - lib/stac/tobank/flows/gift_card/json/
