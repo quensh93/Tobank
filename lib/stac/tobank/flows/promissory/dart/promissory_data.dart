@@ -143,7 +143,7 @@ StacWidget _buildReceiverInfoSummary() {
         StacCustomVisibility(
           visible: '[[!recipientType]]',
           child: buildPromissoryDetailRow(
-            'نام',
+            '{{appStrings.generated.promissory.promissory_confirm.name}}',
             '{{receiverIdentity.fullName}}',
           ).toJson(),
         ),
@@ -275,7 +275,8 @@ StacWidget _buildAmountInput() {
               'pattern': r'^(2[0-9]{7,}|[3-9][0-9]{7,}|[1-9][0-9]{8,})$',
             },
             // حداقل مبلغ ۲۰,۰۰۰,۰۰۰ ریال می‌باشد
-            'message': 'حداقل مبلغ تعهد بیست میلیون ریال می‌باشد',
+            'message':
+                '{{appStrings.generated.promissory.promissory_data.title}}',
           },
         ],
         onChanged: StacSequenceAction(
@@ -289,7 +290,8 @@ StacWidget _buildAmountInput() {
               destinationKey: 'form.promissory_amount_words',
               divideBy: 10,
               minDigits: 2,
-              suffix: 'تومان',
+              suffix:
+                  '{{appStrings.generated.installment_payment.installment_payment_detail_main.toman}}',
             ),
             _getFullValidationAction(),
           ],
@@ -300,7 +302,7 @@ StacWidget _buildAmountInput() {
         textDirection: StacTextDirection.rtl,
         children: [
           StacText(
-            data: 'حداقل مبلغ تعهد بیست میلیون ریال می‌باشد',
+            data: '{{appStrings.generated.promissory.promissory_data.title}}',
             textDirection: StacTextDirection.rtl,
             style: StacCustomTextStyle(
               fontSize: 12,

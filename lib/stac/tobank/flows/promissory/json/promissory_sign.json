@@ -282,7 +282,7 @@
                             },
                             "child": {
                               "type": "text",
-                              "data": "بازگشت",
+                              "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
                               "style": {
                                 "type": "custom",
                                 "fontSize": 16,
@@ -393,7 +393,7 @@
                                       "imageType": "asset",
                                       "width": 12,
                                       "height": 12,
-                                      "color": "__STAC_OPEN__appColors.current.primary.color}}"
+                                      "color": "{{appColors.current.primary.color}}"
                                     }
                                   },
                                   {
@@ -402,14 +402,14 @@
                                   },
                                   {
                                     "type": "text",
-                                    "data": "__STAC_OPEN__appStrings.promissory.signTitledialog}}",
+                                    "data": "{{appStrings.promissory.signTitledialog}}",
                                     "textDirection": "rtl",
                                     "textAlign": "center",
                                     "style": {
                                       "type": "custom",
                                       "fontSize": 16,
                                       "fontWeight": "bold",
-                                      "color": "__STAC_OPEN__appColors.current.text.title}}"
+                                      "color": "{{appColors.current.text.title}}"
                                     }
                                   }
                                 ]
@@ -441,7 +441,7 @@
                                             "actionType": "closeDialog"
                                           },
                                           "style": {
-                                            "foregroundColor": "__STAC_OPEN__appColors.current.text.title}}",
+                                            "foregroundColor": "{{appColors.current.text.title}}",
                                             "elevation": 0.0,
                                             "fixedSize": {
                                               "width": 999999.0,
@@ -459,13 +459,13 @@
                                           },
                                           "child": {
                                             "type": "text",
-                                            "data": "__STAC_OPEN__appStrings.common.cancel}}",
+                                            "data": "{{appStrings.common.cancel}}",
                                             "textDirection": "rtl",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 16,
                                               "fontWeight": "bold",
-                                              "color": "__STAC_OPEN__appColors.current.text.title}}"
+                                              "color": "{{appColors.current.text.title}}"
                                             }
                                           }
                                         }
@@ -487,7 +487,7 @@
                                             },
                                             {
                                               "actionType": "promissorySign",
-                                              "unsignedContract": "__STAC_OPEN__form.unsigned_pdf}}",
+                                              "unsignedContract": "{{form.unsigned_pdf}}",
                                               "signLocation": {
                                                 "x": 450,
                                                 "y": 450,
@@ -499,7 +499,7 @@
                                                 "height_ios": 50,
                                                 "page": 0
                                               },
-                                              "promissoryTitle": "__STAC_OPEN__appStrings.promissory.promissory}}",
+                                              "promissoryTitle": "{{appStrings.promissory.promissory}}",
                                               "onSuccess": {
                                                 "actionType": "sequence",
                                                 "actions": [
@@ -519,12 +519,12 @@
                                                       "app-version": "456",
                                                       "device-uuid": "5109ab4c-77ca-4f0c-9858-da4df58031d2",
                                                       "serviceauthorization": "Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==",
-                                                      "authorization": "__STAC_OPEN__auth.accessToken}}"
+                                                      "authorization": "{{auth.accessToken}}"
                                                     },
                                                     "data": {
                                                       "fileName": "promisorry.pdf",
                                                       "contentType": "application/pdf",
-                                                      "base64": "__STAC_OPEN__form.signed_pdf}}"
+                                                      "base64": "{{form.signed_pdf}}"
                                                     },
                                                     "results": [
                                                       {
@@ -534,7 +534,7 @@
                                                           "actions": [
                                                             {
                                                               "actionType": "networkRequest",
-                                                              "url": "http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/finalize/__STAC_OPEN__form.promissory_id}}",
+                                                              "url": "http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/finalize/{{form.promissory_id}}",
                                                               "method": "post",
                                                               "headers": {
                                                                 "accept": "*/*",
@@ -543,10 +543,10 @@
                                                                 "app-version": "456",
                                                                 "device-uuid": "5109ab4c-77ca-4f0c-9858-da4df58031d2",
                                                                 "serviceauthorization": "Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==",
-                                                                "authorization": "__STAC_OPEN__auth.accessToken}}"
+                                                                "authorization": "{{auth.accessToken}}"
                                                               },
                                                               "data": {
-                                                                "signedPdfId": "__STAC_OPEN__data_payload.id}}"
+                                                                "signedPdfId": "{{data_payload.id}}"
                                                               },
                                                               "results": [
                                                                 {
@@ -564,23 +564,23 @@
                                                                         "values": [
                                                                           {
                                                                             "key": "promissoryId",
-                                                                            "value": "__STAC_OPEN__data.data.promissoryId}}"
+                                                                            "value": "{{data.data.promissoryId}}"
                                                                           },
                                                                           {
                                                                             "key": "transactionAmount",
-                                                                            "value": "__STAC_OPEN__form.promissory_amount}}"
+                                                                            "value": "{{form.promissory_amount}}"
                                                                           },
                                                                           {
                                                                             "key": "serverSignedPdfId",
-                                                                            "value": "__STAC_OPEN__data.data.serverSignedPdfId}}"
+                                                                            "value": "{{data.data.serverSignedPdfId}}"
                                                                           },
                                                                           {
                                                                             "key": "requestId",
-                                                                            "value": "__STAC_OPEN__data.data.requestId}}"
+                                                                            "value": "{{data.data.requestId}}"
                                                                           },
                                                                           {
                                                                             "key": "trackingNumber",
-                                                                            "value": "__STAC_OPEN__data.data.trackingNumber}}"
+                                                                            "value": "{{data.data.trackingNumber}}"
                                                                           }
                                                                         ]
                                                                       },
@@ -612,7 +612,7 @@
                                                                         "child": {
                                                                           "type": "container",
                                                                           "decoration": {
-                                                                            "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                                                            "color": "{{appColors.current.background.surfaceContainer}}",
                                                                             "borderRadius": {
                                                                               "topLeft": 8,
                                                                               "topRight": 8,
@@ -620,7 +620,7 @@
                                                                               "bottomRight": 8
                                                                             },
                                                                             "border": {
-                                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                                              "color": "{{appColors.current.input.borderEnabled}}",
                                                                               "width": 1
                                                                             }
                                                                           },
@@ -644,14 +644,14 @@
                                                                                   "children": [
                                                                                     {
                                                                                       "type": "text",
-                                                                                      "data": "خطا",
+                                                                                      "data": "{{appStrings.common.error}}",
                                                                                       "textDirection": "rtl",
                                                                                       "textAlign": "right",
                                                                                       "style": {
                                                                                         "type": "custom",
                                                                                         "fontSize": 14,
                                                                                         "fontWeight": "w700",
-                                                                                        "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                                        "color": "{{appColors.current.text.title}}",
                                                                                         "height": 1.45
                                                                                       }
                                                                                     },
@@ -661,14 +661,14 @@
                                                                                     },
                                                                                     {
                                                                                       "type": "text",
-                                                                                      "data": "__STAC_OPEN__appStrings.promissory.signError}}",
+                                                                                      "data": "{{appStrings.promissory.signError}}",
                                                                                       "textDirection": "rtl",
                                                                                       "textAlign": "right",
                                                                                       "style": {
                                                                                         "type": "custom",
                                                                                         "fontSize": 13,
                                                                                         "fontWeight": "w500",
-                                                                                        "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                                        "color": "{{appColors.current.text.subtitle}}",
                                                                                         "height": 1.45
                                                                                       }
                                                                                     }
@@ -684,7 +684,7 @@
                                                                                 "width": 1,
                                                                                 "height": 20,
                                                                                 "decoration": {
-                                                                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                                                  "color": "{{appColors.current.input.borderEnabled}}",
                                                                                   "borderRadius": {
                                                                                     "topLeft": 999,
                                                                                     "topRight": 999,
@@ -703,7 +703,7 @@
                                                                                 "imageType": "asset",
                                                                                 "width": 20,
                                                                                 "height": 20,
-                                                                                "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                                                                "color": "{{appColors.current.text.subtitle}}"
                                                                               }
                                                                             ]
                                                                           }
@@ -736,7 +736,7 @@
                                                               "child": {
                                                                 "type": "container",
                                                                 "decoration": {
-                                                                  "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                                                  "color": "{{appColors.current.background.surfaceContainer}}",
                                                                   "borderRadius": {
                                                                     "topLeft": 8,
                                                                     "topRight": 8,
@@ -744,7 +744,7 @@
                                                                     "bottomRight": 8
                                                                   },
                                                                   "border": {
-                                                                    "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                                    "color": "{{appColors.current.input.borderEnabled}}",
                                                                     "width": 1
                                                                   }
                                                                 },
@@ -768,14 +768,14 @@
                                                                         "children": [
                                                                           {
                                                                             "type": "text",
-                                                                            "data": "خطا",
+                                                                            "data": "{{appStrings.common.error}}",
                                                                             "textDirection": "rtl",
                                                                             "textAlign": "right",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "fontSize": 14,
                                                                               "fontWeight": "w700",
-                                                                              "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                              "color": "{{appColors.current.text.title}}",
                                                                               "height": 1.45
                                                                             }
                                                                           },
@@ -785,14 +785,14 @@
                                                                           },
                                                                           {
                                                                             "type": "text",
-                                                                            "data": "__STAC_OPEN__appStrings.promissory.signError}}",
+                                                                            "data": "{{appStrings.promissory.signError}}",
                                                                             "textDirection": "rtl",
                                                                             "textAlign": "right",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "fontSize": 13,
                                                                               "fontWeight": "w500",
-                                                                              "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                              "color": "{{appColors.current.text.subtitle}}",
                                                                               "height": 1.45
                                                                             }
                                                                           }
@@ -808,7 +808,7 @@
                                                                       "width": 1,
                                                                       "height": 20,
                                                                       "decoration": {
-                                                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                                        "color": "{{appColors.current.input.borderEnabled}}",
                                                                         "borderRadius": {
                                                                           "topLeft": 999,
                                                                           "topRight": 999,
@@ -827,7 +827,7 @@
                                                                       "imageType": "asset",
                                                                       "width": 20,
                                                                       "height": 20,
-                                                                      "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                                                      "color": "{{appColors.current.text.subtitle}}"
                                                                     }
                                                                   ]
                                                                 }
@@ -849,7 +849,7 @@
                                                 "child": {
                                                   "type": "container",
                                                   "decoration": {
-                                                    "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                                    "color": "{{appColors.current.background.surfaceContainer}}",
                                                     "borderRadius": {
                                                       "topLeft": 8,
                                                       "topRight": 8,
@@ -857,7 +857,7 @@
                                                       "bottomRight": 8
                                                     },
                                                     "border": {
-                                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                      "color": "{{appColors.current.input.borderEnabled}}",
                                                       "width": 1
                                                     }
                                                   },
@@ -881,14 +881,14 @@
                                                           "children": [
                                                             {
                                                               "type": "text",
-                                                              "data": "خطا",
+                                                              "data": "{{appStrings.common.error}}",
                                                               "textDirection": "rtl",
                                                               "textAlign": "right",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "fontSize": 14,
                                                                 "fontWeight": "w700",
-                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "color": "{{appColors.current.text.title}}",
                                                                 "height": 1.45
                                                               }
                                                             },
@@ -898,14 +898,14 @@
                                                             },
                                                             {
                                                               "type": "text",
-                                                              "data": "__STAC_OPEN__appStrings.promissory.signError}}",
+                                                              "data": "{{appStrings.promissory.signError}}",
                                                               "textDirection": "rtl",
                                                               "textAlign": "right",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "fontSize": 13,
                                                                 "fontWeight": "w500",
-                                                                "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                "color": "{{appColors.current.text.subtitle}}",
                                                                 "height": 1.45
                                                               }
                                                             }
@@ -921,7 +921,7 @@
                                                         "width": 1,
                                                         "height": 20,
                                                         "decoration": {
-                                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                          "color": "{{appColors.current.input.borderEnabled}}",
                                                           "borderRadius": {
                                                             "topLeft": 999,
                                                             "topRight": 999,
@@ -940,7 +940,7 @@
                                                         "imageType": "asset",
                                                         "width": 20,
                                                         "height": 20,
-                                                        "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                                        "color": "{{appColors.current.text.subtitle}}"
                                                       }
                                                     ]
                                                   }
@@ -950,8 +950,8 @@
                                           ]
                                         },
                                         "style": {
-                                          "foregroundColor": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
-                                          "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
+                                          "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                          "backgroundColor": "{{appColors.current.primary.color}}",
                                           "elevation": 0.0,
                                           "fixedSize": {
                                             "width": 999999.0,
@@ -969,13 +969,13 @@
                                         },
                                         "child": {
                                           "type": "text",
-                                          "data": "__STAC_OPEN__appStrings.common.confirm}}",
+                                          "data": "{{appStrings.common.confirm}}",
                                           "textDirection": "rtl",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 16,
                                             "fontWeight": "bold",
-                                            "color": "__STAC_OPEN__appColors.current.primary.onPrimary}}"
+                                            "color": "{{appColors.current.primary.onPrimary}}"
                                           }
                                         }
                                       }

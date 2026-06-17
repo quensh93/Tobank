@@ -11,7 +11,7 @@ StacWidget cartableRealDetail() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'جزئیات فرآیند',
+        title: '{{appStrings.generated.cartable.cartable_detail.title}}',
       ),
       body: StacSingleChildScrollView(
         padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -42,34 +42,44 @@ StacWidget _buildMarriageLoanDetail() {
     crossAxisAlignment: StacCrossAxisAlignment.stretch,
     children: [
       _buildSummarySection(
-        title: 'وام قرض الحسنه ازدواج',
-        startAt: '۱۴۰۴/۱۰/۰۶ - ۱۳:۴۶',
-        status: 'باز',
-        amount: '۳,۰۰۰,۰۰۰,۰۰۰ ریال',
+        title: '{{appStrings.generated.cartable.cartable_detail.loan}}',
+        startAt: '{{appStrings.generated.cartable.cartable_detail.date_value}}',
+        status: '{{appStrings.generated.cartable.cartable_detail.open_status}}',
+        amount: '{{appStrings.generated.cartable.cartable_detail.rial}}',
       ),
       StacSizedBox(height: 18),
       _buildTaskCard(
-        title: 'اطلاعات عقد نامه متقاضی',
-        badgeTitle: 'تکمیل‌شده',
+        title: '{{appStrings.generated.cartable.cartable_detail.information}}',
+        badgeTitle:
+            '{{appStrings.generated.cartable.cartable_detail.completed_status}}',
         isCompleted: true,
-        createdAt: '۱۴۰۴/۱۰/۰۶ - ۱۳:۴۶',
-        completedAt: '۱۴۰۴/۱۲/۳۰ - ۱۰:۵۵',
+        createdAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value}}',
+        completedAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value_text}}',
       ),
       StacSizedBox(height: 14),
       _buildTaskCard(
-        title: 'مدارک متقاضی',
-        badgeTitle: 'تکمیل‌شده',
+        title: '{{appStrings.generated.cartable.cartable_detail.documents}}',
+        badgeTitle:
+            '{{appStrings.generated.cartable.cartable_detail.completed_status}}',
         isCompleted: true,
-        createdAt: '۱۴۰۴/۱۰/۰۶ - ۱۳:۴۶',
-        completedAt: '۱۴۰۴/۱۲/۳۰ - ۱۰:۵۶',
+        createdAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value}}',
+        completedAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value_label}}',
       ),
       StacSizedBox(height: 14),
       _buildTaskCard(
-        title: 'اطلاعات محل سکونت متقاضی',
-        badgeTitle: 'تکمیل‌شده',
+        title:
+            '{{appStrings.generated.cartable.cartable_detail.information_place}}',
+        badgeTitle:
+            '{{appStrings.generated.cartable.cartable_detail.completed_status}}',
         isCompleted: true,
-        createdAt: '۱۴۰۴/۱۰/۰۶ - ۱۳:۴۶',
-        completedAt: '۱۴۰۴/۱۲/۳۰ - ۱۰:۵۶',
+        createdAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value}}',
+        completedAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value_label}}',
       ),
     ],
   );
@@ -80,33 +90,45 @@ StacWidget _buildChildLoanDetail() {
     crossAxisAlignment: StacCrossAxisAlignment.stretch,
     children: [
       _buildSummarySection(
-        title: 'وام قرض الحسنه فرزندآوری',
-        startAt: '۱۴۰۴/۱۰/۰۶ - ۱۱:۱۱',
-        status: 'بسته',
+        title: '{{appStrings.generated.cartable.cartable_detail.child_loan}}',
+        startAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value_message}}',
+        status: '{{appStrings.generated.cartable.cartable_detail.package}}',
       ),
       StacSizedBox(height: 18),
       _buildTaskCard(
-        title: 'مدارک متقاضی',
-        badgeTitle: 'در انتظار تکمیل',
+        title: '{{appStrings.generated.cartable.cartable_detail.documents}}',
+        badgeTitle:
+            '{{appStrings.generated.child_loan.child_loan_task_list.complete}}',
         isCompleted: false,
-        createdAt: '۱۴۰۴/۱۰/۰۶ - ۱۱:۱۱',
-        completedAt: '۱۴۰۴/۱۰/۰۶ - ۱۱:۴۸',
+        createdAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value_message}}',
+        completedAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value_item}}',
       ),
       StacSizedBox(height: 14),
       _buildTaskCard(
-        title: 'اطلاعات محل سکونت متقاضی',
-        badgeTitle: 'در انتظار تکمیل',
+        title:
+            '{{appStrings.generated.cartable.cartable_detail.information_place}}',
+        badgeTitle:
+            '{{appStrings.generated.child_loan.child_loan_task_list.complete}}',
         isCompleted: false,
-        createdAt: '۱۴۰۴/۱۰/۰۶ - ۱۱:۱۱',
-        completedAt: '۱۴۰۴/۱۰/۰۶ - ۱۱:۴۸',
+        createdAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value_message}}',
+        completedAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value_item}}',
       ),
       StacSizedBox(height: 14),
       _buildTaskCard(
-        title: 'اطلاعات فرزند متقاضی',
-        badgeTitle: 'در انتظار تکمیل',
+        title:
+            '{{appStrings.generated.cartable.cartable_detail.information_child}}',
+        badgeTitle:
+            '{{appStrings.generated.child_loan.child_loan_task_list.complete}}',
         isCompleted: false,
-        createdAt: '۱۴۰۴/۱۰/۰۶ - ۱۱:۱۱',
-        completedAt: '۱۴۰۴/۱۰/۰۶ - ۱۱:۴۸',
+        createdAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value_message}}',
+        completedAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value_item}}',
       ),
     ],
   );
@@ -117,17 +139,23 @@ StacWidget _buildCompletedDocsDetail() {
     crossAxisAlignment: StacCrossAxisAlignment.stretch,
     children: [
       _buildSummarySection(
-        title: 'تکمیل مدارک',
-        startAt: '۱۴۰۵/۰۱/۲۴ - ۱۵:۳۵',
-        status: 'بسته',
+        title:
+            '{{appStrings.generated.cartable.cartable_detail.documents_complete}}',
+        startAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value_alt}}',
+        status: '{{appStrings.generated.cartable.cartable_detail.package}}',
       ),
       StacSizedBox(height: 18),
       _buildTaskCard(
-        title: 'بررسی مدارک مشتری',
-        badgeTitle: 'تکمیل‌شده',
+        title:
+            '{{appStrings.generated.cartable.cartable_detail.documents_customer}}',
+        badgeTitle:
+            '{{appStrings.generated.cartable.cartable_detail.completed_status}}',
         isCompleted: true,
-        createdAt: '۱۴۰۵/۰۱/۲۴ - ۱۵:۳۵',
-        completedAt: '۱۴۰۵/۰۱/۲۶ - ۰۷:۱۷',
+        createdAt:
+            '{{appStrings.generated.cartable.cartable_detail.date_value_alt}}',
+        completedAt:
+            '{{appStrings.generated.cartable.cartable_detail.sample_datetime}}',
       ),
     ],
   );
@@ -138,9 +166,11 @@ StacWidget _buildEmptyDocsDetail() {
     crossAxisAlignment: StacCrossAxisAlignment.stretch,
     children: [
       _buildSummarySection(
-        title: 'تکمیل مدارک',
-        startAt: '۱۴۰۵/۰۱/۲۳ - ۱۰:۵۵',
-        status: 'بسته',
+        title:
+            '{{appStrings.generated.cartable.cartable_detail.documents_complete}}',
+        startAt:
+            '{{appStrings.generated.cartable.cartable_detail.sample_datetime_option}}',
+        status: '{{appStrings.generated.cartable.cartable_detail.package}}',
       ),
     ],
   );
@@ -166,12 +196,23 @@ StacWidget _buildSummarySection({
         ),
       ),
       StacSizedBox(height: 20),
-      _buildSummaryRow(label: 'شروع فرآیند', value: startAt),
+      _buildSummaryRow(
+        label: '{{appStrings.generated.cartable.cartable_detail.process}}',
+        value: startAt,
+      ),
       StacSizedBox(height: 14),
-      _buildSummaryRow(label: 'وضعیت فرآیند', value: status),
+      _buildSummaryRow(
+        label:
+            '{{appStrings.generated.cartable.cartable_detail.status_process}}',
+        value: status,
+      ),
       if (amount != null) ...[
         StacSizedBox(height: 14),
-        _buildSummaryRow(label: 'مبلغ تسهیلات ازدواج', value: amount),
+        _buildSummaryRow(
+          label:
+              '{{appStrings.generated.cartable.cartable_detail.loan_amount}}',
+          value: amount,
+        ),
       ],
     ],
   );
@@ -253,9 +294,17 @@ StacWidget _buildTaskCard({
           ],
         ),
         StacSizedBox(height: 16),
-        _buildSummaryRow(label: 'زمان ایجاد', value: createdAt),
+        _buildSummaryRow(
+          label:
+              '{{appStrings.generated.cartable.cartable_detail.created_at_label}}',
+          value: createdAt,
+        ),
         StacSizedBox(height: 12),
-        _buildSummaryRow(label: 'زمان اتمام', value: completedAt),
+        _buildSummaryRow(
+          label:
+              '{{appStrings.generated.cartable.cartable_detail.completed_at_label}}',
+          value: completedAt,
+        ),
       ],
     ),
   );

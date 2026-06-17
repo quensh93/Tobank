@@ -21,7 +21,7 @@ StacWidget giftCardRealImageSelector() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'کارت هدیه',
+        title: '{{appStrings.homePage.services.giftCard}}',
         backAction: const StacSequenceAction(
           actions: [
             StacSetValueAction(
@@ -63,7 +63,7 @@ StacWidget giftCardRealImageSelector() {
                           ),
                           child: StacText(
                             data:
-                                'بخش مورد نظر عکس خود را در کادر بدون رنگ قرار دهید',
+                                '{{appStrings.generated.gift_card.gift_card_image_selector.color}}',
                             textDirection: StacTextDirection.rtl,
                             textAlign: StacTextAlign.center,
                             style: StacCustomTextStyle(
@@ -89,9 +89,11 @@ StacWidget giftCardRealImageSelector() {
                               cropAspectRatioY: 1,
                               previewBeforeConfirm: true,
                               previewSheetTitle:
-                                  'تصویر انتخاب شده مورد تایید شما است؟',
-                              confirmButtonText: 'تایید',
-                              retryButtonText: 'بازگشت',
+                                  '{{appStrings.generated.gift_card.gift_card_image_selector.select_confirm_image}}',
+                              confirmButtonText:
+                                  '{{appStrings.common.confirm}}',
+                              retryButtonText:
+                                  '{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}',
                             ),
                             StacValidateFieldsAction(
                               resultKey: 'giftCardRealCustomMessageValid',
@@ -127,7 +129,8 @@ StacWidget giftCardRealImageSelector() {
                                 vertical: 22,
                               ),
                               child: StacText(
-                                data: 'انتخاب عکس از گالری',
+                                data:
+                                    '{{appStrings.generated.gift_card.gift_card_image_selector.select}}',
                                 textDirection: StacTextDirection.rtl,
                                 textAlign: StacTextAlign.center,
                                 style: StacCustomTextStyle(
@@ -185,7 +188,8 @@ StacWidget giftCardRealImageSelector() {
                                     ),
                                     StacSizedBox(width: 6),
                                     StacText(
-                                      data: 'حذف',
+                                      data:
+                                          '{{appStrings.generated.authentication.authentication_selfie.delete}}',
                                       textDirection: StacTextDirection.rtl,
                                       style: StacCustomTextStyle(
                                         fontSize: 15,
@@ -208,7 +212,8 @@ StacWidget giftCardRealImageSelector() {
                       ),
                       StacSizedBox(height: 22),
                       StacText(
-                        data: 'متن کارت هدیه',
+                        data:
+                            '{{appStrings.generated.gift_card.gift_card_image_selector.gift_card_text}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
@@ -242,7 +247,7 @@ StacWidget giftCardRealImageSelector() {
                           ).toJson(),
                           decoration: StacInputDecoration(
                             hintText:
-                                'متن دلخواهتان را بنویسید (تا ۴۰ کاراکتر)',
+                                '{{appStrings.generated.gift_card.gift_card_image_selector.custom_message_hint}}',
                             hintStyle: StacCustomTextStyle(
                               fontSize: 16,
                               fontWeight: StacFontWeight.w500,
@@ -266,8 +271,7 @@ StacWidget giftCardRealImageSelector() {
                                 resultKey: 'giftCardRealCustomMessageValid',
                                 fields: const [
                                   {
-                                    'id':
-                                        'gift_card_custom_design_message',
+                                    'id': 'gift_card_custom_design_message',
                                     'rule': r'^.{1,40}$',
                                   },
                                 ],
@@ -315,11 +319,16 @@ StacWidget giftCardRealImageSelector() {
                         },
                         {
                           'key': 'giftCardRealSelectedCategory',
-                          'value': 'طرح سفارشی',
+                          'value':
+                              '{{appStrings.generated.gift_card.gift_card_image_selector.custom_design_title}}',
                         },
                       ],
                     ),
-                    NavigationAction(fileName: 'gift_card_custom_select_design', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                    NavigationAction(
+                      fileName: 'gift_card_custom_select_design',
+                      navMode: NavModes.dart,
+                      navigationStyle: NavigationStyle.push,
+                    ),
                   ],
                 ),
                 style: StacButtonStyle(
@@ -343,7 +352,7 @@ StacWidget giftCardRealImageSelector() {
                   elevation: 0,
                 ).toJson(),
                 child: StacText(
-                  data: 'ادامه',
+                  data: '{{appStrings.common.continue}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 18,
@@ -427,4 +436,3 @@ StacWidget _buildSelectedImagePreview() {
     ),
   );
 }
-

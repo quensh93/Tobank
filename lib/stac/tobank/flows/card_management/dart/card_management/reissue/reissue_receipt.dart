@@ -7,7 +7,11 @@ import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 StacWidget dashboardCardReissueReceipt() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildTobankFlowAppBar(title: 'صدور کارت المثنی', showBack: false),
+    appBar: buildTobankFlowAppBar(
+      title:
+          '{{appStrings.generated.card_management.card_management_reissue_color.card_reissue}}',
+      showBack: false,
+    ),
     body: StacPadding(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: StacColumn(
@@ -34,7 +38,8 @@ StacWidget dashboardCardReissueReceipt() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'درخواست شما با موفقیت ثبت شد!',
+            data:
+                '{{appStrings.generated.deposit_more_options.deposit_card_issue_result.title}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -45,7 +50,8 @@ StacWidget dashboardCardReissueReceipt() {
           ),
           StacSizedBox(height: 12),
           StacText(
-            data: 'کد رهگیری: ۱۵۰۳۳۱۹۱۵۱۹۸۳۲۸۴۲۲۴',
+            data:
+                '{{appStrings.generated.card_management.card_management_reissue_receipt.tracking_code}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -56,7 +62,8 @@ StacWidget dashboardCardReissueReceipt() {
           ),
           StacSizedBox(height: 12),
           StacText(
-            data: 'مراتب از طریق پیامک به شما اطلاع داده خواهد شد.',
+            data:
+                '{{appStrings.generated.home_page.tobank_special_services_page.sms_notification_message}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -67,7 +74,11 @@ StacWidget dashboardCardReissueReceipt() {
           ),
           StacExpanded(child: StacSizedBox(height: 0)),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'card_management_root', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
+            onPressed: NavigationAction(
+              fileName: 'card_management_root',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.pushAndRemoveAll,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 8),
               minimumSize: const StacSize(0, 56),
@@ -81,7 +92,8 @@ StacWidget dashboardCardReissueReceipt() {
               ),
             ),
             child: StacText(
-              data: 'بازگشت به لیست خدمات کارت',
+              data:
+                  '{{appStrings.generated.card_management.card_management_reissue_receipt.back_list_services_card}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 14,

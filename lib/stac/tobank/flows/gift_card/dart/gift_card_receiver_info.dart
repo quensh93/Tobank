@@ -5,58 +5,62 @@ import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 const _provinceOptions = <String>[
-  'تهران',
-  'اصفهان',
-  'فارس',
-  'خراسان رضوی',
-  'آذربایجان شرقی',
-  'خوزستان',
-  'گیلان',
-  'مازندران',
-  'البرز',
-  'کرمان',
-  'یزد',
-  'قم',
-  'کرمانشاه',
-  'همدان',
-  'گلستان',
-  'مرکزی',
-  'زنجان',
-  'اردبیل',
-  'قزوین',
-  'سمنان',
+  '{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.sample_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.sample_message}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.sample_label}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.east_azerbaijan_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.khuzestan_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.gilan_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.mazandaran_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.alborz_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.kerman_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.yazd_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.qom_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.kermanshah_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.hamedan_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.golestan_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.markazi_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.zanjan_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.ardabil_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.qazvin_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.semnan_province}}',
 ];
 
 const _cityOptions = <String>[
-  'تهران',
-  'مشهد',
-  'اصفهان',
-  'شیراز',
-  'تبریز',
-  'اهواز',
-  'رشت',
-  'کرج',
-  'قم',
-  'کرمانشاه',
-  'ارومیه',
-  'یزد',
-  'همدان',
-  'قزوین',
-  'اردبیل',
-  'زاهدان',
-  'بندرعباس',
-  'گرگان',
-  'زنجان',
-  'اراک',
+  '{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.mashhad_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.sample_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.shiraz_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.tabriz_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.ahvaz_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.rasht_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.karaj_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.qom_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.kermanshah_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.urmia_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.yazd_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.hamedan_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.qazvin_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.ardabil_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.zahedan_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.bandar_abbas_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.gorgan_city}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.zanjan_province}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.arak_city}}',
 ];
 
 const _deliveryDateOptions = <String>[
-  'پنج‌شنبه ۱۴۰۵/۰۲/۰۳',
-  'جمعه ۱۴۰۵/۰۲/۰۴',
-  'شنبه ۱۴۰۵/۰۲/۰۵',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.date_value}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.date_value_message}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.date_value_label}}',
 ];
 
-const _deliveryTimeOptions = <String>['۱۳ - ۱۸', '۱۰ - ۱۳', '۱۸ - ۲۱'];
+const _deliveryTimeOptions = <String>[
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.number_value}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.number_value_text}}',
+  '{{appStrings.generated.gift_card.gift_card_receiver_info.number_value_label}}',
+];
 
 @StacScreen(screenName: 'gift_card_receiver_info')
 StacWidget giftCardRealReceiverInfo() {
@@ -65,8 +69,16 @@ StacWidget giftCardRealReceiverInfo() {
       values: [
         {'key': 'giftCardRealReceiverIsOwner', 'value': false},
         {'key': 'giftCardRealReceiverContinueEnabled', 'value': false},
-        {'key': 'giftCardRealReceiverProvince', 'value': 'تهران'},
-        {'key': 'giftCardRealReceiverCity', 'value': 'تهران'},
+        {
+          'key': 'giftCardRealReceiverProvince',
+          'value':
+              '{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}',
+        },
+        {
+          'key': 'giftCardRealReceiverCity',
+          'value':
+              '{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}',
+        },
         {'key': 'giftCardRealDeliveryDate', 'value': ''},
         {'key': 'giftCardRealDeliveryTime', 'value': ''},
       ],
@@ -76,7 +88,7 @@ StacWidget giftCardRealReceiverInfo() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'کارت هدیه',
+        title: '{{appStrings.homePage.services.giftCard}}',
       ),
       body: StacForm(
         child: StacColumn(
@@ -94,7 +106,8 @@ StacWidget giftCardRealReceiverInfo() {
                       crossAxisAlignment: StacCrossAxisAlignment.center,
                       children: [
                         StacText(
-                          data: 'گیرنده خودم هستم',
+                          data:
+                              '{{appStrings.generated.gift_card.gift_card_receiver_info.title}}',
                           textDirection: StacTextDirection.rtl,
                           style: StacCustomTextStyle(
                             fontSize: 18,
@@ -122,18 +135,24 @@ StacWidget giftCardRealReceiverInfo() {
                       child: StacColumn(
                         crossAxisAlignment: StacCrossAxisAlignment.stretch,
                         children: [
-                          _buildLabel('نام و نام‌خانوادگی'),
+                          _buildLabel(
+                            '{{appStrings.generated.child_loan.child_loan_customer_check.name}}',
+                          ),
                           StacSizedBox(height: 8),
                           _buildInput(
-                            hint: 'نام و نام‌خانوادگی را وارد کنید',
+                            hint:
+                                '{{appStrings.generated.gift_card.gift_card_receiver_info.name_enter_message}}',
                             id: 'gift_card_receiver_name',
                             onChanged: _receiverFormValidationAction(),
                           ),
                           StacSizedBox(height: 24),
-                          _buildLabel('شماره همراه گیرنده'),
+                          _buildLabel(
+                            '{{appStrings.generated.gift_card.gift_card_receiver_info.mobile_number_receiver}}',
+                          ),
                           StacSizedBox(height: 8),
                           _buildInput(
-                            hint: 'تلفن همراه تحویل گیرنده را وارد کنید',
+                            hint:
+                                '{{appStrings.generated.gift_card.gift_card_receiver_info.receiver_phone_enter_message}}',
                             id: 'gift_card_receiver_mobile',
                             keyboardType: 'number',
                             maxLength: 11,
@@ -146,14 +165,17 @@ StacWidget giftCardRealReceiverInfo() {
                         ],
                       ).toJson(),
                     ),
-                    _buildLabel('استان'),
+                    _buildLabel(
+                      '{{appStrings.generated.child_loan.child_loan_guarantee_address.province}}',
+                    ),
                     StacSizedBox(height: 8),
                     _buildDropdownLike(
                       valueKey: 'giftCardRealReceiverProvince',
                       onTap: StacSequenceAction(
                         actions: [
                           _locationSelectorBottomSheetAction(
-                            title: 'انتخاب استان',
+                            title:
+                                '{{appStrings.generated.gift_card.gift_card_receiver_info.select_province}}',
                             selectedKey: 'giftCardRealReceiverProvince',
                             options: _provinceOptions,
                           ),
@@ -162,14 +184,17 @@ StacWidget giftCardRealReceiverInfo() {
                       ),
                     ),
                     StacSizedBox(height: 24),
-                    _buildLabel('شهر'),
+                    _buildLabel(
+                      '{{appStrings.generated.child_loan.child_loan_guarantee_address.city}}',
+                    ),
                     StacSizedBox(height: 8),
                     _buildDropdownLike(
                       valueKey: 'giftCardRealReceiverCity',
                       onTap: StacSequenceAction(
                         actions: [
                           _locationSelectorBottomSheetAction(
-                            title: 'انتخاب شهر',
+                            title:
+                                '{{appStrings.generated.gift_card.gift_card_receiver_info.select_city}}',
                             selectedKey: 'giftCardRealReceiverCity',
                             options: _cityOptions,
                           ),
@@ -178,10 +203,13 @@ StacWidget giftCardRealReceiverInfo() {
                       ),
                     ),
                     StacSizedBox(height: 24),
-                    _buildLabel('کد پستی گیرنده'),
+                    _buildLabel(
+                      '{{appStrings.generated.gift_card.gift_card_receiver_info.postal_code_receiver}}',
+                    ),
                     StacSizedBox(height: 8),
                     _buildInput(
-                      hint: 'کد پستی را وارد کنید',
+                      hint:
+                          '{{appStrings.generated.gift_card.gift_card_receiver_info.postal_code_enter_message}}',
                       id: 'gift_card_receiver_postal_code',
                       keyboardType: 'number',
                       maxLength: 10,
@@ -191,10 +219,13 @@ StacWidget giftCardRealReceiverInfo() {
                       onChanged: _receiverFormValidationAction(),
                     ),
                     StacSizedBox(height: 24),
-                    _buildLabel('آدرس پستی گیرنده'),
+                    _buildLabel(
+                      '{{appStrings.generated.gift_card.gift_card_receiver_info.receiver_address_postal}}',
+                    ),
                     StacSizedBox(height: 8),
                     _buildInput(
-                      hint: 'آدرس پستی را وارد کنید',
+                      hint:
+                          '{{appStrings.generated.gift_card.gift_card_receiver_info.address_postal_enter_message}}',
                       id: 'gift_card_receiver_address',
                       minLines: 4,
                       maxLines: 4,
@@ -231,7 +262,7 @@ StacWidget giftCardRealReceiverInfo() {
                   elevation: 0,
                 ).toJson(),
                 child: StacText(
-                  data: 'ادامه',
+                  data: '{{appStrings.common.continue}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 18,
@@ -340,15 +371,18 @@ StacAction _locationSelectorBottomSheetAction({
   });
 }
 
-
 StacAction _deliveryDateTimeBottomSheetAction() {
   return _proxyLegacyBottomSheetAction({
     'actionType': 'showGiftCardSelectDateBottomSheet',
-    'title': 'لطفا تاریخ و بازه‌زمانی تحویل هدیه را انتخاب کنید',
-    'dateTitle': 'تاریخ تحویل',
-    'timeTitle': 'محدوده ساعتی تحویل',
-    'confirmText': 'تایید',
-    'noDateSelectedText': 'تاریخی انتخاب نشده است',
+    'title':
+        '{{appStrings.generated.gift_card.gift_card_receiver_info.select_date}}',
+    'dateTitle':
+        '{{appStrings.generated.gift_card.gift_card_receiver_info.date}}',
+    'timeTitle':
+        '{{appStrings.generated.gift_card.gift_card_receiver_info.time}}',
+    'confirmText': '{{appStrings.common.confirm}}',
+    'noDateSelectedText':
+        '{{appStrings.generated.gift_card.gift_card_receiver_info.select_date_message}}',
     'dateOptions': _deliveryDateOptions,
     'timeOptions': _deliveryTimeOptions,
     'selectedDateKey': 'giftCardRealDeliveryDate',
@@ -373,7 +407,6 @@ StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
     ).toJson(),
   );
 }
-
 
 StacWidget _buildDropdownLike({
   required String valueKey,
@@ -417,4 +450,3 @@ StacWidget _buildDropdownLike({
     ),
   );
 }
-

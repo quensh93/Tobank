@@ -47,7 +47,11 @@ StacWidget promissoryRealDebugMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'promissory_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'promissory_intro',
+              navMode: NavModes.localJson,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -66,7 +70,11 @@ StacWidget promissoryRealDebugMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'promissory_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'promissory_intro',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -85,7 +93,11 @@ StacWidget promissoryRealDebugMenu() {
           ),
           StacSizedBox(height: 16),
           StacOutlinedButton(
-            onPressed: NavigationAction(fileName: 'promissory_loader', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushReplacement),
+            onPressed: NavigationAction(
+              fileName: 'promissory_loader',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.pushReplacement,
+            ),
             style: StacButtonStyle(
               backgroundColor:
                   '{{appColors.current.button.primary.backgroundColor}}',
@@ -131,7 +143,11 @@ StacWidget promissoryRealDebugMenu() {
           ),
           StacSizedBox(height: 16),
           StacOutlinedButton(
-            onPressed: NavigationAction(fileName: 'login_form_dart', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'login_form_dart',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
             ),

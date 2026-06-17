@@ -39,7 +39,7 @@ StacWidget chargeRealAddSim() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'شارژ',
+        title: '{{appStrings.homePage.services.topUp}}',
       ),
       body: StacStack(
         children: [
@@ -61,7 +61,8 @@ StacWidget chargeRealAddSim() {
                         crossAxisAlignment: StacCrossAxisAlignment.stretch,
                         children: [
                           StacText(
-                            data: 'شماره سیم کارت اعتباری را وارد کنید',
+                            data:
+                                '{{appStrings.generated.charge.charge_add_sim.title}}',
                             textDirection: StacTextDirection.rtl,
                             textAlign: StacTextAlign.right,
                             style: StacCustomTextStyle(
@@ -105,9 +106,9 @@ StacWidget chargeRealAddSim() {
                                         onContactSelected:
                                             _addValidationAction(),
                                         permissionDeniedMessage:
-                                            'دسترسی مخاطبین مجاز نیست',
+                                            '{{appStrings.generated.card_management.card_management_root.not}}',
                                         invalidMobileMessage:
-                                            'شماره همراه معتبر در مخاطب یافت نشد',
+                                            '{{appStrings.generated.card_management.card_management_root.mobile_number}}',
                                       ),
                                       child: StacImage(
                                         src: 'assets/icons/ic_pick_contact.svg',
@@ -132,7 +133,8 @@ StacWidget chargeRealAddSim() {
                             child: StacPadding(
                               padding: StacEdgeInsets.only(top: 8, right: 6),
                               child: StacText(
-                                data: 'شماره همراه نامعتبر است',
+                                data:
+                                    '{{appStrings.generated.charge.charge_add_sim.mobile_number}}',
                                 textDirection: StacTextDirection.rtl,
                                 textAlign: StacTextAlign.right,
                                 style: StacCustomTextStyle(
@@ -149,7 +151,8 @@ StacWidget chargeRealAddSim() {
                             child: StacPadding(
                               padding: StacEdgeInsets.only(top: 8, right: 6),
                               child: StacText(
-                                data: 'اپراتور مورد نظر پشتیبانی نمی‌شود',
+                                data:
+                                    '{{appStrings.generated.charge.charge_add_sim.unsupported_operator_message}}',
                                 textDirection: StacTextDirection.rtl,
                                 textAlign: StacTextAlign.right,
                                 style: StacCustomTextStyle(
@@ -325,16 +328,25 @@ StacAction _normalContinueAction() {
           {'key': 'crSimHasItems', 'value': true},
           {'key': 'crSimShowDuplicateBanner', 'value': false},
           {'key': 'crSim3Visible', 'value': true},
-          {'key': 'crSim3Operator', 'value': 'ایرانسل'},
+          {
+            'key': 'crSim3Operator',
+            'value':
+                '{{appStrings.generated.charge.charge_add_sim.irancell_operator}}',
+          },
           {'key': 'crSim3Logo', 'value': 'assets/icons/ic_irancell.svg'},
           {'key': 'crSim1Selected', 'value': false},
           {'key': 'crSim2Selected', 'value': false},
           {'key': 'crSim3Selected', 'value': true},
-          {'key': 'crActiveSimOperator', 'value': 'ایرانسل'},
+          {
+            'key': 'crActiveSimOperator',
+            'value':
+                '{{appStrings.generated.charge.charge_add_sim.irancell_operator}}',
+          },
           {'key': 'crActiveSimLogo', 'value': 'assets/icons/ic_irancell.svg'},
           {
             'key': 'crSim3Operator',
-            'value': 'همراه اول',
+            'value':
+                '{{appStrings.generated.charge.charge_add_sim.mci_operator}}',
             'condition': 'crAddIsMci',
           },
           {
@@ -344,7 +356,8 @@ StacAction _normalContinueAction() {
           },
           {
             'key': 'crActiveSimOperator',
-            'value': 'همراه اول',
+            'value':
+                '{{appStrings.generated.charge.charge_add_sim.mci_operator}}',
             'condition': 'crAddIsMci',
           },
           {
@@ -367,7 +380,11 @@ StacAction _normalContinueAction() {
         key: 'crActiveSimNumber',
         value: '{{crAddEnteredPhone}}',
       ),
-      NavigationAction(fileName: 'charge_package_list', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      NavigationAction(
+        fileName: 'charge_package_list',
+        navMode: NavModes.dart,
+        navigationStyle: NavigationStyle.push,
+      ),
     ],
   );
 }
@@ -469,7 +486,8 @@ StacAction _confirmPortedFlowAction() {
           {'key': 'crAddShowSimTypeSheet', 'value': false},
           {
             'key': 'crSim3Operator',
-            'value': 'همراه اول',
+            'value':
+                '{{appStrings.generated.charge.charge_add_sim.mci_operator}}',
             'condition': 'crAddOpMciSel',
           },
           {
@@ -479,7 +497,8 @@ StacAction _confirmPortedFlowAction() {
           },
           {
             'key': 'crSim3Operator',
-            'value': 'ایرانسل',
+            'value':
+                '{{appStrings.generated.charge.charge_add_sim.irancell_operator}}',
             'condition': 'crAddOpIrancellSel',
           },
           {
@@ -489,7 +508,8 @@ StacAction _confirmPortedFlowAction() {
           },
           {
             'key': 'crSim3Operator',
-            'value': 'رایتل',
+            'value':
+                '{{appStrings.generated.charge.charge_add_sim.rightel_operator}}',
             'condition': 'crAddOpRightelSel',
           },
           {
@@ -499,7 +519,8 @@ StacAction _confirmPortedFlowAction() {
           },
           {
             'key': 'crActiveSimOperator',
-            'value': 'همراه اول',
+            'value':
+                '{{appStrings.generated.charge.charge_add_sim.mci_operator}}',
             'condition': 'crAddOpMciSel',
           },
           {
@@ -509,7 +530,8 @@ StacAction _confirmPortedFlowAction() {
           },
           {
             'key': 'crActiveSimOperator',
-            'value': 'ایرانسل',
+            'value':
+                '{{appStrings.generated.charge.charge_add_sim.irancell_operator}}',
             'condition': 'crAddOpIrancellSel',
           },
           {
@@ -519,7 +541,8 @@ StacAction _confirmPortedFlowAction() {
           },
           {
             'key': 'crActiveSimOperator',
-            'value': 'رایتل',
+            'value':
+                '{{appStrings.generated.charge.charge_add_sim.rightel_operator}}',
             'condition': 'crAddOpRightelSel',
           },
           {
@@ -537,7 +560,11 @@ StacAction _confirmPortedFlowAction() {
         key: 'crActiveSimNumber',
         value: '{{crAddEnteredPhone}}',
       ),
-      NavigationAction(fileName: 'charge_package_list', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      NavigationAction(
+        fileName: 'charge_package_list',
+        navMode: NavModes.dart,
+        navigationStyle: NavigationStyle.push,
+      ),
     ],
   );
 }
@@ -559,7 +586,7 @@ StacWidget _buildDisabledContinueButton() {
           elevation: 0,
         ),
         child: StacText(
-          data: 'ادامه',
+          data: '{{appStrings.common.continue}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 16,
@@ -594,7 +621,7 @@ StacWidget _buildCaseContinueButton({
           elevation: 0,
         ).toJson(),
         'child': StacText(
-          data: 'ادامه',
+          data: '{{appStrings.common.continue}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 16,
@@ -633,7 +660,7 @@ StacWidget _buildOperatorSheet() {
         ),
         StacSizedBox(height: 16),
         StacText(
-          data: 'اپراتور',
+          data: '{{appStrings.generated.charge.charge_add_sim.operator_label}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.center,
           style: StacCustomTextStyle(
@@ -643,7 +670,8 @@ StacWidget _buildOperatorSheet() {
         ),
         StacSizedBox(height: 8),
         StacText(
-          data: 'در صورت ترابرد سیم‌کارت اپراتور خود را انتخاب نمایید',
+          data:
+              '{{appStrings.generated.charge.charge_add_sim.sim_card_select}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.center,
           style: StacCustomTextStyle(
@@ -653,21 +681,23 @@ StacWidget _buildOperatorSheet() {
         ),
         StacSizedBox(height: 14),
         _operatorItem(
-          title: 'همراه اول',
+          title: '{{appStrings.generated.charge.charge_add_sim.mci_operator}}',
           logo: 'assets/icons/ic_hamrah_aval.svg',
           selectedKey: 'crAddOpMciSel',
           onTap: _operatorSelectAction('mci'),
         ),
         StacSizedBox(height: 10),
         _operatorItem(
-          title: 'ایرانسل',
+          title:
+              '{{appStrings.generated.charge.charge_add_sim.irancell_operator}}',
           logo: 'assets/icons/ic_irancell.svg',
           selectedKey: 'crAddOpIrancellSel',
           onTap: _operatorSelectAction('irancell'),
         ),
         StacSizedBox(height: 10),
         _operatorItem(
-          title: 'رایتل',
+          title:
+              '{{appStrings.generated.charge.charge_add_sim.rightel_operator}}',
           logo: 'assets/icons/ic_rightel.svg',
           selectedKey: 'crAddOpRightelSel',
           onTap: _operatorSelectAction('rightel'),
@@ -690,7 +720,7 @@ StacWidget _buildOperatorSheet() {
             elevation: 0,
           ),
           child: StacText(
-            data: 'تایید و ادامه',
+            data: '{{appStrings.authentication.confirmAndContinue}}',
             textDirection: StacTextDirection.rtl,
             style: StacCustomTextStyle(
               fontSize: 16,
@@ -807,7 +837,7 @@ StacWidget _buildSimTypeSheet() {
         ),
         StacSizedBox(height: 16),
         StacText(
-          data: 'نوع سیم کارت',
+          data: '{{appStrings.generated.charge.charge_add_sim.sim_card}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.center,
           style: StacCustomTextStyle(
@@ -827,13 +857,15 @@ StacWidget _buildSimTypeSheet() {
         ),
         StacSizedBox(height: 14),
         _simTypeItem(
-          title: 'دائمی',
+          title:
+              '{{appStrings.generated.charge.charge_add_sim.postpaid_sim_type}}',
           selectedKey: 'crAddTypePermanentSel',
           onTap: _simTypeSelectAction('permanent'),
         ),
         StacSizedBox(height: 10),
         _simTypeItem(
-          title: 'اعتباری',
+          title:
+              '{{appStrings.generated.charge.charge_add_sim.prepaid_sim_type}}',
           selectedKey: 'crAddTypeCreditSel',
           onTap: _simTypeSelectAction('credit'),
         ),
@@ -850,7 +882,7 @@ StacWidget _buildSimTypeSheet() {
             elevation: 0,
           ),
           child: StacText(
-            data: 'تایید و ادامه',
+            data: '{{appStrings.authentication.confirmAndContinue}}',
             textDirection: StacTextDirection.rtl,
             style: StacCustomTextStyle(
               fontSize: 16,
@@ -967,7 +999,7 @@ StacWidget _buildDuplicateDialog() {
         ),
         StacSizedBox(height: 10),
         StacText(
-          data: 'مجاز نیست',
+          data: '{{appStrings.generated.charge.charge_add_sim.not}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.center,
           style: StacCustomTextStyle(
@@ -979,7 +1011,7 @@ StacWidget _buildDuplicateDialog() {
         StacSizedBox(height: 10),
         StacText(
           data:
-              'شماره انتخابی شما جز سیم‌کارت‌های تکراری می‌باشد، لطفا یکی دیگر انتخاب کنید.',
+              '{{appStrings.generated.charge.charge_add_sim.sim_card_select_number}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.center,
           style: StacCustomTextStyle(
@@ -1003,7 +1035,8 @@ StacWidget _buildDuplicateDialog() {
             elevation: 0,
           ),
           child: StacText(
-            data: 'متوجه شدم',
+            data:
+                '{{appStrings.generated.authentication.authentication_rules.understood}}',
             textDirection: StacTextDirection.rtl,
             style: StacCustomTextStyle(
               fontSize: 14,
@@ -1016,4 +1049,3 @@ StacWidget _buildDuplicateDialog() {
     ),
   );
 }
-

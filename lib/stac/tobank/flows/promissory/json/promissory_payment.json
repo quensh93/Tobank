@@ -430,7 +430,7 @@
                       {
                         "actionType": "setValue",
                         "key": "paymentMethod",
-                        "value": "کیف پول"
+                        "value": "{{appStrings.promissory.walletPayment}}"
                       },
                       {
                         "actionType": "setValue",
@@ -556,7 +556,7 @@
                       {
                         "actionType": "setValue",
                         "key": "paymentMethod",
-                        "value": "حساب"
+                        "value": "{{appStrings.generated.installment_payment.installment_payment_others_receipt.account}}"
                       },
                       {
                         "actionType": "setValue",
@@ -626,7 +626,7 @@
                               "imageType": "asset",
                               "width": 12,
                               "height": 12,
-                              "color": "__STAC_OPEN__appColors.current.primary.color}}"
+                              "color": "{{appColors.current.primary.color}}"
                             }
                           },
                           {
@@ -635,27 +635,27 @@
                           },
                           {
                             "type": "text",
-                            "data": "__STAC_OPEN__appStrings.promissory.payConfirmMessage}}",
+                            "data": "{{appStrings.promissory.payConfirmMessage}}",
                             "textDirection": "rtl",
                             "textAlign": "center",
                             "style": {
                               "type": "custom",
                               "fontSize": 16,
                               "fontWeight": "bold",
-                              "color": "__STAC_OPEN__appColors.current.text.title}}"
+                              "color": "{{appColors.current.text.title}}"
                             }
                           }
                         ]
                       },
                       "content": {
                         "type": "text",
-                        "data": "__STAC_OPEN__appStrings.promissory.signConfirmationMessage}}",
+                        "data": "{{appStrings.promissory.signConfirmationMessage}}",
                         "textDirection": "rtl",
                         "textAlign": "center",
                         "style": {
                           "type": "custom",
                           "fontSize": 14,
-                          "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                          "color": "{{appColors.current.text.subtitle}}"
                         }
                       },
                       "actions": [
@@ -685,7 +685,7 @@
                                     "actionType": "closeDialog"
                                   },
                                   "style": {
-                                    "foregroundColor": "__STAC_OPEN__appColors.current.text.title}}",
+                                    "foregroundColor": "{{appColors.current.text.title}}",
                                     "elevation": 0.0,
                                     "fixedSize": {
                                       "width": 999999.0,
@@ -703,13 +703,13 @@
                                   },
                                   "child": {
                                     "type": "text",
-                                    "data": "__STAC_OPEN__appStrings.common.cancel}}",
+                                    "data": "{{appStrings.common.cancel}}",
                                     "textDirection": "rtl",
                                     "style": {
                                       "type": "custom",
                                       "fontSize": 16,
                                       "fontWeight": "bold",
-                                      "color": "__STAC_OPEN__appColors.current.text.title}}"
+                                      "color": "{{appColors.current.text.title}}"
                                     }
                                   }
                                 }
@@ -735,27 +735,27 @@
                                       "method": "post",
                                       "data": {
                                         "issuerType": "I",
-                                        "issuerBirthDate": "__STAC_OPEN__replace(userData.birthDate, '/', '')}}",
-                                        "issuerNN": "__STAC_OPEN__userData.nationalCode}}",
+                                        "issuerBirthDate": "{{replace(userData.birthDate, '/', '')}}",
+                                        "issuerNN": "{{userData.nationalCode}}",
                                         "issuerSanaCheck": true,
-                                        "issuerCellphone": "__STAC_OPEN__removeLeadingZero(userData.mobile)}}",
-                                        "issuerFullName": "__STAC_OPEN__userData.fullName}}",
-                                        "issuerAddress": "__STAC_OPEN__userData.address}}",
-                                        "issuerPostalCode": "__STAC_OPEN__userData.postalCode}}",
-                                        "recipientType": "__STAC_OPEN__payload.recipientType}}",
-                                        "recipientBirthDate": "__STAC_OPEN__payload.recipientBirthDate}}",
-                                        "recipientNationalId": "__STAC_OPEN__payload.recipientNationalId}}",
-                                        "recipientCellphone": "__STAC_OPEN__payload.recipientCellphone}}",
-                                        "recipientFullName": "__STAC_OPEN__receiverIdentity.fullName}}",
-                                        "paymentPlace": "__STAC_OPEN__form.paymentPlace}}",
-                                        "amount": "__STAC_OPEN__toInt(form.promissory_amount)}}",
-                                        "dueDate": "__STAC_OPEN__replace(form.promissory_due_date, '/', '')}}",
-                                        "description": "__STAC_OPEN__form.description}}",
-                                        "transferable": "__STAC_OPEN__form.transferable}}"
+                                        "issuerCellphone": "{{removeLeadingZero(userData.mobile)}}",
+                                        "issuerFullName": "{{userData.fullName}}",
+                                        "issuerAddress": "{{userData.address}}",
+                                        "issuerPostalCode": "{{userData.postalCode}}",
+                                        "recipientType": "{{payload.recipientType}}",
+                                        "recipientBirthDate": "{{payload.recipientBirthDate}}",
+                                        "recipientNationalId": "{{payload.recipientNationalId}}",
+                                        "recipientCellphone": "{{payload.recipientCellphone}}",
+                                        "recipientFullName": "{{receiverIdentity.fullName}}",
+                                        "paymentPlace": "{{form.paymentPlace}}",
+                                        "amount": "{{toInt(form.promissory_amount)}}",
+                                        "dueDate": "{{replace(form.promissory_due_date, '/', '')}}",
+                                        "description": "{{form.description}}",
+                                        "transferable": "{{form.transferable}}"
                                       },
                                       "headers": {
                                         "accept": "application/json",
-                                        "authorization": "__STAC_OPEN__auth.accessToken}}",
+                                        "authorization": "{{auth.accessToken}}",
                                         "content-type": "application/json"
                                       },
                                       "results": [
@@ -769,15 +769,15 @@
                                                 "values": [
                                                   {
                                                     "key": "form.unsigned_pdf_id",
-                                                    "value": "__STAC_OPEN__data_payload.unSignedPdfId}}"
+                                                    "value": "{{data_payload.unSignedPdfId}}"
                                                   },
                                                   {
                                                     "key": "form.promissory_id",
-                                                    "value": "__STAC_OPEN__data_payload.id}}"
+                                                    "value": "{{data_payload.id}}"
                                                   },
                                                   {
                                                     "key": "rawTransactionTime",
-                                                    "value": "__STAC_OPEN__data.meta.time}}"
+                                                    "value": "{{data.meta.time}}"
                                                   }
                                                 ]
                                               },
@@ -800,8 +800,8 @@
                                   ]
                                 },
                                 "style": {
-                                  "foregroundColor": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
-                                  "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
+                                  "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                  "backgroundColor": "{{appColors.current.primary.color}}",
                                   "elevation": 0.0,
                                   "fixedSize": {
                                     "width": 999999.0,
@@ -819,13 +819,13 @@
                                 },
                                 "child": {
                                   "type": "text",
-                                  "data": "__STAC_OPEN__appStrings.common.confirm}}",
+                                  "data": "{{appStrings.common.confirm}}",
                                   "textDirection": "rtl",
                                   "style": {
                                     "type": "custom",
                                     "fontSize": 16,
                                     "fontWeight": "bold",
-                                    "color": "__STAC_OPEN__appColors.current.primary.onPrimary}}"
+                                    "color": "{{appColors.current.primary.onPrimary}}"
                                   }
                                 }
                               }

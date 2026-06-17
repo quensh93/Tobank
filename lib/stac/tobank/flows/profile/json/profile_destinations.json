@@ -82,7 +82,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "مخاطبین",
+        "data": "{{appStrings.profile.real.destinations.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -137,17 +137,17 @@
                     {
                       "tabs": [
                         {
-                          "text": "شبا",
+                          "text": "{{appStrings.profile.real.destinations.tabIban}}",
                           "height": 44.0,
                           "type": "tab"
                         },
                         {
-                          "text": "سپرده",
+                          "text": "{{appStrings.profile.real.destinations.tabDeposit}}",
                           "height": 44.0,
                           "type": "tab"
                         },
                         {
-                          "text": "کارت",
+                          "text": "{{appStrings.profile.real.destinations.tabCard}}",
                           "height": 44.0,
                           "type": "tab"
                         }
@@ -271,7 +271,7 @@
                                           "crossAxisAlignment": "stretch",
                                           "children": [
                                             {
-                                              "data": "مهدی جمشیدپور",
+                                              "data": "{{appStrings.profile.real.userName}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -287,7 +287,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "IR۰۶۰۶۶۷۶۱۱۸۲۸۰۰۱۰۰۰۸۸۷۰۱",
+                                              "data": "{{appStrings.profile.real.destinations.ibanItem1Subtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -452,7 +452,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "ویرایش",
+                                                    "data": "{{appStrings.verifyOtp.edit}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -529,8 +529,8 @@
                                                 },
                                                 {
                                                   "actionType": "showResult",
-                                                  "title": "ویرایش",
-                                                  "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                  "title": "{{appStrings.verifyOtp.edit}}",
+                                                  "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                 }
                                               ]
                                             },
@@ -568,7 +568,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "حذف",
+                                                    "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -645,8 +645,8 @@
                                                 },
                                                 {
                                                   "actionType": "showAppDialog",
-                                                  "title": "حذف کارت",
-                                                  "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                  "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                  "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                   "positiveText": "{{appStrings.common.confirm}}",
                                                   "negativeText": "{{appStrings.common.cancel}}",
                                                   "positiveAction": {
@@ -696,7 +696,7 @@
                                                                   "children": [
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "حذف شد",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -713,7 +713,7 @@
                                                                     },
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "مقصد با موفقیت حذف شد.",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -828,7 +828,7 @@
                                           "crossAxisAlignment": "stretch",
                                           "children": [
                                             {
-                                              "data": "علیرضا حیدریان",
+                                              "data": "{{appStrings.profile.real.destinations.depositItem2Title}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -844,7 +844,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "IR۰۵۰۱۴۰۰۲۰۰۰۰۰۰۰۰۹۸۸۸۸۸۵۰۱",
+                                              "data": "{{appStrings.profile.real.destinations.ibanItem2Subtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -1009,7 +1009,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "ویرایش",
+                                                    "data": "{{appStrings.verifyOtp.edit}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -1086,8 +1086,8 @@
                                                 },
                                                 {
                                                   "actionType": "showResult",
-                                                  "title": "ویرایش",
-                                                  "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                  "title": "{{appStrings.verifyOtp.edit}}",
+                                                  "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                 }
                                               ]
                                             },
@@ -1125,7 +1125,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "حذف",
+                                                    "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -1202,8 +1202,8 @@
                                                 },
                                                 {
                                                   "actionType": "showAppDialog",
-                                                  "title": "حذف کارت",
-                                                  "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                  "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                  "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                   "positiveText": "{{appStrings.common.confirm}}",
                                                   "negativeText": "{{appStrings.common.cancel}}",
                                                   "positiveAction": {
@@ -1253,7 +1253,7 @@
                                                                   "children": [
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "حذف شد",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -1270,7 +1270,7 @@
                                                                     },
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "مقصد با موفقیت حذف شد.",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -1385,7 +1385,7 @@
                                           "crossAxisAlignment": "stretch",
                                           "children": [
                                             {
-                                              "data": "سیدپارسا بنی طباء",
+                                              "data": "{{appStrings.generated.profile.profile_destinations.title}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -1401,7 +1401,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "IR۷۱۵۷۰۳۰۴۳۷۷۰۰۱۷۹۸۴۰۰۰۱۰۱",
+                                              "data": "{{appStrings.profile.real.destinations.ibanItem3Subtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -1566,7 +1566,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "ویرایش",
+                                                    "data": "{{appStrings.verifyOtp.edit}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -1643,8 +1643,8 @@
                                                 },
                                                 {
                                                   "actionType": "showResult",
-                                                  "title": "ویرایش",
-                                                  "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                  "title": "{{appStrings.verifyOtp.edit}}",
+                                                  "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                 }
                                               ]
                                             },
@@ -1682,7 +1682,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "حذف",
+                                                    "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -1759,8 +1759,8 @@
                                                 },
                                                 {
                                                   "actionType": "showAppDialog",
-                                                  "title": "حذف کارت",
-                                                  "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                  "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                  "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                   "positiveText": "{{appStrings.common.confirm}}",
                                                   "negativeText": "{{appStrings.common.cancel}}",
                                                   "positiveAction": {
@@ -1810,7 +1810,7 @@
                                                                   "children": [
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "حذف شد",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -1827,7 +1827,7 @@
                                                                     },
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "مقصد با موفقیت حذف شد.",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -1942,7 +1942,7 @@
                                           "crossAxisAlignment": "stretch",
                                           "children": [
                                             {
-                                              "data": "ندا رضمانی پور",
+                                              "data": "{{appStrings.generated.profile.profile_destinations.sample_contact_name}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -1958,7 +1958,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "IR۹۸۰۶۴۰۰۱۱۹۹۹۶۹۹۹۷۷۸۸۰۱",
+                                              "data": "{{appStrings.profile.real.destinations.ibanItem4Subtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -2123,7 +2123,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "ویرایش",
+                                                    "data": "{{appStrings.verifyOtp.edit}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2200,8 +2200,8 @@
                                                 },
                                                 {
                                                   "actionType": "showResult",
-                                                  "title": "ویرایش",
-                                                  "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                  "title": "{{appStrings.verifyOtp.edit}}",
+                                                  "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                 }
                                               ]
                                             },
@@ -2239,7 +2239,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "حذف",
+                                                    "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2316,8 +2316,8 @@
                                                 },
                                                 {
                                                   "actionType": "showAppDialog",
-                                                  "title": "حذف کارت",
-                                                  "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                  "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                  "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                   "positiveText": "{{appStrings.common.confirm}}",
                                                   "negativeText": "{{appStrings.common.cancel}}",
                                                   "positiveAction": {
@@ -2367,7 +2367,7 @@
                                                                   "children": [
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "حذف شد",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -2384,7 +2384,7 @@
                                                                     },
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "مقصد با موفقیت حذف شد.",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -2499,7 +2499,7 @@
                                           "crossAxisAlignment": "stretch",
                                           "children": [
                                             {
-                                              "data": "علی سینایی اصل",
+                                              "data": "{{appStrings.generated.profile.profile_destinations.ali_sinaei_asl_name}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -2515,7 +2515,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "IR۰۳۰۵۶۶۷۱۱۸۲۸۰۰۶۲۲۳۹۲۱۹۰۱",
+                                              "data": "{{appStrings.profile.real.destinations.ibanItem5Subtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -2680,7 +2680,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "ویرایش",
+                                                    "data": "{{appStrings.verifyOtp.edit}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2757,8 +2757,8 @@
                                                 },
                                                 {
                                                   "actionType": "showResult",
-                                                  "title": "ویرایش",
-                                                  "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                  "title": "{{appStrings.verifyOtp.edit}}",
+                                                  "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                 }
                                               ]
                                             },
@@ -2796,7 +2796,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "حذف",
+                                                    "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2873,8 +2873,8 @@
                                                 },
                                                 {
                                                   "actionType": "showAppDialog",
-                                                  "title": "حذف کارت",
-                                                  "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                  "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                  "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                   "positiveText": "{{appStrings.common.confirm}}",
                                                   "negativeText": "{{appStrings.common.cancel}}",
                                                   "positiveAction": {
@@ -2924,7 +2924,7 @@
                                                                   "children": [
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "حذف شد",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -2941,7 +2941,7 @@
                                                                     },
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "مقصد با موفقیت حذف شد.",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -3056,7 +3056,7 @@
                                           "crossAxisAlignment": "stretch",
                                           "children": [
                                             {
-                                              "data": "علیرضا حیدریان",
+                                              "data": "{{appStrings.profile.real.destinations.depositItem2Title}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -3072,7 +3072,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "IR۰۵۱۴۴۰۰۰۰۰۰۰۰۱۱۰۷۵۵۸۰۹۱",
+                                              "data": "{{appStrings.profile.real.destinations.ibanItem6Subtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -3237,7 +3237,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "ویرایش",
+                                                    "data": "{{appStrings.verifyOtp.edit}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -3314,8 +3314,8 @@
                                                 },
                                                 {
                                                   "actionType": "showResult",
-                                                  "title": "ویرایش",
-                                                  "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                  "title": "{{appStrings.verifyOtp.edit}}",
+                                                  "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                 }
                                               ]
                                             },
@@ -3353,7 +3353,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "حذف",
+                                                    "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -3430,8 +3430,8 @@
                                                 },
                                                 {
                                                   "actionType": "showAppDialog",
-                                                  "title": "حذف کارت",
-                                                  "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                  "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                  "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                   "positiveText": "{{appStrings.common.confirm}}",
                                                   "negativeText": "{{appStrings.common.cancel}}",
                                                   "positiveAction": {
@@ -3481,7 +3481,7 @@
                                                                   "children": [
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "حذف شد",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -3498,7 +3498,7 @@
                                                                     },
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "مقصد با موفقیت حذف شد.",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -3617,7 +3617,7 @@
                                           "crossAxisAlignment": "stretch",
                                           "children": [
                                             {
-                                              "data": "علیرضا حیدریان",
+                                              "data": "{{appStrings.profile.real.destinations.depositItem2Title}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -3633,7 +3633,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "۱۱۰.۹۹۹۳.۷۶۳۴۰۵۰.۱",
+                                              "data": "{{appStrings.profile.real.destinations.depositItem2Subtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -3798,7 +3798,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "ویرایش",
+                                                    "data": "{{appStrings.verifyOtp.edit}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -3875,8 +3875,8 @@
                                                 },
                                                 {
                                                   "actionType": "showResult",
-                                                  "title": "ویرایش",
-                                                  "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                  "title": "{{appStrings.verifyOtp.edit}}",
+                                                  "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                 }
                                               ]
                                             },
@@ -3914,7 +3914,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "حذف",
+                                                    "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -3991,8 +3991,8 @@
                                                 },
                                                 {
                                                   "actionType": "showAppDialog",
-                                                  "title": "حذف کارت",
-                                                  "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                  "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                  "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                   "positiveText": "{{appStrings.common.confirm}}",
                                                   "negativeText": "{{appStrings.common.cancel}}",
                                                   "positiveAction": {
@@ -4042,7 +4042,7 @@
                                                                   "children": [
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "حذف شد",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -4059,7 +4059,7 @@
                                                                     },
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "مقصد با موفقیت حذف شد.",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -4174,7 +4174,7 @@
                                           "crossAxisAlignment": "stretch",
                                           "children": [
                                             {
-                                              "data": "سیدپارسا بنی طباء",
+                                              "data": "{{appStrings.generated.profile.profile_destinations.title}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -4190,7 +4190,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "۱۱۰.۹۹۹۲.۱۶۱۳۹۸۸.۱",
+                                              "data": "{{appStrings.generated.profile.profile_destinations.amount_value}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -4355,7 +4355,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "ویرایش",
+                                                    "data": "{{appStrings.verifyOtp.edit}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -4432,8 +4432,8 @@
                                                 },
                                                 {
                                                   "actionType": "showResult",
-                                                  "title": "ویرایش",
-                                                  "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                  "title": "{{appStrings.verifyOtp.edit}}",
+                                                  "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                 }
                                               ]
                                             },
@@ -4471,7 +4471,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "حذف",
+                                                    "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -4548,8 +4548,8 @@
                                                 },
                                                 {
                                                   "actionType": "showAppDialog",
-                                                  "title": "حذف کارت",
-                                                  "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                  "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                  "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                   "positiveText": "{{appStrings.common.confirm}}",
                                                   "negativeText": "{{appStrings.common.cancel}}",
                                                   "positiveAction": {
@@ -4599,7 +4599,7 @@
                                                                   "children": [
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "حذف شد",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -4616,7 +4616,7 @@
                                                                     },
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "مقصد با موفقیت حذف شد.",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -4731,7 +4731,7 @@
                                           "crossAxisAlignment": "stretch",
                                           "children": [
                                             {
-                                              "data": "سیدپارسا بنی طباء",
+                                              "data": "{{appStrings.generated.profile.profile_destinations.title}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -4747,7 +4747,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "۱۱۰.۷۰.۱۶۱۳۹۸۸.۱",
+                                              "data": "{{appStrings.generated.profile.profile_destinations.amount_value_text}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -4912,7 +4912,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "ویرایش",
+                                                    "data": "{{appStrings.verifyOtp.edit}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -4989,8 +4989,8 @@
                                                 },
                                                 {
                                                   "actionType": "showResult",
-                                                  "title": "ویرایش",
-                                                  "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                  "title": "{{appStrings.verifyOtp.edit}}",
+                                                  "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                 }
                                               ]
                                             },
@@ -5028,7 +5028,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "حذف",
+                                                    "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -5105,8 +5105,8 @@
                                                 },
                                                 {
                                                   "actionType": "showAppDialog",
-                                                  "title": "حذف کارت",
-                                                  "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                  "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                  "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                   "positiveText": "{{appStrings.common.confirm}}",
                                                   "negativeText": "{{appStrings.common.cancel}}",
                                                   "positiveAction": {
@@ -5156,7 +5156,7 @@
                                                                   "children": [
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "حذف شد",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -5173,7 +5173,7 @@
                                                                     },
                                                                     {
                                                                       "type": "text",
-                                                                      "data": "مقصد با موفقیت حذف شد.",
+                                                                      "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                       "textDirection": "rtl",
                                                                       "textAlign": "right",
                                                                       "style": {
@@ -5296,7 +5296,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "گردشگری - شعبه مجازی",
+                                                      "data": "{{appStrings.profile.real.destinations.cardItem2Title}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -5312,7 +5312,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۵۵۰۴ - ۱۶۱۷ - ۰۲۳۳ - ۸۰۸۳",
+                                                      "data": "{{appStrings.generated.profile.profile_destinations.card_number}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -5477,7 +5477,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "ویرایش",
+                                                            "data": "{{appStrings.verifyOtp.edit}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -5554,8 +5554,8 @@
                                                         },
                                                         {
                                                           "actionType": "showResult",
-                                                          "title": "ویرایش",
-                                                          "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                          "title": "{{appStrings.verifyOtp.edit}}",
+                                                          "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                         }
                                                       ]
                                                     },
@@ -5593,7 +5593,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "حذف",
+                                                            "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -5670,8 +5670,8 @@
                                                         },
                                                         {
                                                           "actionType": "showAppDialog",
-                                                          "title": "حذف کارت",
-                                                          "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                          "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                          "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                           "positiveText": "{{appStrings.common.confirm}}",
                                                           "negativeText": "{{appStrings.common.cancel}}",
                                                           "positiveAction": {
@@ -5721,7 +5721,7 @@
                                                                           "children": [
                                                                             {
                                                                               "type": "text",
-                                                                              "data": "حذف شد",
+                                                                              "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                               "textDirection": "rtl",
                                                                               "textAlign": "right",
                                                                               "style": {
@@ -5738,7 +5738,7 @@
                                                                             },
                                                                             {
                                                                               "type": "text",
-                                                                              "data": "مقصد با موفقیت حذف شد.",
+                                                                              "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                               "textDirection": "rtl",
                                                                               "textAlign": "right",
                                                                               "style": {
@@ -5853,7 +5853,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "گردشگری - شعبه مجازی",
+                                                      "data": "{{appStrings.profile.real.destinations.cardItem2Title}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -5869,7 +5869,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۵۵۰۴ - ۱۶۱۷ - ۰۳۳۳ - ۳۸۱۱",
+                                                      "data": "{{appStrings.generated.profile.profile_destinations.card_number_text}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -6034,7 +6034,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "ویرایش",
+                                                            "data": "{{appStrings.verifyOtp.edit}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -6111,8 +6111,8 @@
                                                         },
                                                         {
                                                           "actionType": "showResult",
-                                                          "title": "ویرایش",
-                                                          "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                          "title": "{{appStrings.verifyOtp.edit}}",
+                                                          "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                         }
                                                       ]
                                                     },
@@ -6150,7 +6150,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "حذف",
+                                                            "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -6227,8 +6227,8 @@
                                                         },
                                                         {
                                                           "actionType": "showAppDialog",
-                                                          "title": "حذف کارت",
-                                                          "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                          "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                          "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                           "positiveText": "{{appStrings.common.confirm}}",
                                                           "negativeText": "{{appStrings.common.cancel}}",
                                                           "positiveAction": {
@@ -6278,7 +6278,7 @@
                                                                           "children": [
                                                                             {
                                                                               "type": "text",
-                                                                              "data": "حذف شد",
+                                                                              "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                               "textDirection": "rtl",
                                                                               "textAlign": "right",
                                                                               "style": {
@@ -6295,7 +6295,7 @@
                                                                             },
                                                                             {
                                                                               "type": "text",
-                                                                              "data": "مقصد با موفقیت حذف شد.",
+                                                                              "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                               "textDirection": "rtl",
                                                                               "textAlign": "right",
                                                                               "style": {
@@ -6410,7 +6410,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "گردشگری - شعبه مجازی",
+                                                      "data": "{{appStrings.profile.real.destinations.cardItem2Title}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -6426,7 +6426,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۵۵۰۴ - ۱۶۱۷ - ۰۳۳۶ - ۵۵۴۰",
+                                                      "data": "{{appStrings.generated.profile.profile_destinations.card_number_label}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -6591,7 +6591,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "ویرایش",
+                                                            "data": "{{appStrings.verifyOtp.edit}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -6668,8 +6668,8 @@
                                                         },
                                                         {
                                                           "actionType": "showResult",
-                                                          "title": "ویرایش",
-                                                          "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                          "title": "{{appStrings.verifyOtp.edit}}",
+                                                          "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                         }
                                                       ]
                                                     },
@@ -6707,7 +6707,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "حذف",
+                                                            "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -6784,8 +6784,8 @@
                                                         },
                                                         {
                                                           "actionType": "showAppDialog",
-                                                          "title": "حذف کارت",
-                                                          "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                          "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                          "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                           "positiveText": "{{appStrings.common.confirm}}",
                                                           "negativeText": "{{appStrings.common.cancel}}",
                                                           "positiveAction": {
@@ -6835,7 +6835,7 @@
                                                                           "children": [
                                                                             {
                                                                               "type": "text",
-                                                                              "data": "حذف شد",
+                                                                              "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                               "textDirection": "rtl",
                                                                               "textAlign": "right",
                                                                               "style": {
@@ -6852,7 +6852,7 @@
                                                                             },
                                                                             {
                                                                               "type": "text",
-                                                                              "data": "مقصد با موفقیت حذف شد.",
+                                                                              "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                               "textDirection": "rtl",
                                                                               "textAlign": "right",
                                                                               "style": {
@@ -6967,7 +6967,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "سیدپارسا بنی طباء",
+                                                      "data": "{{appStrings.generated.profile.profile_destinations.title}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -6983,7 +6983,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۶۲۱۹ - ۸۶۱۹ - ۳۸۳۹ - ۰۷۸۷",
+                                                      "data": "{{appStrings.generated.profile.profile_destinations.card_number_message}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -7148,7 +7148,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "ویرایش",
+                                                            "data": "{{appStrings.verifyOtp.edit}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -7225,8 +7225,8 @@
                                                         },
                                                         {
                                                           "actionType": "showResult",
-                                                          "title": "ویرایش",
-                                                          "content": "ویرایش مقصد به زودی فعال می‌شود."
+                                                          "title": "{{appStrings.verifyOtp.edit}}",
+                                                          "content": "{{appStrings.generated.profile.profile_destinations.edit_active}}"
                                                         }
                                                       ]
                                                     },
@@ -7264,7 +7264,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "حذف",
+                                                            "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -7341,8 +7341,8 @@
                                                         },
                                                         {
                                                           "actionType": "showAppDialog",
-                                                          "title": "حذف کارت",
-                                                          "description": "آیا از حذف این مقصد اطمینان دارید؟",
+                                                          "title": "{{appStrings.generated.card_management.card_management_root.delete_card}}",
+                                                          "description": "{{appStrings.generated.profile.profile_destinations.delete_message}}",
                                                           "positiveText": "{{appStrings.common.confirm}}",
                                                           "negativeText": "{{appStrings.common.cancel}}",
                                                           "positiveAction": {
@@ -7392,7 +7392,7 @@
                                                                           "children": [
                                                                             {
                                                                               "type": "text",
-                                                                              "data": "حذف شد",
+                                                                              "data": "{{appStrings.generated.profile.profile_destinations.delete}}",
                                                                               "textDirection": "rtl",
                                                                               "textAlign": "right",
                                                                               "style": {
@@ -7409,7 +7409,7 @@
                                                                             },
                                                                             {
                                                                               "type": "text",
-                                                                              "data": "مقصد با موفقیت حذف شد.",
+                                                                              "data": "{{appStrings.generated.profile.profile_destinations.successfully_delete}}",
                                                                               "textDirection": "rtl",
                                                                               "textAlign": "right",
                                                                               "style": {
@@ -7560,7 +7560,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "افزودن کارت مقصد",
+                                      "data": "{{appStrings.profile.real.destinations.addDestinationButton}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.button.primary.foregroundColor}}",
@@ -7660,7 +7660,7 @@
                           "children": [
                             {
                               "child": {
-                                "data": "افزودن کارت جدید",
+                                "data": "{{appStrings.profile.real.destinations.addCardTitle}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -7722,7 +7722,7 @@
                                             "children": [
                                               {
                                                 "type": "text",
-                                                "data": "خطا",
+                                                "data": "{{appStrings.common.error}}",
                                                 "textDirection": "rtl",
                                                 "textAlign": "right",
                                                 "style": {
@@ -7739,7 +7739,7 @@
                                               },
                                               {
                                                 "type": "text",
-                                                "data": "اسکن کارت ناموفق بود.",
+                                                "data": "{{appStrings.generated.profile.profile_destinations.failed_card}}",
                                                 "textDirection": "rtl",
                                                 "textAlign": "right",
                                                 "style": {
@@ -7824,7 +7824,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "اسکن کارت",
+                                    "data": "{{appStrings.profile.real.destinations.scanCard}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -7846,7 +7846,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "شماره کارت",
+                          "data": "{{appStrings.profile.real.destinations.cardNumberLabel}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -7864,7 +7864,7 @@
                         {
                           "id": "profileRealDestinationCardNumber",
                           "decoration": {
-                            "hintText": "یک شماره کارت معتبر وارد نمایید",
+                            "hintText": "{{appStrings.profile.real.destinations.cardNumberHint}}",
                             "hintStyle": {
                               "type": "custom",
                               "color": "{{appColors.current.text.hint}}",
@@ -7889,7 +7889,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "عنوان کارت",
+                          "data": "{{appStrings.profile.real.destinations.cardTitleLabel}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -7907,7 +7907,7 @@
                         {
                           "id": "profileRealDestinationCardTitle",
                           "decoration": {
-                            "hintText": "عنوان کارت را وارد کنید",
+                            "hintText": "{{appStrings.profile.real.destinations.cardTitleHint}}",
                             "hintStyle": {
                               "type": "custom",
                               "color": "{{appColors.current.text.hint}}",
@@ -7942,8 +7942,8 @@
                               },
                               {
                                 "actionType": "showResult",
-                                "title": "ثبت",
-                                "content": "کارت مقصد با موفقیت ثبت شد."
+                                "title": "{{appStrings.profile.real.destinations.submitTitle}}",
+                                "content": "{{appStrings.profile.real.destinations.submitContent}}"
                               }
                             ]
                           },
@@ -7964,7 +7964,7 @@
                             }
                           },
                           "child": {
-                            "data": "ثبت",
+                            "data": "{{appStrings.profile.real.destinations.submitTitle}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.button.primary.foregroundColor}}",

@@ -54,7 +54,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "کارت هدیه",
+        "data": "{{appStrings.homePage.services.giftCard}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -124,7 +124,7 @@
                       "bottom": 14.0
                     },
                     "child": {
-                      "data": "لطفا یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود",
+                      "data": "{{appStrings.generated.gift_card.gift_card_custom_message.select_text_until_bank_text}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.subtitle}}",
@@ -148,7 +148,7 @@
                   "textDirection": "rtl",
                   "children": [
                     {
-                      "data": "متن پیش‌فرض جایگزین",
+                      "data": "{{appStrings.generated.gift_card.gift_card_custom_message.default_replacement_text}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -205,7 +205,7 @@
                       "children": [
                         {
                           "child": {
-                            "data": "آرزومند خوشبختی شما",
+                            "data": "{{appStrings.generated.gift_card.gift_card_custom_message.happiness_wish_message}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -290,7 +290,7 @@
                       {
                         "actionType": "setValue",
                         "key": "giftCardRealCustomReplacementMessage",
-                        "value": "آرزومند خوشبختی شما"
+                        "value": "{{appStrings.generated.gift_card.gift_card_custom_message.happiness_wish_message}}"
                       },
                       {
                         "actionType": "setValue",
@@ -344,7 +344,7 @@
                       "children": [
                         {
                           "child": {
-                            "data": "همسر عزیزم سالروز عهد و پیمان جاویدانمان مبارک",
+                            "data": "{{appStrings.generated.gift_card.gift_card_custom_message.wedding_anniversary_message}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -429,7 +429,7 @@
                       {
                         "actionType": "setValue",
                         "key": "giftCardRealCustomReplacementMessage",
-                        "value": "همسر عزیزم سالروز عهد و پیمان جاویدانمان مبارک"
+                        "value": "{{appStrings.generated.gift_card.gift_card_custom_message.wedding_anniversary_message}}"
                       },
                       {
                         "actionType": "setValue",
@@ -483,7 +483,7 @@
                       "children": [
                         {
                           "child": {
-                            "data": "تمام قلبم مال توست",
+                            "data": "{{appStrings.generated.gift_card.gift_card_custom_message.all_my_heart_message}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -568,7 +568,7 @@
                       {
                         "actionType": "setValue",
                         "key": "giftCardRealCustomReplacementMessage",
-                        "value": "تمام قلبم مال توست"
+                        "value": "{{appStrings.generated.gift_card.gift_card_custom_message.all_my_heart_message}}"
                       },
                       {
                         "actionType": "setValue",
@@ -622,7 +622,7 @@
                       "children": [
                         {
                           "child": {
-                            "data": "دوستت دارم، همراه همیشگی من",
+                            "data": "{{appStrings.generated.gift_card.gift_card_custom_message.forever_companion_message}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -707,7 +707,7 @@
                       {
                         "actionType": "setValue",
                         "key": "giftCardRealCustomReplacementMessage",
-                        "value": "دوستت دارم، همراه همیشگی من"
+                        "value": "{{appStrings.generated.gift_card.gift_card_custom_message.forever_companion_message}}"
                       },
                       {
                         "actionType": "setValue",
@@ -761,7 +761,7 @@
                       "children": [
                         {
                           "child": {
-                            "data": "خوشا دلی که دلدارش تو گردی، خوشا جانی که جانانش تو باشی",
+                            "data": "{{appStrings.generated.gift_card.gift_card_custom_message.romantic_poem_message}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -846,7 +846,7 @@
                       {
                         "actionType": "setValue",
                         "key": "giftCardRealCustomReplacementMessage",
-                        "value": "خوشا دلی که دلدارش تو گردی، خوشا جانی که جانانش تو باشی"
+                        "value": "{{appStrings.generated.gift_card.gift_card_custom_message.romantic_poem_message}}"
                       },
                       {
                         "actionType": "setValue",
@@ -956,7 +956,7 @@
               }
             },
             "child": {
-              "data": "ادامه",
+              "data": "{{appStrings.common.continue}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.primary.onPrimary}}",

@@ -1,4 +1,4 @@
-﻿{
+{
   "appBar": {
     "leading": {
       "padding": {
@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "تغییر رمز اول",
+      "data": "{{appStrings.generated.card_management.card_management_root.change_first_pin_title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -66,7 +66,7 @@
         "crossAxisAlignment": "stretch",
         "children": [
           {
-            "data": "رعایت این موارد الزامیست...",
+            "data": "{{appStrings.generated.card_management.card_management_primary_pin_change.requirements_title}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",
@@ -105,7 +105,7 @@
               },
               {
                 "child": {
-                  "data": "رمز اول کارت باید ۴ رقم باشد",
+                  "data": "{{appStrings.generated.card_management.card_management_primary_pin_change.first_pin_card}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.hint}}",
@@ -148,7 +148,7 @@
               },
               {
                 "child": {
-                  "data": "از انتخاب رمز ساده نظیر ۱۱۱۱ یا ۱۲۳۴ خودداری کنید",
+                  "data": "{{appStrings.generated.card_management.card_management_primary_pin_change.select_pin}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.hint}}",
@@ -168,7 +168,7 @@
             "type": "sizedBox"
           },
           {
-            "data": "رمز فعلی",
+            "data": "{{appStrings.generated.card_management.card_management_primary_pin_change.current_pin}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",
@@ -197,7 +197,7 @@
                 "options": {
                   "pattern": ".+"
                 },
-                "message": "رمز فعلی نمی‌تواند خالی باشد"
+                "message": "{{appStrings.generated.card_management.card_management_primary_pin_change.current_pin_empty}}"
               }
             ],
             "onChanged": {
@@ -222,7 +222,7 @@
               ]
             },
             "decoration": {
-              "hintText": "رمز عبور فعلی را وارد کنید",
+              "hintText": "{{appStrings.profile.real.changePassword.currentPasswordHint}}",
               "hintStyle": {
                 "textDirection": "rtl",
                 "style": {
@@ -263,7 +263,7 @@
             "type": "sizedBox"
           },
           {
-            "data": "رمز جدید",
+            "data": "{{appStrings.generated.card_management.card_management_primary_pin_change.new_pin}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",
@@ -292,7 +292,7 @@
                 "options": {
                   "pattern": ".+"
                 },
-                "message": "رمز جدید نمی‌تواند خالی باشد"
+                "message": "{{appStrings.generated.card_management.card_management_primary_pin_change.new_pin_empty}}"
               }
             ],
             "onChanged": {
@@ -317,7 +317,7 @@
               ]
             },
             "decoration": {
-              "hintText": "رمز جدید را وارد کنید",
+              "hintText": "{{appStrings.generated.card_management.card_management_primary_pin_change.new_pin_enter}}",
               "hintStyle": {
                 "textDirection": "rtl",
                 "style": {
@@ -358,7 +358,7 @@
             "type": "sizedBox"
           },
           {
-            "data": "تکرار رمز جدید",
+            "data": "{{appStrings.generated.card_management.card_management_primary_pin_change.repeat_new_pin}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",
@@ -387,11 +387,11 @@
                 "options": {
                   "pattern": ".+"
                 },
-                "message": "تکرار رمز جدید نمی‌تواند خالی باشد"
+                "message": "{{appStrings.generated.card_management.card_management_primary_pin_change.repeat_new_pin_empty}}"
               },
               {
                 "rule": "compare",
-                "message": "رمز جدید و تکرار رمز جدید باید یکسان باشند",
+                "message": "{{appStrings.generated.card_management.card_management_primary_pin_change.repeat_new_pin_new_pin}}",
                 "options": {
                   "fieldId": "primary_pin_new"
                 }
@@ -419,7 +419,7 @@
               ]
             },
             "decoration": {
-              "hintText": "رمز جدید را تکرار کنید",
+              "hintText": "{{appStrings.generated.card_management.card_management_primary_pin_change.new_pin_repeat}}",
               "hintStyle": {
                 "textDirection": "rtl",
                 "style": {
@@ -511,7 +511,7 @@
               }
             },
             "child": {
-              "data": "تغییر رمز اول",
+              "data": "{{appStrings.generated.card_management.card_management_root.change_first_pin_title}}",
               "style": {
                 "type": "custom",
                 "fontSize": 14.0,

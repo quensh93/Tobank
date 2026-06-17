@@ -380,7 +380,7 @@
                                     "values": [
                                       {
                                         "key": "postalAddress",
-                                        "value": "استان تهران، شهرستان تهران، بخش مرکزی، شهر تهران، محله اختیاریه، خیابان شهید محمدعلی سنجابی، کوچه حسینیه،"
+                                        "value": "{{appStrings.generated.authentication.authentication_postal_code.county_street_province_city_description}}"
                                       },
                                       {
                                         "key": "hasPostalAddress",

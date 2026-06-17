@@ -1081,13 +1081,13 @@
                         },
                         {
                           "key": "receiver.birthDateCompact",
-                          "value": "__STAC_OPEN__replace(receiver.birthDate,'/','')}}"
+                          "value": "{{replace(receiver.birthDate,'/','')}}"
                         }
                       ]
                     },
                     {
                       "actionType": "networkRequest",
-                      "url": "http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/__STAC_OPEN__receiver.nationalCode}}/__STAC_OPEN__receiver.birthDateCompact}}",
+                      "url": "http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/{{receiver.nationalCode}}/{{receiver.birthDateCompact}}",
                       "method": "get",
                       "headers": {
                         "accept": "*/*",
@@ -1096,7 +1096,7 @@
                         "app-version": "456",
                         "device-uuid": "5109ab4c-77ca-4f0c-9858-da4df58031d2",
                         "serviceauthorization": "Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==",
-                        "authorization": "__STAC_OPEN__auth.accessToken}}"
+                        "authorization": "{{auth.accessToken}}"
                       },
                       "results": [
                         {
@@ -1113,31 +1113,31 @@
                                   },
                                   {
                                     "key": "receiverIdentity.raw",
-                                    "value": "__STAC_OPEN__data.data}}"
+                                    "value": "{{data.data}}"
                                   },
                                   {
                                     "key": "receiverIdentity.name",
-                                    "value": "__STAC_OPEN__data.data.name}}"
+                                    "value": "{{data.data.name}}"
                                   },
                                   {
                                     "key": "receiverIdentity.family",
-                                    "value": "__STAC_OPEN__data.data.family}}"
+                                    "value": "{{data.data.family}}"
                                   },
                                   {
                                     "key": "receiverIdentity.fullName",
-                                    "value": "__STAC_OPEN__data.data.name}} __STAC_OPEN__data.data.family}}"
+                                    "value": "{{data.data.name}} {{data.data.family}}"
                                   },
                                   {
                                     "key": "receiverIdentity.fatherName",
-                                    "value": "__STAC_OPEN__data.data.fatherName}}"
+                                    "value": "{{data.data.fatherName}}"
                                   },
                                   {
                                     "key": "receiverIdentity.gender",
-                                    "value": "__STAC_OPEN__data.data.gender}}"
+                                    "value": "{{data.data.gender}}"
                                   },
                                   {
                                     "key": "receiverIdentity.nationalId",
-                                    "value": "__STAC_OPEN__data.data.nationalId}}"
+                                    "value": "{{data.data.nationalId}}"
                                   }
                                 ]
                               },
@@ -1164,7 +1164,7 @@
                                   },
                                   {
                                     "key": "receiver.error",
-                                    "value": "__STAC_OPEN__appStrings.promissory.invalidDataError}}"
+                                    "value": "{{appStrings.promissory.invalidDataError}}"
                                   }
                                 ]
                               },
@@ -1177,7 +1177,7 @@
                                 "child": {
                                   "type": "container",
                                   "decoration": {
-                                    "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                    "color": "{{appColors.current.background.surfaceContainer}}",
                                     "borderRadius": {
                                       "topLeft": 8,
                                       "topRight": 8,
@@ -1185,7 +1185,7 @@
                                       "bottomRight": 8
                                     },
                                     "border": {
-                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "color": "{{appColors.current.input.borderEnabled}}",
                                       "width": 1
                                     }
                                   },
@@ -1209,14 +1209,14 @@
                                           "children": [
                                             {
                                               "type": "text",
-                                              "data": "خطا",
+                                              "data": "{{appStrings.common.error}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 14,
                                                 "fontWeight": "w700",
-                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                "color": "{{appColors.current.text.title}}",
                                                 "height": 1.45
                                               }
                                             },
@@ -1226,14 +1226,14 @@
                                             },
                                             {
                                               "type": "text",
-                                              "data": "__STAC_OPEN__appStrings.promissory.invalidDataErrorDetail}}",
+                                              "data": "{{appStrings.promissory.invalidDataErrorDetail}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 13,
                                                 "fontWeight": "w500",
-                                                "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                "color": "{{appColors.current.text.subtitle}}",
                                                 "height": 1.45
                                               }
                                             }
@@ -1249,7 +1249,7 @@
                                         "width": 1,
                                         "height": 20,
                                         "decoration": {
-                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                          "color": "{{appColors.current.input.borderEnabled}}",
                                           "borderRadius": {
                                             "topLeft": 999,
                                             "topRight": 999,
@@ -1268,7 +1268,7 @@
                                         "imageType": "asset",
                                         "width": 20,
                                         "height": 20,
-                                        "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                        "color": "{{appColors.current.text.subtitle}}"
                                       }
                                     ]
                                   }
@@ -1300,7 +1300,7 @@
                                 "child": {
                                   "type": "container",
                                   "decoration": {
-                                    "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                    "color": "{{appColors.current.background.surfaceContainer}}",
                                     "borderRadius": {
                                       "topLeft": 8,
                                       "topRight": 8,
@@ -1308,7 +1308,7 @@
                                       "bottomRight": 8
                                     },
                                     "border": {
-                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "color": "{{appColors.current.input.borderEnabled}}",
                                       "width": 1
                                     }
                                   },
@@ -1332,14 +1332,14 @@
                                           "children": [
                                             {
                                               "type": "text",
-                                              "data": "خطا",
+                                              "data": "{{appStrings.common.error}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 14,
                                                 "fontWeight": "w700",
-                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                "color": "{{appColors.current.text.title}}",
                                                 "height": 1.45
                                               }
                                             },
@@ -1349,14 +1349,14 @@
                                             },
                                             {
                                               "type": "text",
-                                              "data": "__STAC_OPEN__appStrings.promissory.sessionExpiredError}}",
+                                              "data": "{{appStrings.promissory.sessionExpiredError}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 13,
                                                 "fontWeight": "w500",
-                                                "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                "color": "{{appColors.current.text.subtitle}}",
                                                 "height": 1.45
                                               }
                                             }
@@ -1372,7 +1372,7 @@
                                         "width": 1,
                                         "height": 20,
                                         "decoration": {
-                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                          "color": "{{appColors.current.input.borderEnabled}}",
                                           "borderRadius": {
                                             "topLeft": 999,
                                             "topRight": 999,
@@ -1391,7 +1391,7 @@
                                         "imageType": "asset",
                                         "width": 20,
                                         "height": 20,
-                                        "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                        "color": "{{appColors.current.text.subtitle}}"
                                       }
                                     ]
                                   }
@@ -1414,7 +1414,7 @@
                                   },
                                   {
                                     "key": "receiver.error",
-                                    "value": "__STAC_OPEN__appStrings.promissory.serverConnectionError}}"
+                                    "value": "{{appStrings.promissory.serverConnectionError}}"
                                   }
                                 ]
                               },
@@ -1427,7 +1427,7 @@
                                 "child": {
                                   "type": "container",
                                   "decoration": {
-                                    "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                    "color": "{{appColors.current.background.surfaceContainer}}",
                                     "borderRadius": {
                                       "topLeft": 8,
                                       "topRight": 8,
@@ -1435,7 +1435,7 @@
                                       "bottomRight": 8
                                     },
                                     "border": {
-                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "color": "{{appColors.current.input.borderEnabled}}",
                                       "width": 1
                                     }
                                   },
@@ -1459,14 +1459,14 @@
                                           "children": [
                                             {
                                               "type": "text",
-                                              "data": "خطا",
+                                              "data": "{{appStrings.common.error}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 14,
                                                 "fontWeight": "w700",
-                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                "color": "{{appColors.current.text.title}}",
                                                 "height": 1.45
                                               }
                                             },
@@ -1476,14 +1476,14 @@
                                             },
                                             {
                                               "type": "text",
-                                              "data": "__STAC_OPEN__appStrings.promissory.serverConnectionErrorDetail}}",
+                                              "data": "{{appStrings.promissory.serverConnectionErrorDetail}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 13,
                                                 "fontWeight": "w500",
-                                                "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                "color": "{{appColors.current.text.subtitle}}",
                                                 "height": 1.45
                                               }
                                             }
@@ -1499,7 +1499,7 @@
                                         "width": 1,
                                         "height": 20,
                                         "decoration": {
-                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                          "color": "{{appColors.current.input.borderEnabled}}",
                                           "borderRadius": {
                                             "topLeft": 999,
                                             "topRight": 999,
@@ -1518,7 +1518,7 @@
                                         "imageType": "asset",
                                         "width": 20,
                                         "height": 20,
-                                        "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                        "color": "{{appColors.current.text.subtitle}}"
                                       }
                                     ]
                                   }
@@ -1605,7 +1605,7 @@
                         },
                         {
                           "key": "receiver.legalNationalId",
-                          "value": "__STAC_OPEN__legal_national_id}}",
+                          "value": "{{legal_national_id}}",
                           "condition": "isLegalReceiverTourismBank"
                         },
                         {
@@ -1618,7 +1618,7 @@
                         },
                         {
                           "key": "form.legal_national_id",
-                          "value": "__STAC_OPEN__legal_national_id}}",
+                          "value": "{{legal_national_id}}",
                           "condition": "isLegalReceiverTourismBank"
                         },
                         {
@@ -1631,14 +1631,14 @@
                         },
                         {
                           "key": "form.legal_contact_number",
-                          "value": "__STAC_OPEN__legal_contact_number}}",
+                          "value": "{{legal_contact_number}}",
                           "condition": "isLegalReceiverTourismBank"
                         }
                       ]
                     },
                     {
                       "actionType": "networkRequest",
-                      "url": "http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/__STAC_OPEN__receiver.legalNationalId}}",
+                      "url": "http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/{{receiver.legalNationalId}}",
                       "method": "get",
                       "headers": {
                         "accept": "*/*",
@@ -1647,7 +1647,7 @@
                         "app-version": "456",
                         "device-uuid": "5109ab4c-77ca-4f0c-9858-da4df58031d2",
                         "serviceauthorization": "Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==",
-                        "authorization": "__STAC_OPEN__auth.accessToken}}"
+                        "authorization": "{{auth.accessToken}}"
                       },
                       "results": [
                         {
@@ -1664,31 +1664,31 @@
                                   },
                                   {
                                     "key": "receiverIdentity.raw",
-                                    "value": "__STAC_OPEN__data.data}}"
+                                    "value": "{{data.data}}"
                                   },
                                   {
                                     "key": "receiverIdentity.name",
-                                    "value": "__STAC_OPEN__data.data.name}}"
+                                    "value": "{{data.data.name}}"
                                   },
                                   {
                                     "key": "receiverIdentity.fullName",
-                                    "value": "__STAC_OPEN__data.data.name}}"
+                                    "value": "{{data.data.name}}"
                                   },
                                   {
                                     "key": "receiverIdentity.nationalId",
-                                    "value": "__STAC_OPEN__data.data.nationalId}}"
+                                    "value": "{{data.data.nationalId}}"
                                   },
                                   {
                                     "key": "receiverIdentity.phone",
-                                    "value": "__STAC_OPEN__data.data.phone}}"
+                                    "value": "{{data.data.phone}}"
                                   },
                                   {
                                     "key": "receiverIdentity.address",
-                                    "value": "__STAC_OPEN__data.data.address}}"
+                                    "value": "{{data.data.address}}"
                                   },
                                   {
                                     "key": "form.paymentPlace",
-                                    "value": "__STAC_OPEN__data.data.address}}"
+                                    "value": "{{data.data.address}}"
                                   }
                                 ]
                               },
@@ -1715,7 +1715,7 @@
                                   },
                                   {
                                     "key": "receiver.error",
-                                    "value": "__STAC_OPEN__appStrings.promissory.invalidDataError}}"
+                                    "value": "{{appStrings.promissory.invalidDataError}}"
                                   }
                                 ]
                               },
@@ -1728,7 +1728,7 @@
                                 "child": {
                                   "type": "container",
                                   "decoration": {
-                                    "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                    "color": "{{appColors.current.background.surfaceContainer}}",
                                     "borderRadius": {
                                       "topLeft": 8,
                                       "topRight": 8,
@@ -1736,7 +1736,7 @@
                                       "bottomRight": 8
                                     },
                                     "border": {
-                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "color": "{{appColors.current.input.borderEnabled}}",
                                       "width": 1
                                     }
                                   },
@@ -1760,14 +1760,14 @@
                                           "children": [
                                             {
                                               "type": "text",
-                                              "data": "خطا",
+                                              "data": "{{appStrings.common.error}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 14,
                                                 "fontWeight": "w700",
-                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                "color": "{{appColors.current.text.title}}",
                                                 "height": 1.45
                                               }
                                             },
@@ -1777,14 +1777,14 @@
                                             },
                                             {
                                               "type": "text",
-                                              "data": "__STAC_OPEN__appStrings.promissory.invalidDataErrorDetail}}",
+                                              "data": "{{appStrings.promissory.invalidDataErrorDetail}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 13,
                                                 "fontWeight": "w500",
-                                                "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                "color": "{{appColors.current.text.subtitle}}",
                                                 "height": 1.45
                                               }
                                             }
@@ -1800,7 +1800,7 @@
                                         "width": 1,
                                         "height": 20,
                                         "decoration": {
-                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                          "color": "{{appColors.current.input.borderEnabled}}",
                                           "borderRadius": {
                                             "topLeft": 999,
                                             "topRight": 999,
@@ -1819,7 +1819,7 @@
                                         "imageType": "asset",
                                         "width": 20,
                                         "height": 20,
-                                        "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                        "color": "{{appColors.current.text.subtitle}}"
                                       }
                                     ]
                                   }
@@ -1851,7 +1851,7 @@
                                 "child": {
                                   "type": "container",
                                   "decoration": {
-                                    "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                    "color": "{{appColors.current.background.surfaceContainer}}",
                                     "borderRadius": {
                                       "topLeft": 8,
                                       "topRight": 8,
@@ -1859,7 +1859,7 @@
                                       "bottomRight": 8
                                     },
                                     "border": {
-                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "color": "{{appColors.current.input.borderEnabled}}",
                                       "width": 1
                                     }
                                   },
@@ -1883,14 +1883,14 @@
                                           "children": [
                                             {
                                               "type": "text",
-                                              "data": "خطا",
+                                              "data": "{{appStrings.common.error}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 14,
                                                 "fontWeight": "w700",
-                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                "color": "{{appColors.current.text.title}}",
                                                 "height": 1.45
                                               }
                                             },
@@ -1900,14 +1900,14 @@
                                             },
                                             {
                                               "type": "text",
-                                              "data": "__STAC_OPEN__appStrings.promissory.serverConnectionErrorDetail}}",
+                                              "data": "{{appStrings.promissory.serverConnectionErrorDetail}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 13,
                                                 "fontWeight": "w500",
-                                                "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                "color": "{{appColors.current.text.subtitle}}",
                                                 "height": 1.45
                                               }
                                             }
@@ -1923,7 +1923,7 @@
                                         "width": 1,
                                         "height": 20,
                                         "decoration": {
-                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                          "color": "{{appColors.current.input.borderEnabled}}",
                                           "borderRadius": {
                                             "topLeft": 999,
                                             "topRight": 999,
@@ -1942,7 +1942,7 @@
                                         "imageType": "asset",
                                         "width": 20,
                                         "height": 20,
-                                        "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                        "color": "{{appColors.current.text.subtitle}}"
                                       }
                                     ]
                                   }
@@ -1965,7 +1965,7 @@
                                   },
                                   {
                                     "key": "receiver.error",
-                                    "value": "__STAC_OPEN__appStrings.promissory.serverConnectionError}}"
+                                    "value": "{{appStrings.promissory.serverConnectionError}}"
                                   }
                                 ]
                               },
@@ -1978,7 +1978,7 @@
                                 "child": {
                                   "type": "container",
                                   "decoration": {
-                                    "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                    "color": "{{appColors.current.background.surfaceContainer}}",
                                     "borderRadius": {
                                       "topLeft": 8,
                                       "topRight": 8,
@@ -1986,7 +1986,7 @@
                                       "bottomRight": 8
                                     },
                                     "border": {
-                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "color": "{{appColors.current.input.borderEnabled}}",
                                       "width": 1
                                     }
                                   },
@@ -2010,14 +2010,14 @@
                                           "children": [
                                             {
                                               "type": "text",
-                                              "data": "خطا",
+                                              "data": "{{appStrings.common.error}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 14,
                                                 "fontWeight": "w700",
-                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                "color": "{{appColors.current.text.title}}",
                                                 "height": 1.45
                                               }
                                             },
@@ -2027,14 +2027,14 @@
                                             },
                                             {
                                               "type": "text",
-                                              "data": "__STAC_OPEN__appStrings.promissory.serverConnectionErrorDetail}}",
+                                              "data": "{{appStrings.promissory.serverConnectionErrorDetail}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 13,
                                                 "fontWeight": "w500",
-                                                "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                "color": "{{appColors.current.text.subtitle}}",
                                                 "height": 1.45
                                               }
                                             }
@@ -2050,7 +2050,7 @@
                                         "width": 1,
                                         "height": 20,
                                         "decoration": {
-                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                          "color": "{{appColors.current.input.borderEnabled}}",
                                           "borderRadius": {
                                             "topLeft": 999,
                                             "topRight": 999,
@@ -2069,7 +2069,7 @@
                                         "imageType": "asset",
                                         "width": 20,
                                         "height": 20,
-                                        "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                        "color": "{{appColors.current.text.subtitle}}"
                                       }
                                     ]
                                   }

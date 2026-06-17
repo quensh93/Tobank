@@ -46,7 +46,7 @@ StacWidget profileRealDestinations() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'مخاطبین',
+        title: '{{appStrings.profile.real.destinations.title}}',
       ),
       body: StacStack(
         children: [
@@ -88,10 +88,7 @@ StacWidget _cardTabContent() {
     children: [
       StacSingleChildScrollView(
         child: StacColumn(
-          children: [
-            _cardTabList(),
-            StacSizedBox(height: 104),
-          ],
+          children: [_cardTabList(), StacSizedBox(height: 104)],
         ),
       ),
       StacAlign(
@@ -126,9 +123,18 @@ StacWidget _tabSwitcher() {
         labelColor: '{{appColors.current.text.title}}',
         unselectedLabelColor: '{{appColors.current.text.subtitle}}',
         tabs: const [
-          StacTab(text: 'شبا', height: 44),
-          StacTab(text: 'سپرده', height: 44),
-          StacTab(text: 'کارت', height: 44),
+          StacTab(
+            text: '{{appStrings.profile.real.destinations.tabIban}}',
+            height: 44,
+          ),
+          StacTab(
+            text: '{{appStrings.profile.real.destinations.tabDeposit}}',
+            height: 44,
+          ),
+          StacTab(
+            text: '{{appStrings.profile.real.destinations.tabCard}}',
+            height: 44,
+          ),
         ],
       ),
       StacPositioned(
@@ -160,29 +166,33 @@ StacWidget _cardTabList() {
   return StacColumn(
     children: [
       _destinationCard(
-        title: 'گردشگری - شعبه مجازی',
-        subtitle: '۵۵۰۴ - ۱۶۱۷ - ۰۲۳۳ - ۸۰۸۳',
+        title: '{{appStrings.profile.real.destinations.cardItem2Title}}',
+        subtitle:
+            '{{appStrings.generated.profile.profile_destinations.card_number}}',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
         menuKey: 'profileRealMenuCard1',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'گردشگری - شعبه مجازی',
-        subtitle: '۵۵۰۴ - ۱۶۱۷ - ۰۳۳۳ - ۳۸۱۱',
+        title: '{{appStrings.profile.real.destinations.cardItem2Title}}',
+        subtitle:
+            '{{appStrings.generated.profile.profile_destinations.card_number_text}}',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
         menuKey: 'profileRealMenuCard2',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'گردشگری - شعبه مجازی',
-        subtitle: '۵۵۰۴ - ۱۶۱۷ - ۰۳۳۶ - ۵۵۴۰',
+        title: '{{appStrings.profile.real.destinations.cardItem2Title}}',
+        subtitle:
+            '{{appStrings.generated.profile.profile_destinations.card_number_label}}',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
         menuKey: 'profileRealMenuCard3',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'سیدپارسا بنی طباء',
-        subtitle: '۶۲۱۹ - ۸۶۱۹ - ۳۸۳۹ - ۰۷۸۷',
+        title: '{{appStrings.generated.profile.profile_destinations.title}}',
+        subtitle:
+            '{{appStrings.generated.profile.profile_destinations.card_number_message}}',
         logoAsset: 'assets/icons/ic_success_new.svg',
         menuKey: 'profileRealMenuCard4',
       ),
@@ -194,22 +204,25 @@ StacWidget _depositTabList() {
   return StacColumn(
     children: [
       _destinationCard(
-        title: 'علیرضا حیدریان',
-        subtitle: '۱۱۰.۹۹۹۳.۷۶۳۴۰۵۰.۱',
+        title: '{{appStrings.profile.real.destinations.depositItem2Title}}',
+        subtitle:
+            '{{appStrings.profile.real.destinations.depositItem2Subtitle}}',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
         menuKey: 'profileRealMenuDeposit1',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'سیدپارسا بنی طباء',
-        subtitle: '۱۱۰.۹۹۹۲.۱۶۱۳۹۸۸.۱',
+        title: '{{appStrings.generated.profile.profile_destinations.title}}',
+        subtitle:
+            '{{appStrings.generated.profile.profile_destinations.amount_value}}',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
         menuKey: 'profileRealMenuDeposit2',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'سیدپارسا بنی طباء',
-        subtitle: '۱۱۰.۷۰.۱۶۱۳۹۸۸.۱',
+        title: '{{appStrings.generated.profile.profile_destinations.title}}',
+        subtitle:
+            '{{appStrings.generated.profile.profile_destinations.amount_value_text}}',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
         menuKey: 'profileRealMenuDeposit3',
       ),
@@ -221,43 +234,45 @@ StacWidget _ibanTabList() {
   return StacColumn(
     children: [
       _destinationCard(
-        title: 'مهدی جمشیدپور',
-        subtitle: 'IR۰۶۰۶۶۷۶۱۱۸۲۸۰۰۱۰۰۰۸۸۷۰۱',
+        title: '{{appStrings.profile.real.userName}}',
+        subtitle: '{{appStrings.profile.real.destinations.ibanItem1Subtitle}}',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
         menuKey: 'profileRealMenuIban1',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'علیرضا حیدریان',
-        subtitle: 'IR۰۵۰۱۴۰۰۲۰۰۰۰۰۰۰۰۹۸۸۸۸۸۵۰۱',
+        title: '{{appStrings.profile.real.destinations.depositItem2Title}}',
+        subtitle: '{{appStrings.profile.real.destinations.ibanItem2Subtitle}}',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
         menuKey: 'profileRealMenuIban2',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'سیدپارسا بنی طباء',
-        subtitle: 'IR۷۱۵۷۰۳۰۴۳۷۷۰۰۱۷۹۸۴۰۰۰۱۰۱',
+        title: '{{appStrings.generated.profile.profile_destinations.title}}',
+        subtitle: '{{appStrings.profile.real.destinations.ibanItem3Subtitle}}',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
         menuKey: 'profileRealMenuIban3',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'ندا رضمانی پور',
-        subtitle: 'IR۹۸۰۶۴۰۰۱۱۹۹۹۶۹۹۹۷۷۸۸۰۱',
+        title:
+            '{{appStrings.generated.profile.profile_destinations.sample_contact_name}}',
+        subtitle: '{{appStrings.profile.real.destinations.ibanItem4Subtitle}}',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
         menuKey: 'profileRealMenuIban4',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'علی سینایی اصل',
-        subtitle: 'IR۰۳۰۵۶۶۷۱۱۸۲۸۰۰۶۲۲۳۹۲۱۹۰۱',
+        title:
+            '{{appStrings.generated.profile.profile_destinations.ali_sinaei_asl_name}}',
+        subtitle: '{{appStrings.profile.real.destinations.ibanItem5Subtitle}}',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
         menuKey: 'profileRealMenuIban5',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'علیرضا حیدریان',
-        subtitle: 'IR۰۵۱۴۴۰۰۰۰۰۰۰۰۱۱۰۷۵۵۸۰۹۱',
+        title: '{{appStrings.profile.real.destinations.depositItem2Title}}',
+        subtitle: '{{appStrings.profile.real.destinations.ibanItem6Subtitle}}',
         logoAsset: 'assets/icons/ic_success_new.svg',
         menuKey: 'profileRealMenuIban6',
       ),
@@ -374,14 +389,15 @@ StacWidget _destinationCardMenu(String menuKey) {
       mainAxisSize: StacMainAxisSize.min,
       children: [
         _destinationCardMenuItem(
-          title: 'ویرایش',
+          title: '{{appStrings.verifyOtp.edit}}',
           iconAsset: 'assets/icons/ic_edit_dark.svg',
           onTap: StacSequenceAction(
             actions: [
               _closeAllDestinationMenus(),
               const StacShowResultAction(
-                title: 'ویرایش',
-                content: 'ویرایش مقصد به زودی فعال می‌شود.',
+                title: '{{appStrings.verifyOtp.edit}}',
+                content:
+                    '{{appStrings.generated.profile.profile_destinations.edit_active}}',
               ),
             ],
           ),
@@ -392,22 +408,27 @@ StacWidget _destinationCardMenu(String menuKey) {
           color: '{{appColors.current.input.borderEnabled}}',
         ),
         _destinationCardMenuItem(
-          title: 'حذف',
+          title:
+              '{{appStrings.generated.authentication.authentication_selfie.delete}}',
           iconAsset: 'assets/icons/ic_delete_dark.svg',
           onTap: StacSequenceAction(
             actions: [
               _closeAllDestinationMenus(),
               StacShowDialogAction(
-                title: 'حذف کارت',
-                description: 'آیا از حذف این مقصد اطمینان دارید؟',
+                title:
+                    '{{appStrings.generated.card_management.card_management_root.delete_card}}',
+                description:
+                    '{{appStrings.generated.profile.profile_destinations.delete_message}}',
                 positiveText: '{{appStrings.common.confirm}}',
                 negativeText: '{{appStrings.common.cancel}}',
                 positiveAction: StacSequenceAction(
                   actions: [
                     const StacCloseDialogAction(),
                     const StacCustomSnackBarAction(
-                      title: 'حذف شد',
-                      detail: 'مقصد با موفقیت حذف شد.',
+                      title:
+                          '{{appStrings.generated.profile.profile_destinations.delete}}',
+                      detail:
+                          '{{appStrings.generated.profile.profile_destinations.successfully_delete}}',
                       duration: 3000,
                     ),
                   ],
@@ -511,7 +532,7 @@ StacWidget _addDestinationButton() {
         ),
         StacSizedBox(width: 7),
         StacText(
-          data: 'افزودن کارت مقصد',
+          data: '{{appStrings.profile.real.destinations.addDestinationButton}}',
           style: StacCustomTextStyle(
             fontSize: 16,
             fontWeight: StacFontWeight.w600,
@@ -568,7 +589,8 @@ StacWidget _addCardBottomSheetOverlay() {
                   children: [
                     StacExpanded(
                       child: StacText(
-                        data: 'افزودن کارت جدید',
+                        data:
+                            '{{appStrings.profile.real.destinations.addCardTitle}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
@@ -584,8 +606,9 @@ StacWidget _addCardBottomSheetOverlay() {
                         'actionType': 'showTransferCardScanner',
                         'fieldId': 'profileRealDestinationCardNumber',
                         'failedAction': const StacCustomSnackBarAction(
-                          title: 'خطا',
-                          detail: 'اسکن کارت ناموفق بود.',
+                          title: '{{appStrings.common.error}}',
+                          detail:
+                              '{{appStrings.generated.profile.profile_destinations.failed_card}}',
                           duration: 2600,
                         ).toJson(),
                       }),
@@ -612,7 +635,8 @@ StacWidget _addCardBottomSheetOverlay() {
                           ),
                           StacSizedBox(width: 6),
                           StacText(
-                            data: 'اسکن کارت',
+                            data:
+                                '{{appStrings.profile.real.destinations.scanCard}}',
                             style: StacCustomTextStyle(
                               fontSize: 14,
                               fontWeight: StacFontWeight.w600,
@@ -626,7 +650,8 @@ StacWidget _addCardBottomSheetOverlay() {
                 ),
                 StacSizedBox(height: 16),
                 StacText(
-                  data: 'شماره کارت',
+                  data:
+                      '{{appStrings.profile.real.destinations.cardNumberLabel}}',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -642,7 +667,8 @@ StacWidget _addCardBottomSheetOverlay() {
                   textAlign: StacTextAlign.right,
                   keyboardType: StacTextInputType.number,
                   decoration: StacInputDecoration(
-                    hintText: 'یک شماره کارت معتبر وارد نمایید',
+                    hintText:
+                        '{{appStrings.profile.real.destinations.cardNumberHint}}',
                     hintStyle: StacCustomTextStyle(
                       fontSize: 14,
                       fontWeight: StacFontWeight.w500,
@@ -657,7 +683,8 @@ StacWidget _addCardBottomSheetOverlay() {
                 ),
                 StacSizedBox(height: 16),
                 StacText(
-                  data: 'عنوان کارت',
+                  data:
+                      '{{appStrings.profile.real.destinations.cardTitleLabel}}',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -673,7 +700,8 @@ StacWidget _addCardBottomSheetOverlay() {
                   textAlign: StacTextAlign.right,
                   keyboardType: StacTextInputType.text,
                   decoration: StacInputDecoration(
-                    hintText: 'عنوان کارت را وارد کنید',
+                    hintText:
+                        '{{appStrings.profile.real.destinations.cardTitleHint}}',
                     hintStyle: StacCustomTextStyle(
                       fontSize: 14,
                       fontWeight: StacFontWeight.w500,
@@ -695,8 +723,10 @@ StacWidget _addCardBottomSheetOverlay() {
                         value: false,
                       ),
                       StacShowResultAction(
-                        title: 'ثبت',
-                        content: 'کارت مقصد با موفقیت ثبت شد.',
+                        title:
+                            '{{appStrings.profile.real.destinations.submitTitle}}',
+                        content:
+                            '{{appStrings.profile.real.destinations.submitContent}}',
                       ),
                     ],
                   ),
@@ -709,7 +739,8 @@ StacWidget _addCardBottomSheetOverlay() {
                         '{{appColors.current.button.primary.backgroundColor}}',
                   ),
                   child: StacText(
-                    data: 'ثبت',
+                    data:
+                        '{{appStrings.profile.real.destinations.submitTitle}}',
                     style: StacCustomTextStyle(
                       fontSize: 16,
                       fontWeight: StacFontWeight.w700,

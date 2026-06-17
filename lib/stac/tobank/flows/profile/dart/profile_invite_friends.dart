@@ -10,7 +10,7 @@ StacWidget profileRealInviteFriends() {
     appBar: buildTobankFlowAppBar(
       showSupport: true,
       showBack: true,
-      title: 'دعوت از دوستان',
+      title: '{{appStrings.profile.real.menu.inviteFriends}}',
     ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.all(16),
@@ -33,7 +33,7 @@ StacWidget profileRealInviteFriends() {
                 ),
                 StacSizedBox(height: 16),
                 StacText(
-                  data: 'دعوت از دوستان',
+                  data: '{{appStrings.profile.real.menu.inviteFriends}}',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -45,7 +45,7 @@ StacWidget profileRealInviteFriends() {
                 StacSizedBox(height: 8),
                 StacText(
                   data:
-                      'کد دعوت را کپی کنید و یا با دوستانتان به اشتراک بگذارید',
+                      '{{appStrings.profile.real.inviteFriends.sectionDescription}}',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -59,8 +59,10 @@ StacWidget profileRealInviteFriends() {
                 StacSizedBox(height: 16),
                 StacFilledButton(
                   onPressed: const StacShowResultAction(
-                    title: 'اشتراک‌گذاری کد دعوت',
-                    content: 'امکان اشتراک‌گذاری به زودی فعال می‌شود.',
+                    title:
+                        '{{appStrings.profile.real.inviteFriends.shareTitle}}',
+                    content:
+                        '{{appStrings.profile.real.inviteFriends.shareContent}}',
                   ),
                   style: StacButtonStyle(
                     elevation: 0,
@@ -85,7 +87,8 @@ StacWidget profileRealInviteFriends() {
                       ),
                       StacSizedBox(width: 8),
                       StacText(
-                        data: 'اشتراک‌گذاری کد دعوت',
+                        data:
+                            '{{appStrings.profile.real.inviteFriends.shareTitle}}',
                         style: StacCustomTextStyle(
                           fontSize: 16,
                           fontWeight: StacFontWeight.w500,
@@ -101,7 +104,11 @@ StacWidget profileRealInviteFriends() {
           ),
           StacSizedBox(height: 16),
           StacGestureDetector(
-            onTap: NavigationAction(fileName: 'profile_customer_referrals', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+            onTap: NavigationAction(
+              fileName: 'profile_customer_referrals',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            ),
             child: StacContainer(
               padding: StacEdgeInsets.all(16),
               decoration: _itemDecoration(),
@@ -118,7 +125,8 @@ StacWidget profileRealInviteFriends() {
                   StacSizedBox(width: 8),
                   StacExpanded(
                     child: StacText(
-                      data: 'لیست دعوت‌شدگان',
+                      data:
+                          '{{appStrings.profile.real.customerReferrals.title}}',
                       textDirection: StacTextDirection.rtl,
                       textAlign: StacTextAlign.right,
                       style: StacCustomTextStyle(
@@ -180,7 +188,8 @@ StacWidget _inviteCodeCard() {
                 ),
                 StacCenter(
                   child: StacText(
-                    data: '۴۵۳۲۵۰۹۱',
+                    data:
+                        '{{appStrings.profile.real.inviteFriends.inviteCode}}',
                     textDirection: StacTextDirection.ltr,
                     textAlign: StacTextAlign.center,
                     style: StacCustomTextStyle(
@@ -208,8 +217,9 @@ StacWidget _inviteCodeCard() {
               ),
               child: StacIconButton(
                 onPressed: const StacShowResultAction(
-                  title: 'کپی',
-                  content: 'کد دعوت کپی شد.',
+                  title: '{{appStrings.profile.real.inviteFriends.copyTitle}}',
+                  content:
+                      '{{appStrings.profile.real.inviteFriends.copyContent}}',
                 ),
                 icon: StacImage(
                   src: 'assets/icons/ic_copy.svg',

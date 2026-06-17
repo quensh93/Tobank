@@ -1,4 +1,4 @@
-﻿{
+{
   "type": "stateFull",
   "onInit": {
     "actionType": "sequence",
@@ -207,7 +207,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "خدمات",
+                                  "data": "{{appStrings.homePage.tabs.services}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -247,7 +247,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "خدمات",
+                                  "data": "{{appStrings.homePage.tabs.services}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -342,7 +342,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "سرمایه‌گذاری",
+                                  "data": "{{appStrings.homePage.tabs.investment}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -382,7 +382,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "سرمایه‌گذاری",
+                                  "data": "{{appStrings.homePage.tabs.investment}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -477,7 +477,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "کارت‌ها",
+                                  "data": "{{appStrings.homePage.tabs.cards}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -517,7 +517,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "کارت‌ها",
+                                  "data": "{{appStrings.homePage.tabs.cards}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -612,7 +612,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "سپرده‌ها",
+                                  "data": "{{appStrings.homePage.tabs.deposits}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -652,7 +652,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "سپرده‌ها",
+                                  "data": "{{appStrings.homePage.tabs.deposits}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -759,7 +759,7 @@
                                               "mainAxisAlignment": "end",
                                               "children": [
                                                 {
-                                                  "data": "کیف پول توبانک",
+                                                  "data": "{{appStrings.homePage.cards.walletTitle}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "#FFFFFF",
@@ -793,7 +793,7 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "۳۳,۲۲۲",
+                                                    "data": "{{appStrings.generated.home_page.home_page.amount_value}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "#FFFFFF",
@@ -808,7 +808,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "ریال",
+                                                    "data": "{{appStrings.common.rial}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "#FFFFFF",
@@ -836,17 +836,17 @@
                                 "onTap": {
                                   "actionType": "sequence",
                                   "actions": [
-                                  {
-                                    "actionType": "setValue",
-                                    "key": "cardsManagement.initialPage",
-                                    "value": 0
-                                  },
-                                  {
-                                    "actionType": "navigate",
-                                    "fileName": "card_management_root",
-                                    "navMode": "localJson",
-                                    "navigationStyle": "push"
-                                  }
+                                    {
+                                      "actionType": "setValue",
+                                      "key": "cardsManagement.initialPage",
+                                      "value": 0
+                                    },
+                                    {
+                                      "actionType": "navigate",
+                                      "fileName": "card_management_root",
+                                      "navMode": "localJson",
+                                      "navigationStyle": "push"
+                                    }
                                   ]
                                 },
                                 "type": "gestureDetector"
@@ -933,7 +933,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "بانک‌گردشگری",
+                                              "data": "{{appStrings.homePage.cards.bankTitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -949,7 +949,7 @@
                                         {
                                           "children": [
                                             {
-                                              "data": "۵۵۰۴ ۱۶۱۷ ۰۲۸۲ ۲۳۳۳",
+                                              "data": "{{appStrings.generated.home_page.home_page.title}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -961,7 +961,7 @@
                                               "type": "text"
                                             },
                                             {
-                                              "data": "حساب قرض الحسنه گردشگری",
+                                              "data": "{{appStrings.homePage.cards.cardSubtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -986,17 +986,17 @@
                               "onTap": {
                                 "actionType": "sequence",
                                 "actions": [
-                                {
-                                  "actionType": "setValue",
-                                  "key": "cardsManagement.initialPage",
-                                  "value": 1
-                                },
-                                {
-                                  "actionType": "navigate",
-                                  "fileName": "card_management_root",
-                                  "navMode": "localJson",
-                                  "navigationStyle": "push"
-                                }
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 1
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "fileName": "card_management_root",
+                                    "navMode": "localJson",
+                                    "navigationStyle": "push"
+                                  }
                                 ]
                               },
                               "type": "gestureDetector"
@@ -1062,7 +1062,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "بانک‌گردشگری",
+                                              "data": "{{appStrings.homePage.cards.bankTitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1078,7 +1078,7 @@
                                         {
                                           "children": [
                                             {
-                                              "data": "۵۵۰۴ ۱۶۱۷ ۰۵۰۳ ۰۶۰۳",
+                                              "data": "{{appStrings.generated.home_page.home_page.card_number}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1090,7 +1090,7 @@
                                               "type": "text"
                                             },
                                             {
-                                              "data": "حساب قرض الحسنه گردشگری",
+                                              "data": "{{appStrings.homePage.cards.cardSubtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1115,17 +1115,17 @@
                               "onTap": {
                                 "actionType": "sequence",
                                 "actions": [
-                                {
-                                  "actionType": "setValue",
-                                  "key": "cardsManagement.initialPage",
-                                  "value": 3
-                                },
-                                {
-                                  "actionType": "navigate",
-                                  "fileName": "card_management_root",
-                                  "navMode": "localJson",
-                                  "navigationStyle": "push"
-                                }
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 3
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "fileName": "card_management_root",
+                                    "navMode": "localJson",
+                                    "navigationStyle": "push"
+                                  }
                                 ]
                               },
                               "type": "gestureDetector"
@@ -1191,7 +1191,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "بانک‌گردشگری",
+                                              "data": "{{appStrings.homePage.cards.bankTitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1207,7 +1207,7 @@
                                         {
                                           "children": [
                                             {
-                                              "data": "۵۵۰۴ ۱۶۶۰ ۱۱۶۵ ۰۶۳۴",
+                                              "data": "{{appStrings.generated.home_page.home_page.card_number_text}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1219,7 +1219,7 @@
                                               "type": "text"
                                             },
                                             {
-                                              "data": "حساب قرض الحسنه گردشگری",
+                                              "data": "{{appStrings.homePage.cards.cardSubtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1244,17 +1244,17 @@
                               "onTap": {
                                 "actionType": "sequence",
                                 "actions": [
-                                {
-                                  "actionType": "setValue",
-                                  "key": "cardsManagement.initialPage",
-                                  "value": 2
-                                },
-                                {
-                                  "actionType": "navigate",
-                                  "fileName": "card_management_root",
-                                  "navMode": "localJson",
-                                  "navigationStyle": "push"
-                                }
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 2
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "fileName": "card_management_root",
+                                    "navMode": "localJson",
+                                    "navigationStyle": "push"
+                                  }
                                 ]
                               },
                               "type": "gestureDetector"
@@ -1320,7 +1320,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "بانک‌گردشگری",
+                                              "data": "{{appStrings.homePage.cards.bankTitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1336,7 +1336,7 @@
                                         {
                                           "children": [
                                             {
-                                              "data": "۵۵۰۴ ۱۶۷۸ ۳۴۹۱ ۶۲۴۰",
+                                              "data": "{{appStrings.generated.home_page.home_page.card_number_label}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1348,7 +1348,7 @@
                                               "type": "text"
                                             },
                                             {
-                                              "data": "حساب قرض الحسنه گردشگری",
+                                              "data": "{{appStrings.homePage.cards.cardSubtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1373,17 +1373,17 @@
                               "onTap": {
                                 "actionType": "sequence",
                                 "actions": [
-                                {
-                                  "actionType": "setValue",
-                                  "key": "cardsManagement.initialPage",
-                                  "value": 4
-                                },
-                                {
-                                  "actionType": "navigate",
-                                  "fileName": "card_management_root",
-                                  "navMode": "localJson",
-                                  "navigationStyle": "push"
-                                }
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 4
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "fileName": "card_management_root",
+                                    "navMode": "localJson",
+                                    "navigationStyle": "push"
+                                  }
                                 ]
                               },
                               "type": "gestureDetector"
@@ -1449,7 +1449,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "بانک‌گردشگری",
+                                              "data": "{{appStrings.homePage.cards.bankTitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1465,7 +1465,7 @@
                                         {
                                           "children": [
                                             {
-                                              "data": "۵۰۲۲ ۲۲۹۸ ۷۷۴۵ ۱۲۰۱",
+                                              "data": "{{appStrings.generated.home_page.home_page.card_number_message}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1477,7 +1477,7 @@
                                               "type": "text"
                                             },
                                             {
-                                              "data": "حساب قرض الحسنه گردشگری",
+                                              "data": "{{appStrings.homePage.cards.cardSubtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1502,17 +1502,17 @@
                               "onTap": {
                                 "actionType": "sequence",
                                 "actions": [
-                                {
-                                  "actionType": "setValue",
-                                  "key": "cardsManagement.initialPage",
-                                  "value": 5
-                                },
-                                {
-                                  "actionType": "navigate",
-                                  "fileName": "card_management_root",
-                                  "navMode": "localJson",
-                                  "navigationStyle": "push"
-                                }
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 5
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "fileName": "card_management_root",
+                                    "navMode": "localJson",
+                                    "navigationStyle": "push"
+                                  }
                                 ]
                               },
                               "type": "gestureDetector"
@@ -1578,7 +1578,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "بانک‌گردشگری",
+                                              "data": "{{appStrings.homePage.cards.bankTitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1594,7 +1594,7 @@
                                         {
                                           "children": [
                                             {
-                                              "data": "۵۸۹۲ ۱۰۱۰ ۶۵۴۳ ۷۹۹۸",
+                                              "data": "{{appStrings.generated.home_page.home_page.card_number_item}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1606,7 +1606,7 @@
                                               "type": "text"
                                             },
                                             {
-                                              "data": "حساب قرض الحسنه گردشگری",
+                                              "data": "{{appStrings.homePage.cards.cardSubtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "#FFFFFF",
@@ -1631,17 +1631,17 @@
                               "onTap": {
                                 "actionType": "sequence",
                                 "actions": [
-                                {
-                                  "actionType": "setValue",
-                                  "key": "cardsManagement.initialPage",
-                                  "value": 5
-                                },
-                                {
-                                  "actionType": "navigate",
-                                  "fileName": "card_management_root",
-                                  "navMode": "localJson",
-                                  "navigationStyle": "push"
-                                }
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 5
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "fileName": "card_management_root",
+                                    "navMode": "localJson",
+                                    "navigationStyle": "push"
+                                  }
                                 ]
                               },
                               "type": "gestureDetector"
@@ -1721,7 +1721,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "کارت به کارت",
+                                            "data": "{{appStrings.homePage.cards.cardToCard}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1776,7 +1776,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "چک صیادی",
+                                            "data": "{{appStrings.homePage.services.sayadiCheck}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1831,7 +1831,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "موجودی",
+                                            "data": "{{appStrings.homePage.cards.balance}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1886,7 +1886,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "شارژ",
+                                            "data": "{{appStrings.homePage.services.topUp}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1947,7 +1947,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "بسته اینترنت",
+                                            "data": "{{appStrings.homePage.services.internetPackage}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -2003,7 +2003,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "خدمات سفر",
+                                              "data": "{{appStrings.homePage.services.travelServices}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -2066,7 +2066,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "کارت هدیه",
+                                            "data": "{{appStrings.homePage.services.giftCard}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -2121,7 +2121,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "قبض",
+                                            "data": "{{appStrings.homePage.services.bill}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -2183,7 +2183,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "پذیرندگی",
+                                              "data": "{{appStrings.homePage.services.acceptor}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -2327,7 +2327,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "افتتاح سپرده بانک گردشگری",
+                                                    "data": "{{appStrings.homePage.deposits.createTitle}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2357,7 +2357,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "کوتاه مدت، قرض الحسنه پس انداز، بلندمدت و ...",
+                                                    "data": "{{appStrings.homePage.deposits.createSubtitle}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.subtitle}}",
@@ -2393,7 +2393,7 @@
                                                   "textDirection": "rtl",
                                                   "children": [
                                                     {
-                                                      "data": "افتتاح سپرده",
+                                                      "data": "{{appStrings.homePage.deposits.createButton}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "fontSize": 16.0,
@@ -2558,7 +2558,7 @@
                                                                             "type": "sizedBox"
                                                                           },
                                                                           {
-                                                                            "data": "ریال",
+                                                                            "data": "{{appStrings.common.rial}}",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -2646,7 +2646,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "حساب قرض الحسنه جاری توبانک",
+                                                          "data": "{{appStrings.homePage.deposits.accounts.firstTitle}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -2727,7 +2727,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "گردش سپرده",
+                                                          "data": "{{appStrings.homePage.deposits.quickActions.turnover}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -2790,7 +2790,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "انتقال وجه",
+                                                          "data": "{{appStrings.homePage.deposits.quickActions.transfer}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -2853,7 +2853,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "بیشتر",
+                                                          "data": "{{appStrings.homePage.deposits.quickActions.more}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3010,7 +3010,7 @@
                                                                             "type": "sizedBox"
                                                                           },
                                                                           {
-                                                                            "data": "ریال",
+                                                                            "data": "{{appStrings.common.rial}}",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -3098,7 +3098,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "حساب قرض الحسنه جاری سپرده دوم",
+                                                          "data": "{{appStrings.homePage.deposits.accounts.secondTitle}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -3179,7 +3179,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "گردش سپرده",
+                                                          "data": "{{appStrings.homePage.deposits.quickActions.turnover}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3242,7 +3242,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "انتقال وجه",
+                                                          "data": "{{appStrings.homePage.deposits.quickActions.transfer}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3305,7 +3305,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "بیشتر",
+                                                          "data": "{{appStrings.homePage.deposits.quickActions.more}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3462,7 +3462,7 @@
                                                                             "type": "sizedBox"
                                                                           },
                                                                           {
-                                                                            "data": "ریال",
+                                                                            "data": "{{appStrings.common.rial}}",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -3550,7 +3550,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "حساب قرض الحسنه جاری حقیقی توبانک",
+                                                          "data": "{{appStrings.homePage.deposits.accounts.thirdTitle}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -3631,7 +3631,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "گردش سپرده",
+                                                          "data": "{{appStrings.homePage.deposits.quickActions.turnover}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3694,7 +3694,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "انتقال وجه",
+                                                          "data": "{{appStrings.homePage.deposits.quickActions.transfer}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3757,7 +3757,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "بیشتر",
+                                                          "data": "{{appStrings.homePage.deposits.quickActions.more}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3827,7 +3827,7 @@
                                       "crossAxisAlignment": "stretch",
                                       "children": [
                                         {
-                                          "data": "کاربر گرامی، برای فعال سازی خدمات مرتبط با سپرده‌های بانک گردشگری، لطفا فرآیند احراز هویت را تکمیل نمایید.",
+                                          "data": "{{appStrings.homePage.deposits.unauthenticatedMessage}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3872,7 +3872,7 @@
                                             }
                                           },
                                           "child": {
-                                            "data": "احراز هویت",
+                                            "data": "{{appStrings.menu.items.authentication}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 14.0,
@@ -3943,7 +3943,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "گردش سپرده",
+                                                      "data": "{{appStrings.homePage.deposits.quickActions.turnover}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -4006,7 +4006,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "انتقال وجه",
+                                                      "data": "{{appStrings.homePage.deposits.quickActions.transfer}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -4069,7 +4069,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بیشتر",
+                                                      "data": "{{appStrings.homePage.deposits.quickActions.more}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -4103,7 +4103,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "خدمات ویژه توبانک",
+                                "data": "{{appStrings.homePage.deposits.specialServicesTitle}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -4170,7 +4170,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "سایر خدمات",
+                                                    "data": "{{appStrings.homePage.deposits.otherServicesTitle}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -4189,7 +4189,7 @@
                                                 "type": "sizedBox"
                                               },
                                               {
-                                                "data": "سفته الکترونیک ...",
+                                                "data": "{{appStrings.homePage.deposits.otherServicesSubtitle}}",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.subtitle}}",
@@ -4271,7 +4271,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "انواع تسهیلات",
+                                                  "data": "{{appStrings.homePage.deposits.facilitiesTitle}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -4290,7 +4290,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "ازدواج، کارت اعتباری ...",
+                                              "data": "{{appStrings.homePage.deposits.facilitiesSubtitle}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -4454,7 +4454,7 @@
                                         "type": "sizedBox"
                                       },
                                       {
-                                        "data": "صندوق سرمایه‌گذاری",
+                                        "data": "{{appStrings.homePage.investment.title}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
@@ -4491,7 +4491,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "معاف از مالیات",
+                                              "data": "{{appStrings.homePage.investment.featureTaxFree}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -4533,7 +4533,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "تحت مجوز و نظارت سازمان بورس",
+                                              "data": "{{appStrings.homePage.investment.featureUnderSupervision}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -4594,7 +4594,7 @@
                                           }
                                         },
                                         "child": {
-                                          "data": "شروع سرمایه گذاری",
+                                          "data": "{{appStrings.homePage.investment.startButton}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "#FFFFFF",

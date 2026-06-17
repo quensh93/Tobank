@@ -3,8 +3,8 @@
         "statusCode": 200,
         "data": {
             "data": {
-                "first_name": "مهدي",
-                "last_name": "جمشيدپور"
+                "first_name": "{{appStrings.generated.promissory.POST_dest_user_info.sample_first_name}}",
+                "last_name": "{{appStrings.generated.promissory.POST_dest_user_info.jamshidpour_last_name}}"
             },
             "message": "",
             "success": true,

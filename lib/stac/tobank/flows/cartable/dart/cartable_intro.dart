@@ -63,8 +63,12 @@ StacWidget _buildMainSelector() {
           labelColor: '{{appColors.current.text.title}}',
           unselectedLabelColor: '{{appColors.current.text.subtitle}}',
           tabs: const [
-            StacTab(text: 'تاریخچه فعالیت‌ها', height: 62),
-            StacTab(text: 'کارتابل', height: 62),
+            StacTab(
+              text:
+                  '{{appStrings.generated.cartable.cartable_intro.date_active}}',
+              height: 62,
+            ),
+            StacTab(text: '{{appStrings.menu.items.inbox}}', height: 62),
           ],
         ),
         StacPositioned(
@@ -115,7 +119,7 @@ StacWidget _buildCardboardItem() {
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
             children: [
               StacText(
-                data: 'نوع درخواست: تسهیلات قرض الحسنه ازدواج',
+                data: '{{appStrings.generated.cartable.cartable_intro.title}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacCustomTextStyle(
@@ -129,7 +133,8 @@ StacWidget _buildCardboardItem() {
                 textDirection: StacTextDirection.rtl,
                 children: [
                   StacText(
-                    data: 'مرحله بعد',
+                    data:
+                        '{{appStrings.generated.cartable.cartable_intro.next_step}}',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.right,
                     style: StacCustomTextStyle(
@@ -141,7 +146,8 @@ StacWidget _buildCardboardItem() {
                   StacSizedBox(width: 24),
                   StacExpanded(
                     child: StacText(
-                      data: 'اصلاح اطلاعات محل سکونت متقاضی',
+                      data:
+                          '{{appStrings.generated.cartable.cartable_intro.information_place}}',
                       textDirection: StacTextDirection.rtl,
                       textAlign: StacTextAlign.left,
                       maxLines: 1,
@@ -171,7 +177,8 @@ StacWidget _buildCardboardItem() {
             children: [
               StacExpanded(
                 child: _buildCardboardFooterAction(
-                  title: 'جزئیات',
+                  title:
+                      '{{appStrings.generated.card_management.card_management_root.details}}',
                   iconAsset: 'assets/icons/ic_detail.svg',
                   onTap: _buildOpenProcessDetailsAction(
                     caseId: 'marriage_loan',
@@ -185,11 +192,14 @@ StacWidget _buildCardboardItem() {
               ),
               StacExpanded(
                 child: _buildCardboardFooterAction(
-                  title: 'ادامه فرآیند',
+                  title:
+                      '{{appStrings.generated.cartable.cartable_intro.continue_process}}',
                   iconAsset: 'assets/icons/ic_continue_process.svg',
                   onTap: const StacShowResultAction(
-                    title: 'ادامه فرآیند',
-                    content: 'ادامه فرآیند به زودی فعال می‌شود.',
+                    title:
+                        '{{appStrings.generated.cartable.cartable_intro.continue_process}}',
+                    content:
+                        '{{appStrings.generated.cartable.cartable_intro.continue_active_process}}',
                   ),
                 ),
               ),
@@ -244,7 +254,8 @@ StacWidget _buildProcessPage() {
           textDirection: StacTextDirection.rtl,
           children: [
             _buildProcessFilterChip(
-              title: 'همه',
+              title:
+                  '{{appStrings.generated.cartable.cartable_intro.all_filter}}',
               selectedVisible: '[[historySelectedAll]]',
               onTap: const StacCustomSetValueAction(
                 values: [
@@ -259,7 +270,7 @@ StacWidget _buildProcessPage() {
             ),
             StacSizedBox(width: 8),
             _buildProcessFilterChip(
-              title: 'درخواست‌های باز',
+              title: '{{appStrings.generated.cartable.cartable_intro.request}}',
               selectedVisible: '[[historySelectedOpen]]',
               onTap: const StacCustomSetValueAction(
                 values: [
@@ -274,7 +285,8 @@ StacWidget _buildProcessPage() {
             ),
             StacSizedBox(width: 8),
             _buildProcessFilterChip(
-              title: 'درخواست‌های بسته',
+              title:
+                  '{{appStrings.generated.cartable.cartable_intro.request_package}}',
               selectedVisible: '[[historySelectedClosed]]',
               onTap: const StacCustomSetValueAction(
                 values: [
@@ -301,9 +313,12 @@ StacWidget _buildProcessPage() {
                   child: StacColumn(
                     children: [
                       _buildProcessItem(
-                        title: 'وام قرض الحسنه ازدواج',
-                        status: 'باز',
-                        date: '۶ دی ۱۴۰۴',
+                        title:
+                            '{{appStrings.generated.cartable.cartable_detail.loan}}',
+                        status:
+                            '{{appStrings.generated.cartable.cartable_detail.open_status}}',
+                        date:
+                            '{{appStrings.generated.cartable.cartable_intro.amount_value}}',
                         detailCaseId: 'marriage_loan',
                       ),
                       StacSizedBox(height: 16),
@@ -316,23 +331,32 @@ StacWidget _buildProcessPage() {
                   child: StacColumn(
                     children: [
                       _buildProcessItem(
-                        title: 'تکمیل مدارک',
-                        status: 'بسته',
-                        date: '۲۴ فروردین ۱۴۰۵',
+                        title:
+                            '{{appStrings.generated.cartable.cartable_detail.documents_complete}}',
+                        status:
+                            '{{appStrings.generated.cartable.cartable_detail.package}}',
+                        date:
+                            '{{appStrings.generated.cartable.cartable_intro.amount_value_message}}',
                         detailCaseId: 'docs_done',
                       ),
                       StacSizedBox(height: 16),
                       _buildProcessItem(
-                        title: 'تکمیل مدارک',
-                        status: 'بسته',
-                        date: '۲۳ فروردین ۱۴۰۵',
+                        title:
+                            '{{appStrings.generated.cartable.cartable_detail.documents_complete}}',
+                        status:
+                            '{{appStrings.generated.cartable.cartable_detail.package}}',
+                        date:
+                            '{{appStrings.generated.cartable.cartable_intro.amount_value_label}}',
                         detailCaseId: 'docs_empty',
                       ),
                       StacSizedBox(height: 16),
                       _buildProcessItem(
-                        title: 'تکمیل مدارک',
-                        status: 'بسته',
-                        date: '۲۳ فروردین ۱۴۰۵',
+                        title:
+                            '{{appStrings.generated.cartable.cartable_detail.documents_complete}}',
+                        status:
+                            '{{appStrings.generated.cartable.cartable_detail.package}}',
+                        date:
+                            '{{appStrings.generated.cartable.cartable_intro.amount_value_label}}',
                         detailCaseId: 'child_loan',
                       ),
                     ],
@@ -440,7 +464,10 @@ StacWidget _buildProcessItem({
                 textDirection: StacTextDirection.rtl,
                 mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
                 children: [
-                  _buildRtlLabelWithColon(title: 'وضعیت درخواست'),
+                  _buildRtlLabelWithColon(
+                    title:
+                        '{{appStrings.generated.cartable.cartable_intro.status_request}}',
+                  ),
                   StacText(
                     data: status,
                     textDirection: StacTextDirection.rtl,
@@ -458,7 +485,10 @@ StacWidget _buildProcessItem({
                 textDirection: StacTextDirection.rtl,
                 mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
                 children: [
-                  _buildRtlLabelWithColon(title: 'تاریخ ثبت درخواست'),
+                  _buildRtlLabelWithColon(
+                    title:
+                        '{{appStrings.generated.cartable.cartable_intro.date_submit_request}}',
+                  ),
                   StacText(
                     data: date,
                     textDirection: StacTextDirection.rtl,
@@ -497,7 +527,8 @@ StacWidget _buildProcessItem({
                   ),
                   StacSizedBox(width: 8),
                   StacText(
-                    data: 'جزئیات',
+                    data:
+                        '{{appStrings.generated.card_management.card_management_root.details}}',
                     style: StacCustomTextStyle(
                       color: '{{appColors.current.text.title}}',
                       fontWeight: StacFontWeight.w600,
@@ -563,4 +594,3 @@ StacWidget _buildRtlLabelWithColon({required String title}) {
     ],
   );
 }
-

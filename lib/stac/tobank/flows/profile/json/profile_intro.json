@@ -24,7 +24,7 @@
               "type": "sizedBox"
             },
             {
-              "data": "حساب کاربری",
+              "data": "{{appStrings.profile.real.accountTitle}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
@@ -119,8 +119,8 @@
               },
               "onTap": {
                 "actionType": "showResult",
-                "title": "ویرایش تصویر",
-                "content": "این بخش به زودی فعال می‌شود."
+                "title": "{{appStrings.profile.real.editImageTitle}}",
+                "content": "{{appStrings.profile.real.comingSoon}}"
               },
               "type": "gestureDetector"
             },
@@ -129,7 +129,7 @@
               "type": "sizedBox"
             },
             {
-              "data": "مهدی جمشیدپور",
+              "data": "{{appStrings.profile.real.userName}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
@@ -144,7 +144,7 @@
               "type": "sizedBox"
             },
             {
-              "data": "09142767469",
+              "data": "{{appStrings.profile.real.phoneNumber}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.subtitle}}",
@@ -208,7 +208,7 @@
                                   },
                                   {
                                     "child": {
-                                      "data": "اطلاعات بانکی",
+                                      "data": "{{appStrings.profile.real.menu.bankInfo}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -283,7 +283,7 @@
                                   },
                                   {
                                     "child": {
-                                      "data": "دعوت از دوستان",
+                                      "data": "{{appStrings.profile.real.menu.inviteFriends}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -358,7 +358,7 @@
                                   },
                                   {
                                     "child": {
-                                      "data": "مدیریت مقصدها",
+                                      "data": "{{appStrings.profile.real.menu.destinations}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -433,7 +433,7 @@
                                   },
                                   {
                                     "child": {
-                                      "data": "تنظیمات",
+                                      "data": "{{appStrings.profile.real.menu.settings}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -508,7 +508,7 @@
                                   },
                                   {
                                     "child": {
-                                      "data": "قوانین و مقررات",
+                                      "data": "{{appStrings.login.rulesAndRegulations}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -583,7 +583,7 @@
                                   },
                                   {
                                     "child": {
-                                      "data": "درباره ما",
+                                      "data": "{{appStrings.profile.real.menu.aboutUs}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -658,7 +658,7 @@
                                   },
                                   {
                                     "child": {
-                                      "data": "تماس با ما",
+                                      "data": "{{appStrings.profile.real.menu.contactUs}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -698,7 +698,7 @@
                       "type": "padding"
                     },
                     {
-                      "data": "نسخه برنامه ۳.۲.۶",
+                      "data": "{{appStrings.profile.real.appVersion}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.subtitle}}",

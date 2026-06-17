@@ -9,7 +9,8 @@ StacWidget userCreditValidationPreview() {
     appBar: buildTobankFlowAppBar(
       showSupport: true,
       showBack: true,
-      title: 'نمایش اعتبارسنجی',
+      title:
+          '{{appStrings.generated.user_credit_validation.user_credit_validation_preview.title}}',
     ),
     body: StacSafeArea(
       top: false,
@@ -32,7 +33,8 @@ StacWidget userCreditValidationPreview() {
               children: [
                 StacExpanded(
                   child: _previewActionButton(
-                    title: 'اشتراک‌گذاری',
+                    title:
+                        '{{appStrings.generated.card_management.card_management_root.share}}',
                     iconAsset: 'assets/icons/ic_share.svg',
                     mode: 'shareText',
                   ),
@@ -40,7 +42,7 @@ StacWidget userCreditValidationPreview() {
                 StacSizedBox(width: 10),
                 StacExpanded(
                   child: _previewActionButton(
-                    title: 'ذخیره',
+                    title: '{{appStrings.promissory.saveButton}}',
                     iconAsset: 'assets/icons/ic_download.svg',
                     mode: 'shareImage',
                   ),
@@ -70,7 +72,8 @@ StacWidget _reportPage() {
           children: [
             StacExpanded(
               child: StacText(
-                data: 'گزارش اعتبارسنجی حقیقی',
+                data:
+                    '{{appStrings.generated.user_credit_validation.user_credit_validation_preview.real_credit_report_title}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacCustomTextStyle(
@@ -91,7 +94,8 @@ StacWidget _reportPage() {
         ),
         StacSizedBox(height: 8),
         StacText(
-          data: 'تاریخ: ۱۴۰۵/۰۳/۰۳   ساعت: ۱۰:۱۳',
+          data:
+              '{{appStrings.generated.user_credit_validation.user_credit_validation_preview.date_time}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 12,
@@ -100,7 +104,8 @@ StacWidget _reportPage() {
           ),
         ),
         StacText(
-          data: 'کد رهگیری: ۹۳۷۰۵۶۸۷۴۹۳۳',
+          data:
+              '{{appStrings.generated.user_credit_validation.user_credit_validation_preview.tracking_code}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 12,
@@ -127,7 +132,8 @@ StacWidget _reportPage() {
                 ),
                 child: StacCenter(
                   child: StacText(
-                    data: '۸۰',
+                    data:
+                        '{{appStrings.generated.user_credit_validation.user_credit_validation_preview.number_value}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 24,
@@ -142,9 +148,18 @@ StacWidget _reportPage() {
                 child: StacColumn(
                   crossAxisAlignment: StacCrossAxisAlignment.stretch,
                   children: [
-                    _previewInfoRow('شماره ملی', '۱۲۳۳۳۱۹۵۸۱'),
-                    _previewInfoRow('نام', 'علیرضا'),
-                    _previewInfoRow('نام خانوادگی', 'حیدریان'),
+                    _previewInfoRow(
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_preview.number_national}}',
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_preview.amount_value}}',
+                    ),
+                    _previewInfoRow(
+                      '{{appStrings.generated.promissory.promissory_confirm.name}}',
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_preview.sample_message}}',
+                    ),
+                    _previewInfoRow(
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_preview.last_name}}',
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_preview.sample_label}}',
+                    ),
                   ],
                 ),
               ),
@@ -167,7 +182,8 @@ StacWidget _reportPage() {
                   borderRadius: StacBorderRadius.only(topLeft: 8, topRight: 8),
                 ),
                 child: StacText(
-                  data: 'عمده دلایل امتیاز',
+                  data:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_preview.score_reasons_title}}',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -181,7 +197,7 @@ StacWidget _reportPage() {
                 padding: StacEdgeInsets.all(10),
                 child: StacText(
                   data:
-                      'بر اساس مبلغی بابت تراکنش‌های واریزی خرید کارتخوانی وی از سایر امور مالیاتی، بدهی فرد به طور میانگین کم ارزیابی شده است.',
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_preview.transaction_amount_buy}}',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -238,7 +254,8 @@ StacWidget _previewActionButton({
     onPressed: StacCustomAction.fromJson({
       'actionType': 'transferReceipt',
       'mode': mode,
-      'title': 'گزارش اعتبارسنجی',
+      'title':
+          '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.report_credit_validation}}',
       'pixelRatio': 3.0,
       'boundaryKey': 'userCreditValidationPreviewContent',
     }),

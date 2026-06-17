@@ -26,7 +26,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "ضمانت سفته",
+        "data": "{{appStrings.promissory.guaranteePromissory}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -98,7 +98,7 @@
                     "crossAxisAlignment": "stretch",
                     "children": [
                       {
-                        "data": "اطلاعات سفته",
+                        "data": "{{appStrings.promissory.dataTitle}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -129,7 +129,7 @@
                         "children": [
                           {
                             "child": {
-                              "data": "مبلغ سفته",
+                              "data": "{{appStrings.promissory.amountLabel}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -148,7 +148,7 @@
                           },
                           {
                             "child": {
-                              "data": "۶۸۹,۰۰۰,۰۰۰ ریال",
+                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.rial}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -175,7 +175,7 @@
                         "children": [
                           {
                             "child": {
-                              "data": "تاریخ پرداخت",
+                              "data": "{{appStrings.promissory.payDate}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -194,7 +194,7 @@
                           },
                           {
                             "child": {
-                              "data": "عندالمطالبه",
+                              "data": "{{appStrings.promissory.onDemand}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -218,7 +218,7 @@
                         "crossAxisAlignment": "stretch",
                         "children": [
                           {
-                            "data": "توضیحات",
+                            "data": "{{appStrings.promissory.descriptionLabel}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.subtitle}}",
@@ -234,7 +234,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "سفته وام پارسا",
+                            "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.promissory_loan}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -257,7 +257,7 @@
                         "crossAxisAlignment": "stretch",
                         "children": [
                           {
-                            "data": "محل پرداخت",
+                            "data": "{{appStrings.promissory.paymentPlaceLabel}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.subtitle}}",
@@ -273,209 +273,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "سعادت آباد، بلوار فرهنگ، نبش کوچه نور، پلاک ۶",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.title}}",
-                              "fontSize": 16.0,
-                              "fontWeight": "w600",
-                              "height": 1.6
-                            },
-                            "textAlign": "right",
-                            "textDirection": "rtl",
-                            "type": "text"
-                          }
-                        ],
-                        "type": "column"
-                      },
-                      {
-                        "height": 16.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "thickness": 1.0,
-                        "color": "{{appColors.current.input.borderEnabled}}",
-                        "type": "divider"
-                      },
-                      {
-                        "height": 16.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "data": "اطلاعات صادرکننده",
-                        "style": {
-                          "type": "custom",
-                          "color": "{{appColors.current.text.title}}",
-                          "fontSize": 18.0,
-                          "fontWeight": "w700"
-                        },
-                        "textAlign": "right",
-                        "textDirection": "rtl",
-                        "type": "text"
-                      },
-                      {
-                        "height": 16.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "mainAxisAlignment": "spaceBetween",
-                        "crossAxisAlignment": "start",
-                        "textDirection": "rtl",
-                        "children": [
-                          {
-                            "child": {
-                              "data": "کد ملی",
-                              "style": {
-                                "type": "custom",
-                                "color": "{{appColors.current.text.subtitle}}",
-                                "fontSize": 16.0,
-                                "fontWeight": "w500"
-                              },
-                              "textAlign": "right",
-                              "textDirection": "rtl",
-                              "type": "text"
-                            },
-                            "type": "expanded"
-                          },
-                          {
-                            "width": 12.0,
-                            "type": "sizedBox"
-                          },
-                          {
-                            "child": {
-                              "data": "۰۰۲۰۹۲۰۷۸۴",
-                              "style": {
-                                "type": "custom",
-                                "color": "{{appColors.current.text.title}}",
-                                "fontSize": 16.0,
-                                "fontWeight": "w600"
-                              },
-                              "textAlign": "left",
-                              "textDirection": "rtl",
-                              "type": "text"
-                            },
-                            "type": "expanded"
-                          }
-                        ],
-                        "type": "row"
-                      },
-                      {
-                        "height": 16.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "mainAxisAlignment": "spaceBetween",
-                        "crossAxisAlignment": "start",
-                        "textDirection": "rtl",
-                        "children": [
-                          {
-                            "child": {
-                              "data": "شماره موبایل صادرکننده",
-                              "style": {
-                                "type": "custom",
-                                "color": "{{appColors.current.text.subtitle}}",
-                                "fontSize": 16.0,
-                                "fontWeight": "w500"
-                              },
-                              "textAlign": "right",
-                              "textDirection": "rtl",
-                              "type": "text"
-                            },
-                            "type": "expanded"
-                          },
-                          {
-                            "width": 12.0,
-                            "type": "sizedBox"
-                          },
-                          {
-                            "child": {
-                              "data": "۰۹۱۲۹۴۶۵۸۷۲",
-                              "style": {
-                                "type": "custom",
-                                "color": "{{appColors.current.text.title}}",
-                                "fontSize": 16.0,
-                                "fontWeight": "w600"
-                              },
-                              "textAlign": "left",
-                              "textDirection": "rtl",
-                              "type": "text"
-                            },
-                            "type": "expanded"
-                          }
-                        ],
-                        "type": "row"
-                      },
-                      {
-                        "height": 16.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "mainAxisAlignment": "spaceBetween",
-                        "crossAxisAlignment": "start",
-                        "textDirection": "rtl",
-                        "children": [
-                          {
-                            "child": {
-                              "data": "نام و نام‌خانوادگی",
-                              "style": {
-                                "type": "custom",
-                                "color": "{{appColors.current.text.subtitle}}",
-                                "fontSize": 16.0,
-                                "fontWeight": "w500"
-                              },
-                              "textAlign": "right",
-                              "textDirection": "rtl",
-                              "type": "text"
-                            },
-                            "type": "expanded"
-                          },
-                          {
-                            "width": 12.0,
-                            "type": "sizedBox"
-                          },
-                          {
-                            "child": {
-                              "data": "زهرا حاجی ابراهیمی",
-                              "style": {
-                                "type": "custom",
-                                "color": "{{appColors.current.text.title}}",
-                                "fontSize": 16.0,
-                                "fontWeight": "w600"
-                              },
-                              "textAlign": "left",
-                              "textDirection": "rtl",
-                              "type": "text"
-                            },
-                            "type": "expanded"
-                          }
-                        ],
-                        "type": "row"
-                      },
-                      {
-                        "height": 16.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "crossAxisAlignment": "stretch",
-                        "children": [
-                          {
-                            "data": "آدرس محل اقامت",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.subtitle}}",
-                              "fontSize": 16.0,
-                              "fontWeight": "w500"
-                            },
-                            "textAlign": "right",
-                            "textDirection": "rtl",
-                            "type": "text"
-                          },
-                          {
-                            "height": 8.0,
-                            "type": "sizedBox"
-                          },
-                          {
-                            "data": "تهران - تهران - تهران اکباتان - پلاک ۲ - طبقه ۳ - واحد ۳",
+                            "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.plaque}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -504,7 +302,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "اطلاعات دریافت‌کننده",
+                        "data": "{{appStrings.promissory.issuerTitle}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -526,7 +324,7 @@
                         "children": [
                           {
                             "child": {
-                              "data": "شناسه ملی",
+                              "data": "{{appStrings.login.nationalCodeTitle}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -545,7 +343,7 @@
                           },
                           {
                             "child": {
-                              "data": "۱۰۳۲۰۴۳۵۲۶۸",
+                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.title}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -572,7 +370,7 @@
                         "children": [
                           {
                             "child": {
-                              "data": "شماره تماس",
+                              "data": "{{appStrings.promissory.issuerPhoneNumber}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -591,7 +389,7 @@
                           },
                           {
                             "child": {
-                              "data": "۰۲۱۳۳۹۵۳۳۹۵",
+                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.amount_value}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -618,7 +416,7 @@
                         "children": [
                           {
                             "child": {
-                              "data": "نام شرکت",
+                              "data": "{{appStrings.generated.child_loan.child_loan_customer_check.name}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -637,7 +435,209 @@
                           },
                           {
                             "child": {
-                              "data": "بانک گردشگری",
+                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.sample_person_name}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "crossAxisAlignment": "stretch",
+                        "children": [
+                          {
+                            "data": "{{appStrings.promissory.residencesAddress}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "height": 8.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.plaque_unit_floor}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w600",
+                              "height": 1.6
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "column"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "thickness": 1.0,
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "type": "divider"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.information}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 18.0,
+                          "fontWeight": "w700"
+                        },
+                        "textAlign": "right",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "crossAxisAlignment": "start",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "{{appStrings.promissory.nationalId}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.amount_value_text}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "crossAxisAlignment": "start",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "{{appStrings.promissory.contactNumber}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.amount_value_label}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "crossAxisAlignment": "start",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.name}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "data": "{{appStrings.generated.transfer.transfer_card_result.bank}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -668,7 +668,7 @@
                 "crossAxisAlignment": "stretch",
                 "children": [
                   {
-                    "data": "آدرس",
+                    "data": "{{appStrings.profile.real.bankInfo.addressLabel}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -691,7 +691,7 @@
                     "supportTextDirection": "rtl",
                     "autovalidateMode": "always",
                     "decoration": {
-                      "hintText": "آدرس محل پرداخت را بنویسید (تا ۲۰۰ کاراکتر)",
+                      "hintText": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.payment_place_address_until}}",
                       "filled": false,
                       "hintStyle": {
                         "type": "custom",
@@ -810,7 +810,7 @@
                         "options": {
                           "pattern": "^.{1,200}$"
                         },
-                        "message": "این فیلد الزامی است"
+                        "message": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.required_field_message}}"
                       }
                     ],
                     "onChanged": {
@@ -854,7 +854,7 @@
                 "crossAxisAlignment": "stretch",
                 "children": [
                   {
-                    "data": "توضیحات",
+                    "data": "{{appStrings.promissory.descriptionLabel}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -877,7 +877,7 @@
                     "supportTextDirection": "rtl",
                     "autovalidateMode": "always",
                     "decoration": {
-                      "hintText": "توضیحات ضمانت را بنویسید (تا ۲۰۰ کاراکتر)",
+                      "hintText": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.description_guarantee_until}}",
                       "filled": false,
                       "hintStyle": {
                         "type": "custom",
@@ -996,7 +996,7 @@
                         "options": {
                           "pattern": "^.{1,200}$"
                         },
-                        "message": "این فیلد الزامی است"
+                        "message": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.required_field_message}}"
                       }
                     ],
                     "onChanged": {
@@ -1074,7 +1074,7 @@
                       "bottom": false,
                       "child": {
                         "decoration": {
-                          "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                          "color": "{{appColors.current.background.surface}}",
                           "borderRadius": {
                             "topLeft": 18.0,
                             "topRight": 18.0
@@ -1094,7 +1094,7 @@
                               {
                                 "child": {
                                   "decoration": {
-                                    "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                    "color": "{{appColors.current.input.borderEnabled}}",
                                     "borderRadius": {
                                       "topLeft": 999.0,
                                       "topRight": 999.0,
@@ -1118,10 +1118,10 @@
                                     "crossAxisAlignment": "stretch",
                                     "children": [
                                       {
-                                        "data": "سپرده خود را جهت ضمانت سفته انتخاب کنید:",
+                                        "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.guarantee_promissory_select_deposit}}",
                                         "style": {
                                           "type": "custom",
-                                          "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                          "color": "{{appColors.current.text.title}}",
                                           "fontSize": 18.0,
                                           "fontWeight": "w700"
                                         },
@@ -1139,7 +1139,7 @@
                                           "visible": "[[promissoryGuaranteeDeposit1Selected]]",
                                           "child": {
                                             "decoration": {
-                                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                              "color": "{{appColors.current.background.surface}}",
                                               "border": {
                                                 "color": "#20C4D8",
                                                 "width": 1.0
@@ -1171,10 +1171,10 @@
                                                           "crossAxisAlignment": "stretch",
                                                           "children": [
                                                             {
-                                                              "data": "سپرده سرمایه گذاری کوتاه مدت علیرضا حیدریان",
+                                                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.deposit}}",
                                                               "style": {
                                                                 "type": "custom",
-                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "color": "{{appColors.current.text.title}}",
                                                                 "fontSize": 18.0,
                                                                 "fontWeight": "w700",
                                                                 "height": 1.45
@@ -1189,7 +1189,7 @@
                                                             },
                                                             {
                                                               "thickness": 1.0,
-                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "color": "{{appColors.current.input.borderEnabled}}",
                                                               "type": "divider"
                                                             },
                                                             {
@@ -1202,10 +1202,10 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "شماره سپرده:",
+                                                                  "data": "{{appStrings.generated.deposit_more_options.deposit_close_selector.deposit_number}}",
                                                                   "style": {
                                                                     "type": "custom",
-                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "color": "{{appColors.current.text.subtitle}}",
                                                                     "fontSize": 15.0,
                                                                     "fontWeight": "w500"
                                                                   },
@@ -1217,7 +1217,7 @@
                                                                     "data": "144.9966.763020.1",
                                                                     "style": {
                                                                       "type": "custom",
-                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "color": "{{appColors.current.text.title}}",
                                                                       "fontSize": 15.0,
                                                                       "fontWeight": "w700"
                                                                     },
@@ -1240,10 +1240,10 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "شماره شبا:",
+                                                                  "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.iban_number}}",
                                                                   "style": {
                                                                     "type": "custom",
-                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "color": "{{appColors.current.text.subtitle}}",
                                                                     "fontSize": 15.0,
                                                                     "fontWeight": "w500"
                                                                   },
@@ -1255,7 +1255,7 @@
                                                                     "data": "IR9606400144996607630200001",
                                                                     "style": {
                                                                       "type": "custom",
-                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "color": "{{appColors.current.text.title}}",
                                                                       "fontSize": 15.0,
                                                                       "fontWeight": "w700"
                                                                     },
@@ -1319,9 +1319,9 @@
                                           },
                                           "replacement": {
                                             "decoration": {
-                                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                              "color": "{{appColors.current.background.surface}}",
                                               "border": {
-                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                 "width": 1.0
                                               },
                                               "borderRadius": {
@@ -1351,10 +1351,10 @@
                                                           "crossAxisAlignment": "stretch",
                                                           "children": [
                                                             {
-                                                              "data": "سپرده سرمایه گذاری کوتاه مدت علیرضا حیدریان",
+                                                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.deposit}}",
                                                               "style": {
                                                                 "type": "custom",
-                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "color": "{{appColors.current.text.title}}",
                                                                 "fontSize": 18.0,
                                                                 "fontWeight": "w700",
                                                                 "height": 1.45
@@ -1369,7 +1369,7 @@
                                                             },
                                                             {
                                                               "thickness": 1.0,
-                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "color": "{{appColors.current.input.borderEnabled}}",
                                                               "type": "divider"
                                                             },
                                                             {
@@ -1382,10 +1382,10 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "شماره سپرده:",
+                                                                  "data": "{{appStrings.generated.deposit_more_options.deposit_close_selector.deposit_number}}",
                                                                   "style": {
                                                                     "type": "custom",
-                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "color": "{{appColors.current.text.subtitle}}",
                                                                     "fontSize": 15.0,
                                                                     "fontWeight": "w500"
                                                                   },
@@ -1397,7 +1397,7 @@
                                                                     "data": "144.9966.763020.1",
                                                                     "style": {
                                                                       "type": "custom",
-                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "color": "{{appColors.current.text.title}}",
                                                                       "fontSize": 15.0,
                                                                       "fontWeight": "w700"
                                                                     },
@@ -1420,10 +1420,10 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "شماره شبا:",
+                                                                  "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.iban_number}}",
                                                                   "style": {
                                                                     "type": "custom",
-                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "color": "{{appColors.current.text.subtitle}}",
                                                                     "fontSize": 15.0,
                                                                     "fontWeight": "w500"
                                                                   },
@@ -1435,7 +1435,7 @@
                                                                     "data": "IR9606400144996607630200001",
                                                                     "style": {
                                                                       "type": "custom",
-                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "color": "{{appColors.current.text.title}}",
                                                                       "fontSize": 15.0,
                                                                       "fontWeight": "w700"
                                                                     },
@@ -1460,7 +1460,7 @@
                                                         "child": {
                                                           "decoration": {
                                                             "border": {
-                                                              "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                              "color": "{{appColors.current.text.subtitle}}",
                                                               "width": 2.0
                                                             },
                                                             "shape": "circle"
@@ -1535,7 +1535,7 @@
                                           "visible": "[[promissoryGuaranteeDeposit2Selected]]",
                                           "child": {
                                             "decoration": {
-                                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                              "color": "{{appColors.current.background.surface}}",
                                               "border": {
                                                 "color": "#20C4D8",
                                                 "width": 1.0
@@ -1567,10 +1567,10 @@
                                                           "crossAxisAlignment": "stretch",
                                                           "children": [
                                                             {
-                                                              "data": "سپرده حقیقی حساب قرض الحسنه جاری حقیقی، ریالی علیرضا حیدریان",
+                                                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.deposit_account_rial}}",
                                                               "style": {
                                                                 "type": "custom",
-                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "color": "{{appColors.current.text.title}}",
                                                                 "fontSize": 18.0,
                                                                 "fontWeight": "w700",
                                                                 "height": 1.45
@@ -1585,7 +1585,7 @@
                                                             },
                                                             {
                                                               "thickness": 1.0,
-                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "color": "{{appColors.current.input.borderEnabled}}",
                                                               "type": "divider"
                                                             },
                                                             {
@@ -1598,10 +1598,10 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "شماره سپرده:",
+                                                                  "data": "{{appStrings.generated.deposit_more_options.deposit_close_selector.deposit_number}}",
                                                                   "style": {
                                                                     "type": "custom",
-                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "color": "{{appColors.current.text.subtitle}}",
                                                                     "fontSize": 15.0,
                                                                     "fontWeight": "w500"
                                                                   },
@@ -1613,7 +1613,7 @@
                                                                     "data": "132.70.763020.1",
                                                                     "style": {
                                                                       "type": "custom",
-                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "color": "{{appColors.current.text.title}}",
                                                                       "fontSize": 15.0,
                                                                       "fontWeight": "w700"
                                                                     },
@@ -1636,10 +1636,10 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "شماره شبا:",
+                                                                  "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.iban_number}}",
                                                                   "style": {
                                                                     "type": "custom",
-                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "color": "{{appColors.current.text.subtitle}}",
                                                                     "fontSize": 15.0,
                                                                     "fontWeight": "w500"
                                                                   },
@@ -1651,7 +1651,7 @@
                                                                     "data": "IR9606400132007007630200001",
                                                                     "style": {
                                                                       "type": "custom",
-                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "color": "{{appColors.current.text.title}}",
                                                                       "fontSize": 15.0,
                                                                       "fontWeight": "w700"
                                                                     },
@@ -1715,9 +1715,9 @@
                                           },
                                           "replacement": {
                                             "decoration": {
-                                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                              "color": "{{appColors.current.background.surface}}",
                                               "border": {
-                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                 "width": 1.0
                                               },
                                               "borderRadius": {
@@ -1747,10 +1747,10 @@
                                                           "crossAxisAlignment": "stretch",
                                                           "children": [
                                                             {
-                                                              "data": "سپرده حقیقی حساب قرض الحسنه جاری حقیقی، ریالی علیرضا حیدریان",
+                                                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.deposit_account_rial}}",
                                                               "style": {
                                                                 "type": "custom",
-                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "color": "{{appColors.current.text.title}}",
                                                                 "fontSize": 18.0,
                                                                 "fontWeight": "w700",
                                                                 "height": 1.45
@@ -1765,7 +1765,7 @@
                                                             },
                                                             {
                                                               "thickness": 1.0,
-                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "color": "{{appColors.current.input.borderEnabled}}",
                                                               "type": "divider"
                                                             },
                                                             {
@@ -1778,10 +1778,10 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "شماره سپرده:",
+                                                                  "data": "{{appStrings.generated.deposit_more_options.deposit_close_selector.deposit_number}}",
                                                                   "style": {
                                                                     "type": "custom",
-                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "color": "{{appColors.current.text.subtitle}}",
                                                                     "fontSize": 15.0,
                                                                     "fontWeight": "w500"
                                                                   },
@@ -1793,7 +1793,7 @@
                                                                     "data": "132.70.763020.1",
                                                                     "style": {
                                                                       "type": "custom",
-                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "color": "{{appColors.current.text.title}}",
                                                                       "fontSize": 15.0,
                                                                       "fontWeight": "w700"
                                                                     },
@@ -1816,10 +1816,10 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "شماره شبا:",
+                                                                  "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.iban_number}}",
                                                                   "style": {
                                                                     "type": "custom",
-                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "color": "{{appColors.current.text.subtitle}}",
                                                                     "fontSize": 15.0,
                                                                     "fontWeight": "w500"
                                                                   },
@@ -1831,7 +1831,7 @@
                                                                     "data": "IR9606400132007007630200001",
                                                                     "style": {
                                                                       "type": "custom",
-                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "color": "{{appColors.current.text.title}}",
                                                                       "fontSize": 15.0,
                                                                       "fontWeight": "w700"
                                                                     },
@@ -1856,7 +1856,7 @@
                                                         "child": {
                                                           "decoration": {
                                                             "border": {
-                                                              "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                              "color": "{{appColors.current.text.subtitle}}",
                                                               "width": 2.0
                                                             },
                                                             "shape": "circle"
@@ -1931,7 +1931,7 @@
                                           "visible": "[[promissoryGuaranteeDeposit3Selected]]",
                                           "child": {
                                             "decoration": {
-                                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                              "color": "{{appColors.current.background.surface}}",
                                               "border": {
                                                 "color": "#20C4D8",
                                                 "width": 1.0
@@ -1963,10 +1963,10 @@
                                                           "crossAxisAlignment": "stretch",
                                                           "children": [
                                                             {
-                                                              "data": "سپرده حقیقی سپرده سرمایه گذاری کوتاه مدت-حقیقی ریالی علیرضا حیدریان",
+                                                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.deposit_rial}}",
                                                               "style": {
                                                                 "type": "custom",
-                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "color": "{{appColors.current.text.title}}",
                                                                 "fontSize": 18.0,
                                                                 "fontWeight": "w700",
                                                                 "height": 1.45
@@ -1981,7 +1981,7 @@
                                                             },
                                                             {
                                                               "thickness": 1.0,
-                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "color": "{{appColors.current.input.borderEnabled}}",
                                                               "type": "divider"
                                                             },
                                                             {
@@ -1994,10 +1994,10 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "شماره سپرده:",
+                                                                  "data": "{{appStrings.generated.deposit_more_options.deposit_close_selector.deposit_number}}",
                                                                   "style": {
                                                                     "type": "custom",
-                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "color": "{{appColors.current.text.subtitle}}",
                                                                     "fontSize": 15.0,
                                                                     "fontWeight": "w500"
                                                                   },
@@ -2009,7 +2009,7 @@
                                                                     "data": "110.9992.763020.1",
                                                                     "style": {
                                                                       "type": "custom",
-                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "color": "{{appColors.current.text.title}}",
                                                                       "fontSize": 15.0,
                                                                       "fontWeight": "w700"
                                                                     },
@@ -2032,10 +2032,10 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "شماره شبا:",
+                                                                  "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.iban_number}}",
                                                                   "style": {
                                                                     "type": "custom",
-                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "color": "{{appColors.current.text.subtitle}}",
                                                                     "fontSize": 15.0,
                                                                     "fontWeight": "w500"
                                                                   },
@@ -2047,7 +2047,7 @@
                                                                     "data": "IR6206400110999207630200001",
                                                                     "style": {
                                                                       "type": "custom",
-                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "color": "{{appColors.current.text.title}}",
                                                                       "fontSize": 15.0,
                                                                       "fontWeight": "w700"
                                                                     },
@@ -2111,9 +2111,9 @@
                                           },
                                           "replacement": {
                                             "decoration": {
-                                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                              "color": "{{appColors.current.background.surface}}",
                                               "border": {
-                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                 "width": 1.0
                                               },
                                               "borderRadius": {
@@ -2143,10 +2143,10 @@
                                                           "crossAxisAlignment": "stretch",
                                                           "children": [
                                                             {
-                                                              "data": "سپرده حقیقی سپرده سرمایه گذاری کوتاه مدت-حقیقی ریالی علیرضا حیدریان",
+                                                              "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.deposit_rial}}",
                                                               "style": {
                                                                 "type": "custom",
-                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "color": "{{appColors.current.text.title}}",
                                                                 "fontSize": 18.0,
                                                                 "fontWeight": "w700",
                                                                 "height": 1.45
@@ -2161,7 +2161,7 @@
                                                             },
                                                             {
                                                               "thickness": 1.0,
-                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "color": "{{appColors.current.input.borderEnabled}}",
                                                               "type": "divider"
                                                             },
                                                             {
@@ -2174,10 +2174,10 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "شماره سپرده:",
+                                                                  "data": "{{appStrings.generated.deposit_more_options.deposit_close_selector.deposit_number}}",
                                                                   "style": {
                                                                     "type": "custom",
-                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "color": "{{appColors.current.text.subtitle}}",
                                                                     "fontSize": 15.0,
                                                                     "fontWeight": "w500"
                                                                   },
@@ -2189,7 +2189,7 @@
                                                                     "data": "110.9992.763020.1",
                                                                     "style": {
                                                                       "type": "custom",
-                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "color": "{{appColors.current.text.title}}",
                                                                       "fontSize": 15.0,
                                                                       "fontWeight": "w700"
                                                                     },
@@ -2212,10 +2212,10 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "شماره شبا:",
+                                                                  "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.iban_number}}",
                                                                   "style": {
                                                                     "type": "custom",
-                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "color": "{{appColors.current.text.subtitle}}",
                                                                     "fontSize": 15.0,
                                                                     "fontWeight": "w500"
                                                                   },
@@ -2227,7 +2227,7 @@
                                                                     "data": "IR6206400110999207630200001",
                                                                     "style": {
                                                                       "type": "custom",
-                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "color": "{{appColors.current.text.title}}",
                                                                       "fontSize": 15.0,
                                                                       "fontWeight": "w700"
                                                                     },
@@ -2252,7 +2252,7 @@
                                                         "child": {
                                                           "decoration": {
                                                             "border": {
-                                                              "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                              "color": "{{appColors.current.text.subtitle}}",
                                                               "width": 2.0
                                                             },
                                                             "shape": "circle"
@@ -2384,7 +2384,7 @@
                                   }
                                 },
                                 "child": {
-                                  "data": "ثبت ضمانت سفته",
+                                  "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.guarantee_promissory_submit}}",
                                   "style": {
                                     "type": "custom",
                                     "fontSize": 18.0,
@@ -2447,7 +2447,7 @@
                   }
                 },
                 "child": {
-                  "data": "تایید و ادامه",
+                  "data": "{{appStrings.authentication.confirmAndContinue}}",
                   "style": {
                     "type": "custom",
                     "fontSize": 18.0,

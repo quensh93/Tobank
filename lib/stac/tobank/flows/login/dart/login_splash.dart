@@ -8,7 +8,11 @@ StacWidget loginSplash() {
     jsonData: {
       'type': 'onMountAction',
       'delay': 5000,
-      'action': NavigationAction(fileName: 'login_onboarding', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushReplacement).toJson(),
+      'action': NavigationAction(
+        fileName: 'login_onboarding',
+        navMode: NavModes.dart,
+        navigationStyle: NavigationStyle.pushReplacement,
+      ).toJson(),
       'child': _buildSplashBody().toJson(),
     },
   );

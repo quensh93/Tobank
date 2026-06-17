@@ -210,9 +210,9 @@
                                           "cropAspectRatioX": 85.6,
                                           "cropAspectRatioY": 54.0,
                                           "previewBeforeConfirm": true,
-                                          "previewSheetTitle": "پیش نمایش تصویر کارت ملی",
-                                          "confirmButtonText": "تایید",
-                                          "retryButtonText": "بازگشت"
+                                          "previewSheetTitle": "{{appStrings.generated.authentication.authentication_national_card_back.preview_national_card_image}}",
+                                          "confirmButtonText": "{{appStrings.common.confirm}}",
+                                          "retryButtonText": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}"
                                         },
                                         "type": "gestureDetector"
                                       },
@@ -275,9 +275,9 @@
                                           "cropAspectRatioX": 85.6,
                                           "cropAspectRatioY": 54.0,
                                           "previewBeforeConfirm": true,
-                                          "previewSheetTitle": "پیش نمایش تصویر کارت ملی",
-                                          "confirmButtonText": "تایید",
-                                          "retryButtonText": "بازگشت"
+                                          "previewSheetTitle": "{{appStrings.generated.authentication.authentication_national_card_back.preview_national_card_image}}",
+                                          "confirmButtonText": "{{appStrings.common.confirm}}",
+                                          "retryButtonText": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}"
                                         },
                                         "type": "gestureDetector"
                                       },
@@ -353,7 +353,7 @@
                                       "children": [
                                         {
                                           "child": {
-                                            "data": "عکسبرداری مجدد",
+                                            "data": "{{appStrings.generated.authentication.authentication_national_card_back.title}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",

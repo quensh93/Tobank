@@ -495,7 +495,7 @@
                                 "onPressed": {
                                   "actionType": "showRulesBottomSheet",
                                   "routeName": "authentication_rules",
-                                  "title": "شرایط و مقررات ارائه خدمات توبانک"
+                                  "title": "{{appStrings.authentication.serviceRulesTitle}}"
                                 },
                                 "style": {
                                   "foregroundColor": "{{appColors.current.secondary.color}}",

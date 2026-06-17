@@ -25,7 +25,7 @@
       },
       {
         "key": "crSim1Operator",
-        "value": "همراه اول",
+        "value": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
         "condition": "!crChargeFlowInitialized"
       },
       {
@@ -45,7 +45,7 @@
       },
       {
         "key": "crSim2Operator",
-        "value": "همراه اول",
+        "value": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
         "condition": "!crChargeFlowInitialized"
       },
       {
@@ -65,7 +65,7 @@
       },
       {
         "key": "crSim3Operator",
-        "value": "ایرانسل",
+        "value": "{{appStrings.generated.charge.charge_add_sim.irancell_operator}}",
         "condition": "!crChargeFlowInitialized"
       },
       {
@@ -95,7 +95,7 @@
       },
       {
         "key": "crActiveSimOperator",
-        "value": "همراه اول",
+        "value": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
         "condition": "!crChargeFlowInitialized"
       },
       {
@@ -120,7 +120,7 @@
       },
       {
         "key": "crSheetOperator",
-        "value": "همراه اول",
+        "value": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
         "condition": "!crChargeFlowInitialized"
       },
       {
@@ -176,7 +176,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "اینترنت",
+        "data": "{{appStrings.generated.internet_pakage.internet_pakage_add_sim.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -229,7 +229,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "سیم‌کارت‌ها",
+                  "data": "{{appStrings.generated.charge.charge_intro.title}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
@@ -291,7 +291,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "سیم‌کارت تکراری است",
+                                      "data": "{{appStrings.generated.charge.charge_intro.is_duplicate_sim_card}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.feedback.error}}",
@@ -671,7 +671,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "ویرایش",
+                                                            "data": "{{appStrings.verifyOtp.edit}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -874,7 +874,7 @@
                                                                       }
                                                                     },
                                                                     "child": {
-                                                                      "data": "ذخیره",
+                                                                      "data": "{{appStrings.promissory.saveButton}}",
                                                                       "style": {
                                                                         "type": "custom",
                                                                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -925,7 +925,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "حذف کردن",
+                                                            "data": "{{appStrings.generated.charge.charge_intro.delete}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "#E31D35",
@@ -988,7 +988,7 @@
                                                       }
                                                     },
                                                     "child": {
-                                                      "data": "انصراف",
+                                                      "data": "{{appStrings.common.cancel}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -1371,7 +1371,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "ویرایش",
+                                                            "data": "{{appStrings.verifyOtp.edit}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -1574,7 +1574,7 @@
                                                                       }
                                                                     },
                                                                     "child": {
-                                                                      "data": "ذخیره",
+                                                                      "data": "{{appStrings.promissory.saveButton}}",
                                                                       "style": {
                                                                         "type": "custom",
                                                                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -1625,7 +1625,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "حذف کردن",
+                                                            "data": "{{appStrings.generated.charge.charge_intro.delete}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "#E31D35",
@@ -1688,7 +1688,7 @@
                                                       }
                                                     },
                                                     "child": {
-                                                      "data": "انصراف",
+                                                      "data": "{{appStrings.common.cancel}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -2071,7 +2071,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "ویرایش",
+                                                            "data": "{{appStrings.verifyOtp.edit}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -2274,7 +2274,7 @@
                                                                       }
                                                                     },
                                                                     "child": {
-                                                                      "data": "ذخیره",
+                                                                      "data": "{{appStrings.promissory.saveButton}}",
                                                                       "style": {
                                                                         "type": "custom",
                                                                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -2325,7 +2325,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "حذف کردن",
+                                                            "data": "{{appStrings.generated.charge.charge_intro.delete}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "#E31D35",
@@ -2388,7 +2388,7 @@
                                                       }
                                                     },
                                                     "child": {
-                                                      "data": "انصراف",
+                                                      "data": "{{appStrings.common.cancel}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -2443,7 +2443,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "بسته‌ی اینترنتی نخریده‌اید",
+                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_intro.title}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -2459,7 +2459,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "اولین بسته اینترنت خود را بخرید",
+                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_intro.internet_package}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.subtitle}}",
@@ -2526,7 +2526,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "بسته جدید",
+                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_intro.new_package}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.primary.onPrimary}}",
@@ -2640,7 +2640,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "پس از تایید، سیم‌کارت از لیست حذف خواهد شد.",
+                        "data": "{{appStrings.generated.charge.charge_intro.sim_card_confirm_delete_list}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -2688,7 +2688,7 @@
                                 }
                               },
                               "child": {
-                                "data": "انصراف",
+                                "data": "{{appStrings.common.cancel}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -2797,7 +2797,7 @@
                                 }
                               },
                               "child": {
-                                "data": "حذف کردن",
+                                "data": "{{appStrings.generated.charge.charge_intro.delete}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.primary.onPrimary}}",

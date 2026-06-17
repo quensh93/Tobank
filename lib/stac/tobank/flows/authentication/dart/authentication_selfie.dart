@@ -106,7 +106,8 @@ StacWidget _buildSerialSection() {
           ],
         ).toJson(),
         decoration: StacInputDecoration(
-          hintText: 'سریال پشت کارت ملی خود را وارد کنید',
+          hintText:
+              '{{appStrings.generated.authentication.authentication_selfie.title}}',
           hintStyle: StacTextStyle(
             fontSize: 15,
             fontWeight: StacFontWeight.w500,
@@ -147,7 +148,11 @@ StacWidget _buildConfirmSection() {
 
 StacWidget _buildEnabledConfirmButton() {
   return StacFilledButton(
-    onPressed: NavigationAction(fileName: 'authentication_postal_code', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+    onPressed: NavigationAction(
+      fileName: 'authentication_postal_code',
+      navMode: NavModes.dart,
+      navigationStyle: NavigationStyle.push,
+    ),
     style: StacButtonStyle(
       backgroundColor: '{{appColors.current.primary.color}}',
       foregroundColor: '{{appColors.current.primary.onPrimary}}',
@@ -189,7 +194,7 @@ StacWidget _buildConfirmButtonLabel({required String color}) {
   );
 }
 
-/// "ثبت عکس" card with camera button
+/// '{{appStrings.authentication.capturePhotoTitle}}' card with camera button
 StacWidget _buildCapturePhotoCard() {
   return StacContainer(
     decoration: StacBoxDecoration(
@@ -243,7 +248,7 @@ StacWidget _buildCapturePhotoCard() {
   );
 }
 
-/// "ثبت ویدیو" card with video button
+/// '{{appStrings.authentication.captureVideoTitle}}' card with video button
 StacWidget _buildCaptureVideoCard() {
   return StacContainer(
     decoration: StacBoxDecoration(
@@ -300,19 +305,21 @@ StacWidget _buildCaptureVideoCard() {
 StacWidget _buildSelfiePhotoTrigger() {
   return StacGestureDetector(
     onTap: const StacShowPhotoTipsBottomSheetAction(
-      title: 'نکات قابل توجه عکس',
+      title:
+          '{{appStrings.generated.authentication.authentication_selfie.photo_tips_title}}',
       iconAsset: '{{appAssets.icons.cameraCurrent}}',
       tips: [
-        'پوشش مناسب رعایت شود',
-        'عکس باید واضح و بدون تاری باشد',
-        'پس زمینه یکنواخت باشد',
-        'عدم وجود هرگونه فرد دیگر در تصویر',
-        'تصویر رخ کامل صورت فرد را نشان دهد (بدون عینک آفتابی، ماسک یا سایه‌های شدید)',
+        '{{appStrings.generated.authentication.authentication_selfie.proper_clothing_note}}',
+        '{{appStrings.generated.authentication.authentication_selfie.clear_photo_note}}',
+        '{{appStrings.generated.authentication.authentication_selfie.plain_background_note}}',
+        '{{appStrings.generated.authentication.authentication_selfie.image}}',
+        '{{appStrings.generated.authentication.authentication_selfie.image_description}}',
       ],
       previewAsset:
           'https://appapi.tobank.ir/api/v1.0/media/ekyc/personal_picture_sample.png',
-      continueText: 'ادامه',
-      cancelText: 'بازگشت',
+      continueText: '{{appStrings.common.continue}}',
+      cancelText:
+          '{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}',
       continueAction: {
         'actionType': 'sequence',
         'actions': [
@@ -334,9 +341,11 @@ StacWidget _buildSelfiePhotoTrigger() {
             'cropAspectRatioX': 3,
             'cropAspectRatioY': 4,
             'previewBeforeConfirm': true,
-            'previewSheetTitle': 'عکس گرفته شده مورد تایید شما است؟',
-            'confirmButtonText': 'تایید',
-            'retryButtonText': 'بازگشت',
+            'previewSheetTitle':
+                '{{appStrings.generated.authentication.authentication_selfie.confirm}}',
+            'confirmButtonText': '{{appStrings.common.confirm}}',
+            'retryButtonText':
+                '{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}',
           },
           {
             'actionType': 'validateFields',
@@ -379,19 +388,21 @@ StacWidget _buildSelfiePhotoTrigger() {
 StacWidget _buildSelfieVideoTrigger() {
   return StacGestureDetector(
     onTap: const StacShowPhotoTipsBottomSheetAction(
-      title: 'نکات قابل توجه ویدیو',
+      title:
+          '{{appStrings.generated.authentication.authentication_selfie.video_tips_title}}',
       iconAsset: '{{appAssets.icons.videoCurrent}}',
       tips: [
-        'پوشش مناسب رعایت شود',
-        'فیلم باید واضح و بدون تاری باشد',
-        'پس‌زمینه یکدست (ترجیحا سفید یا روشن)',
-        'تنها یک نفر در تصویر حضور داشته باشد',
-        'ویدیو باید کامل صورت کاربر را پوشش دهد (بدون عینک افتابی، ماسک یا سایه های شدید)',
+        '{{appStrings.generated.authentication.authentication_selfie.proper_clothing_note}}',
+        '{{appStrings.generated.authentication.authentication_selfie.clear_video_note}}',
+        '{{appStrings.generated.authentication.authentication_selfie.plain_light_background_note}}',
+        '{{appStrings.generated.authentication.authentication_selfie.image_message}}',
+        '{{appStrings.generated.authentication.authentication_selfie.user_description_message}}',
       ],
       previewAsset:
           'https://appapi.tobank.ir/api/v1.0/media/ekyc/face_movement_video.mp4',
-      continueText: 'ادامه',
-      cancelText: 'بازگشت',
+      continueText: '{{appStrings.common.continue}}',
+      cancelText:
+          '{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}',
       continueAction: {
         'actionType': 'sequence',
         'actions': [
@@ -411,9 +422,11 @@ StacWidget _buildSelfieVideoTrigger() {
             'source': 'camera',
             'cameraDevice': 'front',
             'previewBeforeConfirm': true,
-            'previewSheetTitle': 'ویدیوی گرفته شده مورد تایید شما است؟',
-            'confirmButtonText': 'تایید',
-            'retryButtonText': 'بازگشت',
+            'previewSheetTitle':
+                '{{appStrings.generated.authentication.authentication_selfie.confirm_message}}',
+            'confirmButtonText': '{{appStrings.common.confirm}}',
+            'retryButtonText':
+                '{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}',
           },
           {
             'actionType': 'validateFields',
@@ -545,7 +558,8 @@ StacWidget _buildSelfieDeleteButton({required StacAction onTap}) {
         ),
         StacSizedBox(width: 6),
         StacText(
-          data: 'حذف',
+          data:
+              '{{appStrings.generated.authentication.authentication_selfie.delete}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 15,
@@ -557,4 +571,3 @@ StacWidget _buildSelfieDeleteButton({required StacAction onTap}) {
     ),
   );
 }
-

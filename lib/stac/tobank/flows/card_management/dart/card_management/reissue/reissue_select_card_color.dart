@@ -17,7 +17,8 @@ StacWidget dashboardCardReissueSelectCardColor() {
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
-        title: 'صدور کارت المثنی',
+        title:
+            '{{appStrings.generated.card_management.card_management_reissue_color.card_reissue}}',
         showBack: true,
         backOnRight: true,
       ),
@@ -27,7 +28,8 @@ StacWidget dashboardCardReissueSelectCardColor() {
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
           children: [
             StacText(
-              data: 'رنگ کارت خود را انتخاب کنید',
+              data:
+                  '{{appStrings.generated.deposit_more_options.deposit_card_issue_template.title}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -46,14 +48,20 @@ StacWidget dashboardCardReissueSelectCardColor() {
             StacFilledButton(
               onPressed: StacShowDialogAction(
                 dialogActionType: 'showLogoutConfirmDialog',
-                title: 'تایید انتخاب',
-                description: 'آیا از انتخاب رنگ کارت المثنی اطمینان دارید؟',
-                positiveText: 'تایید',
-                negativeText: 'انصراف',
+                title:
+                    '{{appStrings.generated.card_management.card_management_reissue_color.select_confirm}}',
+                description:
+                    '{{appStrings.generated.card_management.card_management_reissue_color.card_reissue_select_color}}',
+                positiveText: '{{appStrings.common.confirm}}',
+                negativeText: '{{appStrings.common.cancel}}',
                 positiveAction: StacSequenceAction(
                   actions: [
                     const StacCloseDialogAction(),
-                    NavigationAction(fileName: 'card_management_reissue_receipt', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                    NavigationAction(
+                      fileName: 'card_management_reissue_receipt',
+                      navMode: NavModes.dart,
+                      navigationStyle: NavigationStyle.push,
+                    ),
                   ],
                 ),
                 negativeAction: const StacCloseDialogAction(),
@@ -70,7 +78,7 @@ StacWidget dashboardCardReissueSelectCardColor() {
                 ),
               ),
               child: StacText(
-                data: 'تایید و ادامه',
+                data: '{{appStrings.authentication.confirmAndContinue}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 18,

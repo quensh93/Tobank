@@ -9,7 +9,8 @@ StacWidget packageRealPaymentSuccess() {
     appBar: buildTobankFlowAppBar(
       showSupport: true,
       showBack: true,
-      title: 'اینترنت',
+      title:
+          '{{appStrings.generated.internet_pakage.internet_pakage_add_sim.title}}',
     ),
     body: StacSafeArea(
       top: false,
@@ -41,7 +42,8 @@ StacWidget packageRealPaymentSuccess() {
               children: [
                 StacExpanded(
                   child: _actionButton(
-                    title: 'اشتراک‌گذاری',
+                    title:
+                        '{{appStrings.generated.card_management.card_management_root.share}}',
                     iconAsset: 'assets/icons/ic_share.svg',
                     mode: 'shareText',
                   ),
@@ -49,7 +51,8 @@ StacWidget packageRealPaymentSuccess() {
                 StacSizedBox(width: 10),
                 StacExpanded(
                   child: _actionButton(
-                    title: 'ذخیره در گالری',
+                    title:
+                        '{{appStrings.generated.charge.charge_payment_success.title}}',
                     iconAsset: 'assets/icons/ic_download.svg',
                     mode: 'shareImage',
                   ),
@@ -102,7 +105,7 @@ StacWidget _buildSuccessHeader() {
       ),
       StacSizedBox(height: 14),
       StacText(
-        data: 'پرداخت موفق',
+        data: '{{appStrings.promissory.paymentSuccessful}}',
         textDirection: StacTextDirection.rtl,
         textAlign: StacTextAlign.center,
         style: StacCustomTextStyle(
@@ -129,17 +132,32 @@ StacWidget _buildReceiptCard() {
     child: StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
-        _detailRow('مبلغ', '{{crPayReceiptAmount}} ریال'),
+        _detailRow(
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.amount_text}}',
+          '{{appStrings.generated.internet_pakage.internet_pakage_payment_success.rial}}',
+        ),
         _dottedDivider(),
-        _detailRow('زمان تراکنش', '{{crPayReceiptTime}}'),
+        _detailRow(
+          '{{appStrings.promissory.transactionTime}}',
+          '{{crPayReceiptTime}}',
+        ),
         _dottedDivider(),
-        _detailRow('خدمت', '{{crPayReceiptInternetPakage}}'),
+        _detailRow(
+          '{{appStrings.generated.charge.charge_payment_success.service_label}}',
+          '{{crPayReceiptInternetPakage}}',
+        ),
         _dottedDivider(),
-        _detailRow('پرداخت از طریق', '{{crPayReceiptVia}}'),
+        _detailRow('{{appStrings.promissory.paidVia}}', '{{crPayReceiptVia}}'),
         _dottedDivider(),
-        _detailRow('مبدا', '{{crPayReceiptFrom}}'),
+        _detailRow(
+          '{{appStrings.generated.installment_payment.installment_payment_others_receipt.source_label}}',
+          '{{crPayReceiptFrom}}',
+        ),
         _dottedDivider(),
-        _detailRow('شماره پیگیری', '{{crPayReceiptTracking}}'),
+        _detailRow(
+          '{{appStrings.promissory.trackingNumber}}',
+          '{{crPayReceiptTracking}}',
+        ),
       ],
     ),
   );
@@ -196,7 +214,7 @@ StacWidget _buildSloganSection() {
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
           children: [
             StacText(
-              data: 'یک شعبه مجازی همراه شماست!',
+              data: '{{appStrings.profile.real.about.slogan}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -232,7 +250,8 @@ StacWidget _actionButton({
     onPressed: StacCustomAction.fromJson({
       'actionType': 'transferReceipt',
       'mode': mode,
-      'title': 'رسید خرید بسته',
+      'title':
+          '{{appStrings.generated.internet_pakage.internet_pakage_payment_success.buy_package_receipt}}',
       'pixelRatio': 3.0,
       'boundaryKey': 'packageRealReceiptContent',
     }),

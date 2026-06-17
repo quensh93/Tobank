@@ -30,7 +30,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "بستن سپرده",
+        "data": "{{appStrings.generated.deposit_more_options.deposit_close_confirm.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -134,7 +134,7 @@
                       },
                       {
                         "child": {
-                          "data": "تعهد مشتری نسبت به عدم اتصال سپرده درخواستی",
+                          "data": "{{appStrings.generated.deposit_more_options.deposit_close_confirm.deposit_customer}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -156,7 +156,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "مشتری گرامی، بانک هیچ‌گونه مسئولیتی در خصوص جبران زیان مالی احتمالی ناشی از بستن سپرده‌های مرتبط با صندوق‌های سرمایه‌گذاری، سامانه سجام، کارگزاری‌های بورس، پایانه‌های فروشگاهی، سهام عدالت و ... ندارد. لذا خواهشمند است پیش از ثبت درخواست بستن سپرده، از عدم وجود ارتباطات یاد شده اطمینان حاصل نمایید",
+                    "data": "{{appStrings.generated.deposit_more_options.deposit_close_confirm.close_deposit_warning}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.subtitle}}",
@@ -257,7 +257,7 @@
                   {
                     "child": {
                       "child": {
-                        "data": "مشتری گرامی، بانک هیچ‌گونه مسئولیتی در خصوص جبران زیان مالی احتمالی ناشی از بستن سپرده‌های مرتبط با صندوق‌های سرمایه‌گذاری، سامانه سجام، کارگزاری‌های بورس، پایانه‌های فروشگاهی، سهام عدالت و ... ندارد. لذا خواهشمند است پیش از ثبت درخواست بستن سپرده، از عدم وجود ارتباطات یاد شده اطمینان حاصل نمایید",
+                        "data": "{{appStrings.generated.deposit_more_options.deposit_close_confirm.close_deposit_warning}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -334,7 +334,7 @@
               }
             },
             "child": {
-              "data": "مرحله بعد",
+              "data": "{{appStrings.generated.cartable.cartable_intro.next_step}}",
               "style": {
                 "type": "custom",
                 "fontSize": 18,

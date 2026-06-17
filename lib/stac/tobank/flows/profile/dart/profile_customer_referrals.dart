@@ -8,7 +8,7 @@ StacWidget profileRealCustomerReferrals() {
     appBar: buildTobankFlowAppBar(
       showSupport: true,
       showBack: true,
-      title: 'لیست دعوت‌شدگان',
+      title: '{{appStrings.profile.real.customerReferrals.title}}',
     ),
     body: StacCenter(
       child: StacColumn(
@@ -24,7 +24,7 @@ StacWidget profileRealCustomerReferrals() {
           ),
           StacSizedBox(height: 24),
           StacText(
-            data: 'موردی یافت نشد',
+            data: '{{appStrings.profile.real.customerReferrals.empty}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(

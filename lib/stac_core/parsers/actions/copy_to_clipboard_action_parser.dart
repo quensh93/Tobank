@@ -77,7 +77,7 @@ class CopyToClipboardActionParser
         ? _resolveText(model.successMessage, null)
         : (fallbackMessage.isNotEmpty
               ? fallbackMessage
-              : 'مقدار در حافظه کپی شد');
+              : 'Copied to clipboard');
 
     final rootContext = AppRoot.mainAppNavigatorKey.currentContext;
     final targetContext = rootContext ?? (context.mounted ? context : null);

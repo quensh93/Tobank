@@ -10,7 +10,8 @@ import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 StacWidget installmentPaymentStart() {
   return StacScaffold(
     appBar: buildTobankFlowAppBar(
-      title: 'پرداخت اقساط',
+      title:
+          '{{appStrings.generated.installment_payment.installment_payment_receipt.title}}',
       showBack: true,
     ),
     body: StacPadding(
@@ -29,7 +30,7 @@ StacWidget installmentPaymentStart() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'شروع',
+              data: '{{appStrings.onboarding.startButton}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -74,7 +75,8 @@ StacWidget _loanPaymentBottomSheet() {
           ),
           StacSizedBox(height: 24),
           StacText(
-            data: 'پرداخت اقساط',
+            data:
+                '{{appStrings.generated.installment_payment.installment_payment_receipt.title}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
@@ -85,11 +87,16 @@ StacWidget _loanPaymentBottomSheet() {
           ),
           StacSizedBox(height: 16),
           _loanBottomSheetItem(
-            title: 'پرداخت اقساط خود',
+            title:
+                '{{appStrings.generated.installment_payment.installment_payment_list_main.title}}',
             onTap: const StacSequenceAction(
               actions: [
                 StacNavigateAction(navigationStyle: NavigationStyle.pop),
-                NavigationAction(fileName: 'installment_payment_list_main', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                NavigationAction(
+                  fileName: 'installment_payment_list_main',
+                  navMode: NavModes.dart,
+                  navigationStyle: NavigationStyle.push,
+                ),
               ],
             ),
           ),
@@ -99,7 +106,8 @@ StacWidget _loanPaymentBottomSheet() {
             height: 16,
           ),
           _loanBottomSheetItem(
-            title: 'پرداخت اقساط دیگران',
+            title:
+                '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.title}}',
             onTap: StacSequenceAction(
               actions: [
                 const StacNavigateAction(navigationStyle: NavigationStyle.pop),

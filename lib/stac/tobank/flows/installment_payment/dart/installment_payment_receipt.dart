@@ -7,7 +7,8 @@ StacWidget installmentPaymentReceipt() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: buildTobankFlowAppBar(
-      title: 'پرداخت اقساط',
+      title:
+          '{{appStrings.generated.installment_payment.installment_payment_receipt.title}}',
       showSupport: true,
       showBack: true,
     ),
@@ -43,7 +44,8 @@ StacWidget installmentPaymentReceipt() {
               children: [
                 StacExpanded(
                   child: _receiptActionButton(
-                    title: 'اشتراک‌گذاری',
+                    title:
+                        '{{appStrings.generated.card_management.card_management_root.share}}',
                     iconAsset: 'assets/icons/ic_share.svg',
                     mode: 'shareText',
                   ),
@@ -51,7 +53,8 @@ StacWidget installmentPaymentReceipt() {
                 StacSizedBox(width: 12),
                 StacExpanded(
                   child: _receiptActionButton(
-                    title: 'ذخیره در گالری',
+                    title:
+                        '{{appStrings.generated.charge.charge_payment_success.title}}',
                     iconAsset: 'assets/icons/ic_download.svg',
                     mode: 'shareImage',
                   ),
@@ -77,7 +80,7 @@ StacWidget _successHeader() {
       ),
       StacSizedBox(height: 14),
       StacText(
-        data: 'پرداخت موفق',
+        data: '{{appStrings.promissory.paymentSuccessful}}',
         textDirection: StacTextDirection.rtl,
         textAlign: StacTextAlign.center,
         style: StacTextStyle(
@@ -115,17 +118,44 @@ StacWidget _receiptCard() {
     child: StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
-        _receiptDetailRow(label: 'مبلغ', value: '{{loanPaymentSheet.amount}} ریال'),
+        _receiptDetailRow(
+          label:
+              '{{appStrings.generated.installment_payment.installment_payment_detail_main.amount_text}}',
+          value:
+              '{{appStrings.generated.installment_payment.installment_payment_receipt.rial}}',
+        ),
         _dashedLikeDivider(),
-        _receiptDetailRow(label: 'شماره تسهیلات', value: '۱۱۰.۱۰۰۵.۱۱۳۳۴۵۶۷'),
+        _receiptDetailRow(
+          label:
+              '{{appStrings.generated.installment_payment.installment_payment_others_main.title}}',
+          value:
+              '{{appStrings.generated.installment_payment.installment_payment_receipt.amount_value}}',
+        ),
         _dashedLikeDivider(),
-        _receiptDetailRow(label: 'زمان تراکنش', value: '۱۰ مهر ۱۴۰۳'),
+        _receiptDetailRow(
+          label: '{{appStrings.promissory.transactionTime}}',
+          value:
+              '{{appStrings.generated.installment_payment.installment_payment_others_receipt.amount_value}}',
+        ),
         _dashedLikeDivider(),
-        _receiptDetailRow(label: 'پرداخت از طریق', value: 'حساب'),
+        _receiptDetailRow(
+          label: '{{appStrings.promissory.paidVia}}',
+          value:
+              '{{appStrings.generated.installment_payment.installment_payment_others_receipt.account}}',
+        ),
         _dashedLikeDivider(),
-        _receiptDetailRow(label: 'مبدا', value: '۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱'),
+        _receiptDetailRow(
+          label:
+              '{{appStrings.generated.installment_payment.installment_payment_others_receipt.source_label}}',
+          value:
+              '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}',
+        ),
         _dashedLikeDivider(),
-        _receiptDetailRow(label: 'شماره پیگیری', value: '۶۴۱۷۴۲۵۸۸'),
+        _receiptDetailRow(
+          label: '{{appStrings.promissory.trackingNumber}}',
+          value:
+              '{{appStrings.generated.installment_payment.installment_payment_others_receipt.amount_value_text}}',
+        ),
       ],
     ),
   );
@@ -212,7 +242,7 @@ StacWidget _tobankSlogan() {
           crossAxisAlignment: StacCrossAxisAlignment.end,
           children: [
             StacText(
-              data: 'یک شعبه مجازی همراه شماست!',
+              data: '{{appStrings.profile.real.about.slogan}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacTextStyle(
@@ -248,7 +278,8 @@ StacWidget _receiptActionButton({
     onPressed: StacCustomAction.fromJson({
       'actionType': 'transferReceipt',
       'mode': mode,
-      'title': 'رسید پرداخت اقساط',
+      'title':
+          '{{appStrings.generated.installment_payment.installment_payment_receipt.installment_payment_receipt}}',
       'pixelRatio': 3.0,
       'boundaryKey': 'installmentPaymentReceiptContent',
     }),

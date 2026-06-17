@@ -62,7 +62,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "اعلان‌ها",
+        "data": "{{appStrings.generated.notification.notification_intro.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -126,12 +126,12 @@
                 {
                   "tabs": [
                     {
-                      "text": "بروزرسانی‌ها",
+                      "text": "{{appStrings.generated.notification.notification_intro.updates_tab}}",
                       "height": 54,
                       "type": "tab"
                     },
                     {
-                      "text": "اعلان‌های عمومی",
+                      "text": "{{appStrings.generated.notification.notification_intro.sample_message}}",
                       "height": 54,
                       "type": "tab"
                     }
@@ -258,7 +258,7 @@
                                       },
                                       {
                                         "child": {
-                                          "data": "نسخه جدید اپلیکیشن در دسترس است",
+                                          "data": "{{appStrings.generated.notification.notification_intro.new}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -279,7 +279,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "برای استفاده از قابلیت‌های جدید و بهبود امنیت، لطفا اپلیکیشن را به آخرین نسخه بروزرسانی کنید.",
+                                    "data": "{{appStrings.generated.notification.notification_intro.new_security_description}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -296,7 +296,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۲۰ اردیبهشت ۱۴۰۵ - ۰۹:۱۵",
+                                    "data": "{{appStrings.generated.notification.notification_intro.amount_value_alt}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.hint}}",
@@ -374,7 +374,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "نسخه جدید اپلیکیشن در دسترس است",
+                                          "data": "{{appStrings.generated.notification.notification_intro.new}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -390,7 +390,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "برای استفاده از قابلیت‌های جدید و بهبود امنیت، لطفا اپلیکیشن را به آخرین نسخه بروزرسانی کنید.",
+                                          "data": "{{appStrings.generated.notification.notification_intro.new_security_description}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -407,7 +407,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۲۰ اردیبهشت ۱۴۰۵ - ۰۹:۱۵",
+                                          "data": "{{appStrings.generated.notification.notification_intro.amount_value_alt}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.hint}}",
@@ -444,7 +444,7 @@
                                             }
                                           },
                                           "child": {
-                                            "data": "بازگشت",
+                                            "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 16,
@@ -535,7 +535,7 @@
                                       },
                                       {
                                         "child": {
-                                          "data": "بهبود عملکرد بخش تراکنش‌ها",
+                                          "data": "{{appStrings.generated.notification.notification_intro.transaction}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -556,7 +556,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "مشکل نمایش برخی تراکنش‌های کیف پول برطرف شد. در صورت نیاز، یکبار از حساب خارج و مجددا وارد شوید.",
+                                    "data": "{{appStrings.generated.notification.notification_intro.wallet_transaction_display_fix}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -573,7 +573,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۱۸ اردیبهشت ۱۴۰۵ - ۱۷:۴۰",
+                                    "data": "{{appStrings.generated.notification.notification_intro.sample_number}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.hint}}",
@@ -651,7 +651,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "بهبود عملکرد بخش تراکنش‌ها",
+                                          "data": "{{appStrings.generated.notification.notification_intro.transaction}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -667,7 +667,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "مشکل نمایش برخی تراکنش‌های کیف پول برطرف شد. در صورت نیاز، یکبار از حساب خارج و مجددا وارد شوید.",
+                                          "data": "{{appStrings.generated.notification.notification_intro.wallet_transaction_display_fix}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -684,7 +684,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۱۸ اردیبهشت ۱۴۰۵ - ۱۷:۴۰",
+                                          "data": "{{appStrings.generated.notification.notification_intro.sample_number}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.hint}}",
@@ -721,7 +721,7 @@
                                             }
                                           },
                                           "child": {
-                                            "data": "بازگشت",
+                                            "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 16,
@@ -812,7 +812,7 @@
                                       },
                                       {
                                         "child": {
-                                          "data": "افزودن میانبرهای جدید",
+                                          "data": "{{appStrings.generated.notification.notification_intro.new_text}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -833,7 +833,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "میانبرهای سریع برای انتقال وجه و خرید شارژ به صفحه اصلی اضافه شد.",
+                                    "data": "{{appStrings.generated.notification.notification_intro.money_transfer_buy_topup_page}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -850,7 +850,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۱۵ اردیبهشت ۱۴۰۵ - ۱۲:۰۵",
+                                    "data": "{{appStrings.generated.notification.notification_intro.sample_number_option}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.hint}}",
@@ -928,7 +928,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "افزودن میانبرهای جدید",
+                                          "data": "{{appStrings.generated.notification.notification_intro.new_text}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -944,7 +944,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "میانبرهای سریع برای انتقال وجه و خرید شارژ به صفحه اصلی اضافه شد.",
+                                          "data": "{{appStrings.generated.notification.notification_intro.money_transfer_buy_topup_page}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -961,7 +961,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۱۵ اردیبهشت ۱۴۰۵ - ۱۲:۰۵",
+                                          "data": "{{appStrings.generated.notification.notification_intro.sample_number_option}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.hint}}",
@@ -998,7 +998,7 @@
                                             }
                                           },
                                           "child": {
-                                            "data": "بازگشت",
+                                            "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 16,
@@ -1107,7 +1107,7 @@
                                       },
                                       {
                                         "child": {
-                                          "data": "بازپرداخت به کیف پول توبانک",
+                                          "data": "{{appStrings.generated.notification.notification_intro.wallet_money}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1128,7 +1128,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "کاربر عزیز\nمبلغ ۳۱۳,۰۰۰ ریال کارمزد صدور سفته با شماره پیگیری ۲۹۲۹ به کیف پول شما بازگشت.",
+                                    "data": "{{appStrings.generated.notification.notification_intro.back_promissory_amount_rial_user_description}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -1145,7 +1145,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۸",
+                                    "data": "{{appStrings.generated.notification.notification_intro.amount_value}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.hint}}",
@@ -1223,7 +1223,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "بازپرداخت به کیف پول توبانک",
+                                          "data": "{{appStrings.generated.notification.notification_intro.wallet_money}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1239,7 +1239,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "کاربر عزیز\nمبلغ ۳۱۳,۰۰۰ ریال کارمزد صدور سفته با شماره پیگیری ۲۹۲۹ به کیف پول شما بازگشت.",
+                                          "data": "{{appStrings.generated.notification.notification_intro.back_promissory_amount_rial_user_description}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -1256,7 +1256,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۸",
+                                          "data": "{{appStrings.generated.notification.notification_intro.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.hint}}",
@@ -1293,7 +1293,7 @@
                                             }
                                           },
                                           "child": {
-                                            "data": "بازگشت",
+                                            "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 16,
@@ -1384,7 +1384,7 @@
                                       },
                                       {
                                         "child": {
-                                          "data": "پرداخت موفق",
+                                          "data": "{{appStrings.promissory.paymentSuccessful}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1405,7 +1405,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "کاربر عزیز\nمبلغ ۳۱۳,۰۰۰ ریال با شماره پیگیری ۷۳۵۴۱۴۷۴۴ پرداخت شد.",
+                                    "data": "{{appStrings.generated.notification.notification_intro.amount_rial_user_number_payment}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -1422,7 +1422,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۸",
+                                    "data": "{{appStrings.generated.notification.notification_intro.amount_value}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.hint}}",
@@ -1500,7 +1500,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "پرداخت موفق",
+                                          "data": "{{appStrings.promissory.paymentSuccessful}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1516,7 +1516,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "کاربر عزیز\nمبلغ ۳۱۳,۰۰۰ ریال با شماره پیگیری ۷۳۵۴۱۴۷۴۴ پرداخت شد.",
+                                          "data": "{{appStrings.generated.notification.notification_intro.amount_rial_user_number_payment}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -1533,7 +1533,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۸",
+                                          "data": "{{appStrings.generated.notification.notification_intro.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.hint}}",
@@ -1570,7 +1570,7 @@
                                             }
                                           },
                                           "child": {
-                                            "data": "بازگشت",
+                                            "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 16,
@@ -1661,7 +1661,7 @@
                                       },
                                       {
                                         "child": {
-                                          "data": "انتقال وجه به کیف پول",
+                                          "data": "{{appStrings.generated.notification.notification_intro.money_transfer_wallet_money}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1682,7 +1682,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "کاربر عزیز\nمبلغ ۱۰,۰۰۰ ریال با شماره پیگیری ۷۳۴۳۸۸۸۵۲۵ انتقال یافت.",
+                                    "data": "{{appStrings.generated.notification.notification_intro.amount_rial_user_number_transfer}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -1699,7 +1699,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۰",
+                                    "data": "{{appStrings.generated.notification.notification_intro.amount_value_message}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.hint}}",
@@ -1777,7 +1777,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "انتقال وجه به کیف پول",
+                                          "data": "{{appStrings.generated.notification.notification_intro.money_transfer_wallet_money}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1793,7 +1793,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "کاربر عزیز\nمبلغ ۱۰,۰۰۰ ریال با شماره پیگیری ۷۳۴۳۸۸۸۵۲۵ انتقال یافت.",
+                                          "data": "{{appStrings.generated.notification.notification_intro.amount_rial_user_number_transfer}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -1810,7 +1810,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۰",
+                                          "data": "{{appStrings.generated.notification.notification_intro.amount_value_message}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.hint}}",
@@ -1847,7 +1847,7 @@
                                             }
                                           },
                                           "child": {
-                                            "data": "بازگشت",
+                                            "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 16,
@@ -1938,7 +1938,7 @@
                                       },
                                       {
                                         "child": {
-                                          "data": "انتقال وجه به کیف پول",
+                                          "data": "{{appStrings.generated.notification.notification_intro.money_transfer_wallet_money}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1959,7 +1959,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "کاربر عزیز\nمبلغ ۲۱۰,۰۰۰ ریال با شماره پیگیری ۷۳۳۶۳۵۳۰۶ انتقال یافت.",
+                                    "data": "{{appStrings.generated.notification.notification_intro.amount_rial_user_number_transfer_message}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -1976,7 +1976,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۱۹",
+                                    "data": "{{appStrings.generated.notification.notification_intro.amount_value_label}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.hint}}",
@@ -2054,7 +2054,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "انتقال وجه به کیف پول",
+                                          "data": "{{appStrings.generated.notification.notification_intro.money_transfer_wallet_money}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2070,7 +2070,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "کاربر عزیز\nمبلغ ۲۱۰,۰۰۰ ریال با شماره پیگیری ۷۳۳۶۳۵۳۰۶ انتقال یافت.",
+                                          "data": "{{appStrings.generated.notification.notification_intro.amount_rial_user_number_transfer_message}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -2087,7 +2087,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۱۹",
+                                          "data": "{{appStrings.generated.notification.notification_intro.amount_value_label}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.hint}}",
@@ -2124,7 +2124,7 @@
                                             }
                                           },
                                           "child": {
-                                            "data": "بازگشت",
+                                            "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 16,
@@ -2215,7 +2215,7 @@
                                       },
                                       {
                                         "child": {
-                                          "data": "واریز سود سپرده",
+                                          "data": "{{appStrings.generated.notification.notification_intro.deposit}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2236,7 +2236,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "کاربر عزیز\nسود سپرده شما به مبلغ ۴۵۰,۰۰۰ ریال به حساب معرفی‌شده واریز شد.",
+                                    "data": "{{appStrings.generated.notification.notification_intro.deposit_account_amount_rial_user_description}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -2253,7 +2253,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۲۱ اردیبهشت ۱۴۰۵ - ۰۹:۴۸",
+                                    "data": "{{appStrings.generated.notification.notification_intro.amount_value_description}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.hint}}",
@@ -2331,7 +2331,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "واریز سود سپرده",
+                                          "data": "{{appStrings.generated.notification.notification_intro.deposit}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2347,7 +2347,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "کاربر عزیز\nسود سپرده شما به مبلغ ۴۵۰,۰۰۰ ریال به حساب معرفی‌شده واریز شد.",
+                                          "data": "{{appStrings.generated.notification.notification_intro.deposit_account_amount_rial_user_description}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -2364,7 +2364,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۲۱ اردیبهشت ۱۴۰۵ - ۰۹:۴۸",
+                                          "data": "{{appStrings.generated.notification.notification_intro.amount_value_description}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.hint}}",
@@ -2401,7 +2401,7 @@
                                             }
                                           },
                                           "child": {
-                                            "data": "بازگشت",
+                                            "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 16,
@@ -2492,7 +2492,7 @@
                                       },
                                       {
                                         "child": {
-                                          "data": "تایید برداشت از کیف پول",
+                                          "data": "{{appStrings.generated.notification.notification_intro.confirm_wallet_money}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2513,7 +2513,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "کاربر عزیز\nبرداشت مبلغ ۸۵,۰۰۰ ریال از کیف پول توبانک با موفقیت انجام شد.",
+                                    "data": "{{appStrings.generated.notification.notification_intro.wallet_withdrawal_success_message}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -2530,7 +2530,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۲۱ اردیبهشت ۱۴۰۵ - ۰۸:۳۲",
+                                    "data": "{{appStrings.generated.notification.notification_intro.amount_value_hint}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.hint}}",
@@ -2608,7 +2608,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "تایید برداشت از کیف پول",
+                                          "data": "{{appStrings.generated.notification.notification_intro.confirm_wallet_money}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2624,7 +2624,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "کاربر عزیز\nبرداشت مبلغ ۸۵,۰۰۰ ریال از کیف پول توبانک با موفقیت انجام شد.",
+                                          "data": "{{appStrings.generated.notification.notification_intro.wallet_withdrawal_success_message}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -2641,7 +2641,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۲۱ اردیبهشت ۱۴۰۵ - ۰۸:۳۲",
+                                          "data": "{{appStrings.generated.notification.notification_intro.amount_value_hint}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.hint}}",
@@ -2678,7 +2678,7 @@
                                             }
                                           },
                                           "child": {
-                                            "data": "بازگشت",
+                                            "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 16,

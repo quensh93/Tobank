@@ -14,12 +14,36 @@ StacWidget giftCardRealSelectAmount() {
         {'key': 'giftCardRealAmountValue1', 'value': '5000000'},
         {'key': 'giftCardRealAmountValue2', 'value': '5000000'},
         {'key': 'giftCardRealAmountValue3', 'value': '5000000'},
-        {'key': 'giftCardRealAmountLabel1', 'value': '۵,۰۰۰,۰۰۰ ریال'},
-        {'key': 'giftCardRealAmountLabel2', 'value': '۵,۰۰۰,۰۰۰ ریال'},
-        {'key': 'giftCardRealAmountLabel3', 'value': '۵,۰۰۰,۰۰۰ ریال'},
-        {'key': 'giftCardRealCardCount1', 'value': '۱'},
-        {'key': 'giftCardRealCardCount2', 'value': '۱'},
-        {'key': 'giftCardRealCardCount3', 'value': '۱'},
+        {
+          'key': 'giftCardRealAmountLabel1',
+          'value':
+              '{{appStrings.generated.gift_card.gift_card_select_amount.rial}}',
+        },
+        {
+          'key': 'giftCardRealAmountLabel2',
+          'value':
+              '{{appStrings.generated.gift_card.gift_card_select_amount.rial}}',
+        },
+        {
+          'key': 'giftCardRealAmountLabel3',
+          'value':
+              '{{appStrings.generated.gift_card.gift_card_select_amount.rial}}',
+        },
+        {
+          'key': 'giftCardRealCardCount1',
+          'value':
+              '{{appStrings.generated.gift_card.gift_card_select_amount.number_value}}',
+        },
+        {
+          'key': 'giftCardRealCardCount2',
+          'value':
+              '{{appStrings.generated.gift_card.gift_card_select_amount.number_value}}',
+        },
+        {
+          'key': 'giftCardRealCardCount3',
+          'value':
+              '{{appStrings.generated.gift_card.gift_card_select_amount.number_value}}',
+        },
       ],
     ),
     child: StacScaffold(
@@ -27,7 +51,7 @@ StacWidget giftCardRealSelectAmount() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'کارت هدیه',
+        title: '{{appStrings.homePage.services.giftCard}}',
       ),
       body: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -44,7 +68,8 @@ StacWidget giftCardRealSelectAmount() {
                       mainAxisAlignment: StacMainAxisAlignment.start,
                       children: [
                         StacText(
-                          data: 'مبلغ کارت هدیه را وارد یا انتخاب نمایید',
+                          data:
+                              '{{appStrings.generated.gift_card.gift_card_select_amount.title}}',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.center,
                           style: StacCustomTextStyle(
@@ -133,7 +158,8 @@ StacWidget giftCardRealSelectAmount() {
                               ),
                               StacSizedBox(width: 6),
                               StacText(
-                                data: 'افزودن کارت با مبلغ جدید',
+                                data:
+                                    '{{appStrings.generated.gift_card.gift_card_select_amount.amount_new_card}}',
                                 textDirection: StacTextDirection.rtl,
                                 style: StacCustomTextStyle(
                                   fontSize: 16,
@@ -165,7 +191,7 @@ StacWidget giftCardRealSelectAmount() {
                 elevation: 0,
               ),
               child: StacText(
-                data: 'ادامه',
+                data: '{{appStrings.common.continue}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 18,
@@ -273,7 +299,8 @@ StacWidget _buildAmountCard({
           crossAxisAlignment: StacCrossAxisAlignment.center,
           children: [
             StacText(
-              data: 'تعداد کارت',
+              data:
+                  '{{appStrings.generated.gift_card.gift_card_select_amount.card}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 16,
@@ -329,20 +356,23 @@ StacWidget _buildAmountCard({
 StacAction _giftCardAmountGuideBottomSheetAction() {
   return _proxyLegacyBottomSheetAction(const {
     'actionType': 'showGiftCardAmountGuideBottomSheet',
-    'title': 'راهنما',
+    'title': '{{appStrings.authentication.guideLabel}}',
     'minAmount': 1000000,
     'maxAmount': 50000000,
-    'closeText': 'بستن',
+    'closeText':
+        '{{appStrings.generated.gift_card.gift_card_message.close_button}}',
   });
 }
-
 
 StacAction _giftCardDesignTypeBottomSheetAction() {
   return _proxyLegacyBottomSheetAction(const {
     'actionType': 'showGiftCardDesignTypeBottomSheet',
-    'title': 'طرح کارت را انتخاب کنید',
-    'readyDesignTitle': 'طرح‌های آماده',
-    'customDesignTitle': 'طرح سفارشی',
+    'title':
+        '{{appStrings.generated.gift_card.gift_card_select_amount.select_card}}',
+    'readyDesignTitle':
+        '{{appStrings.generated.gift_card.gift_card_select_amount.ready_designs_title}}',
+    'customDesignTitle':
+        '{{appStrings.generated.gift_card.gift_card_image_selector.custom_design_title}}',
     'readyDesignAction': {
       'actionType': 'navigate',
       'fileName': 'gift_card_design_selector',
@@ -357,8 +387,6 @@ StacAction _giftCardDesignTypeBottomSheetAction() {
     },
   });
 }
-
-
 
 StacAction _giftCardSelectAmountBottomSheetAction(int cardIndex) {
   return _proxyLegacyBottomSheetAction({
@@ -384,7 +412,6 @@ StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
   );
 }
 
-
 StacWidget _buildCountActionButton({
   required String icon,
   required String iconColor,
@@ -409,4 +436,3 @@ StacWidget _buildCountActionButton({
     ),
   );
 }
-

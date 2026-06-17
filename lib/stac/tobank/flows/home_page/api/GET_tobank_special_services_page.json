@@ -2,7 +2,7 @@
   "backgroundColor": "{{appColors.current.background.surface}}",
   "appBar": {
     "title": {
-      "data": "خدمات ویژه توبانک",
+      "data": "{{appStrings.homePage.deposits.specialServicesTitle}}",
       "textDirection": "rtl",
       "style": {
         "type": "alias",
@@ -127,7 +127,7 @@
                             },
                             {
                               "type": "text",
-                              "data": "خدمات موبایل بانک",
+                              "data": "{{appStrings.generated.home_page.tobank_special_services_page.title}}",
                               "textDirection": "rtl",
                               "textAlign": "right",
                               "style": {
@@ -147,8 +147,8 @@
                                 "actionType": "closeDialog",
                                 "result": {
                                   "actionType": "fingerPrint",
-                                  "title": "احراز هویت",
-                                  "description": "برای صدور اولیه رمز موبایل بانک احراز هویت کنید",
+                                  "title": "{{appStrings.menu.items.authentication}}",
+                                  "description": "{{appStrings.generated.home_page.tobank_special_services_page.authentication_mobile_pin_bank}}",
                                   "onSuccess": {
                                     "actionType": "customSnackBar",
                                     "backgroundColor": "#00000000",
@@ -203,7 +203,7 @@
                                               },
                                               "child": {
                                                 "type": "text",
-                                                "data": "بستن",
+                                                "data": "{{appStrings.generated.gift_card.gift_card_message.close_button}}",
                                                 "textDirection": "rtl",
                                                 "style": {
                                                   "type": "custom",
@@ -227,7 +227,7 @@
                                               "children": [
                                                 {
                                                   "type": "text",
-                                                  "data": "درخواست شما با موفقیت ثبت شد!",
+                                                  "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_result.title}}",
                                                   "textDirection": "rtl",
                                                   "textAlign": "right",
                                                   "style": {
@@ -244,7 +244,7 @@
                                                 },
                                                 {
                                                   "type": "text",
-                                                  "data": "مراتب از طریق پیامک به شما اطلاع داده خواهد شد.",
+                                                  "data": "{{appStrings.generated.home_page.tobank_special_services_page.sms_notification_message}}",
                                                   "textDirection": "rtl",
                                                   "textAlign": "right",
                                                   "style": {
@@ -346,7 +346,7 @@
                                               },
                                               "child": {
                                                 "type": "text",
-                                                "data": "بستن",
+                                                "data": "{{appStrings.generated.gift_card.gift_card_message.close_button}}",
                                                 "textDirection": "rtl",
                                                 "style": {
                                                   "type": "custom",
@@ -370,7 +370,7 @@
                                               "children": [
                                                 {
                                                   "type": "text",
-                                                  "data": "احراز هویت ناموفق بود.",
+                                                  "data": "{{appStrings.generated.home_page.tobank_special_services_page.authentication_failed}}",
                                                   "textDirection": "rtl",
                                                   "textAlign": "right",
                                                   "style": {
@@ -387,7 +387,7 @@
                                                 },
                                                 {
                                                   "type": "text",
-                                                  "data": "احراز هویت ناموفق بود. عملیات \"صدور اولیه رمز موبایل بانک\" انجام نشد.",
+                                                  "data": "{{appStrings.generated.home_page.tobank_special_services_page.authentication_failed_mobile_operation_pin}}",
                                                   "textDirection": "rtl",
                                                   "textAlign": "right",
                                                   "style": {
@@ -492,7 +492,7 @@
                                         "type": "expanded",
                                         "child": {
                                           "type": "text",
-                                          "data": "صدور اولیه رمز موبایل بانک",
+                                          "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.mobile_pin_bank}}",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
                                           "style": {
@@ -566,7 +566,7 @@
                                           },
                                           {
                                             "type": "text",
-                                            "data": "خدمات موبایل بانک",
+                                            "data": "{{appStrings.generated.home_page.tobank_special_services_page.title}}",
                                             "textDirection": "rtl",
                                             "textAlign": "right",
                                             "style": {
@@ -582,7 +582,7 @@
                                           },
                                           {
                                             "type": "text",
-                                            "data": "نام کاربری موبایل بانک",
+                                            "data": "{{appStrings.generated.home_page.tobank_special_services_page.mobile_name_bank}}",
                                             "textDirection": "rtl",
                                             "textAlign": "right",
                                             "style": {
@@ -618,7 +618,7 @@
                                               "textAlign": "right",
                                               "keyboardType": "number",
                                               "decoration": {
-                                                "hintText": "نام کاربری موبایل بانک",
+                                                "hintText": "{{appStrings.generated.home_page.tobank_special_services_page.mobile_name_bank}}",
                                                 "hintStyle": {
                                                   "type": "custom",
                                                   "fontSize": 14,
@@ -678,8 +678,8 @@
                                               "actionType": "closeDialog",
                                               "result": {
                                                 "actionType": "fingerPrint",
-                                                "title": "احراز هویت",
-                                                "description": "برای بازیابی رمز موبایل بانک احراز هویت کنید",
+                                                "title": "{{appStrings.menu.items.authentication}}",
+                                                "description": "{{appStrings.generated.home_page.tobank_special_services_page.authentication_mobile_pin_bank_message}}",
                                                 "onSuccess": {
                                                   "actionType": "customSnackBar",
                                                   "backgroundColor": "#00000000",
@@ -734,7 +734,7 @@
                                                             },
                                                             "child": {
                                                               "type": "text",
-                                                              "data": "بستن",
+                                                              "data": "{{appStrings.generated.gift_card.gift_card_message.close_button}}",
                                                               "textDirection": "rtl",
                                                               "style": {
                                                                 "type": "custom",
@@ -758,7 +758,7 @@
                                                             "children": [
                                                               {
                                                                 "type": "text",
-                                                                "data": "درخواست شما با موفقیت ثبت شد!",
+                                                                "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_result.title}}",
                                                                 "textDirection": "rtl",
                                                                 "textAlign": "right",
                                                                 "style": {
@@ -775,7 +775,7 @@
                                                               },
                                                               {
                                                                 "type": "text",
-                                                                "data": "مراتب از طریق پیامک به شما اطلاع داده خواهد شد.",
+                                                                "data": "{{appStrings.generated.home_page.tobank_special_services_page.sms_notification_message}}",
                                                                 "textDirection": "rtl",
                                                                 "textAlign": "right",
                                                                 "style": {
@@ -877,7 +877,7 @@
                                                             },
                                                             "child": {
                                                               "type": "text",
-                                                              "data": "بستن",
+                                                              "data": "{{appStrings.generated.gift_card.gift_card_message.close_button}}",
                                                               "textDirection": "rtl",
                                                               "style": {
                                                                 "type": "custom",
@@ -901,7 +901,7 @@
                                                             "children": [
                                                               {
                                                                 "type": "text",
-                                                                "data": "احراز هویت ناموفق بود.",
+                                                                "data": "{{appStrings.generated.home_page.tobank_special_services_page.authentication_failed}}",
                                                                 "textDirection": "rtl",
                                                                 "textAlign": "right",
                                                                 "style": {
@@ -918,7 +918,7 @@
                                                               },
                                                               {
                                                                 "type": "text",
-                                                                "data": "احراز هویت ناموفق بود. عملیات \"بازیابی رمز موبایل بانک\" انجام نشد.",
+                                                                "data": "{{appStrings.generated.home_page.tobank_special_services_page.mobile_pin_recovery_auth_failed}}",
                                                                 "textDirection": "rtl",
                                                                 "textAlign": "right",
                                                                 "style": {
@@ -988,7 +988,7 @@
                                             },
                                             "child": {
                                               "type": "text",
-                                              "data": "تایید و بازیابی رمز موبایل بانک",
+                                              "data": "{{appStrings.generated.home_page.tobank_special_services_page.mobile_confirm_pin_bank}}",
                                               "textDirection": "rtl",
                                               "style": {
                                                 "type": "custom",
@@ -1059,7 +1059,7 @@
                                         "type": "expanded",
                                         "child": {
                                           "type": "text",
-                                          "data": "بازیابی رمز موبایل بانک",
+                                          "data": "{{appStrings.generated.home_page.tobank_special_services_page.mobile_pin_bank}}",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
                                           "style": {
@@ -1123,7 +1123,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "خدمات موبایل بانک",
+                            "data": "{{appStrings.generated.home_page.tobank_special_services_page.title}}",
                             "textDirection": "rtl",
                             "textAlign": "center",
                             "style": {
@@ -1140,7 +1140,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "فعال سازی خدمات و صدور رمز",
+                            "data": "{{appStrings.generated.home_page.tobank_special_services_page.active_services_pin}}",
                             "textDirection": "rtl",
                             "textAlign": "center",
                             "style": {
@@ -1206,7 +1206,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "خدمات اینترنت بانک",
+                          "data": "{{appStrings.generated.home_page.tobank_special_services_page.services_bank}}",
                           "textDirection": "rtl",
                           "textAlign": "center",
                           "style": {
@@ -1223,7 +1223,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "فعال سازی خدمات و صدور رمز",
+                          "data": "{{appStrings.generated.home_page.tobank_special_services_page.active_services_pin}}",
                           "textDirection": "rtl",
                           "textAlign": "center",
                           "style": {
@@ -1294,7 +1294,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "صندوق امانات",
+                          "data": "{{appStrings.generated.home_page.tobank_special_services_page.safe_deposit_box}}",
                           "textDirection": "rtl",
                           "textAlign": "center",
                           "style": {
@@ -1311,7 +1311,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "اجاره صندوق، رزرو زمان بازدید",
+                          "data": "{{appStrings.generated.home_page.tobank_special_services_page.time}}",
                           "textDirection": "rtl",
                           "textAlign": "center",
                           "style": {
@@ -1375,7 +1375,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "ضمانت نامه نظام وظیفه",
+                          "data": "{{appStrings.generated.home_page.tobank_special_services_page.guarantee}}",
                           "textDirection": "rtl",
                           "textAlign": "center",
                           "style": {
@@ -1392,7 +1392,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "ثبت ضمانتنامه",
+                          "data": "{{appStrings.generated.home_page.tobank_special_services_page.submit}}",
                           "textDirection": "rtl",
                           "textAlign": "center",
                           "style": {
@@ -1470,7 +1470,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "سفته آنلاین",
+                            "data": "{{appStrings.promissory.PromissoryTitle}}",
                             "textDirection": "rtl",
                             "textAlign": "center",
                             "style": {
@@ -1487,7 +1487,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "صدور و خدمات",
+                            "data": "{{appStrings.generated.home_page.tobank_special_services_page.services}}",
                             "textDirection": "rtl",
                             "textAlign": "center",
                             "style": {
@@ -1553,7 +1553,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "اعتبارسنجی",
+                          "data": "{{appStrings.authentication.stepValidation}}",
                           "textDirection": "rtl",
                           "textAlign": "center",
                           "style": {
@@ -1570,7 +1570,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "اعتبارسنجی خود و سایرین",
+                          "data": "{{appStrings.generated.home_page.tobank_special_services_page.credit_validation}}",
                           "textDirection": "rtl",
                           "textAlign": "center",
                           "style": {

@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -9,8 +9,16 @@ StacWidget transactionRealFilter() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(
       values: [
-        {'key': 'trFilterFromDate', 'value': 'از تاریخ'},
-        {'key': 'trFilterToDate', 'value': 'تا تاریخ'},
+        {
+          'key': 'trFilterFromDate',
+          'value':
+              '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date}}',
+        },
+        {
+          'key': 'trFilterToDate',
+          'value':
+              '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_until}}',
+        },
       ],
     ),
     child: StacScaffold(
@@ -18,7 +26,7 @@ StacWidget transactionRealFilter() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'فیلتر تراکنش‌ها',
+        title: '{{appStrings.generated.transaction.transaction_filter.title}}',
       ),
       body: StacSingleChildScrollView(
         padding: StacEdgeInsets.all(16),
@@ -33,32 +41,38 @@ StacWidget transactionRealFilter() {
               ).toJson(),
               replacement: StacSizedBox(height: 2).toJson(),
             ),
-            _sectionTitle('بازه زمانی'),
+            _sectionTitle(
+              '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_range_label}}',
+            ),
             StacSizedBox(height: 12),
             StacRow(
               textDirection: StacTextDirection.rtl,
               children: [
                 StacExpanded(
                   child: _buildDateField(
-                    title: 'از تاریخ',
+                    title:
+                        '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date}}',
                     registryKey: 'trFilterFromDate',
                   ),
                 ),
                 StacSizedBox(width: 10),
                 StacExpanded(
                   child: _buildDateField(
-                    title: 'تا تاریخ',
+                    title:
+                        '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_until}}',
                     registryKey: 'trFilterToDate',
                   ),
                 ),
               ],
             ),
             StacSizedBox(height: 20),
-            _sectionTitle('نوع تراکنش'),
+            _sectionTitle('{{appStrings.promissory.transactionType}}'),
             StacSizedBox(height: 12),
             _buildTypeChips(),
             StacSizedBox(height: 20),
-            _sectionTitle('وضعیت تراکنش'),
+            _sectionTitle(
+              '{{appStrings.generated.transaction.transaction_filter.transaction_status}}',
+            ),
             StacSizedBox(height: 12),
             _buildStatusRow(),
             StacSizedBox(height: 26),
@@ -73,7 +87,8 @@ StacWidget transactionRealFilter() {
                 ),
               ),
               child: StacText(
-                data: 'فیلتر نتایج',
+                data:
+                    '{{appStrings.generated.transaction.transaction_filter.filter_results}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 18,
@@ -172,7 +187,8 @@ StacWidget _buildDirectionRow() {
     mainAxisAlignment: StacMainAxisAlignment.start,
     children: [
       _buildDirectionChip(
-        title: 'دریافت وجه',
+        title:
+            '{{appStrings.generated.transaction.transaction_filter.receive_money}}',
         icon: 'south',
         selectedVisible: '[[trFilterDirectionReceive]]',
         selectedColor: '{{appColors.current.success.color}}',
@@ -191,7 +207,8 @@ StacWidget _buildDirectionRow() {
       ),
       StacSizedBox(width: 8),
       _buildDirectionChip(
-        title: 'ارسال وجه',
+        title:
+            '{{appStrings.generated.transaction.transaction_filter.send_money}}',
         icon: 'north',
         selectedVisible: '[[trFilterDirectionSend]]',
         selectedColor: '{{appColors.current.warning.color}}',
@@ -300,9 +317,10 @@ StacAction _openTransactionDateRangePickerAction() {
     'actionType': 'persianDateRangePicker',
     'startDateKey': 'trFilterFromDate',
     'endDateKey': 'trFilterToDate',
-    'helpText': 'انتخاب بازه زمانی',
-    'confirmText': 'تایید',
-    'cancelText': 'انصراف',
+    'helpText':
+        '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.select}}',
+    'confirmText': '{{appStrings.common.confirm}}',
+    'cancelText': '{{appStrings.common.cancel}}',
     'firstDate': '1400/01/01',
     'lastDate': '1450/12/29',
   });
@@ -362,11 +380,13 @@ StacWidget _buildTypeChips() {
     children: [
       _buildTypeRow(
         left: _buildTypeChip(
-          title: 'خرید کارت هدیه',
+          title:
+              '{{appStrings.generated.gift_card.gift_card_intro.gift_card_buy}}',
           key: 'trFilterTypeGiftCard',
         ),
         center: _buildTypeChip(
-          title: 'انتقال کیف پول',
+          title:
+              '{{appStrings.generated.transaction.transaction_filter.wallet_transfer}}',
           key: 'trFilterTypeTransferWallet',
           onTap: const StacSequenceAction(
             actions: [
@@ -382,26 +402,33 @@ StacWidget _buildTypeChips() {
           ),
         ),
         right: _buildTypeChip(
-          title: 'کارت به کارت',
+          title: '{{appStrings.homePage.cards.cardToCard}}',
           key: 'trFilterTypeCardToCard',
         ),
       ),
       StacSizedBox(height: 8),
       _buildTypeRow(
         left: _buildTypeChip(
-          title: 'خرید بسته اینترنتی',
+          title:
+              '{{appStrings.generated.transaction.transaction_filter.buy_internet_package}}',
           key: 'trFilterTypeBuyInternet',
         ),
         center: _buildTypeChip(
-          title: 'خرید شارژ مستقیم',
+          title:
+              '{{appStrings.generated.transaction.transaction_filter.buy_direct_topup}}',
           key: 'trFilterTypeBuyRecharge',
         ),
-        right: _buildTypeChip(title: 'نیکوکاری', key: 'trFilterTypeCharity'),
+        right: _buildTypeChip(
+          title:
+              '{{appStrings.generated.transaction.transaction_filter.charity}}',
+          key: 'trFilterTypeCharity',
+        ),
       ),
       StacSizedBox(height: 8),
       _buildTypeRow(
         left: _buildTypeChip(
-          title: 'شارژ کیف پول',
+          title:
+              '{{appStrings.generated.card_management.card_management_root.topup_wallet_money}}',
           key: 'trFilterTypeWalletCharge',
           onTap: const StacSequenceAction(
             actions: [
@@ -417,18 +444,21 @@ StacWidget _buildTypeChips() {
           ),
         ),
         center: _buildTypeChip(
-          title: 'پرداخت قبوض',
+          title:
+              '{{appStrings.generated.transaction.transaction_filter.bill_payment}}',
           key: 'trFilterTypeBillPayment',
         ),
         right: _buildTypeChip(
-          title: 'پرداخت گروهی قبوض',
+          title:
+              '{{appStrings.generated.transaction.transaction_filter.bulk_bill_payment}}',
           key: 'trFilterTypeGroupBill',
         ),
       ),
       StacSizedBox(height: 8),
       _buildTypeRow(
         left: _buildTypeChip(
-          title: 'استرداد وجه',
+          title:
+              '{{appStrings.generated.transaction.transaction_filter.refund}}',
           key: 'trFilterTypeRefund',
           onTap: const StacSequenceAction(
             actions: [
@@ -444,7 +474,8 @@ StacWidget _buildTypeChips() {
           ),
         ),
         center: _buildTypeChip(
-          title: 'صندوق امانات',
+          title:
+              '{{appStrings.generated.home_page.tobank_special_services_page.safe_deposit_box}}',
           key: 'trFilterTypeSafeBox',
         ),
         right: StacSizedBox(),
@@ -531,7 +562,7 @@ StacWidget _buildStatusRow() {
     children: [
       StacExpanded(
         child: _buildStatusChip(
-          title: 'پرداخت موفق',
+          title: '{{appStrings.promissory.paymentSuccessful}}',
           iconSrc: '{{appAssets.icons.transactionItemSuccessCurrent}}',
           selectedVisible: '[[trFilterStatusSuccessSelected]]',
           selectedColor: '{{appColors.current.success.color}}',
@@ -556,7 +587,8 @@ StacWidget _buildStatusRow() {
       StacSizedBox(width: 10),
       StacExpanded(
         child: _buildStatusChip(
-          title: 'پرداخت ناموفق',
+          title:
+              '{{appStrings.generated.transaction.transaction_filter.failed_payment}}',
           iconSrc: '{{appAssets.icons.transactionItemFailedCurrent}}',
           selectedVisible: '[[trFilterStatusFailedSelected]]',
           selectedColor: '{{appColors.current.error.color}}',

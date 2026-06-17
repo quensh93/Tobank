@@ -11,7 +11,7 @@ StacWidget transferRealInBankConfirm() {
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
         showSupport: true,
-        title: 'انتقال وجه',
+        title: '{{appStrings.menu.items.transfer}}',
       ),
       body: StacPadding(
         padding: StacEdgeInsets.only(left: 16, top: 16, right: 16, bottom: 21),
@@ -21,7 +21,11 @@ StacWidget transferRealInBankConfirm() {
             _summaryCard(),
             StacExpanded(child: StacSizedBox()),
             StacFilledButton(
-              onPressed: NavigationAction(fileName: 'transfer_in_bank_result', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+              onPressed: NavigationAction(
+                fileName: 'transfer_in_bank_result',
+                navMode: NavModes.dart,
+                navigationStyle: NavigationStyle.push,
+              ),
               style: StacButtonStyle(
                 fixedSize: const StacSize(999999, 57),
                 shape: StacRoundedRectangleBorder(
@@ -31,7 +35,7 @@ StacWidget transferRealInBankConfirm() {
                 foregroundColor: '#FFFFFF',
               ),
               child: StacText(
-                data: 'انتقال وجه',
+                data: '{{appStrings.menu.items.transfer}}',
                 style: StacCustomTextStyle(
                   fontSize: 18,
                   fontWeight: StacFontWeight.w700,
@@ -71,7 +75,8 @@ StacWidget _summaryCard() {
                 textDirection: StacTextDirection.rtl,
                 children: [
                   StacText(
-                    data: 'مبلغ انتقال',
+                    data:
+                        '{{appStrings.generated.card_management.card_management_root.amount_transfer}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 18,
@@ -102,7 +107,7 @@ StacWidget _summaryCard() {
                 textDirection: StacTextDirection.ltr,
                 children: [
                   StacText(
-                    data: 'ریال',
+                    data: '{{appStrings.common.rial}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 15,
@@ -137,9 +142,12 @@ StacWidget _summaryCard() {
         ),
         StacSizedBox(height: 14),
         _accountSection(
-          sectionTitle: 'مبدا',
-          accountHolder: 'سجاد رحمانی پور',
-          accountValue: '۱۱۰.۹۹۲۲.۱۷۹۳۸۵۸.۱',
+          sectionTitle:
+              '{{appStrings.generated.installment_payment.installment_payment_others_receipt.source_label}}',
+          accountHolder:
+              '{{appStrings.profile.real.destinations.depositItem4Title}}',
+          accountValue:
+              '{{appStrings.generated.transfer.transfer_in_bank_confirm.title}}',
           iconAsset: 'assets/icons/ic_gardeshgari.svg',
           accountDirection: StacTextDirection.ltr,
         ),
@@ -161,7 +169,9 @@ StacWidget _destinationSection() {
     textDirection: StacTextDirection.rtl,
     crossAxisAlignment: StacCrossAxisAlignment.center,
     children: [
-      _sectionLabel('مقصد'),
+      _sectionLabel(
+        '{{appStrings.generated.transfer.transfer_card_result.destination_label}}',
+      ),
       StacSizedBox(width: 10),
       StacContainer(
         width: 38,

@@ -187,15 +187,15 @@
           },
           "onTap": {
             "actionType": "showBankAddressBottomSheet",
-            "title": "آدرس ثبت‌شده در بانک",
-            "addressLabel": "آدرس",
+            "title": "{{appStrings.profile.real.bankInfo.registeredAddressTitle}}",
+            "addressLabel": "{{appStrings.profile.real.bankInfo.addressLabel}}",
             "address": "{{appStrings.profile.real.bankInfo.addressValue}}",
-            "postalCodeLabel": "کد پستی",
+            "postalCodeLabel": "{{appStrings.profile.real.bankInfo.postalCodeLabel}}",
             "postalCode": "{{appStrings.profile.real.bankInfo.postalCodeValue}}",
-            "editButtonText": "ویرایش",
-            "editTitle": "ویرایش آدرس ثبت‌شده در بانک",
-            "postalCodeHint": "کد پستی محل سکونت را وارد کنید",
-            "inquiryButtonText": "استعلام",
+            "editButtonText": "{{appStrings.verifyOtp.edit}}",
+            "editTitle": "{{appStrings.profile.real.bankInfo.editTitle}}",
+            "postalCodeHint": "{{appStrings.profile.real.bankInfo.postalCodeHint}}",
+            "inquiryButtonText": "{{appStrings.profile.real.bankInfo.inquiryButtonText}}",
             "postalCodeValueKey": "profileRealPostalCode"
           },
           "type": "gestureDetector"

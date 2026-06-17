@@ -6,9 +6,9 @@ import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 
 const String _closeDepositCommitmentTitle =
-    'تعهد مشتری نسبت به عدم اتصال سپرده درخواستی';
+    '{{appStrings.generated.deposit_more_options.deposit_close_confirm.deposit_customer}}';
 const String _closeDepositDisclaimerText =
-    'مشتری گرامی، بانک هیچ‌گونه مسئولیتی در خصوص جبران زیان مالی احتمالی ناشی از بستن سپرده‌های مرتبط با صندوق‌های سرمایه‌گذاری، سامانه سجام، کارگزاری‌های بورس، پایانه‌های فروشگاهی، سهام عدالت و ... ندارد. لذا خواهشمند است پیش از ثبت درخواست بستن سپرده، از عدم وجود ارتباطات یاد شده اطمینان حاصل نمایید';
+    '{{appStrings.generated.deposit_more_options.deposit_close_confirm.close_deposit_warning}}';
 
 @StacScreen(screenName: 'deposit_close_confirm')
 StacWidget depositCloseConfirm() {
@@ -20,7 +20,8 @@ StacWidget depositCloseConfirm() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        title: 'بستن سپرده',
+        title:
+            '{{appStrings.generated.deposit_more_options.deposit_close_confirm.title}}',
         showSupport: true,
       ),
       body: StacPadding(
@@ -34,7 +35,11 @@ StacWidget depositCloseConfirm() {
             StacSizedBox(height: 40),
             StacCustomReactiveElevatedButton(
               enabledKey: 'depositCloseConfirmRulesChecked',
-              onPressed: NavigationAction(fileName: 'deposit_close_selector', navMode: NavModes.dart, navigationStyle: NavigationStyle.push).toJson(),
+              onPressed: NavigationAction(
+                fileName: 'deposit_close_selector',
+                navMode: NavModes.dart,
+                navigationStyle: NavigationStyle.push,
+              ).toJson(),
               style: StacButtonStyle(
                 minimumSize: const StacSize(0, 64),
                 backgroundColor:
@@ -54,7 +59,8 @@ StacWidget depositCloseConfirm() {
                 ),
               ).toJson(),
               child: StacText(
-                data: 'مرحله بعد',
+                data:
+                    '{{appStrings.generated.cartable.cartable_intro.next_step}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 18,
@@ -160,7 +166,8 @@ StacWidget _closeDepositConfirmCard() {
               width: 22,
               height: 22,
               decoration: StacBoxDecoration(
-                color: '{{depositCloseConfirmRulesChecked ? appColors.current.secondary.color : "transparent"}}',
+                color:
+                    '{{depositCloseConfirmRulesChecked ? appColors.current.secondary.color : "transparent"}}',
                 borderRadius: StacBorderRadius.all(3),
                 border: StacBorder.all(
                   color: '{{appColors.current.text.title}}',
@@ -206,4 +213,3 @@ StacWidget _closeDepositConfirmCard() {
     ),
   );
 }
-

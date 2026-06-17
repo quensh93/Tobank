@@ -8,19 +8,19 @@
                 "transactionId": "1457337014071422977",
                 "status": 1,
                 "nationalCode": "1272125191",
-                "firstName": "علي",
-                "lastName": "سينائي اصل",
+                "firstName": "{{appStrings.generated.promissory.POST_customer_info.sample_first_name}}",
+                "lastName": "{{appStrings.generated.promissory.POST_customer_info.sinaei_asl_last_name}}",
                 "gender": 1,
                 "customerNumber": "1765274",
                 "shahabCodeAcquired": true,
                 "digitalBankingCustomer": true,
                 "loyaltyCode": "91633120",
-                "address": "اصفهان - شهر ناشناخته - کوچه شهیدرضازلالی22 - پلاک 12",
+                "address": "{{appStrings.generated.promissory.POST_customer_info.plaque_city}}",
                 "postalCode": "8153887146",
                 "customerStatus": 1,
                 "ekycProvider": 1
             },
-            "message": "عملیات با موفقیت انجام شد",
+            "message": "{{appStrings.generated.promissory.POST_customer_deposits.operation_success}}",
             "success": true,
             "code": 0
         }

@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "تنظیمات",
+      "data": "{{appStrings.profile.real.menu.settings}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -100,7 +100,7 @@
               },
               {
                 "child": {
-                  "data": "فعال سازی تشخیص چهره",
+                  "data": "{{appStrings.profile.real.settings.faceId}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
@@ -173,7 +173,7 @@
                 },
                 {
                   "child": {
-                    "data": "ظاهر برنامه",
+                    "data": "{{appStrings.profile.real.settings.themeTitle}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -215,10 +215,10 @@
           },
           "onTap": {
             "actionType": "showThemeSelectorBottomSheet",
-            "title": "ظاهر برنامه را انتخاب کنید",
-            "lightLabel": "حالت روز",
-            "darkLabel": "حالت شب",
-            "systemLabel": "پیش‌فرض سیستم عامل"
+            "title": "{{appStrings.profile.real.settings.themeSheetTitle}}",
+            "lightLabel": "{{appStrings.profile.real.settings.themeCurrent}}",
+            "darkLabel": "{{appStrings.profile.real.settings.themeDark}}",
+            "systemLabel": "{{appStrings.profile.real.settings.themeSystem}}"
           },
           "type": "gestureDetector"
         },
@@ -263,7 +263,7 @@
                 },
                 {
                   "child": {
-                    "data": "تغییر رمز عبور",
+                    "data": "{{appStrings.profile.real.changePassword.title}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -338,7 +338,7 @@
                 },
                 {
                   "child": {
-                    "data": "حذف اطلاعات حساب کاربری",
+                    "data": "{{appStrings.profile.real.settings.deleteAccount}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -366,12 +366,12 @@
           },
           "onTap": {
             "actionType": "showDeleteAccountConfirmBottomSheet",
-            "title": "حذف اطلاعات حساب کاربری",
-            "description": "کاربر گرامی، در صورت انتقال سیم‌کارت یا تمایل به حذف اطلاعات حساب خود می‌توانید اطلاعاتی نظیر تراکنش‌ها، کارت‌های ذخیره شده و ... را از حساب‌کاربری خود حذف کنید.",
-            "warningMessageOne": "حتما قبل از حذف اطلاعات، موجودی کیف پول خود را به شماره دیگر خود انتقال دهید.",
-            "warningMessageTwo": "تا ۲۴ ساعت بعد از حذف حساب‌کاربری امکان ثبت‌نام مجدد نخواهید داشت",
-            "confirmText": "میخواهم اطلاعات حساب کاربری خود را حذف کنم.",
-            "buttonText": "ادامه",
+            "title": "{{appStrings.profile.real.settings.deleteAccount}}",
+            "description": "{{appStrings.profile.real.settings.deleteAccountDialogDescription}}",
+            "warningMessageOne": "{{appStrings.profile.real.settings.deleteAccountWarningOne}}",
+            "warningMessageTwo": "{{appStrings.profile.real.settings.deleteAccountWarningTwo}}",
+            "confirmText": "{{appStrings.profile.real.settings.deleteAccountConfirm}}",
+            "buttonText": "{{appStrings.common.continue}}",
             "warningIconAsset": "assets/icons/ic_warning_red.svg"
           },
           "type": "gestureDetector"
@@ -417,7 +417,7 @@
                 },
                 {
                   "child": {
-                    "data": "خروج از حساب کاربری",
+                    "data": "{{appStrings.profile.real.settings.logout}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -481,7 +481,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "مطمئن به خروج از حساب‌کاربری هستید؟",
+                    "data": "{{appStrings.profile.real.settings.logoutDialogTitle}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -497,7 +497,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "در صورت خروج از حساب‌کاربری، برای ورود مجدد نیاز به احراز هویت خواهد داشت. احراز هویت مجدد، به منظور افزایش امنیت حساب‌کاربری و جلوگیری از دسترسی غیرمجاز افراد ناشناس به حساب شما می‌باشد.",
+                    "data": "{{appStrings.profile.real.settings.logoutDialogDescription}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.subtitle}}",
@@ -539,7 +539,7 @@
                             }
                           },
                           "child": {
-                            "data": "بله",
+                            "data": "{{appStrings.common.yes}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.primary.onPrimary}}",
@@ -581,7 +581,7 @@
                             }
                           },
                           "child": {
-                            "data": "خیر",
+                            "data": "{{appStrings.common.no}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",

@@ -7,7 +7,8 @@ StacWidget depositCloseResult() {
   return StacStatefulWidget(
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        title: 'بستن سپرده',
+        title:
+            '{{appStrings.generated.deposit_more_options.deposit_close_confirm.title}}',
         showSupport: true,
       ),
       body: StacPadding(
@@ -32,7 +33,8 @@ StacWidget depositCloseResult() {
                 ),
               ),
               child: StacText(
-                data: 'بازگشت',
+                data:
+                    '{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 18,
@@ -68,7 +70,8 @@ StacWidget _resultCard() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'درخواست شما با موفقیت ثبت شد!',
+            data:
+                '{{appStrings.generated.deposit_more_options.deposit_card_issue_result.title}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -80,7 +83,7 @@ StacWidget _resultCard() {
           StacSizedBox(height: 16),
           StacText(
             data:
-                'این درخواست توسط همکاران ما بررسی می‌گردد و مراتب از طریق پیامک به شما اطلاع‌رسانی خواهد شد',
+                '{{appStrings.generated.deposit_more_options.deposit_close_result.request}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(

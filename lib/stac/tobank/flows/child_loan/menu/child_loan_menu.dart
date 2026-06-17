@@ -7,7 +7,8 @@ import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 StacWidget childLoanApiRealMenu() {
   return StacScaffold(
     appBar: buildTobankFlowAppBar(
-      title: 'تسهیلات فرزندآوری api واقعی',
+      title:
+          '{{appStrings.generated.child_loan.child_loan_api_real_menu.loan_child_api_real}}',
       showBack: true,
       showSupport: true,
     ),
@@ -18,7 +19,11 @@ StacWidget childLoanApiRealMenu() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'child_loan_rules', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'child_loan_rules',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -27,7 +32,7 @@ StacWidget childLoanApiRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از DART',
+              data: '{{appStrings.promissory.debug.loadDart}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -36,7 +41,11 @@ StacWidget childLoanApiRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'child_loan_rules', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'child_loan_rules',
+              navMode: NavModes.localJson,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -45,7 +54,8 @@ StacWidget childLoanApiRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از JSON',
+              data:
+                  '{{appStrings.generated.child_loan.child_loan_api_real_menu.upload_json}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -54,7 +64,11 @@ StacWidget childLoanApiRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacOutlinedButton(
-            onPressed: NavigationAction(fileName: 'child_loan_rules', navMode: NavModes.apiJson, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'child_loan_rules',
+              navMode: NavModes.apiJson,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -63,7 +77,8 @@ StacWidget childLoanApiRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از JSON API',
+              data:
+                  '{{appStrings.generated.child_loan.child_loan_api_real_menu.upload_json_api}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,

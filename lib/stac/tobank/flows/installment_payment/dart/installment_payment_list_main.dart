@@ -9,7 +9,8 @@ StacWidget installmentPaymentListMain() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: buildTobankFlowAppBar(
-      title: 'پرداخت اقساط خود',
+      title:
+          '{{appStrings.generated.installment_payment.installment_payment_list_main.title}}',
       showSupport: true,
       showBack: true,
     ),
@@ -19,74 +20,113 @@ StacWidget installmentPaymentListMain() {
         children: [
           _loanCard(
             data: const _LoanCardData(
-              title: 'مراجعه مستاجران حایز شرایط',
-              due: 'پرداخت بعدی: ۹ روز بعد',
-              appBarTitle: 'وام مراجعه مستاجران حایز شرایط',
-              approvedAmount: '۱,۰۰۰,۰۰۰,۰۰۰ ریال',
-              paidSummary: '۴۰ از ۴۴ قسط پرداخت شده',
-              settledAmount: '۱,۱۱۷,۳۷۲,۰۰۰',
-              debtAmount: '۴۰۶,۲۳۳,۶۴۵',
-              settlementPayableAmount: '۳۶۶,۹۶۳,۳۱۵',
-              nextInstallmentTitle: 'قسط ۴۵',
-              nextInstallmentAmount: '۲۵,۳۱۳,۰۰۰',
-              historyDate: '۱۴۰۵/۰۳/۱۲',
+              title:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.terms}}',
+              due:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.next_payment_day}}',
+              appBarTitle:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.terms_loan}}',
+              approvedAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.rial}}',
+              paidSummary:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.payment}}',
+              settledAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.amount_value}}',
+              debtAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.amount_value_text}}',
+              settlementPayableAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.amount_value_label}}',
+              nextInstallmentTitle:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.number_value_message}}',
+              nextInstallmentAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.amount_value_message}}',
+              historyDate:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.date_value}}',
               progress: 0.9091,
               totalInstallments: 44,
-              totalInstallmentsLabel: '۴۴',
+              totalInstallmentsLabel:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.number_value_text}}',
               paidInstallments: 40,
               remainingInstallments: 4,
-              remainingInstallmentsLabel: '۴',
+              remainingInstallmentsLabel:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.number_value_item}}',
             ),
             warning:
-                'مهلت پرداخت بدون جریمه دیرکرد برای قسط ۴۵ تا پایان روز ۱۲ خرداد ۱۴۰۵ می‌باشد',
+                '{{appStrings.generated.installment_payment.installment_payment_list_main.payment_until_day_description}}',
           ),
           StacSizedBox(height: 16),
           _loanCard(
             data: const _LoanCardData(
-              title: 'قرض الحسنه طرح پارسا (۲ درصدی) - توبانک',
-              due: 'پرداخت بعدی: ۲۰ روز بعد',
-              appBarTitle: 'وام قرض الحسنه طرح پارسا (۲ درصدی) - توبانک',
-              approvedAmount: '۷۵۰,۰۰۰,۰۰۰ ریال',
-              paidSummary: '۲۳ از ۳۶ قسط پرداخت شده',
-              settledAmount: '۸۴۱,۵۰۰,۰۰۰',
-              debtAmount: '۱۹۸,۵۰۰,۰۰۰',
-              settlementPayableAmount: '۱۸۱,۲۴۰,۰۰۰',
-              nextInstallmentTitle: 'قسط ۱۳',
-              nextInstallmentAmount: '۱۸,۴۸۰,۰۰۰',
-              historyDate: '۱۴۰۵/۰۳/۲۳',
+              title:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.number_value}}',
+              due:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.next_payment_day_message}}',
+              appBarTitle:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.loan}}',
+              approvedAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.rial_message}}',
+              paidSummary:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.payment_message}}',
+              settledAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.amount_value_item}}',
+              debtAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.amount_value_alt}}',
+              settlementPayableAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.sample_amount_rial}}',
+              nextInstallmentTitle:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.number_value_label}}',
+              nextInstallmentAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.sample_amount_rial_option}}',
+              historyDate:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.date_value_text}}',
               progress: 0.6389,
               totalInstallments: 36,
-              totalInstallmentsLabel: '۳۶',
+              totalInstallmentsLabel:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.number_value_alt}}',
               paidInstallments: 23,
               remainingInstallments: 13,
-              remainingInstallmentsLabel: '۱۳',
+              remainingInstallmentsLabel:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.remaining_installment_count}}',
             ),
             warning:
-                'مهلت پرداخت بدون جریمه دیرکرد برای قسط ۱۳ تا پایان روز ۲۳ خرداد ۱۴۰۵ می‌باشد',
+                '{{appStrings.generated.installment_payment.installment_payment_list_main.payment_until_day_description_message}}',
           ),
           StacSizedBox(height: 16),
           _loanCard(
             data: const _LoanCardData(
-              title: 'قرض الحسنه طرح پارسا (۲ درصدی) - توبانک',
-              due: 'پرداخت بعدی: ۳۰ روز بعد',
-              appBarTitle: 'وام قرض الحسنه طرح پارسا (۲ درصدی) - توبانک',
-              approvedAmount: '۶۰۰,۰۰۰,۰۰۰ ریال',
-              paidSummary: '۱۸ از ۳۰ قسط پرداخت شده',
-              settledAmount: '۶۷۳,۲۰۰,۰۰۰',
-              debtAmount: '۱۵۶,۸۰۰,۰۰۰',
-              settlementPayableAmount: '۱۴۴,۳۷۰,۰۰۰',
-              nextInstallmentTitle: 'قسط ۱۲',
-              nextInstallmentAmount: '۱۷,۳۰۰,۰۰۰',
-              historyDate: '۱۴۰۵/۰۳/۲۷',
+              title:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.number_value}}',
+              due:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.next_payment_day_label}}',
+              appBarTitle:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.loan}}',
+              approvedAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.rial_label}}',
+              paidSummary:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.payment_label}}',
+              settledAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.sample_amount_rial_message}}',
+              debtAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.sample_amount_rial_label}}',
+              settlementPayableAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.sample_amount_rial_theme}}',
+              nextInstallmentTitle:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.number_value_description}}',
+              nextInstallmentAmount:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.sample_amount_rial_sample}}',
+              historyDate:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.date_value_label}}',
               progress: 0.6,
               totalInstallments: 30,
-              totalInstallmentsLabel: '۳۰',
+              totalInstallmentsLabel:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.paid_installment_count}}',
               paidInstallments: 18,
               remainingInstallments: 12,
-              remainingInstallmentsLabel: '۱۲',
+              remainingInstallmentsLabel:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.overdue_installment_count}}',
             ),
             warning:
-                'مهلت پرداخت بدون جریمه دیرکرد برای قسط ۱۲ تا پایان روز ۲۷ خرداد ۱۴۰۵ می‌باشد',
+                '{{appStrings.generated.installment_payment.installment_payment_list_main.payment_until_day_description_label}}',
           ),
         ],
       ),
@@ -203,7 +243,11 @@ StacWidget _loanCard({required _LoanCardData data, required String warning}) {
                     {'key': 'loanDetail.showUnpaidInstallments', 'value': true},
                   ],
                 ),
-                NavigationAction(fileName: 'installment_payment_detail_main', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                NavigationAction(
+                  fileName: 'installment_payment_detail_main',
+                  navMode: NavModes.dart,
+                  navigationStyle: NavigationStyle.push,
+                ),
               ],
             ),
             style: StacButtonStyle(
@@ -215,7 +259,8 @@ StacWidget _loanCard({required _LoanCardData data, required String warning}) {
               ),
             ),
             child: StacText(
-              data: 'مشاهده جزئیات',
+              data:
+                  '{{appStrings.generated.installment_payment.installment_payment_list_main.details}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w700,

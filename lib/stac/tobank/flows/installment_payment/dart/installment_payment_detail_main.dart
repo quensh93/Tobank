@@ -16,10 +16,22 @@ StacWidget installmentPaymentDetailMain() {
         {'key': 'loanDetail.payTypeCustom', 'value': false},
         {'key': 'loanDetail.customByInstallmentCount', 'value': false},
         {'key': 'loanDetail.customAmountInput', 'value': ''},
-        {'key': 'loanDetail.customPayableAmountDisplay', 'value': '۰'},
+        {
+          'key': 'loanDetail.customPayableAmountDisplay',
+          'value':
+              '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value_text}}',
+        },
         {'key': 'loanDetail.customInstallmentCountRaw', 'value': '0.0'},
-        {'key': 'loanDetail.customInstallmentCount', 'value': '۰'},
-        {'key': 'loanDetail.customCountPayableAmount', 'value': '۱۱۱,۸۴۷,۱۴۵'},
+        {
+          'key': 'loanDetail.customInstallmentCount',
+          'value':
+              '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value_text}}',
+        },
+        {
+          'key': 'loanDetail.customCountPayableAmount',
+          'value':
+              '{{appStrings.generated.installment_payment.installment_payment_detail_main.amount_value}}',
+        },
         {'key': 'loanDetail.customAmountWords', 'value': ''},
         {'key': 'loanDetail.customPayEnabled', 'value': false},
       ],
@@ -158,7 +170,8 @@ StacWidget _loanSummaryCard() {
                   StacColumn(
                     children: [
                       StacText(
-                        data: 'تسویه شده',
+                        data:
+                            '{{appStrings.generated.installment_payment.installment_payment_detail_main.title}}',
                         style: StacTextStyle(
                           fontSize: 14,
                           fontWeight: StacFontWeight.w500,
@@ -176,7 +189,8 @@ StacWidget _loanSummaryCard() {
                   StacColumn(
                     children: [
                       StacText(
-                        data: 'بدهی مانده',
+                        data:
+                            '{{appStrings.generated.installment_payment.installment_payment_detail_main.remaining_debt_label}}',
                         style: StacTextStyle(
                           fontSize: 14,
                           fontWeight: StacFontWeight.w500,
@@ -272,7 +286,8 @@ StacWidget _paymentTypeCard() {
       child: StacColumn(
         children: [
           StacText(
-            data: 'نوع پرداخت',
+            data:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.payment}}',
             style: StacTextStyle(
               fontSize: 18,
               fontWeight: StacFontWeight.w700,
@@ -287,7 +302,8 @@ StacWidget _paymentTypeCard() {
                 child: StacPadding(
                   padding: StacEdgeInsets.symmetric(horizontal: 3),
                   child: _reactivePaymentChip(
-                    title: 'پرداخت قسط',
+                    title:
+                        '{{appStrings.generated.installment_payment.installment_payment_detail_main.payment_text}}',
                     visibleKey: 'loanDetail.payTypeInstallment',
                     onTap: const StacCustomSetValueAction(
                       values: [
@@ -307,7 +323,8 @@ StacWidget _paymentTypeCard() {
                 child: StacPadding(
                   padding: StacEdgeInsets.symmetric(horizontal: 3),
                   child: _reactivePaymentChip(
-                    title: 'تسویه وام',
+                    title:
+                        '{{appStrings.generated.installment_payment.installment_payment_detail_main.loan}}',
                     visibleKey: 'loanDetail.payTypeSettlement',
                     onTap: const StacCustomSetValueAction(
                       values: [
@@ -330,7 +347,8 @@ StacWidget _paymentTypeCard() {
                 child: StacPadding(
                   padding: StacEdgeInsets.symmetric(horizontal: 3),
                   child: _reactivePaymentChip(
-                    title: 'مقدار دلخواه',
+                    title:
+                        '{{appStrings.generated.installment_payment.installment_payment_detail_main.custom_amount_label}}',
                     visibleKey: 'loanDetail.payTypeCustom',
                     onTap: const StacCustomSetValueAction(
                       values: [
@@ -365,7 +383,7 @@ StacWidget _paymentTypeCard() {
             'type': 'visibility',
             'visible': '[[loanDetail.payTypeSettlement]]',
             'child': _paymentTypeInfoRow(
-              title: 'مبلغ قابل پرداخت',
+              title: '{{appStrings.promissory.payableAmount}}',
               amount: '{{loanDetail.settlementPayableAmount}}',
             ).toJson(),
             'replacement': StacSizedBox().toJson(),
@@ -396,7 +414,8 @@ StacWidget _paymentTypeCard() {
                           ),
                         ),
                         child: StacText(
-                          data: 'پرداخت',
+                          data:
+                              '{{appStrings.generated.card_management.card_management_root.payment}}',
                           style: StacTextStyle(
                             fontSize: 18,
                             fontWeight: StacFontWeight.w700,
@@ -439,7 +458,8 @@ StacWidget _paymentTypeCard() {
                           ),
                         ).toJson(),
                         child: StacText(
-                          data: 'پرداخت',
+                          data:
+                              '{{appStrings.generated.card_management.card_management_root.payment}}',
                           style: StacTextStyle(
                             fontSize: 18,
                             fontWeight: StacFontWeight.w700,
@@ -476,7 +496,11 @@ StacAction _showPaymentAccountsBottomSheetAction() {
           {'key': 'loanPaymentSheet.acc1Selected', 'value': false},
           {'key': 'loanPaymentSheet.acc2Selected', 'value': false},
           {'key': 'loanPaymentSheet.canSubmit', 'value': false},
-          {'key': 'loanPaymentSheet.title', 'value': 'پرداخت اقساط'},
+          {
+            'key': 'loanPaymentSheet.title',
+            'value':
+                '{{appStrings.generated.installment_payment.installment_payment_receipt.title}}',
+          },
           {'key': 'loanPaymentSheet.showSubtitle', 'value': true},
           {
             'key': 'loanPaymentSheet.subtitle',
@@ -491,12 +515,13 @@ StacAction _showPaymentAccountsBottomSheetAction() {
           {
             'key': 'loanPaymentSheet.receiptMessage',
             'value':
-                '{{loanDetail.nextInstallmentTitle}} به مبلغ {{loanDetail.nextInstallmentAmount}} ریال پرداخت گردید',
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.paid_message_amount_rial_text}}',
             'condition': 'loanDetail.payTypeInstallment',
           },
           {
             'key': 'loanPaymentSheet.subtitle',
-            'value': 'تسویه وام',
+            'value':
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.loan}}',
             'condition': 'loanDetail.payTypeSettlement',
           },
           {
@@ -506,7 +531,8 @@ StacAction _showPaymentAccountsBottomSheetAction() {
           },
           {
             'key': 'loanPaymentSheet.receiptMessage',
-            'value': 'تسویه تسهیلات با موفقیت انجام شد',
+            'value':
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.successfully_loan}}',
             'condition': 'loanDetail.payTypeSettlement',
           },
           {
@@ -522,7 +548,7 @@ StacAction _showPaymentAccountsBottomSheetAction() {
           {
             'key': 'loanPaymentSheet.receiptMessage',
             'value':
-                'مبلغ {{loanDetail.customPayableAmountDisplay}} ریال پرداخت گردید',
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.paid_message_amount_rial_label}}',
             'condition': 'loanDetail.payTypeCustom',
           },
           {
@@ -532,7 +558,8 @@ StacAction _showPaymentAccountsBottomSheetAction() {
           },
           {
             'key': 'loanPaymentSheet.subtitle',
-            'value': '{{loanDetail.customInstallmentCount}} قسط انتخاب شده',
+            'value':
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.selected_installment_count_text}}',
             'condition': 'loanDetail.customByInstallmentCount',
           },
           {
@@ -542,7 +569,8 @@ StacAction _showPaymentAccountsBottomSheetAction() {
           },
           {
             'key': 'loanPaymentSheet.receiptMessage',
-            'value': '{{loanDetail.customInstallmentCount}} قسط پرداخت گردید',
+            'value':
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.paid_message_text}}',
             'condition': 'loanDetail.customByInstallmentCount',
           },
         ],
@@ -623,7 +651,7 @@ StacWidget _buildPaymentAccountsBottomSheet() {
               borderRadius: StacBorderRadius.all(6),
             ),
             child: StacText(
-              data: 'حساب‌ها',
+              data: '{{appStrings.generated.charge.charge_payment.account}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacTextStyle(
@@ -637,20 +665,26 @@ StacWidget _buildPaymentAccountsBottomSheet() {
           _paymentAccountCard(
             selectedKey: 'loanPaymentSheet.acc1Selected',
             onTap: _selectPaymentAccount(canSubmit: true, account: 1),
-            title: 'سپرده ۶ ماهه کوتاه مدت توبانکی',
-            depositNo: '۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱',
-            cardNo: '۵۵۹۴ - ۱۶۱۷ - ۱۲۳۴ - ۵۶۷۸',
-            amount: '۸۱۱,۱۲۴,۶۰۷ ریال',
+            title: '{{appStrings.generated.charge.charge_payment.deposit}}',
+            depositNo:
+                '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}',
+            cardNo:
+                '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number_text}}',
+            amount:
+                '{{appStrings.generated.charge.charge_payment.rial_message}}',
             isInsufficient: false,
           ),
           StacSizedBox(height: 10),
           _paymentAccountCard(
             selectedKey: 'loanPaymentSheet.acc2Selected',
             onTap: _selectPaymentAccount(canSubmit: false, account: 2),
-            title: 'سپرده حقیقی سپرده سرمایه‌گذاری بلند مدت',
-            depositNo: '۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱',
-            cardNo: '۵۵۹۴ - ۱۶۱۷ - ۱۲۳۴ - ۵۶۷۸',
-            amount: '۷۴۵,۵۲۴,۶۰۷ ریال',
+            title:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.deposit}}',
+            depositNo:
+                '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}',
+            cardNo:
+                '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number_text}}',
+            amount: '{{appStrings.generated.charge.charge_payment.rial_label}}',
             isInsufficient: true,
           ),
           StacSizedBox(height: 20),
@@ -702,7 +736,7 @@ StacWidget _paymentSheetSubmitButton({required bool enabled}) {
       elevation: 0,
     ),
     child: StacText(
-      data: 'تایید و پرداخت',
+      data: '{{appStrings.promissory.confirmAndPay}}',
       style: StacTextStyle(
         fontSize: 17,
         fontWeight: StacFontWeight.w700,
@@ -748,9 +782,16 @@ StacWidget _paymentAccountCard({
           ],
         ),
         StacSizedBox(height: 12),
-        _paymentSheetMetaRow(label: 'شماره سپرده', value: depositNo),
+        _paymentSheetMetaRow(
+          label:
+              '{{appStrings.generated.card_management.card_management_root.deposit_number}}',
+          value: depositNo,
+        ),
         StacSizedBox(height: 8),
-        _paymentSheetMetaRow(label: 'شماره کارت', value: cardNo),
+        _paymentSheetMetaRow(
+          label: '{{appStrings.profile.real.destinations.cardNumberLabel}}',
+          value: cardNo,
+        ),
         StacContainer(
           margin: StacEdgeInsets.symmetric(vertical: 10),
           height: 1,
@@ -760,7 +801,8 @@ StacWidget _paymentAccountCard({
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              data: 'قابل برداشت',
+              data:
+                  '{{appStrings.generated.charge.charge_payment.withdrawable_label}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
                 fontSize: 15,
@@ -787,7 +829,8 @@ StacWidget _paymentAccountCard({
                   borderRadius: StacBorderRadius.all(999),
                 ),
                 child: StacText(
-                  data: 'موجودی ناکافی',
+                  data:
+                      '{{appStrings.generated.installment_payment.installment_payment_detail_main.balance}}',
                   style: StacTextStyle(
                     fontSize: 12,
                     fontWeight: StacFontWeight.w500,
@@ -907,7 +950,8 @@ StacWidget _buildLoanDetailMoreBottomSheet() {
           ),
           StacSizedBox(height: 18),
           StacText(
-            data: 'گزینه‌های بیشتر',
+            data:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.sample_label}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
@@ -929,9 +973,12 @@ StacWidget _buildLoanDetailMoreBottomSheet() {
           ),
           StacSizedBox(height: 14),
           _loanMoreOptionItem(
-            title: 'ارسال لینک مستقیم پرداخت به دیگران',
+            title:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.send_direct_payment}}',
             showSoon: true,
-            onTap: const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+            onTap: const StacNavigateAction(
+              navigationStyle: NavigationStyle.pop,
+            ),
           ),
           StacDivider(
             color: '{{appColors.current.input.borderEnabled}}',
@@ -939,7 +986,8 @@ StacWidget _buildLoanDetailMoreBottomSheet() {
             height: 16,
           ),
           _loanMoreOptionItem(
-            title: 'جزئیات وام',
+            title:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.details_loan}}',
             showSoon: false,
             onTap: StacSequenceAction(
               actions: [
@@ -958,9 +1006,12 @@ StacWidget _buildLoanDetailMoreBottomSheet() {
             height: 16,
           ),
           _loanMoreOptionItem(
-            title: 'پرداخت خودکار اقساط',
+            title:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.payment_label}}',
             showSoon: true,
-            onTap: const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+            onTap: const StacNavigateAction(
+              navigationStyle: NavigationStyle.pop,
+            ),
           ),
         ],
       ),
@@ -1000,7 +1051,7 @@ StacWidget _loanMoreOptionItem({
                 borderRadius: StacBorderRadius.all(999),
               ),
               child: StacText(
-                data: 'به زودی',
+                data: '{{appStrings.common.comingSoon}}',
                 style: StacTextStyle(
                   fontSize: 13,
                   fontWeight: StacFontWeight.w500,
@@ -1038,7 +1089,8 @@ StacWidget _buildLoanMoreDetailBottomSheet() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'جزئیات وام',
+            data:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.details_loan}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
@@ -1048,17 +1100,37 @@ StacWidget _buildLoanMoreDetailBottomSheet() {
             ),
           ),
           StacSizedBox(height: 16),
-          _loanMoreDetailRow(label: 'مبلغ وام', value: '{{loanDetail.approvedAmount}}'),
-          _loanMoreDetailDivider(),
-          _loanMoreDetailRow(label: 'مانده کل وام', value: '{{loanDetail.debtAmount}}'),
-          _loanMoreDetailDivider(),
-          _loanMoreDetailRow(label: 'تاریخ اعطای وام', value: '۱۴۰۱/۰۶/۱۲'),
-          _loanMoreDetailDivider(),
-          _loanMoreDetailRow(label: 'تاریخ آخرین بازپرداخت', value: '۱۴۰۵/۰۲/۳۰'),
+          _loanMoreDetailRow(
+            label:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.amount_loan}}',
+            value: '{{loanDetail.approvedAmount}}',
+          ),
           _loanMoreDetailDivider(),
           _loanMoreDetailRow(
-            label: 'شماره پرونده تسهیلات',
-            value: '۱۴۴-۳۰۲۰-۷۶۳۰۲۰-۱',
+            label:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.loan_text}}',
+            value: '{{loanDetail.debtAmount}}',
+          ),
+          _loanMoreDetailDivider(),
+          _loanMoreDetailRow(
+            label:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.date_loan}}',
+            value:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.date_value}}',
+          ),
+          _loanMoreDetailDivider(),
+          _loanMoreDetailRow(
+            label:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.date}}',
+            value:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.date_value_text}}',
+          ),
+          _loanMoreDetailDivider(),
+          _loanMoreDetailRow(
+            label:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.loan_number}}',
+            value:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.amount_value_text}}',
           ),
         ],
       ),
@@ -1097,7 +1169,10 @@ StacWidget _loanMoreDetailRow({required String label, required String value}) {
 }
 
 StacWidget _loanMoreDetailDivider() {
-  return StacContainer(height: 1, color: '{{appColors.current.input.borderEnabled}}');
+  return StacContainer(
+    height: 1,
+    color: '{{appColors.current.input.borderEnabled}}',
+  );
 }
 
 StacWidget _amountWithRial({
@@ -1119,7 +1194,7 @@ StacWidget _amountWithRial({
       ),
       StacSizedBox(width: 4),
       StacText(
-        data: 'ریال',
+        data: '{{appStrings.common.rial}}',
         style: StacTextStyle(
           fontSize: fontSize,
           fontWeight: fontWeight,
@@ -1218,13 +1293,18 @@ StacWidget _customPaymentContent() {
             values: [
               {'key': 'loanDetail.customByInstallmentCount', 'value': true},
               {'key': 'loanDetail.customInstallmentCountRaw', 'value': '0.0'},
-              {'key': 'loanDetail.customInstallmentCount', 'value': '۰'},
+              {
+                'key': 'loanDetail.customInstallmentCount',
+                'value':
+                    '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value_text}}',
+              },
               {'key': 'loanDetail.customAmountWords', 'value': ''},
               {'key': 'loanDetail.customPayEnabled', 'value': false},
             ],
           ),
           child: StacText(
-            data: 'تغییر به تعداد قسط',
+            data:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.sample_message}}',
             style: StacTextStyle(
               fontSize: 17,
               fontWeight: StacFontWeight.w500,
@@ -1242,13 +1322,18 @@ StacWidget _customPaymentContent() {
             values: [
               {'key': 'loanDetail.customByInstallmentCount', 'value': false},
               {'key': 'loanDetail.customAmountInput', 'value': ''},
-              {'key': 'loanDetail.customPayableAmountDisplay', 'value': '۰'},
+              {
+                'key': 'loanDetail.customPayableAmountDisplay',
+                'value':
+                    '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value_text}}',
+              },
               {'key': 'loanDetail.customAmountWords', 'value': ''},
               {'key': 'loanDetail.customPayEnabled', 'value': false},
             ],
           ),
           child: StacText(
-            data: 'تغییر به مبلغ دلخواه',
+            data:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.amount}}',
             style: StacTextStyle(
               fontSize: 17,
               fontWeight: StacFontWeight.w500,
@@ -1269,7 +1354,7 @@ StacWidget _customPaymentContent() {
         'type': 'visibility',
         'visible': '[[!loanDetail.customByInstallmentCount]]',
         'child': _paymentTypeInfoRow(
-          title: 'مبلغ قابل پرداخت',
+          title: '{{appStrings.promissory.payableAmount}}',
           amount: '{{loanDetail.customPayableAmountDisplay}}',
         ).toJson(),
         'replacement': StacSizedBox().toJson(),
@@ -1278,7 +1363,7 @@ StacWidget _customPaymentContent() {
         'type': 'visibility',
         'visible': '[[loanDetail.customByInstallmentCount]]',
         'child': _paymentTypeInfoRow(
-          title: 'مبلغ قابل پرداخت',
+          title: '{{appStrings.promissory.payableAmount}}',
           amount: '{{loanDetail.customCountPayableAmount}}',
         ).toJson(),
         'replacement': StacSizedBox().toJson(),
@@ -1344,11 +1429,12 @@ StacWidget _customDesiredAmountInput() {
         destinationKey: 'loanDetail.customAmountWords',
         divideBy: 10,
         minDigits: 2,
-        suffix: 'تومان',
+        suffix:
+            '{{appStrings.generated.installment_payment.installment_payment_detail_main.toman}}',
       ),
     ),
     decoration: {
-      'hintText': 'مبلغ دلخواه',
+      'hintText': '{{appStrings.generated.charge.charge_intro.amount}}',
       'hintStyle': {
         'textDirection': 'rtl',
         'style': {
@@ -1367,7 +1453,7 @@ StacWidget _customDesiredAmountInput() {
         'borderSide': {'color': '#8F2B3A', 'width': 1.2},
         'borderRadius': {'all': 12},
       },
-      'prefixText': 'ریال',
+      'prefixText': '{{appStrings.common.rial}}',
       'prefixStyle': {
         'color': '{{appColors.current.text.title}}',
         'fontSize': 16,
@@ -1391,7 +1477,8 @@ StacWidget _customInstallmentCountPicker() {
         textDirection: StacTextDirection.rtl,
         children: [
           StacText(
-            data: 'تعداد قسط',
+            data:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.installment_count_label}}',
             style: StacTextStyle(
               fontSize: 17,
               fontWeight: StacFontWeight.w600,
@@ -1456,7 +1543,8 @@ StacWidget _customInstallmentCountPicker() {
           mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
           children: [
             StacText(
-              data: '۰',
+              data:
+                  '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value_text}}',
               style: StacTextStyle(
                 fontSize: 14,
                 fontWeight: StacFontWeight.w500,
@@ -1488,8 +1576,14 @@ StacWidget _historySection() {
     children: [
       StacTabBar(
         tabs: const [
-          StacTab(text: 'پرداخت شده'),
-          StacTab(text: 'پرداخت نشده'),
+          StacTab(
+            text:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.payment_message}}',
+          ),
+          StacTab(
+            text:
+                '{{appStrings.generated.installment_payment.installment_payment_detail_main.payment_description}}',
+          ),
         ],
         indicatorColor: '#E31C3D',
         indicatorWeight: 3,
@@ -1520,14 +1614,20 @@ StacWidget _historySection() {
 StacWidget _unpaidInstallmentsList() {
   const items = [
     _InstallmentHistoryItemData(
-      date: '۱۴۰۳/۰۵/۲۲',
-      installmentTitle: 'قسط ۳',
-      amount: '۲۵,۳۹۳,۰۰۰ ریال',
+      date:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.date_value_label}}',
+      installmentTitle:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value}}',
+      amount:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.rial}}',
     ),
     _InstallmentHistoryItemData(
-      date: '۱۴۰۳/۰۵/۲۲',
-      installmentTitle: 'قسط ۴',
-      amount: '۲۵,۳۹۳,۰۰۰ ریال',
+      date:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.date_value_label}}',
+      installmentTitle:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value_message}}',
+      amount:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.rial}}',
     ),
   ];
 
@@ -1551,34 +1651,52 @@ StacWidget _unpaidInstallmentsList() {
 StacWidget _paidInstallmentsList() {
   const items = [
     _InstallmentHistoryItemData(
-      date: '۱۴۰۱/۰۷/۱۲',
-      installmentTitle: 'قسط ۱',
-      amount: '۲۵,۳۹۳,۰۰۰ ریال',
+      date:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.date_value_message}}',
+      installmentTitle:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value_label}}',
+      amount:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.rial}}',
     ),
     _InstallmentHistoryItemData(
-      date: '۱۴۰۱/۰۸/۱۲',
-      installmentTitle: 'قسط ۲',
-      amount: '۲۵,۳۹۳,۰۰۰ ریال',
+      date:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.date_value_item}}',
+      installmentTitle:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value_description}}',
+      amount:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.rial}}',
     ),
     _InstallmentHistoryItemData(
-      date: '۱۴۰۱/۰۹/۱۲',
-      installmentTitle: 'قسط ۳',
-      amount: '۲۵,۳۹۳,۰۰۰ ریال',
+      date:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.date_value_alt}}',
+      installmentTitle:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value}}',
+      amount:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.rial}}',
     ),
     _InstallmentHistoryItemData(
-      date: '۱۴۰۱/۱۰/۱۲',
-      installmentTitle: 'قسط ۴',
-      amount: '۲۵,۳۹۳,۰۰۰ ریال',
+      date:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.sample_datetime}}',
+      installmentTitle:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value_message}}',
+      amount:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.rial}}',
     ),
     _InstallmentHistoryItemData(
-      date: '۱۴۰۱/۱۱/۱۲',
-      installmentTitle: 'قسط ۵',
-      amount: '۲۵,۳۹۳,۰۰۰ ریال',
+      date:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.sample_datetime_option}}',
+      installmentTitle:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value_hint}}',
+      amount:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.rial}}',
     ),
     _InstallmentHistoryItemData(
-      date: '۱۴۰۱/۱۲/۱۲',
-      installmentTitle: 'قسط ۶',
-      amount: '۲۵,۳۹۳,۰۰۰ ریال',
+      date:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.sample_datetime_message}}',
+      installmentTitle:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.number_value_alt}}',
+      amount:
+          '{{appStrings.generated.installment_payment.installment_payment_detail_main.rial}}',
     ),
   ];
 
@@ -1632,7 +1750,7 @@ StacWidget _installmentHistoryRow({
   required bool isPaid,
 }) {
   final amountValue = amount
-      .replaceAll('ریال', '')
+      .replaceAll('{{appStrings.common.rial}}', '')
       .replaceAll('rial', '')
       .trim();
 
@@ -1664,7 +1782,7 @@ StacWidget _installmentHistoryRow({
                     mainAxisSize: StacMainAxisSize.min,
                     children: [
                       StacText(
-                        data: 'ریال',
+                        data: '{{appStrings.common.rial}}',
                         style: StacTextStyle(
                           fontSize: 15,
                           fontWeight: StacFontWeight.w500,
@@ -1684,7 +1802,8 @@ StacWidget _installmentHistoryRow({
                   ),
                   StacSizedBox(height: 8),
                   StacText(
-                    data: 'مبلغ',
+                    data:
+                        '{{appStrings.generated.installment_payment.installment_payment_detail_main.amount_text}}',
                     textAlign: StacTextAlign.center,
                     style: StacTextStyle(
                       fontSize: 14,

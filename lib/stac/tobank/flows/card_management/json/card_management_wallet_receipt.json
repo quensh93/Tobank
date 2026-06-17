@@ -2,7 +2,7 @@
   "appBar": {
     "automaticallyImplyLeading": false,
     "title": {
-      "data": "رسید انتقال وجه",
+      "data": "{{appStrings.cardsManagement.wallet.receiptTitle}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -74,7 +74,7 @@
           "type": "sizedBox"
         },
         {
-          "data": "انتقال وجه با موفقیت انجام شد",
+          "data": "{{appStrings.cardsManagement.wallet.transferSuccess}}",
           "style": {
             "type": "custom",
             "color": "{{appColors.current.text.title}}",
@@ -113,7 +113,7 @@
                 "textDirection": "rtl",
                 "children": [
                   {
-                    "data": "کیف پول توبانک",
+                    "data": "{{appStrings.homePage.cards.walletTitle}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -124,7 +124,7 @@
                     "type": "text"
                   },
                   {
-                    "data": "از",
+                    "data": "{{appStrings.cardsManagement.wallet.from}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.hint}}",
@@ -157,7 +157,7 @@
                     "type": "text"
                   },
                   {
-                    "data": "به",
+                    "data": "{{appStrings.cardsManagement.wallet.to}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.hint}}",
@@ -190,7 +190,7 @@
                     "type": "text"
                   },
                   {
-                    "data": "مبلغ (ریال)",
+                    "data": "{{appStrings.cardsManagement.wallet.amountLabel}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.hint}}",
@@ -212,7 +212,7 @@
                 "textDirection": "rtl",
                 "children": [
                   {
-                    "data": "موفق",
+                    "data": "{{appStrings.common.success}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -223,7 +223,7 @@
                     "type": "text"
                   },
                   {
-                    "data": "وضعیت",
+                    "data": "{{appStrings.promissory.status}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.hint}}",
@@ -256,7 +256,7 @@
                     "type": "text"
                   },
                   {
-                    "data": "شماره پیگیری",
+                    "data": "{{appStrings.promissory.trackingNumber}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.hint}}",
@@ -318,7 +318,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "اشتراک‌گذاری",
+                        "data": "{{appStrings.generated.card_management.card_management_root.share}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -374,7 +374,7 @@
                             "children": [
                               {
                                 "type": "text",
-                                "data": "اشتراک‌گذاری (mock)",
+                                "data": "{{appStrings.generated.card_management.card_management_wallet_receipt.share_mock}}",
                                 "textDirection": "rtl",
                                 "textAlign": "right",
                                 "style": {
@@ -391,7 +391,7 @@
                               },
                               {
                                 "type": "text",
-                                "data": "این قابلیت در نسخه بعدی فعال می‌شود.",
+                                "data": "{{appStrings.generated.card_management.card_management_wallet_receipt.active_next}}",
                                 "textDirection": "rtl",
                                 "textAlign": "right",
                                 "style": {
@@ -484,7 +484,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "چاپ رسید",
+                        "data": "{{appStrings.generated.card_management.card_management_wallet_receipt.receipt}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -540,7 +540,7 @@
                             "children": [
                               {
                                 "type": "text",
-                                "data": "چاپ رسید (mock)",
+                                "data": "{{appStrings.generated.card_management.card_management_wallet_receipt.receipt_mock}}",
                                 "textDirection": "rtl",
                                 "textAlign": "right",
                                 "style": {
@@ -557,7 +557,7 @@
                               },
                               {
                                 "type": "text",
-                                "data": "این قابلیت در نسخه بعدی فعال می‌شود.",
+                                "data": "{{appStrings.generated.card_management.card_management_wallet_receipt.active_next}}",
                                 "textDirection": "rtl",
                                 "textAlign": "right",
                                 "style": {

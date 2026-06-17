@@ -9,7 +9,7 @@ StacWidget tobankFacilitiesPage() {
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: StacAppBar(
       title: StacText(
-        data: 'انواع تسهیلات',
+        data: '{{appStrings.homePage.deposits.facilitiesTitle}}',
         textDirection: StacTextDirection.rtl,
         style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
       ),
@@ -57,8 +57,10 @@ StacWidget tobankFacilitiesPage() {
         children: [
           _buildFacilitiesRow(
             first: _buildFacilityTile(
-              title: 'تسهیلات فرزندآوری',
-              subtitle: 'ثبت و پیگیری درخواست',
+              title:
+                  '{{appStrings.generated.child_loan.child_loan_customer_check.title}}',
+              subtitle:
+                  '{{appStrings.generated.home_page.tobank_facilities_page.title}}',
               iconPath: 'assets/icons/ic_children_loan.svg',
               onTap: NavigationAction(
                 fileName: 'child_loan_rules',
@@ -67,21 +69,27 @@ StacWidget tobankFacilitiesPage() {
               ),
             ),
             second: _buildFacilityTile(
-              title: 'تسهیلات ازدواج',
-              subtitle: 'ثبت و پیگیری درخواست',
+              title:
+                  '{{appStrings.generated.home_page.tobank_facilities_page.loan}}',
+              subtitle:
+                  '{{appStrings.generated.home_page.tobank_facilities_page.title}}',
               iconPath: 'assets/icons/ic_loan.svg',
             ),
           ),
           StacSizedBox(height: 16),
           _buildFacilitiesRow(
             first: _buildFacilityTile(
-              title: 'کارت اعتباری',
-              subtitle: 'درخواست کارت اعتباری',
+              title:
+                  '{{appStrings.generated.home_page.tobank_facilities_page.card}}',
+              subtitle:
+                  '{{appStrings.generated.home_page.tobank_facilities_page.request_card}}',
               iconPath: 'assets/icons/ic_credit_card.svg',
             ),
             second: _buildFacilityTile(
-              title: 'تسهیلات خرد',
-              subtitle: 'درخواست تسهیلات',
+              title:
+                  '{{appStrings.generated.home_page.tobank_facilities_page.loan_text}}',
+              subtitle:
+                  '{{appStrings.generated.home_page.tobank_facilities_page.loan_request}}',
               iconPath: 'assets/icons/ic_micro_lending_loan.svg',
             ),
           ),

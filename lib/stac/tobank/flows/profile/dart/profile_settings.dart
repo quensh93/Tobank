@@ -11,7 +11,7 @@ StacWidget profileRealSettings() {
     appBar: buildTobankFlowAppBar(
       showSupport: true,
       showBack: true,
-      title: 'تنظیمات',
+      title: '{{appStrings.profile.real.menu.settings}}',
     ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.all(16),
@@ -33,7 +33,7 @@ StacWidget profileRealSettings() {
                 StacSizedBox(width: 8),
                 StacExpanded(
                   child: StacText(
-                    data: 'فعال سازی تشخیص چهره',
+                    data: '{{appStrings.profile.real.settings.faceId}}',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.right,
                     style: StacCustomTextStyle(
@@ -60,26 +60,30 @@ StacWidget profileRealSettings() {
           ),
           StacSizedBox(height: 16),
           _settingsItem(
-            title: 'ظاهر برنامه',
+            title: '{{appStrings.profile.real.settings.themeTitle}}',
             trailingInfo: '{{appTheme.currentLabel}}',
             iconAsset: '{{appAssets.current.icons.theme}}',
             onTapAction: const StacShowThemeSelectorBottomSheetAction(),
           ),
           StacSizedBox(height: 16),
           _settingsItem(
-            title: 'تغییر رمز عبور',
+            title: '{{appStrings.profile.real.changePassword.title}}',
             iconAsset: '{{appAssets.current.icons.cardServicePasswordChange}}',
-            onTapAction: NavigationAction(fileName: 'profile_change_password', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+            onTapAction: NavigationAction(
+              fileName: 'profile_change_password',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            ),
           ),
           StacSizedBox(height: 16),
           _settingsItem(
-            title: 'حذف اطلاعات حساب کاربری',
+            title: '{{appStrings.profile.real.settings.deleteAccount}}',
             iconAsset: '{{appAssets.current.icons.deleteAccount}}',
             onTapAction: const StacShowDeleteAccountConfirmBottomSheetAction(),
           ),
           StacSizedBox(height: 16),
           _settingsItem(
-            title: 'خروج از حساب کاربری',
+            title: '{{appStrings.profile.real.settings.logout}}',
             iconAsset: '{{appAssets.current.icons.logout}}',
             onTapAction: StacShowDialogAction(
               dialog: _buildLogoutConfirmDialog().toJson(),
@@ -115,7 +119,7 @@ StacWidget _buildLogoutConfirmDialog() {
         ),
         StacSizedBox(height: 12),
         StacText(
-          data: 'مطمئن به خروج از حساب‌کاربری هستید؟',
+          data: '{{appStrings.profile.real.settings.logoutDialogTitle}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.center,
           style: StacCustomTextStyle(
@@ -126,8 +130,7 @@ StacWidget _buildLogoutConfirmDialog() {
         ),
         StacSizedBox(height: 12),
         StacText(
-          data:
-              'در صورت خروج از حساب‌کاربری، برای ورود مجدد نیاز به احراز هویت خواهد داشت. احراز هویت مجدد، به منظور افزایش امنیت حساب‌کاربری و جلوگیری از دسترسی غیرمجاز افراد ناشناس به حساب شما می‌باشد.',
+          data: '{{appStrings.profile.real.settings.logoutDialogDescription}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.center,
           style: StacCustomTextStyle(
@@ -153,7 +156,7 @@ StacWidget _buildLogoutConfirmDialog() {
                   elevation: 0,
                 ),
                 child: StacText(
-                  data: 'بله',
+                  data: '{{appStrings.common.yes}}',
                   style: StacCustomTextStyle(
                     fontSize: 16,
                     fontWeight: StacFontWeight.w700,
@@ -177,7 +180,7 @@ StacWidget _buildLogoutConfirmDialog() {
                   ),
                 ),
                 child: StacText(
-                  data: 'خیر',
+                  data: '{{appStrings.common.no}}',
                   style: StacCustomTextStyle(
                     fontSize: 16,
                     fontWeight: StacFontWeight.w700,
@@ -204,7 +207,7 @@ StacWidget _settingsItem({
         onTapAction ??
         StacShowResultAction(
           title: title,
-          content: 'این بخش به زودی فعال می‌شود.',
+          content: '{{appStrings.profile.real.comingSoon}}',
         ),
     child: StacContainer(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -266,4 +269,3 @@ StacBoxDecoration _itemDecoration() {
     ),
   );
 }
-

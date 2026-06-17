@@ -49,7 +49,7 @@
                   },
                   {
                     "child": {
-                      "data": "خدمات سفر",
+                      "data": "{{appStrings.homePage.services.travelServices}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -88,7 +88,7 @@
                         }
                       },
                       "child": {
-                        "data": "بستن",
+                        "data": "{{appStrings.generated.gift_card.gift_card_message.close_button}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",

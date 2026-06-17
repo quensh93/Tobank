@@ -23,7 +23,7 @@ StacWidget tobankLoginDart() {
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
-        title: 'اعتبارسنجی',
+        title: '{{appStrings.authentication.stepValidation}}',
         showSupport: true,
         showBack: true,
       ),
@@ -74,8 +74,15 @@ StacWidget _buildTopTabs() {
           labelColor: '{{appColors.current.text.title}}',
           unselectedLabelColor: '{{appColors.current.text.hint}}',
           tabs: const [
-            StacTab(text: 'گزارش‌ها', height: 54),
-            StacTab(text: 'اعتبارسنجی', height: 54),
+            StacTab(
+              text:
+                  '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.sample_message}}',
+              height: 54,
+            ),
+            StacTab(
+              text: '{{appStrings.authentication.stepValidation}}',
+              height: 54,
+            ),
           ],
         ),
         StacPositioned(
@@ -107,7 +114,8 @@ StacWidget _buildReportsTab() {
             mainAxisAlignment: StacMainAxisAlignment.start,
             children: [
               _buildReportFilterChip(
-                label: 'همه',
+                label:
+                    '{{appStrings.generated.cartable.cartable_intro.all_filter}}',
                 selectedKey: 'uvReportFilterAll',
                 onTap: const StacCustomSetValueAction(
                   values: [
@@ -119,7 +127,8 @@ StacWidget _buildReportsTab() {
               ),
               StacSizedBox(width: 8),
               _buildReportFilterChip(
-                label: 'خودم',
+                label:
+                    '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.title}}',
                 selectedKey: 'uvReportFilterMine',
                 onTap: const StacCustomSetValueAction(
                   values: [
@@ -131,7 +140,8 @@ StacWidget _buildReportsTab() {
               ),
               StacSizedBox(width: 8),
               _buildReportFilterChip(
-                label: 'دیگران',
+                label:
+                    '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.others_tab}}',
                 selectedKey: 'uvReportFilterOthers',
                 onTap: const StacCustomSetValueAction(
                   values: [
@@ -150,27 +160,39 @@ StacWidget _buildReportsTab() {
               crossAxisAlignment: StacCrossAxisAlignment.stretch,
               children: [
                 _buildReportItemCard(
-                  applicant: 'علیرضا حیدریان',
-                  date: '۳۰ اردیبهشت ۱۴۰۵ - ۱۲:۰۸',
-                  tracking: '۵۰۰۰ ۳۰۷۰ ۹۰۰۰ ۰۷۹۵ ۸۵۰۶',
+                  applicant:
+                      '{{appStrings.profile.real.destinations.depositItem2Title}}',
+                  date:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.amount_value_message}}',
+                  tracking:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_receipt.card_number}}',
                 ),
                 StacSizedBox(height: 12),
                 _buildReportItemCard(
-                  applicant: 'زهرا حبیبی',
-                  date: '۲۰ اردیبهشت ۱۴۰۵ - ۰۹:۱۷',
-                  tracking: '۵۰۰۰ ۳۰۷۰ ۹۰۰۰ ۰۷۹۵ ۸۵۱۱',
+                  applicant:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.zahra_habibi_name}}',
+                  date:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.amount_value_label}}',
+                  tracking:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.card_number}}',
                 ),
                 StacSizedBox(height: 12),
                 _buildReportItemCard(
-                  applicant: 'محمدرضا نوروزی',
-                  date: '۱۷ اردیبهشت ۱۴۰۵ - ۱۶:۴۲',
-                  tracking: '۵۰۰۰ ۳۰۷۰ ۹۰۰۰ ۰۷۹۵ ۸۶۱۹',
+                  applicant:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.mohammadreza_nowruzi_name}}',
+                  date:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.amount_value_description}}',
+                  tracking:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.card_number_text}}',
                 ),
                 StacSizedBox(height: 12),
                 _buildReportItemCard(
-                  applicant: 'مریم احمدی',
-                  date: '۰۹ اردیبهشت ۱۴۰۵ - ۱۱:۲۶',
-                  tracking: '۵۰۰۰ ۳۰۷۰ ۹۰۰۰ ۰۷۹۵ ۸۸۰۲',
+                  applicant:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.maryam_ahmadi_name}}',
+                  date:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.amount_value_hint}}',
+                  tracking:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.card_number_label}}',
                 ),
               ],
             ).toJson(),
@@ -182,9 +204,12 @@ StacWidget _buildReportsTab() {
               crossAxisAlignment: StacCrossAxisAlignment.stretch,
               children: [
                 _buildReportItemCard(
-                  applicant: 'علیرضا حیدریان',
-                  date: '۳۰ اردیبهشت ۱۴۰۵ - ۱۲:۰۸',
-                  tracking: '۵۰۰۰ ۳۰۷۰ ۹۰۰۰ ۰۷۹۵ ۸۵۰۶',
+                  applicant:
+                      '{{appStrings.profile.real.destinations.depositItem2Title}}',
+                  date:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.amount_value_message}}',
+                  tracking:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_receipt.card_number}}',
                 ),
               ],
             ).toJson(),
@@ -196,21 +221,30 @@ StacWidget _buildReportsTab() {
               crossAxisAlignment: StacCrossAxisAlignment.stretch,
               children: [
                 _buildReportItemCard(
-                  applicant: 'زهرا حبیبی',
-                  date: '۲۰ اردیبهشت ۱۴۰۵ - ۰۹:۱۷',
-                  tracking: '۵۰۰۰ ۳۰۷۰ ۹۰۰۰ ۰۷۹۵ ۸۵۱۱',
+                  applicant:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.zahra_habibi_name}}',
+                  date:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.amount_value_label}}',
+                  tracking:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.card_number}}',
                 ),
                 StacSizedBox(height: 12),
                 _buildReportItemCard(
-                  applicant: 'محمدرضا نوروزی',
-                  date: '۱۷ اردیبهشت ۱۴۰۵ - ۱۶:۴۲',
-                  tracking: '۵۰۰۰ ۳۰۷۰ ۹۰۰۰ ۰۷۹۵ ۸۶۱۹',
+                  applicant:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.mohammadreza_nowruzi_name}}',
+                  date:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.amount_value_description}}',
+                  tracking:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.card_number_text}}',
                 ),
                 StacSizedBox(height: 12),
                 _buildReportItemCard(
-                  applicant: 'مریم احمدی',
-                  date: '۰۹ اردیبهشت ۱۴۰۵ - ۱۱:۲۶',
-                  tracking: '۵۰۰۰ ۳۰۷۰ ۹۰۰۰ ۰۷۹۵ ۸۸۰۲',
+                  applicant:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.maryam_ahmadi_name}}',
+                  date:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.amount_value_hint}}',
+                  tracking:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.card_number_label}}',
                 ),
               ],
             ).toJson(),
@@ -318,7 +352,8 @@ StacWidget _buildReportItemCard({
                   ),
                   StacSizedBox(width: 10),
                   StacText(
-                    data: 'گزارش اعتبارسنجی',
+                    data:
+                        '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.report_credit_validation}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacTextStyle(
                       fontSize: 16,
@@ -329,16 +364,29 @@ StacWidget _buildReportItemCard({
                 ],
               ),
               StacSizedBox(height: 14),
-              _reportKeyValue('متقاضی', applicant),
+              _reportKeyValue(
+                '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.applicant_role}}',
+                applicant,
+              ),
               _reportDottedDivider(),
-              _reportKeyValue('تاریخ اعتبارسنجی', date),
+              _reportKeyValue(
+                '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.date}}',
+                date,
+              ),
               _reportDottedDivider(),
-              _reportKeyValue('کد پیگیری', tracking),
+              _reportKeyValue(
+                '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.code}}',
+                tracking,
+              ),
             ],
           ),
         ),
         StacGestureDetector(
-          onTap: NavigationAction(fileName: 'user_credit_validation_report_detail', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+          onTap: NavigationAction(
+            fileName: 'user_credit_validation_report_detail',
+            navMode: NavModes.dart,
+            navigationStyle: NavigationStyle.push,
+          ),
           child: StacContainer(
             padding: StacEdgeInsets.symmetric(vertical: 12),
             decoration: StacBoxDecoration(
@@ -361,7 +409,8 @@ StacWidget _buildReportItemCard({
                 ),
                 StacSizedBox(width: 8),
                 StacText(
-                  data: 'مشاهده',
+                  data:
+                      '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.sample_label}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacTextStyle(
                     fontSize: 16,
@@ -432,7 +481,8 @@ StacWidget _buildValidationTab() {
         textDirection: StacTextDirection.rtl,
         children: [
           StacText(
-            data: 'شماره سیم‌کارت',
+            data:
+                '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.sim_card_number}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacTextStyle(
@@ -487,7 +537,8 @@ StacWidget _buildValidationTab() {
                     ).toJson(),
                     'decoration': {
                       ...StacInputDecoration(
-                        hintText: '09123456789 مانند',
+                        hintText:
+                            '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.amount_value}}',
                         hintStyle: StacTextStyle(
                           fontSize: 17,
                           fontWeight: StacFontWeight.w500,
@@ -545,8 +596,10 @@ StacWidget _buildValidationTab() {
                       {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
                     ],
                   ),
-                  permissionDeniedMessage: 'دسترسی مخاطبین مجاز نیست',
-                  invalidMobileMessage: 'شماره همراه معتبر در مخاطب یافت نشد',
+                  permissionDeniedMessage:
+                      '{{appStrings.generated.card_management.card_management_root.not}}',
+                  invalidMobileMessage:
+                      '{{appStrings.generated.card_management.card_management_root.mobile_number}}',
                 ),
                 child: _buildIconBox('assets/icons/ic_contact_list.svg'),
               ),
@@ -567,7 +620,7 @@ StacWidget _buildValidationTab() {
             ).toJson(),
             disabledStyle: StacButtonStyle(
               backgroundColor:
-              '{{appColors.current.background.surfaceContainerHigh}}',
+                  '{{appColors.current.background.surfaceContainerHigh}}',
               elevation: 0,
               fixedSize: StacSize(999999, 55),
               shape: StacRoundedRectangleBorder(
@@ -575,7 +628,7 @@ StacWidget _buildValidationTab() {
               ),
             ).toJson(),
             child: StacText(
-              data: 'ادامه',
+              data: '{{appStrings.common.continue}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 18,
@@ -618,7 +671,12 @@ StacAction _buildPaymentBottomSheetAction() {
               borderRadius: StacBorderRadius.only(topLeft: 24, topRight: 24),
             ),
             child: StacPadding(
-              padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 24),
+              padding: StacEdgeInsets.only(
+                left: 16,
+                top: 10,
+                right: 16,
+                bottom: 24,
+              ),
               child: StacSingleChildScrollView(
                 child: StacColumn(
                   crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -658,7 +716,7 @@ StacAction _buildPaymentBottomSheetAction() {
                     StacSizedBox(height: 20),
                     StacCenter(
                       child: StacText(
-                        data: 'اعتبارسنجی',
+                        data: '{{appStrings.authentication.stepValidation}}',
                         textDirection: StacTextDirection.rtl,
                         style: StacTextStyle(
                           fontSize: 18,
@@ -674,7 +732,7 @@ StacAction _buildPaymentBottomSheetAction() {
                       children: [
                         StacSizedBox(width: 15),
                         StacText(
-                          data: 'مبلغ قابل پرداخت',
+                          data: '{{appStrings.promissory.payableAmount}}',
                           textDirection: StacTextDirection.rtl,
                           style: StacTextStyle(
                             fontSize: 16,
@@ -684,7 +742,8 @@ StacAction _buildPaymentBottomSheetAction() {
                         ),
                         StacSizedBox(width: 15),
                         StacText(
-                          data: '۸۰,۰۰۰ ریال',
+                          data:
+                              '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.rial}}',
                           textDirection: StacTextDirection.rtl,
                           style: StacTextStyle(
                             fontSize: 21,
@@ -697,7 +756,7 @@ StacAction _buildPaymentBottomSheetAction() {
                     ),
                     StacSizedBox(height: 28),
                     StacText(
-                      data: 'روش پرداخت',
+                      data: '{{appStrings.promissory.paymentMethod}}',
                       textDirection: StacTextDirection.rtl,
                       textAlign: StacTextAlign.right,
                       style: StacTextStyle(
@@ -716,8 +775,9 @@ StacAction _buildPaymentBottomSheetAction() {
                       ),
                       child: _buildPaymentMethodRow(
                         selectedKey: 'uvPayWalletSel',
-                        title: 'کیف پول',
-                        amount: '۲۹ریال',
+                        title: '{{appStrings.promissory.walletPayment}}',
+                        amount:
+                            '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.rial_message}}',
                         iconPath: 'assets/icons/ic_wallet.svg',
                       ),
                     ),
@@ -733,7 +793,8 @@ StacAction _buildPaymentBottomSheetAction() {
                       ),
                       child: _buildPaymentMethodRow(
                         selectedKey: 'uvPayDepositSel',
-                        title: 'سپرده',
+                        title:
+                            '{{appStrings.profile.real.destinations.tabDeposit}}',
                         amount: '',
                         iconPath: 'assets/icons/ic_gateway.svg',
                       ),
@@ -746,7 +807,8 @@ StacAction _buildPaymentBottomSheetAction() {
                       ).toJson(),
                       replacement: _buildPayButtonInSheet(
                         onPressed: _showPaymentConfirmDialogAction(
-                          paymentMethod: 'کیف پول',
+                          paymentMethod:
+                              '{{appStrings.promissory.walletPayment}}',
                         ),
                       ).toJson(),
                     ),
@@ -768,12 +830,11 @@ StacWidget _buildPayButtonInSheet({required StacAction onPressed}) {
       backgroundColor: '{{appColors.current.primary.color}}',
       elevation: 0,
       fixedSize: StacSize(999999, 58),
-      shape: StacRoundedRectangleBorder(
-        borderRadius: StacBorderRadius.all(14),
-      ),
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(14)),
     ),
     child: StacText(
-      data: 'پرداخت',
+      data:
+          '{{appStrings.generated.card_management.card_management_root.payment}}',
       textDirection: StacTextDirection.rtl,
       style: StacTextStyle(
         fontSize: 18,
@@ -801,7 +862,12 @@ StacAction _buildSelectDepositBottomSheetAction() {
           borderRadius: StacBorderRadius.only(topLeft: 24, topRight: 24),
         ),
         child: StacPadding(
-          padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 24),
+          padding: StacEdgeInsets.only(
+            left: 16,
+            top: 10,
+            right: 16,
+            bottom: 24,
+          ),
           child: StacColumn(
             mainAxisSize: StacMainAxisSize.min,
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -818,7 +884,7 @@ StacAction _buildSelectDepositBottomSheetAction() {
               ),
               StacSizedBox(height: 24),
               StacText(
-                data: 'سپرده جهت پرداخت را انتخاب کنید',
+                data: '{{appStrings.promissory.selectDepositForPromissory}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacTextStyle(
@@ -841,11 +907,16 @@ StacAction _buildSelectDepositBottomSheetAction() {
                             {'key': 'uvDepositOption2Sel', 'value': false},
                           ],
                         ),
-                        title: 'سپرده سرمایه گذاری کوتاه مدت - علیرضا حیدریان',
-                        depositNo: '۱۴۴.۹۶۶۶.۷۶۳۰۲۰.۱',
-                        iban: 'IR۹۶۰۶۴۰۰۱۱۳۰۰۷۰۰۷۶۳۰۲۰۰۰۱',
-                        cardNo: '۵۵۹۴ ۱۶۱۰ ۱۰۷۹ ۰۵۳۷',
-                        balance: '۲۸,۸۱۳,۰۰۰ ریال',
+                        title:
+                            '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.deposit}}',
+                        depositNo:
+                            '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.amount_value_text}}',
+                        iban:
+                            '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.ir960640011300700763020001}}',
+                        cardNo:
+                            '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.card_number_message}}',
+                        balance:
+                            '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.rial_label}}',
                       ),
                       StacSizedBox(height: 10),
                       _buildDepositOptionCard(
@@ -856,11 +927,16 @@ StacAction _buildSelectDepositBottomSheetAction() {
                             {'key': 'uvDepositOption2Sel', 'value': true},
                           ],
                         ),
-                        title: 'سپرده حقیقی حساب قرض الحسنه جاری',
-                        depositNo: '۱۳۳.۷۰.۷۶۳۰۲۰.۱',
-                        iban: 'IR۹۶۰۶۴۰۰۱۱۳۰۰۷۰۰۷۶۳۰۲۰۰۰۱',
-                        cardNo: '۵۵۹۴ ۱۶۱۰ ۱۰۷۹ ۰۵۳۷',
-                        balance: '۱۵,۲۳۰,۰۰۰ ریال',
+                        title:
+                            '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.deposit_account}}',
+                        depositNo:
+                            '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.amount_value_item}}',
+                        iban:
+                            '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.ir960640011300700763020001}}',
+                        cardNo:
+                            '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.card_number_message}}',
+                        balance:
+                            '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.rial_description}}',
                       ),
                     ],
                   ),
@@ -869,7 +945,8 @@ StacAction _buildSelectDepositBottomSheetAction() {
               StacSizedBox(height: 16),
               _buildPayButtonInSheet(
                 onPressed: _showPaymentConfirmDialogAction(
-                  paymentMethod: 'سپرده',
+                  paymentMethod:
+                      '{{appStrings.profile.real.destinations.tabDeposit}}',
                 ),
               ),
             ],
@@ -910,7 +987,8 @@ StacWidget _buildPaymentConfirmDialog({required String paymentMethod}) {
           ),
           StacSizedBox(height: 18),
           StacText(
-            data: 'از پرداخت هزینه استعلام مطمئن هستید؟',
+            data:
+                '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.payment}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
@@ -946,7 +1024,7 @@ StacWidget _buildPaymentConfirmDialog({required String paymentMethod}) {
                     elevation: 0,
                   ),
                   child: StacText(
-                    data: 'تایید',
+                    data: '{{appStrings.common.confirm}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacTextStyle(
                       fontSize: 18,
@@ -972,7 +1050,8 @@ StacWidget _buildPaymentConfirmDialog({required String paymentMethod}) {
                     ),
                   ),
                   child: StacText(
-                    data: 'لغو',
+                    data:
+                        '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.cancel}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacTextStyle(
                       fontSize: 18,
@@ -991,7 +1070,11 @@ StacWidget _buildPaymentConfirmDialog({required String paymentMethod}) {
 }
 
 StacAction _navigateToValidationReceiptAction({required String paymentMethod}) {
-  return NavigationAction(fileName: 'user_credit_validation_receipt', navMode: NavModes.dart, navigationStyle: NavigationStyle.push);
+  return NavigationAction(
+    fileName: 'user_credit_validation_receipt',
+    navMode: NavModes.dart,
+    navigationStyle: NavigationStyle.push,
+  );
 }
 
 StacWidget _buildDepositOptionCard({
@@ -1053,11 +1136,22 @@ StacWidget _buildDepositOptionCard({
           ],
         ),
         StacSizedBox(height: 12),
-        _buildDepositMetaRow(label: 'شماره سپرده', value: depositNo),
+        _buildDepositMetaRow(
+          label:
+              '{{appStrings.generated.card_management.card_management_root.deposit_number}}',
+          value: depositNo,
+        ),
         StacSizedBox(height: 8),
-        _buildDepositMetaRow(label: 'شماره شبا', value: iban),
+        _buildDepositMetaRow(
+          label:
+              '{{appStrings.generated.deposit_more_options.deposit_more_options_intro.iban_number}}',
+          value: iban,
+        ),
         StacSizedBox(height: 8),
-        _buildDepositMetaRow(label: 'شماره کارت', value: cardNo),
+        _buildDepositMetaRow(
+          label: '{{appStrings.profile.real.destinations.cardNumberLabel}}',
+          value: cardNo,
+        ),
         StacContainer(
           margin: StacEdgeInsets.only(top: 10, bottom: 10),
           height: 1,
@@ -1067,7 +1161,7 @@ StacWidget _buildDepositOptionCard({
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              data: 'موجودی',
+              data: '{{appStrings.homePage.cards.balance}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
                 fontSize: 15,
@@ -1099,10 +1193,7 @@ StacWidget _buildDepositOptionCard({
         decoration: StacBoxDecoration(
           color: '{{appColors.current.background.surfaceContainerHigh}}',
           borderRadius: StacBorderRadius.all(12),
-          border: StacBorder.all(
-            color: '#20C4D8',
-            width: 1,
-          ),
+          border: StacBorder.all(color: '#20C4D8', width: 1),
         ),
         child: content,
       ).toJson(),
@@ -1121,7 +1212,10 @@ StacWidget _buildDepositOptionCard({
   );
 }
 
-StacWidget _buildDepositMetaRow({required String label, required String value}) {
+StacWidget _buildDepositMetaRow({
+  required String label,
+  required String value,
+}) {
   return StacRow(
     textDirection: StacTextDirection.rtl,
     children: [
@@ -1203,10 +1297,7 @@ StacWidget _buildPaymentMethodRow({
       decoration: StacBoxDecoration(
         color: '{{appColors.current.background.surfaceContainerHigh}}',
         borderRadius: StacBorderRadius.all(10),
-        border: StacBorder.all(
-          color: '#20C4D8',
-          width: 1,
-        ),
+        border: StacBorder.all(color: '#20C4D8', width: 1),
       ),
       child: row,
     ).toJson(),

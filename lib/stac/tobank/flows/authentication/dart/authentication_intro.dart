@@ -166,7 +166,7 @@ StacWidget _buildRulesToggleCard() {
               StacTextButton(
                 onPressed: const StacShowRulesBottomSheetAction(
                   routeName: 'authentication_rules',
-                  title: 'شرایط و مقررات ارائه خدمات توبانک',
+                  title: '{{appStrings.authentication.serviceRulesTitle}}',
                 ),
                 style: StacButtonStyle(
                   foregroundColor: '{{appColors.current.secondary.color}}',
@@ -208,7 +208,11 @@ StacWidget _buildContinueButton() {
     child: StacCustomReactiveElevatedButton(
       enabledKey: 'isAuthenticationRulesAccepted',
       enabled: false,
-      onPressed: NavigationAction(fileName: 'authentication_preregister', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      onPressed: NavigationAction(
+        fileName: 'authentication_preregister',
+        navMode: NavModes.dart,
+        navigationStyle: NavigationStyle.push,
+      ),
       style: StacButtonStyle(
         backgroundColor: '{{appColors.current.primary.color}}',
         elevation: 0,
@@ -238,4 +242,3 @@ StacWidget _buildContinueButton() {
     ),
   );
 }
-

@@ -247,7 +247,7 @@
                             },
                             "child": {
                               "type": "text",
-                              "data": "بازگشت",
+                              "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
                               "style": {
                                 "type": "custom",
                                 "fontSize": 16,

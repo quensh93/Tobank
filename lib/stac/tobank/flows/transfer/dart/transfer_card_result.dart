@@ -8,7 +8,7 @@ StacWidget transferRealCardResult() {
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: buildTobankFlowAppBar(
       showSupport: true,
-      title: 'انتقال وجه',
+      title: '{{appStrings.menu.items.transfer}}',
     ),
     body: StacPadding(
       padding: StacEdgeInsets.only(left: 16, top: 14, right: 16, bottom: 35),
@@ -38,7 +38,8 @@ StacWidget transferRealCardResult() {
             children: [
               StacExpanded(
                 child: _bottomActionButton(
-                  title: 'متن رسید',
+                  title:
+                      '{{appStrings.generated.transfer.transfer_card_result.title}}',
                   iconAsset: 'assets/icons/ic_download.svg',
                   mode: 'shareText',
                 ),
@@ -46,7 +47,8 @@ StacWidget transferRealCardResult() {
               StacSizedBox(width: 10),
               StacExpanded(
                 child: _bottomActionButton(
-                  title: 'تصویر رسید',
+                  title:
+                      '{{appStrings.generated.transfer.transfer_card_result.image_receipt}}',
                   iconAsset: 'assets/icons/ic_share.svg',
                   mode: 'shareImage',
                 ),
@@ -71,7 +73,7 @@ StacWidget _cardSuccessHeader() {
       ),
       StacSizedBox(height: 12),
       StacText(
-        data: 'پرداخت موفق',
+        data: '{{appStrings.promissory.paymentSuccessful}}',
         textDirection: StacTextDirection.rtl,
         textAlign: StacTextAlign.center,
         style: StacCustomTextStyle(
@@ -82,7 +84,8 @@ StacWidget _cardSuccessHeader() {
       ),
       StacSizedBox(height: 10),
       StacText(
-        data: 'عملیات انتقال وجه کارت به کارت با موفقیت انجام شد.',
+        data:
+            '{{appStrings.generated.transfer.transfer_card_result.money_transfer_successfully_operation_card}}',
         textDirection: StacTextDirection.rtl,
         textAlign: StacTextAlign.center,
         style: StacCustomTextStyle(
@@ -109,7 +112,7 @@ StacWidget _cardResultCard() {
     child: StacColumn(
       children: [
         _resultRow(
-          title: 'مبلغ پرداختی',
+          title: '{{appStrings.promissory.paidAmount}}',
           valueWidget: StacCustomRegistryReactive(
             registryKey: 'transferApiCardAmountRaw',
             child: StacRow(
@@ -129,7 +132,7 @@ StacWidget _cardResultCard() {
                 }),
                 StacSizedBox(width: 4),
                 StacText(
-                  data: 'ریال',
+                  data: '{{appStrings.common.rial}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 17,
@@ -143,9 +146,9 @@ StacWidget _cardResultCard() {
         ),
         _dashedLikeDivider(),
         _resultRow(
-          title: 'نوع تراکنش',
+          title: '{{appStrings.promissory.transactionType}}',
           valueWidget: StacText(
-            data: 'کارت به کارت',
+            data: '{{appStrings.homePage.cards.cardToCard}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.left,
             style: StacCustomTextStyle(
@@ -157,9 +160,10 @@ StacWidget _cardResultCard() {
         ),
         _dashedLikeDivider(),
         _resultRow(
-          title: 'زمان تراکنش',
+          title: '{{appStrings.promissory.transactionTime}}',
           valueWidget: StacText(
-            data: '۰۵ اردیبهشت ۱۴۰۵ - ۱۲:۲۹',
+            data:
+                '{{appStrings.generated.transfer.transfer_card_result.amount_value}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.left,
             style: StacCustomTextStyle(
@@ -171,9 +175,9 @@ StacWidget _cardResultCard() {
         ),
         _dashedLikeDivider(),
         _resultRow(
-          title: 'پرداخت از طریق',
+          title: '{{appStrings.promissory.paidVia}}',
           valueWidget: StacText(
-            data: 'بانک گردشگری',
+            data: '{{appStrings.generated.transfer.transfer_card_result.bank}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.left,
             style: StacCustomTextStyle(
@@ -185,7 +189,8 @@ StacWidget _cardResultCard() {
         ),
         _dashedLikeDivider(),
         _resultRow(
-          title: 'مبدا',
+          title:
+              '{{appStrings.generated.installment_payment.installment_payment_others_receipt.source_label}}',
           valueWidget: StacCustomRegistryReactive(
             registryKey: 'transferApiCardSourceNumber',
             child: {
@@ -204,7 +209,8 @@ StacWidget _cardResultCard() {
         ),
         _dashedLikeDivider(),
         _resultRow(
-          title: 'مقصد',
+          title:
+              '{{appStrings.generated.transfer.transfer_card_result.destination_label}}',
           valueWidget: StacCustomRegistryReactive(
             registryKey: 'transferApiCardDestinationNumber',
             child: {
@@ -223,7 +229,8 @@ StacWidget _cardResultCard() {
         ),
         _dashedLikeDivider(),
         _resultRow(
-          title: 'نام صاحب کارت',
+          title:
+              '{{appStrings.generated.transfer.transfer_card_result.name_card}}',
           valueWidget: StacCustomRegistryReactive(
             registryKey: 'transferApiCardDestinationName',
             child: {
@@ -242,9 +249,10 @@ StacWidget _cardResultCard() {
         ),
         _dashedLikeDivider(),
         _resultRow(
-          title: 'شماره پیگیری',
+          title: '{{appStrings.promissory.trackingNumber}}',
           valueWidget: StacText(
-            data: '۳۵۶۹۸۳۶۵۰۸۴۳۳',
+            data:
+                '{{appStrings.generated.transfer.transfer_result.amount_value}}',
             textDirection: StacTextDirection.ltr,
             textAlign: StacTextAlign.left,
             style: StacCustomTextStyle(
@@ -256,7 +264,7 @@ StacWidget _cardResultCard() {
         ),
         _dashedLikeDivider(),
         _resultRow(
-          title: 'توضیحات',
+          title: '{{appStrings.promissory.descriptionLabel}}',
           valueWidget: StacCustomRegistryReactive(
             registryKey: 'transferApiCardDescriptionHasText',
             child: {
@@ -366,7 +374,7 @@ StacWidget _brandSection() {
         crossAxisAlignment: StacCrossAxisAlignment.end,
         children: [
           StacText(
-            data: 'یک شعبه مجازی همراه شماست!',
+            data: '{{appStrings.profile.real.about.slogan}}',
             textDirection: StacTextDirection.rtl,
             style: StacCustomTextStyle(
               fontSize: 18,
@@ -399,7 +407,8 @@ StacWidget _bottomActionButton({
     onPressed: StacCustomAction.fromJson({
       'actionType': 'transferReceipt',
       'mode': mode,
-      'title': 'رسید تراکنش',
+      'title':
+          '{{appStrings.generated.transfer.transfer_card_result.transaction_receipt}}',
       'pixelRatio': 3.0,
       'boundaryKey': 'transferCardReceiptContent',
     }),

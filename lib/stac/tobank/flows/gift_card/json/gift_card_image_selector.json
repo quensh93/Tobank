@@ -42,7 +42,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "کارت هدیه",
+        "data": "{{appStrings.homePage.services.giftCard}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -141,7 +141,7 @@
                           "bottom": 16.0
                         },
                         "child": {
-                          "data": "بخش مورد نظر عکس خود را در کادر بدون رنگ قرار دهید",
+                          "data": "{{appStrings.generated.gift_card.gift_card_image_selector.color}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -276,7 +276,7 @@
                               "bottom": 22.0
                             },
                             "child": {
-                              "data": "انتخاب عکس از گالری",
+                              "data": "{{appStrings.generated.gift_card.gift_card_image_selector.select}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -307,9 +307,9 @@
                             "cropAspectRatioX": 3.0,
                             "cropAspectRatioY": 1.0,
                             "previewBeforeConfirm": true,
-                            "previewSheetTitle": "تصویر انتخاب شده مورد تایید شما است؟",
-                            "confirmButtonText": "تایید",
-                            "retryButtonText": "بازگشت"
+                            "previewSheetTitle": "{{appStrings.generated.gift_card.gift_card_image_selector.select_confirm_image}}",
+                            "confirmButtonText": "{{appStrings.common.confirm}}",
+                            "retryButtonText": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}"
                           },
                           {
                             "actionType": "validateFields",
@@ -358,7 +358,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "حذف",
+                                    "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.primary.color}}",
@@ -414,7 +414,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "متن کارت هدیه",
+                      "data": "{{appStrings.generated.gift_card.gift_card_image_selector.gift_card_text}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -448,7 +448,7 @@
                         "textDirection": "rtl",
                         "textAlign": "right",
                         "decoration": {
-                          "hintText": "متن دلخواهتان را بنویسید (تا ۴۰ کاراکتر)",
+                          "hintText": "{{appStrings.generated.gift_card.gift_card_image_selector.custom_message_hint}}",
                           "hintStyle": {
                             "type": "custom",
                             "color": "{{appColors.current.text.hint}}",
@@ -538,11 +538,11 @@
                     "values": [
                       {
                         "key": "giftCardRealFinalMessage",
-                        "value": "__STAC_OPEN__giftCardRealCustomMessage}}"
+                        "value": "{{giftCardRealCustomMessage}}"
                       },
                       {
                         "key": "giftCardRealSelectedPlanImageUrl",
-                        "value": "__STAC_OPEN__giftCardRealCustomImagePath}}"
+                        "value": "{{giftCardRealCustomImagePath}}"
                       },
                       {
                         "key": "giftCardRealHasSelection",
@@ -554,7 +554,7 @@
                       },
                       {
                         "key": "giftCardRealSelectedCategory",
-                        "value": "طرح سفارشی"
+                        "value": "{{appStrings.generated.gift_card.gift_card_image_selector.custom_design_title}}"
                       }
                     ]
                   },
@@ -604,7 +604,7 @@
                 }
               },
               "child": {
-                "data": "ادامه",
+                "data": "{{appStrings.common.continue}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.primary.onPrimary}}",

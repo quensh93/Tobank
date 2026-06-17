@@ -28,8 +28,9 @@ StacWidget promissoryRealPreview() {
         ),
         // Fetch PDF base64 from the endpoint
         StacNetworkRequestAction(
-          url:
-              SduiConfig.bizUrl('files/v1.0/{{serverSignedPdfId}}/download/base64'),
+          url: SduiConfig.bizUrl(
+            'files/v1.0/{{serverSignedPdfId}}/download/base64',
+          ),
           method: 'get',
           headers: {
             'accept': 'application/json',
@@ -214,4 +215,3 @@ StacWidget _buildActionButtons() {
     ).toJson(),
   );
 }
-

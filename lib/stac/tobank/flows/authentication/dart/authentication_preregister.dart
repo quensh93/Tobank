@@ -78,7 +78,11 @@ StacWidget authenticationRealPreRegister() {
           StacPadding(
             padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
             child: StacFilledButton(
-              onPressed: NavigationAction(fileName: 'authentication_verify_otp', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+              onPressed: NavigationAction(
+                fileName: 'authentication_verify_otp',
+                navMode: NavModes.dart,
+                navigationStyle: NavigationStyle.push,
+              ),
               style: StacButtonStyle(
                 backgroundColor: '{{appColors.current.primary.color}}',
                 foregroundColor: '{{appColors.current.primary.onPrimary}}',

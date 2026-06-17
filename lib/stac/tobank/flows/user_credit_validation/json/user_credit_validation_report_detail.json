@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "اعتبارسنجی",
+      "data": "{{appStrings.authentication.stepValidation}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -108,7 +108,7 @@
                     },
                     {
                       "child": {
-                        "data": "گزارش اعتبارسنجی",
+                        "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_intro.report_credit_validation}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -170,8 +170,8 @@
                       },
                       "onTap": {
                         "actionType": "showResult",
-                        "title": "اشتراک‌گذاری",
-                        "content": "اشتراک‌گذاری گزارش به زودی اضافه می‌شود"
+                        "title": "{{appStrings.generated.card_management.card_management_root.share}}",
+                        "content": "{{appStrings.generated.user_credit_validation.user_credit_validation_report_detail.share}}"
                       },
                       "type": "gestureDetector"
                     }
@@ -192,7 +192,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "مشاهده گزارش اعتبارسنجی",
+                  "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_report_detail.title}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.subtitle}}",

@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "تماس با ما",
+      "data": "{{appStrings.profile.real.menu.contactUs}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -88,7 +88,7 @@
             "crossAxisAlignment": "stretch",
             "children": [
               {
-                "data": "آدرس",
+                "data": "{{appStrings.profile.real.bankInfo.addressLabel}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.subtitle}}",
@@ -104,7 +104,7 @@
                 "type": "sizedBox"
               },
               {
-                "data": "تهران، سعادت‌آباد، بلوار فرهنگ، نبش کوچه نور، پلاک ۶",
+                "data": "{{appStrings.profile.real.contact.addressValue}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.title}}",
@@ -150,7 +150,7 @@
             "textDirection": "rtl",
             "children": [
               {
-                "data": "کد پستی",
+                "data": "{{appStrings.profile.real.bankInfo.postalCodeLabel}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.subtitle}}",
@@ -161,7 +161,7 @@
                 "type": "text"
               },
               {
-                "data": "۱۹۹۷۷۴۴۵۳۷",
+                "data": "{{appStrings.profile.real.contact.postalCodeValue}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.title}}",
@@ -205,7 +205,7 @@
             "textDirection": "rtl",
             "children": [
               {
-                "data": "پشتیبانی شعبه",
+                "data": "{{appStrings.profile.real.contact.supportLabel}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.subtitle}}",
@@ -216,7 +216,7 @@
                 "type": "text"
               },
               {
-                "data": "داخلی ۳ - ۰۲۱۲۳۹۵۰",
+                "data": "{{appStrings.profile.real.contact.supportValue}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.title}}",
@@ -260,7 +260,7 @@
             "textDirection": "rtl",
             "children": [
               {
-                "data": "اینستاگرام بانک گردشگری",
+                "data": "{{appStrings.profile.real.contact.instagramLabel}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.subtitle}}",
@@ -274,7 +274,7 @@
                 "crossAxisAlignment": "end",
                 "children": [
                   {
-                    "data": "@tourism.bank",
+                    "data": "{{appStrings.profile.real.contact.instagramValue}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -308,7 +308,7 @@
         },
         {
           "child": {
-            "data": "ارتباط با توبانک",
+            "data": "{{appStrings.profile.real.contact.connectTitle}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",
@@ -355,8 +355,8 @@
                 },
                 "onTap": {
                   "actionType": "showResult",
-                  "title": "ارتباط با توبانک",
-                  "content": "این بخش به زودی فعال می‌شود."
+                  "title": "{{appStrings.profile.real.contact.connectTitle}}",
+                  "content": "{{appStrings.profile.real.comingSoon}}"
                 },
                 "type": "gestureDetector"
               },
@@ -390,8 +390,8 @@
                 },
                 "onTap": {
                   "actionType": "showResult",
-                  "title": "ارتباط با توبانک",
-                  "content": "این بخش به زودی فعال می‌شود."
+                  "title": "{{appStrings.profile.real.contact.connectTitle}}",
+                  "content": "{{appStrings.profile.real.comingSoon}}"
                 },
                 "type": "gestureDetector"
               },
@@ -425,8 +425,8 @@
                 },
                 "onTap": {
                   "actionType": "showResult",
-                  "title": "ارتباط با توبانک",
-                  "content": "این بخش به زودی فعال می‌شود."
+                  "title": "{{appStrings.profile.real.contact.connectTitle}}",
+                  "content": "{{appStrings.profile.real.comingSoon}}"
                 },
                 "type": "gestureDetector"
               },
@@ -470,8 +470,8 @@
                 },
                 "onTap": {
                   "actionType": "showResult",
-                  "title": "ارتباط با توبانک",
-                  "content": "این بخش به زودی فعال می‌شود."
+                  "title": "{{appStrings.profile.real.contact.connectTitle}}",
+                  "content": "{{appStrings.profile.real.comingSoon}}"
                 },
                 "type": "gestureDetector"
               },
@@ -505,8 +505,8 @@
                 },
                 "onTap": {
                   "actionType": "showResult",
-                  "title": "ارتباط با توبانک",
-                  "content": "این بخش به زودی فعال می‌شود."
+                  "title": "{{appStrings.profile.real.contact.connectTitle}}",
+                  "content": "{{appStrings.profile.real.comingSoon}}"
                 },
                 "type": "gestureDetector"
               },
@@ -540,8 +540,8 @@
                 },
                 "onTap": {
                   "actionType": "showResult",
-                  "title": "ارتباط با توبانک",
-                  "content": "این بخش به زودی فعال می‌شود."
+                  "title": "{{appStrings.profile.real.contact.connectTitle}}",
+                  "content": "{{appStrings.profile.real.comingSoon}}"
                 },
                 "type": "gestureDetector"
               },

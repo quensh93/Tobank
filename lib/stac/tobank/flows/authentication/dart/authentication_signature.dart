@@ -77,7 +77,8 @@ StacWidget _buildHeaderRow() {
     crossAxisAlignment: StacCrossAxisAlignment.center,
     children: [
       StacText(
-        data: 'دریافت امضا',
+        data:
+            '{{appStrings.generated.authentication.authentication_signature.title}}',
         textDirection: StacTextDirection.rtl,
         style: StacCustomTextStyle(
           fontSize: 18,
@@ -87,10 +88,11 @@ StacWidget _buildHeaderRow() {
       ),
       StacOutlinedButton(
         onPressed: const StacShowGuideOptionsBottomSheetAction(
-          title: 'راهنما',
+          title: '{{appStrings.authentication.guideLabel}}',
           options: [
             {
-              'title': 'راهنمای تصویری',
+              'title':
+                  '{{appStrings.generated.authentication.authentication_signature_guide.image}}',
               'iconAsset': '{{appAssets.icons.visualTutorialCurrent}}',
               'onTap': {
                 'actionType': 'launchUrl',
@@ -99,7 +101,8 @@ StacWidget _buildHeaderRow() {
               },
             },
             {
-              'title': 'راهنمای صوتی',
+              'title':
+                  '{{appStrings.generated.authentication.authentication_signature_guide.audio_guide}}',
               'iconAsset': '{{appAssets.icons.voiceTutorialCurrent}}',
               'onTap': {
                 'actionType': 'playAudioUrl',
@@ -136,7 +139,7 @@ StacWidget _buildHeaderRow() {
             StacSizedBox(width: 8),
 
             StacText(
-              data: 'راهنما',
+              data: '{{appStrings.authentication.guideLabel}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 17,
@@ -154,7 +157,7 @@ StacWidget _buildHeaderRow() {
 StacWidget _buildInstructions() {
   return StacText(
     data:
-        'لطفا نمونه امضا خود را در کادر زیر وارد کنید و پس از تایید، دکمه تایید و ادامه را فشار دهید.',
+        '{{appStrings.generated.authentication.authentication_signature.continue_confirm_signature_enter}}',
     textDirection: StacTextDirection.rtl,
     textAlign: StacTextAlign.right,
     style: StacCustomTextStyle(
@@ -185,7 +188,7 @@ StacWidget _buildSignatureCard() {
           child: StacAlign(
             alignment: StacAlignmentDirectional.centerEnd,
             child: StacText(
-              data: 'محل امضا',
+              data: '{{appStrings.promissory.signaturePlace}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 16,
@@ -247,7 +250,8 @@ StacWidget _buildDeleteButton() {
           StacSizedBox(width: 8),
 
           StacText(
-            data: 'حذف',
+            data:
+                '{{appStrings.generated.authentication.authentication_selfie.delete}}',
             textDirection: StacTextDirection.rtl,
             style: StacCustomTextStyle(
               fontSize: 17,
@@ -296,7 +300,7 @@ StacWidget _buildConfirmButton() {
         ),
       ).toJson(),
       child: StacText(
-        data: 'تایید و ادامه',
+        data: '{{appStrings.authentication.confirmAndContinue}}',
         textDirection: StacTextDirection.rtl,
         style: StacCustomTextStyle(
           fontSize: 18,
@@ -307,4 +311,3 @@ StacWidget _buildConfirmButton() {
     ),
   );
 }
-

@@ -142,7 +142,8 @@ StacWidget authenticationRealVerifyOtp() {
                             'height': 56,
                             'minWidth': 132,
                             'onRetry': StacCustomSnackBarAction(
-                              title: 'اعلان',
+                              title:
+                                  '{{appStrings.generated.authentication.authentication_verify_otp.title}}',
                               detail:
                                   '{{appStrings.authentication.otpResentMessage}}',
                             ).toJson(),

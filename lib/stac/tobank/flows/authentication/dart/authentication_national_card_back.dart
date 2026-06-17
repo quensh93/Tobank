@@ -194,9 +194,11 @@ StacWidget _buildSourceOption({
       cropAspectRatioX: 85.6,
       cropAspectRatioY: 54,
       previewBeforeConfirm: true,
-      previewSheetTitle: 'پیش نمایش تصویر کارت ملی',
-      confirmButtonText: 'تایید',
-      retryButtonText: 'بازگشت',
+      previewSheetTitle:
+          '{{appStrings.generated.authentication.authentication_national_card_back.preview_national_card_image}}',
+      confirmButtonText: '{{appStrings.common.confirm}}',
+      retryButtonText:
+          '{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}',
     ),
     child: StacPadding(
       padding: StacEdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -280,7 +282,8 @@ StacWidget _buildRetakeButton() {
           ],
         ),
         child: StacText(
-          data: 'عکسبرداری مجدد',
+          data:
+              '{{appStrings.generated.authentication.authentication_national_card_back.title}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 14,
@@ -389,4 +392,3 @@ StacWidget _buildTipItem(String text) {
     ],
   );
 }
-

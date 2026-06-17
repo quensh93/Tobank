@@ -62,7 +62,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "کارت هدیه",
+        "data": "{{appStrings.homePage.services.giftCard}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -115,7 +115,7 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "data": "کارت هدیه",
+                        "data": "{{appStrings.homePage.services.giftCard}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -148,9 +148,9 @@
                               "actions": [
                                 {
                                   "actionType": "showGiftCardMessageGuideBottomSheet",
-                                  "title": "راهنما",
-                                  "description": "در صورت ورود متن دلخواه، یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود",
-                                  "closeText": "بستن"
+                                  "title": "{{appStrings.authentication.guideLabel}}",
+                                  "description": "{{appStrings.generated.gift_card.gift_card_message.select_login_text_until_bank_description}}",
+                                  "closeText": "{{appStrings.generated.gift_card.gift_card_message.close_button}}"
                                 },
                                 {
                                   "navigationStyle": "pop",
@@ -195,7 +195,7 @@
                       "textDirection": "rtl",
                       "textAlign": "right",
                       "decoration": {
-                        "hintText": "متن دلخواهتان را بنویسید (تا ۴۰ کاراکتر)",
+                        "hintText": "{{appStrings.generated.gift_card.gift_card_image_selector.custom_message_hint}}",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
@@ -260,7 +260,7 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "data": "متن پیش‌فرض جایگزین",
+                        "data": "{{appStrings.generated.gift_card.gift_card_custom_message.default_replacement_text}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -317,7 +317,7 @@
                         "children": [
                           {
                             "child": {
-                              "data": "تولدت مبارک",
+                              "data": "{{appStrings.generated.gift_card.gift_card_message.title}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -407,7 +407,7 @@
                         {
                           "actionType": "setValue",
                           "key": "giftCardRealSelectedPresetMessage",
-                          "value": "تولدت مبارک"
+                          "value": "{{appStrings.generated.gift_card.gift_card_message.title}}"
                         },
                         {
                           "actionType": "setValue",
@@ -456,7 +456,7 @@
                         "children": [
                           {
                             "child": {
-                              "data": "سالروز زمینی شدنت مبارک",
+                              "data": "{{appStrings.generated.gift_card.gift_card_message.birthday_message_sample}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -546,7 +546,7 @@
                         {
                           "actionType": "setValue",
                           "key": "giftCardRealSelectedPresetMessage",
-                          "value": "سالروز زمینی شدنت مبارک"
+                          "value": "{{appStrings.generated.gift_card.gift_card_message.birthday_message_sample}}"
                         },
                         {
                           "actionType": "setValue",
@@ -595,7 +595,7 @@
                         "children": [
                           {
                             "child": {
-                              "data": "روزی که تو به دنیا آمدی، قلبمان پر از شادی و عشق شد",
+                              "data": "{{appStrings.generated.gift_card.gift_card_message.birthday_joy_message}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -685,7 +685,7 @@
                         {
                           "actionType": "setValue",
                           "key": "giftCardRealSelectedPresetMessage",
-                          "value": "روزی که تو به دنیا آمدی، قلبمان پر از شادی و عشق شد"
+                          "value": "{{appStrings.generated.gift_card.gift_card_message.birthday_joy_message}}"
                         },
                         {
                           "actionType": "setValue",
@@ -734,7 +734,7 @@
                         "children": [
                           {
                             "child": {
-                              "data": "چه فرخنده روزی است تولد زیباترین دختر دنیا",
+                              "data": "{{appStrings.generated.gift_card.gift_card_message.birthday_daughter}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -824,7 +824,7 @@
                         {
                           "actionType": "setValue",
                           "key": "giftCardRealSelectedPresetMessage",
-                          "value": "چه فرخنده روزی است تولد زیباترین دختر دنیا"
+                          "value": "{{appStrings.generated.gift_card.gift_card_message.birthday_daughter}}"
                         },
                         {
                           "actionType": "setValue",
@@ -873,7 +873,7 @@
                         "children": [
                           {
                             "child": {
-                              "data": "امیدوارم روزگارت به زیبایی قلب مهربانت باشد",
+                              "data": "{{appStrings.generated.gift_card.gift_card_message.heart}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -963,7 +963,7 @@
                         {
                           "actionType": "setValue",
                           "key": "giftCardRealSelectedPresetMessage",
-                          "value": "امیدوارم روزگارت به زیبایی قلب مهربانت باشد"
+                          "value": "{{appStrings.generated.gift_card.gift_card_message.heart}}"
                         },
                         {
                           "actionType": "setValue",
@@ -1015,7 +1015,7 @@
                   {
                     "actionType": "setValue",
                     "key": "giftCardRealFinalMessage",
-                    "value": "__STAC_OPEN__giftCardRealHasCustomMessage ? giftCardRealCustomMessage : giftCardRealSelectedPresetMessage}}"
+                    "value": "{{giftCardRealHasCustomMessage ? giftCardRealCustomMessage : giftCardRealSelectedPresetMessage}}"
                   },
                   {
                     "actionType": "setValue",
@@ -1069,7 +1069,7 @@
                 }
               },
               "child": {
-                "data": "ادامه",
+                "data": "{{appStrings.common.continue}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.primary.onPrimary}}",

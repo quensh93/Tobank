@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "پرداخت اقساط دیگران",
+      "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -92,7 +92,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "پرداخت موفق",
+                          "data": "{{appStrings.promissory.paymentSuccessful}}",
                           "style": {
                             "type": "custom",
                             "color": "#17945A",
@@ -108,7 +108,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "پرداخت اقساط {{othersPayment.receiverName}} با موفقیت انجام شد",
+                          "data": "{{appStrings.generated.installment_payment.installment_payment_others_receipt.installment_payment_successfully}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -160,7 +160,7 @@
                               "children": [
                                 {
                                   "child": {
-                                    "data": "مبلغ",
+                                    "data": "{{appStrings.generated.installment_payment.installment_payment_detail_main.amount_text}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -181,7 +181,7 @@
                                   "child": {
                                     "alignment": "centerStart",
                                     "child": {
-                                      "data": "{{othersPaymentSheet.amount}} ریال",
+                                      "data": "{{appStrings.generated.installment_payment.installment_payment_others_receipt.rial}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -489,7 +489,7 @@
                               "children": [
                                 {
                                   "child": {
-                                    "data": "شماره تسهیلات",
+                                    "data": "{{appStrings.generated.installment_payment.installment_payment_others_main.title}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -818,7 +818,7 @@
                               "children": [
                                 {
                                   "child": {
-                                    "data": "زمان تراکنش",
+                                    "data": "{{appStrings.promissory.transactionTime}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -839,7 +839,7 @@
                                   "child": {
                                     "alignment": "centerStart",
                                     "child": {
-                                      "data": "۱۰ مهر ۱۴۰۳",
+                                      "data": "{{appStrings.generated.installment_payment.installment_payment_others_receipt.amount_value}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1147,7 +1147,7 @@
                               "children": [
                                 {
                                   "child": {
-                                    "data": "پرداخت از طریق",
+                                    "data": "{{appStrings.promissory.paidVia}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -1168,7 +1168,7 @@
                                   "child": {
                                     "alignment": "centerStart",
                                     "child": {
-                                      "data": "حساب",
+                                      "data": "{{appStrings.generated.installment_payment.installment_payment_others_receipt.account}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1476,7 +1476,7 @@
                               "children": [
                                 {
                                   "child": {
-                                    "data": "مبدا",
+                                    "data": "{{appStrings.generated.installment_payment.installment_payment_others_receipt.source_label}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -1497,7 +1497,7 @@
                                   "child": {
                                     "alignment": "centerStart",
                                     "child": {
-                                      "data": "۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱",
+                                      "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1805,7 +1805,7 @@
                               "children": [
                                 {
                                   "child": {
-                                    "data": "شماره پیگیری",
+                                    "data": "{{appStrings.promissory.trackingNumber}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -1826,7 +1826,7 @@
                                   "child": {
                                     "alignment": "centerStart",
                                     "child": {
-                                      "data": "۶۴۱۷۴۲۵۸۸",
+                                      "data": "{{appStrings.generated.installment_payment.installment_payment_others_receipt.amount_value_text}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1886,7 +1886,7 @@
                             "crossAxisAlignment": "end",
                             "children": [
                               {
-                                "data": "یک شعبه مجازی همراه شماست!",
+                                "data": "{{appStrings.profile.real.about.slogan}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -1945,7 +1945,7 @@
                   "onPressed": {
                     "actionType": "transferReceipt",
                     "mode": "shareText",
-                    "title": "رسید پرداخت اقساط دیگران",
+                    "title": "{{appStrings.generated.installment_payment.installment_payment_others_receipt.installment_payment_receipt}}",
                     "pixelRatio": 3.0,
                     "boundaryKey": "installmentPaymentOthersReceiptContent"
                   },
@@ -1985,7 +1985,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "اشتراک‌گذاری",
+                        "data": "{{appStrings.generated.card_management.card_management_root.share}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -2011,7 +2011,7 @@
                   "onPressed": {
                     "actionType": "transferReceipt",
                     "mode": "shareImage",
-                    "title": "رسید پرداخت اقساط دیگران",
+                    "title": "{{appStrings.generated.installment_payment.installment_payment_others_receipt.installment_payment_receipt}}",
                     "pixelRatio": 3.0,
                     "boundaryKey": "installmentPaymentOthersReceiptContent"
                   },
@@ -2051,7 +2051,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "ذخیره در گالری",
+                        "data": "{{appStrings.generated.charge.charge_payment_success.title}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",

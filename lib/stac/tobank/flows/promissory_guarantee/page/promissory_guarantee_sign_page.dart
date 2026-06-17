@@ -8,7 +8,7 @@ import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 StacWidget promissoryGuaranteeSignPage() {
   return StacScaffold(
     appBar: buildTobankFlowAppBar(
-      title: 'ضمانت سفته',
+      title: '{{appStrings.promissory.guaranteePromissory}}',
       showBack: true,
       showSupport: true,
     ),
@@ -32,8 +32,7 @@ StacWidget promissoryGuaranteeSignPage() {
               ),
               StacSizedBox(height: 20),
               StacText(
-                data:
-                    'با انتخاب گزینه امضای سفته، امضاء شما پایین تصویر سفته به صورت الکترونیکی ثبت می‌شود و این عمل به منزله تایید درخواست و ثبت نهایی فرآیند است.',
+                data: '{{appStrings.promissory.signInstructionsDetail}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.center,
                 style: StacTextStyle(
@@ -66,7 +65,8 @@ StacWidget promissoryGuaranteeSignPage() {
               ),
             ),
             child: StacText(
-              data: 'امضای سفته',
+              data:
+                  '{{appStrings.generated.promissory_guarantee.promissory_guarantee_sign_page.sign_promissory}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
                 fontSize: 18,
@@ -103,7 +103,8 @@ StacWidget _buildSignConfirmDialog() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'از امضای ضمانت سفته مطمئن هستید؟',
+            data:
+                '{{appStrings.generated.promissory_guarantee.promissory_guarantee_sign_page.guarantee_promissory_signature}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
@@ -120,9 +121,9 @@ StacWidget _buildSignConfirmDialog() {
               StacExpanded(
                 child: StacFilledButton(
                   onPressed: StacFingerPrintAction(
-                    title: 'احراز هویت',
+                    title: '{{appStrings.menu.items.authentication}}',
                     description:
-                        'لطفا برای ادامه امضای ضمانت سفته از اثر انگشت استفاده کنید',
+                        '{{appStrings.generated.promissory_guarantee.promissory_guarantee_sign_page.guarantee_promissory_continue_signature}}',
                     onSuccess: {
                       'actionType': 'sequence',
                       'actions': [
@@ -136,9 +137,10 @@ StacWidget _buildSignConfirmDialog() {
                     },
                     onFailure: {
                       'actionType': 'showSnackBar',
-                      'title': 'عدم احراز هویت',
+                      'title':
+                          '{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_failed_title}}',
                       'description':
-                          'احراز هویت انجام نشد. لطفا دوباره تلاش کنید.',
+                          '{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_try_again}}',
                       'type': 'error',
                     },
                   ),
@@ -152,7 +154,7 @@ StacWidget _buildSignConfirmDialog() {
                     elevation: 0,
                   ),
                   child: StacText(
-                    data: 'تایید',
+                    data: '{{appStrings.common.confirm}}',
                     style: StacTextStyle(
                       fontSize: 16,
                       fontWeight: StacFontWeight.w700,
@@ -176,7 +178,8 @@ StacWidget _buildSignConfirmDialog() {
                     ),
                   ),
                   child: StacText(
-                    data: 'لغو',
+                    data:
+                        '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.cancel}}',
                     style: StacTextStyle(
                       fontSize: 16,
                       fontWeight: StacFontWeight.w700,

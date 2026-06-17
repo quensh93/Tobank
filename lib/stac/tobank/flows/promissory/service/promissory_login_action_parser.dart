@@ -25,8 +25,15 @@ class PromissoryLoginActionParser
 
     // Show a snackbar to indicate processing
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('در حال دریافت توکن ثابت...'),
+      SnackBar(
+        content: Text(
+          StacRegistry.instance
+                  .getValue(
+                    'appStrings.generated.promissory.promissory_login_action_parser.title',
+                  )
+                  ?.toString() ??
+              'Loading static token...',
+        ),
         duration: Duration(seconds: 1),
       ),
     );

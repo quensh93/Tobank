@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "دعوت از دوستان",
+      "data": "{{appStrings.profile.real.menu.inviteFriends}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -102,7 +102,7 @@
                 "type": "sizedBox"
               },
               {
-                "data": "دعوت از دوستان",
+                "data": "{{appStrings.profile.real.menu.inviteFriends}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.title}}",
@@ -118,7 +118,7 @@
                 "type": "sizedBox"
               },
               {
-                "data": "کد دعوت را کپی کنید و یا با دوستانتان به اشتراک بگذارید",
+                "data": "{{appStrings.profile.real.inviteFriends.sectionDescription}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.subtitle}}",
@@ -172,7 +172,7 @@
                             },
                             {
                               "child": {
-                                "data": "۴۵۳۲۵۰۹۱",
+                                "data": "{{appStrings.profile.real.inviteFriends.inviteCode}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -211,8 +211,8 @@
                           "child": {
                             "onPressed": {
                               "actionType": "showResult",
-                              "title": "کپی",
-                              "content": "کد دعوت کپی شد."
+                              "title": "{{appStrings.profile.real.inviteFriends.copyTitle}}",
+                              "content": "{{appStrings.profile.real.inviteFriends.copyContent}}"
                             },
                             "icon": {
                               "src": "assets/icons/ic_copy.svg",
@@ -242,8 +242,8 @@
               {
                 "onPressed": {
                   "actionType": "showResult",
-                  "title": "اشتراک‌گذاری کد دعوت",
-                  "content": "امکان اشتراک‌گذاری به زودی فعال می‌شود."
+                  "title": "{{appStrings.profile.real.inviteFriends.shareTitle}}",
+                  "content": "{{appStrings.profile.real.inviteFriends.shareContent}}"
                 },
                 "style": {
                   "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
@@ -279,7 +279,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "اشتراک‌گذاری کد دعوت",
+                      "data": "{{appStrings.profile.real.inviteFriends.shareTitle}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.button.primary.foregroundColor}}",
@@ -340,7 +340,7 @@
                 },
                 {
                   "child": {
-                    "data": "لیست دعوت‌شدگان",
+                    "data": "{{appStrings.profile.real.customerReferrals.title}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",

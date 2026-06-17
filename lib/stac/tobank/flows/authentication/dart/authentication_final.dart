@@ -33,7 +33,8 @@ StacWidget authenticationRealFinal() {
                     ),
                     StacSizedBox(height: 28),
                     StacText(
-                      data: 'احراز هویت شما با موفقیت انجام شد!',
+                      data:
+                          '{{appStrings.generated.authentication.authentication_final.title}}',
                       textDirection: StacTextDirection.rtl,
                       textAlign: StacTextAlign.center,
                       style: StacCustomTextStyle(
@@ -51,7 +52,11 @@ StacWidget authenticationRealFinal() {
               onPressed: StacSequenceAction(
                 actions: [
                   {'actionType': 'kyc_persist', 'completed': true},
-                  NavigationAction(fileName: 'dashboard_shell', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushReplacement),
+                  NavigationAction(
+                    fileName: 'dashboard_shell',
+                    navMode: NavModes.dart,
+                    navigationStyle: NavigationStyle.pushReplacement,
+                  ),
                 ],
               ),
               style: StacButtonStyle(

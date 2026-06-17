@@ -28,8 +28,7 @@ StacWidget promissoryRealIssuer() {
         ],
       ),
       StacNetworkRequestAction(
-        url:
-            SduiConfig.bizUrl('customers/v1.0/info/{{userData.nationalCode}}'),
+        url: SduiConfig.bizUrl('customers/v1.0/info/{{userData.nationalCode}}'),
         method: 'get',
         dataBind: 'fetchCustomerInfo',
         headers: {
@@ -137,7 +136,11 @@ StacWidget promissoryRealIssuer() {
     ],
   );
 
-  final continueAction = NavigationAction(fileName: 'promissory_receiver', navMode: NavModes.dart, navigationStyle: NavigationStyle.push);
+  final continueAction = NavigationAction(
+    fileName: 'promissory_receiver',
+    navMode: NavModes.dart,
+    navigationStyle: NavigationStyle.push,
+  );
 
   return StacStatefulWidget(
     onInit: fetchAction,
@@ -405,4 +408,3 @@ StacWidget _buildResidenceCard() {
     ),
   );
 }
-

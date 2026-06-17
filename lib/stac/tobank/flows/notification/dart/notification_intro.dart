@@ -23,7 +23,7 @@ StacWidget notificationRealIntro() {
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
-        title: 'اعلان‌ها',
+        title: '{{appStrings.generated.notification.notification_intro.title}}',
         showSupport: true,
         showBack: true,
       ),
@@ -74,8 +74,16 @@ StacWidget _buildTopTabs() {
           labelColor: '{{appColors.current.text.title}}',
           unselectedLabelColor: '{{appColors.current.text.hint}}',
           tabs: const [
-            StacTab(text: 'بروزرسانی‌ها', height: 54),
-            StacTab(text: 'اعلان‌های عمومی', height: 54),
+            StacTab(
+              text:
+                  '{{appStrings.generated.notification.notification_intro.updates_tab}}',
+              height: 54,
+            ),
+            StacTab(
+              text:
+                  '{{appStrings.generated.notification.notification_intro.sample_message}}',
+              height: 54,
+            ),
           ],
         ),
         StacPositioned(
@@ -103,50 +111,61 @@ StacWidget _buildGeneralNotificationsTab() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           _buildNotificationCard(
-            title: 'بازپرداخت به کیف پول توبانک',
+            title:
+                '{{appStrings.generated.notification.notification_intro.wallet_money}}',
             description:
-                'کاربر عزیز\nمبلغ ۳۱۳,۰۰۰ ریال کارمزد صدور سفته با شماره پیگیری ۲۹۲۹ به کیف پول شما بازگشت.',
-            dateText: '۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۸',
+                '{{appStrings.generated.notification.notification_intro.back_promissory_amount_rial_user_description}}',
+            dateText:
+                '{{appStrings.generated.notification.notification_intro.amount_value}}',
             unreadKey: 'ntfGeneralCard1Unread',
           ),
           StacSizedBox(height: 12),
           _buildNotificationCard(
-            title: 'پرداخت موفق',
+            title: '{{appStrings.promissory.paymentSuccessful}}',
             description:
-                'کاربر عزیز\nمبلغ ۳۱۳,۰۰۰ ریال با شماره پیگیری ۷۳۵۴۱۴۷۴۴ پرداخت شد.',
-            dateText: '۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۸',
+                '{{appStrings.generated.notification.notification_intro.amount_rial_user_number_payment}}',
+            dateText:
+                '{{appStrings.generated.notification.notification_intro.amount_value}}',
             unreadKey: 'ntfGeneralCard2Unread',
           ),
           StacSizedBox(height: 12),
           _buildNotificationCard(
-            title: 'انتقال وجه به کیف پول',
+            title:
+                '{{appStrings.generated.notification.notification_intro.money_transfer_wallet_money}}',
             description:
-                'کاربر عزیز\nمبلغ ۱۰,۰۰۰ ریال با شماره پیگیری ۷۳۴۳۸۸۸۵۲۵ انتقال یافت.',
-            dateText: '۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۰',
+                '{{appStrings.generated.notification.notification_intro.amount_rial_user_number_transfer}}',
+            dateText:
+                '{{appStrings.generated.notification.notification_intro.amount_value_message}}',
             unreadKey: 'ntfGeneralCard3Unread',
           ),
           StacSizedBox(height: 12),
           _buildNotificationCard(
-            title: 'انتقال وجه به کیف پول',
+            title:
+                '{{appStrings.generated.notification.notification_intro.money_transfer_wallet_money}}',
             description:
-                'کاربر عزیز\nمبلغ ۲۱۰,۰۰۰ ریال با شماره پیگیری ۷۳۳۶۳۵۳۰۶ انتقال یافت.',
-            dateText: '۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۱۹',
+                '{{appStrings.generated.notification.notification_intro.amount_rial_user_number_transfer_message}}',
+            dateText:
+                '{{appStrings.generated.notification.notification_intro.amount_value_label}}',
             unreadKey: 'ntfGeneralCard4Unread',
           ),
           StacSizedBox(height: 12),
           _buildNotificationCard(
-            title: 'واریز سود سپرده',
+            title:
+                '{{appStrings.generated.notification.notification_intro.deposit}}',
             description:
-                'کاربر عزیز\nسود سپرده شما به مبلغ ۴۵۰,۰۰۰ ریال به حساب معرفی‌شده واریز شد.',
-            dateText: '۲۱ اردیبهشت ۱۴۰۵ - ۰۹:۴۸',
+                '{{appStrings.generated.notification.notification_intro.deposit_account_amount_rial_user_description}}',
+            dateText:
+                '{{appStrings.generated.notification.notification_intro.amount_value_description}}',
             unreadKey: 'ntfGeneralCard5Unread',
           ),
           StacSizedBox(height: 12),
           _buildNotificationCard(
-            title: 'تایید برداشت از کیف پول',
+            title:
+                '{{appStrings.generated.notification.notification_intro.confirm_wallet_money}}',
             description:
-                'کاربر عزیز\nبرداشت مبلغ ۸۵,۰۰۰ ریال از کیف پول توبانک با موفقیت انجام شد.',
-            dateText: '۲۱ اردیبهشت ۱۴۰۵ - ۰۸:۳۲',
+                '{{appStrings.generated.notification.notification_intro.wallet_withdrawal_success_message}}',
+            dateText:
+                '{{appStrings.generated.notification.notification_intro.amount_value_hint}}',
             unreadKey: 'ntfGeneralCard6Unread',
           ),
           StacSizedBox(height: 10),
@@ -164,26 +183,32 @@ StacWidget _buildUpdatesTab() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           _buildNotificationCard(
-            title: 'نسخه جدید اپلیکیشن در دسترس است',
+            title:
+                '{{appStrings.generated.notification.notification_intro.new}}',
             description:
-                'برای استفاده از قابلیت‌های جدید و بهبود امنیت، لطفا اپلیکیشن را به آخرین نسخه بروزرسانی کنید.',
-            dateText: '۲۰ اردیبهشت ۱۴۰۵ - ۰۹:۱۵',
+                '{{appStrings.generated.notification.notification_intro.new_security_description}}',
+            dateText:
+                '{{appStrings.generated.notification.notification_intro.amount_value_alt}}',
             unreadKey: 'ntfUpdateCard1Unread',
           ),
           StacSizedBox(height: 12),
           _buildNotificationCard(
-            title: 'بهبود عملکرد بخش تراکنش‌ها',
+            title:
+                '{{appStrings.generated.notification.notification_intro.transaction}}',
             description:
-                'مشکل نمایش برخی تراکنش‌های کیف پول برطرف شد. در صورت نیاز، یکبار از حساب خارج و مجددا وارد شوید.',
-            dateText: '۱۸ اردیبهشت ۱۴۰۵ - ۱۷:۴۰',
+                '{{appStrings.generated.notification.notification_intro.wallet_transaction_display_fix}}',
+            dateText:
+                '{{appStrings.generated.notification.notification_intro.sample_number}}',
             unreadKey: 'ntfUpdateCard2Unread',
           ),
           StacSizedBox(height: 12),
           _buildNotificationCard(
-            title: 'افزودن میانبرهای جدید',
+            title:
+                '{{appStrings.generated.notification.notification_intro.new_text}}',
             description:
-                'میانبرهای سریع برای انتقال وجه و خرید شارژ به صفحه اصلی اضافه شد.',
-            dateText: '۱۵ اردیبهشت ۱۴۰۵ - ۱۲:۰۵',
+                '{{appStrings.generated.notification.notification_intro.money_transfer_buy_topup_page}}',
+            dateText:
+                '{{appStrings.generated.notification.notification_intro.sample_number_option}}',
             unreadKey: 'ntfUpdateCard3Unread',
           ),
           StacSizedBox(height: 10),
@@ -389,7 +414,8 @@ StacWidget _buildNotificationDetailsSheet({
               ),
             ),
             child: StacText(
-              data: 'بازگشت',
+              data:
+                  '{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}',
               style: StacCustomTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,

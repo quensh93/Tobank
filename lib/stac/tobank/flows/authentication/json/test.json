@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "احراز هویت",
+      "data": "{{appStrings.menu.items.authentication}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -73,7 +73,7 @@
             "type": "sizedBox"
           },
           {
-            "data": "احراز هویت با موفقیت انجام شد",
+            "data": "{{appStrings.generated.authentication.test.title}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",

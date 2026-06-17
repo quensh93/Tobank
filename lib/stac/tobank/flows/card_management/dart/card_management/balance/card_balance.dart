@@ -1,4 +1,4 @@
-﻿import 'package:stac/stac.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -42,7 +42,8 @@ StacWidget dashboardCardBalance() {
         ],
         automaticallyImplyLeading: false,
         title: StacText(
-          data: 'دریافت موجودی',
+          data:
+              '{{appStrings.generated.card_management.card_management_balance.balance_receive}}',
           textDirection: StacTextDirection.rtl,
           style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
         ),
@@ -55,23 +56,32 @@ StacWidget dashboardCardBalance() {
           child: StacColumn(
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
             children: [
-              _label('شماره کارت'),
+              _label(
+                '{{appStrings.profile.real.destinations.cardNumberLabel}}',
+              ),
               StacSizedBox(height: 8),
               _cardNumberField(),
               StacSizedBox(height: 28),
-              _label('تاریخ انقضا'),
+              _label('{{appStrings.generated.transfer.transfer_confirm.date}}'),
               StacSizedBox(height: 8),
-              _expiryField(id: 'balance_expiry', hintText: '۰۵/۰۷'),
+              _expiryField(
+                id: 'balance_expiry',
+                hintText:
+                    '{{appStrings.generated.card_management.cards_management.date_value_text}}',
+              ),
               StacSizedBox(height: 28),
               _label('CVV2'),
               StacSizedBox(height: 8),
               _inputField(
                 id: 'balance_cvv2',
-                hintText: 'CVV2 را وارد نمایید',
+                hintText:
+                    '{{appStrings.generated.transfer.transfer_confirm.cvv2_enter}}',
                 keyboardType: 'number',
               ),
               StacSizedBox(height: 28),
-              _label('رمز پویا'),
+              _label(
+                '{{appStrings.generated.transfer.transfer_confirm.dynamic_pin}}',
+              ),
               StacSizedBox(height: 8),
               StacRow(
                 textDirection: StacTextDirection.rtl,
@@ -79,15 +89,18 @@ StacWidget dashboardCardBalance() {
                   StacExpanded(
                     child: _inputField(
                       id: 'balance_dynamic_password',
-                      hintText: 'رمز پویا را وارد نمایید',
+                      hintText:
+                          '{{appStrings.generated.transfer.transfer_confirm.dynamic_pin_enter}}',
                       keyboardType: 'number',
                     ),
                   ),
                   StacSizedBox(width: 12),
                   StacFilledButton(
                     onPressed: StacCustomSnackBarAction(
-                      title: 'رمز پویا ارسال شد',
-                      detail: 'رمز پویا برای شماره همراه شما ارسال شد. (mock)',
+                      title:
+                          '{{appStrings.generated.card_management.card_management_balance.dynamic_pin_sent}}',
+                      detail:
+                          '{{appStrings.generated.card_management.card_management_balance.mobile_number_dynamic_pin_sent}}',
                       duration: 2500,
                     ),
                     style: StacButtonStyle(
@@ -105,7 +118,8 @@ StacWidget dashboardCardBalance() {
                       ),
                     ),
                     child: StacText(
-                      data: 'رمز پویا',
+                      data:
+                          '{{appStrings.generated.transfer.transfer_confirm.dynamic_pin}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacCustomTextStyle(
                         fontSize: 16,
@@ -117,7 +131,8 @@ StacWidget dashboardCardBalance() {
               ),
               StacSizedBox(height: 24),
               StacText(
-                data: 'مبلغ ۱۴۱۴۰ ریال بابت کارمزد از حساب شما کسر خواهد شد',
+                data:
+                    '{{appStrings.generated.card_management.card_management_balance.account_amount_rial_fee}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.center,
                 style: StacCustomTextStyle(
@@ -130,8 +145,10 @@ StacWidget dashboardCardBalance() {
               StacCustomReactiveElevatedButton(
                 enabledKey: 'cardsManagement.balance.submitEnabled',
                 onPressed: StacCustomSnackBarAction(
-                  title: 'موجودی دریافت شد',
-                  detail: 'موجودی کارت با موفقیت دریافت شد. (mock)',
+                  title:
+                      '{{appStrings.generated.card_management.card_management_balance.balance_receive_data}}',
+                  detail:
+                      '{{appStrings.generated.card_management.card_management_balance.successfully_balance_card_receive_mock}}',
                   duration: 2500,
                 ),
                 style: StacButtonStyle(
@@ -156,7 +173,8 @@ StacWidget dashboardCardBalance() {
                   ),
                 ).toJson(),
                 child: StacText(
-                  data: 'دریافت موجودی',
+                  data:
+                      '{{appStrings.generated.card_management.card_management_balance.balance_receive}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 18,
@@ -286,10 +304,11 @@ StacWidget _expiryField({required String id, required String hintText}) {
     onTap: StacRawJsonAction({
       'actionType': 'showCardExpireSelectBottomSheet',
       'formFieldId': id,
-      'title': 'تاریخ انقضای کارت را انتخاب نمایید',
-      'monthTitle': 'ماه',
-      'yearTitle': 'سال',
-      'confirmText': 'تایید',
+      'title':
+          '{{appStrings.generated.transfer.transfer_confirm.select_date_card}}',
+      'monthTitle': '{{appStrings.generated.transfer.transfer_confirm.month}}',
+      'yearTitle': '{{appStrings.generated.transfer.transfer_confirm.year}}',
+      'confirmText': '{{appStrings.common.confirm}}',
       'onSelectedAction': _balanceValidateAction().toJson(),
     }),
     style: StacCustomTextStyle(

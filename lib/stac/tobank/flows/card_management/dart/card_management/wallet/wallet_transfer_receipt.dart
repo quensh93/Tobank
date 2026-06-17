@@ -54,10 +54,12 @@ StacWidget dashboardWalletTransferReceipt() {
             children: [
               StacExpanded(
                 child: _actionChip(
-                  label: 'اشتراک‌گذاری',
+                  label:
+                      '{{appStrings.generated.card_management.card_management_root.share}}',
                   iconAsset: '{{appAssets.current.icons.share}}',
                   onTap: const StacCustomSnackBarAction(
-                    title: 'اشتراک‌گذاری',
+                    title:
+                        '{{appStrings.generated.card_management.card_management_root.share}}',
                     detail: '{{appStrings.common.comingSoon}}',
                     duration: 3000,
                   ),
@@ -66,10 +68,12 @@ StacWidget dashboardWalletTransferReceipt() {
               StacSizedBox(width: 12),
               StacExpanded(
                 child: _actionChip(
-                  label: 'چاپ رسید',
+                  label:
+                      '{{appStrings.generated.card_management.card_management_wallet_receipt.receipt}}',
                   iconAsset: '{{appAssets.icons.printReceipt}}',
                   onTap: const StacCustomSnackBarAction(
-                    title: 'چاپ رسید',
+                    title:
+                        '{{appStrings.generated.card_management.card_management_wallet_receipt.receipt}}',
                     detail: '{{appStrings.common.comingSoon}}',
                     duration: 3000,
                   ),
@@ -110,7 +114,7 @@ StacWidget _receiptCard() {
         StacSizedBox(height: 16),
         _receiptRow(
           label: '{{appStrings.cardsManagement.wallet.statusLabel}}',
-          value: 'موفق',
+          value: '{{appStrings.common.success}}',
         ),
         StacSizedBox(height: 16),
         _receiptRow(

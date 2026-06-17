@@ -22,7 +22,7 @@ StacWidget transferRealCardDetails() {
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
         showSupport: true,
-        title: 'انتقال وجه',
+        title: '{{appStrings.menu.items.transfer}}',
       ),
       body: StacForm(
         autovalidateMode: StacAutovalidateMode.onUserInteraction,
@@ -43,13 +43,15 @@ StacWidget transferRealCardDetails() {
                     children: [
                       _cardsSummaryCard(),
                       StacSizedBox(height: 18),
-                      _label('مبلغ'),
+                      _label(
+                        '{{appStrings.generated.installment_payment.installment_payment_detail_main.amount_text}}',
+                      ),
                       StacSizedBox(height: 8),
                       _amountInput(),
                       StacSizedBox(height: 6),
                       _amountWords(),
                       StacSizedBox(height: 16),
-                      _label('توضیحات'),
+                      _label('{{appStrings.promissory.descriptionLabel}}'),
                       StacSizedBox(height: 8),
                       _descriptionInput(),
                     ],
@@ -66,7 +68,11 @@ StacWidget transferRealCardDetails() {
                         {'key': 'transferApiIsCardToCardFlow', 'value': true},
                       ],
                     ),
-                    NavigationAction(fileName: 'transfer_confirm', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                    NavigationAction(
+                      fileName: 'transfer_confirm',
+                      navMode: NavModes.dart,
+                      navigationStyle: NavigationStyle.push,
+                    ),
                   ],
                 ),
                 style: StacButtonStyle(
@@ -89,7 +95,7 @@ StacWidget transferRealCardDetails() {
                   foregroundColor: '{{appColors.current.text.hint}}',
                 ).toJson(),
                 child: StacText(
-                  data: 'ادامه',
+                  data: '{{appStrings.common.continue}}',
                   style: StacCustomTextStyle(
                     fontSize: 18,
                     fontWeight: StacFontWeight.w700,
@@ -121,7 +127,8 @@ StacWidget _cardsSummaryCard() {
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
         _cardPartyRow(
-          sideLabel: 'مبدا',
+          sideLabel:
+              '{{appStrings.generated.installment_payment.installment_payment_others_receipt.source_label}}',
           nameKey: 'transferApiCardSourceName',
           numberKey: 'transferApiCardSourceNumber',
           iconKey: 'transferApiCardSourceIcon',
@@ -133,7 +140,8 @@ StacWidget _cardsSummaryCard() {
         ),
         StacSizedBox(height: 12),
         _cardPartyRow(
-          sideLabel: 'مقصد',
+          sideLabel:
+              '{{appStrings.generated.transfer.transfer_card_result.destination_label}}',
           nameKey: 'transferApiCardDestinationName',
           numberKey: 'transferApiCardDestinationNumber',
           iconKey: 'transferApiCardDestinationIcon',
@@ -272,7 +280,8 @@ StacWidget _amountInput() {
           destinationKey: 'transferApiCardAmountWords',
           divideBy: 10,
           minDigits: 2,
-          suffix: 'تومان',
+          suffix:
+              '{{appStrings.generated.installment_payment.installment_payment_detail_main.toman}}',
         ),
         StacRawJsonAction({
           'actionType': 'validateFields',
@@ -297,7 +306,8 @@ StacWidget _amountInput() {
     ).toJson(),
     decoration: {
       ...StacInputDecoration(
-        hintText: 'مبلغ انتقال را به ریال وارد کنید',
+        hintText:
+            '{{appStrings.generated.transfer.transfer_card_details.title}}',
         hintStyle: StacCustomTextStyle(
           fontSize: 16,
           fontWeight: StacFontWeight.w500,
@@ -391,7 +401,8 @@ StacWidget _descriptionInput() {
       color: '{{appColors.current.text.title}}',
     ).toJson(),
     decoration: StacInputDecoration(
-      hintText: 'توضیحات تراکنش (اختیاری)',
+      hintText:
+          '{{appStrings.generated.transfer.transfer_card_details.description_transaction}}',
       hintStyle: StacCustomTextStyle(
         fontSize: 16,
         fontWeight: StacFontWeight.w500,
@@ -402,4 +413,3 @@ StacWidget _descriptionInput() {
     ).toJson(),
   );
 }
-

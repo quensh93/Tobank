@@ -17,7 +17,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "راهنمای تصویری امضا",
+      "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -127,7 +127,7 @@
                   }
                 },
                 "child": {
-                  "data": "بازگشت",
+                  "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.primary.onPrimary}}",

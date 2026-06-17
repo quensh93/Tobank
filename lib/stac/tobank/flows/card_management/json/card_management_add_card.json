@@ -1,4 +1,4 @@
-﻿{
+{
   "appBar": {
     "leading": {
       "padding": {
@@ -30,7 +30,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "افزودن کارت جدید",
+      "data": "{{appStrings.profile.real.destinations.addCardTitle}}",
       "children": null,
       "style": {
         "type": "alias",
@@ -204,7 +204,7 @@
               "spacing": null,
               "children": [
                 {
-                  "data": "بانک‌های مبدا تحت پوشش به مقصد کلیه بانک‌های کشور",
+                  "data": "{{appStrings.generated.card_management.card_management_add_card.bank}}",
                   "children": null,
                   "style": {
                     "type": "custom",
@@ -411,7 +411,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "اسکن کارت",
+                    "data": "{{appStrings.profile.real.destinations.scanCard}}",
                     "children": null,
                     "style": {
                       "type": "custom",
@@ -526,7 +526,7 @@
             "type": "sizedBox"
           },
           {
-            "data": "شماره کارت",
+            "data": "{{appStrings.profile.real.destinations.cardNumberLabel}}",
             "children": null,
             "style": {
               "type": "custom",
@@ -577,7 +577,7 @@
             "supportTextDirection": "rtl",
             "autovalidateMode": "always",
             "decoration": {
-              "hintText": "شماره کارت ۱۶ رقمی را وارد کنید",
+              "hintText": "{{appStrings.generated.card_management.card_management_add_card.card_number_enter}}",
               "hintStyle": {
                 "type": "custom",
                 "fontSize": 14,
@@ -618,7 +618,7 @@
                 "options": {
                   "pattern": "^\\d{16}$"
                 },
-                "message": "شماره کارت باید ۱۶ رقم باشد"
+                "message": "{{appStrings.generated.card_management.card_management_add_card.card_number}}"
               }
             ],
             "onChanged": {
@@ -647,7 +647,7 @@
             "type": "sizedBox"
           },
           {
-            "data": "تاریخ انقضا کارت",
+            "data": "{{appStrings.generated.card_management.card_management_add_card.date_card}}",
             "children": null,
             "style": {
               "type": "custom",
@@ -707,7 +707,7 @@
                   "textDirection": "rtl",
                   "textAlign": "center",
                   "decoration": {
-                    "hintText": "سال",
+                    "hintText": "{{appStrings.generated.transfer.transfer_confirm.year}}",
                     "hintStyle": {
                       "type": "custom",
                       "fontSize": 14,
@@ -746,10 +746,10 @@
                     "formFieldId": "addNewCard.expireDate",
                     "yearFieldId": "addNewCard.expireYear",
                     "monthFieldId": "addNewCard.expireMonth",
-                    "title": "تاریخ انقضای کارت را انتخاب نمایید",
-                    "monthTitle": "ماه",
-                    "yearTitle": "سال",
-                    "confirmText": "تایید",
+                    "title": "{{appStrings.generated.transfer.transfer_confirm.select_date_card}}",
+                    "monthTitle": "{{appStrings.generated.transfer.transfer_confirm.month}}",
+                    "yearTitle": "{{appStrings.generated.transfer.transfer_confirm.year}}",
+                    "confirmText": "{{appStrings.common.confirm}}",
                     "onSelectedAction": {
                       "actionType": "validateFields",
                       "resultKey": "addNewCard.submitEnabled",
@@ -787,7 +787,7 @@
                   "textDirection": "rtl",
                   "textAlign": "center",
                   "decoration": {
-                    "hintText": "ماه",
+                    "hintText": "{{appStrings.generated.transfer.transfer_confirm.month}}",
                     "hintStyle": {
                       "type": "custom",
                       "fontSize": 14,
@@ -826,10 +826,10 @@
                     "formFieldId": "addNewCard.expireDate",
                     "yearFieldId": "addNewCard.expireYear",
                     "monthFieldId": "addNewCard.expireMonth",
-                    "title": "تاریخ انقضای کارت را انتخاب نمایید",
-                    "monthTitle": "ماه",
-                    "yearTitle": "سال",
-                    "confirmText": "تایید",
+                    "title": "{{appStrings.generated.transfer.transfer_confirm.select_date_card}}",
+                    "monthTitle": "{{appStrings.generated.transfer.transfer_confirm.month}}",
+                    "yearTitle": "{{appStrings.generated.transfer.transfer_confirm.year}}",
+                    "confirmText": "{{appStrings.common.confirm}}",
                     "onSelectedAction": {
                       "actionType": "validateFields",
                       "resultKey": "addNewCard.submitEnabled",
@@ -920,7 +920,7 @@
             "type": "sizedBox"
           },
           {
-            "data": "عنوان کارت",
+            "data": "{{appStrings.profile.real.destinations.cardTitleLabel}}",
             "children": null,
             "style": {
               "type": "custom",
@@ -971,7 +971,7 @@
             "supportTextDirection": "rtl",
             "autovalidateMode": "always",
             "decoration": {
-              "hintText": "عنوان دلخواه برای کارت وارد کنید",
+              "hintText": "{{appStrings.generated.card_management.card_management_add_card.title_card_enter}}",
               "hintStyle": {
                 "type": "custom",
                 "fontSize": 14,
@@ -1010,7 +1010,7 @@
                 "options": {
                   "pattern": ".+"
                 },
-                "message": "عنوان کارت نمی‌تواند خالی باشد"
+                "message": "{{appStrings.generated.card_management.card_management_add_card.title_card_empty}}"
               }
             ],
             "onChanged": {
@@ -1085,7 +1085,7 @@
                             "children": [
                               {
                                 "type": "text",
-                                "data": "ثبت شد",
+                                "data": "{{appStrings.generated.card_management.card_management_add_card.submit}}",
                                 "textDirection": "rtl",
                                 "textAlign": "right",
                                 "style": {
@@ -1102,7 +1102,7 @@
                               },
                               {
                                 "type": "text",
-                                "data": "کارت جدید با موفقیت اضافه شد.",
+                                "data": "{{appStrings.generated.card_management.card_management_add_card.successfully_new_card}}",
                                 "textDirection": "rtl",
                                 "textAlign": "right",
                                 "style": {
@@ -1253,7 +1253,7 @@
               "visualDensity": null
             },
             "child": {
-              "data": "ثبت کارت",
+              "data": "{{appStrings.generated.card_management.card_management_add_card.submit_card}}",
               "children": null,
               "style": {
                 "type": "custom",

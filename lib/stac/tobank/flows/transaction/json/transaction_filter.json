@@ -5,11 +5,11 @@
     "values": [
       {
         "key": "trFilterFromDate",
-        "value": "از تاریخ"
+        "value": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date}}"
       },
       {
         "key": "trFilterToDate",
-        "value": "تا تاریخ"
+        "value": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_until}}"
       }
     ]
   },
@@ -33,7 +33,7 @@
         "type": "padding"
       },
       "title": {
-        "data": "فیلتر تراکنش‌ها",
+        "data": "{{appStrings.generated.transaction.transaction_filter.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -131,7 +131,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "دریافت وجه",
+                                "data": "{{appStrings.generated.transaction.transaction_filter.receive_money}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.onPrimary}}",
@@ -182,7 +182,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "دریافت وجه",
+                                "data": "{{appStrings.generated.transaction.transaction_filter.receive_money}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -259,7 +259,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "ارسال وجه",
+                                "data": "{{appStrings.generated.transaction.transaction_filter.send_money}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.onPrimary}}",
@@ -310,7 +310,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "ارسال وجه",
+                                "data": "{{appStrings.generated.transaction.transaction_filter.send_money}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -359,7 +359,7 @@
             }
           },
           {
-            "data": "بازه زمانی",
+            "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_range_label}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",
@@ -441,9 +441,9 @@
                     "actionType": "persianDateRangePicker",
                     "startDateKey": "trFilterFromDate",
                     "endDateKey": "trFilterToDate",
-                    "helpText": "انتخاب بازه زمانی",
-                    "confirmText": "تایید",
-                    "cancelText": "انصراف",
+                    "helpText": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.select}}",
+                    "confirmText": "{{appStrings.common.confirm}}",
+                    "cancelText": "{{appStrings.common.cancel}}",
                     "firstDate": "1400/01/01",
                     "lastDate": "1450/12/29"
                   },
@@ -519,9 +519,9 @@
                     "actionType": "persianDateRangePicker",
                     "startDateKey": "trFilterFromDate",
                     "endDateKey": "trFilterToDate",
-                    "helpText": "انتخاب بازه زمانی",
-                    "confirmText": "تایید",
-                    "cancelText": "انصراف",
+                    "helpText": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.select}}",
+                    "confirmText": "{{appStrings.common.confirm}}",
+                    "cancelText": "{{appStrings.common.cancel}}",
                     "firstDate": "1400/01/01",
                     "lastDate": "1450/12/29"
                   },
@@ -537,7 +537,7 @@
             "type": "sizedBox"
           },
           {
-            "data": "نوع تراکنش",
+            "data": "{{appStrings.promissory.transactionType}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",
@@ -575,7 +575,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "خرید کارت هدیه",
+                              "data": "{{appStrings.generated.gift_card.gift_card_intro.gift_card_buy}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.onPrimary}}",
@@ -607,7 +607,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "خرید کارت هدیه",
+                              "data": "{{appStrings.generated.gift_card.gift_card_intro.gift_card_buy}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -654,7 +654,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "انتقال کیف پول",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.wallet_transfer}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.onPrimary}}",
@@ -686,7 +686,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "انتقال کیف پول",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.wallet_transfer}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -743,7 +743,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "کارت به کارت",
+                              "data": "{{appStrings.homePage.cards.cardToCard}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.onPrimary}}",
@@ -775,7 +775,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "کارت به کارت",
+                              "data": "{{appStrings.homePage.cards.cardToCard}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -828,7 +828,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "خرید بسته اینترنتی",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.buy_internet_package}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.onPrimary}}",
@@ -860,7 +860,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "خرید بسته اینترنتی",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.buy_internet_package}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -907,7 +907,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "خرید شارژ مستقیم",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.buy_direct_topup}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.onPrimary}}",
@@ -939,7 +939,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "خرید شارژ مستقیم",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.buy_direct_topup}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -986,7 +986,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "نیکوکاری",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.charity}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.onPrimary}}",
@@ -1018,7 +1018,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "نیکوکاری",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.charity}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -1071,7 +1071,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "شارژ کیف پول",
+                              "data": "{{appStrings.generated.card_management.card_management_root.topup_wallet_money}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.onPrimary}}",
@@ -1103,7 +1103,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "شارژ کیف پول",
+                              "data": "{{appStrings.generated.card_management.card_management_root.topup_wallet_money}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -1160,7 +1160,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "پرداخت قبوض",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.bill_payment}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.onPrimary}}",
@@ -1192,7 +1192,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "پرداخت قبوض",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.bill_payment}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -1239,7 +1239,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "پرداخت گروهی قبوض",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.bulk_bill_payment}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.onPrimary}}",
@@ -1271,7 +1271,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "پرداخت گروهی قبوض",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.bulk_bill_payment}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -1324,7 +1324,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "استرداد وجه",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.refund}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.onPrimary}}",
@@ -1356,7 +1356,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "استرداد وجه",
+                              "data": "{{appStrings.generated.transaction.transaction_filter.refund}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -1413,7 +1413,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "صندوق امانات",
+                              "data": "{{appStrings.generated.home_page.tobank_special_services_page.safe_deposit_box}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.onPrimary}}",
@@ -1445,7 +1445,7 @@
                           "height": 44.0,
                           "child": {
                             "child": {
-                              "data": "صندوق امانات",
+                              "data": "{{appStrings.generated.home_page.tobank_special_services_page.safe_deposit_box}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -1491,7 +1491,7 @@
             "type": "sizedBox"
           },
           {
-            "data": "وضعیت تراکنش",
+            "data": "{{appStrings.generated.transaction.transaction_filter.transaction_status}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",
@@ -1545,7 +1545,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "پرداخت موفق",
+                            "data": "{{appStrings.promissory.paymentSuccessful}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.onPrimary}}",
@@ -1595,7 +1595,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "پرداخت موفق",
+                            "data": "{{appStrings.promissory.paymentSuccessful}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.subtitle}}",
@@ -1675,7 +1675,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "پرداخت ناموفق",
+                            "data": "{{appStrings.generated.transaction.transaction_filter.failed_payment}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.onPrimary}}",
@@ -1725,7 +1725,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "پرداخت ناموفق",
+                            "data": "{{appStrings.generated.transaction.transaction_filter.failed_payment}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.subtitle}}",
@@ -1859,7 +1859,7 @@
               }
             },
             "child": {
-              "data": "فیلتر نتایج",
+              "data": "{{appStrings.generated.transaction.transaction_filter.filter_results}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.primary.onPrimary}}",

@@ -122,12 +122,12 @@
                 {
                   "tabs": [
                     {
-                      "text": "سپرده‌ها",
+                      "text": "{{appStrings.homePage.tabs.deposits}}",
                       "height": 54.0,
                       "type": "tab"
                     },
                     {
-                      "text": "توبانک",
+                      "text": "{{appStrings.splash.title}}",
                       "height": 54.0,
                       "type": "tab"
                     }
@@ -239,7 +239,7 @@
                                       "children": [
                                         {
                                           "child": {
-                                            "data": "پل",
+                                            "data": "{{appStrings.generated.transaction.transaction_intro.bridge_service}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -257,7 +257,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۲۹۹,۹۰۰,۰۰۰ ریال",
+                                          "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_message}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -276,7 +276,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "انتقال به مهدی جمشیدپور",
+                                      "data": "{{appStrings.generated.transaction.transaction_intro.transfer}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
@@ -349,7 +349,7 @@
                                       "children": [
                                         {
                                           "child": {
-                                            "data": "پل",
+                                            "data": "{{appStrings.generated.transaction.transaction_intro.bridge_service}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -367,7 +367,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۰۰,۰۰۰,۰۰۰ ریال",
+                                          "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_label}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -386,7 +386,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "انتقال به مهدی جمشیدپور",
+                                      "data": "{{appStrings.generated.transaction.transaction_intro.transfer}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
@@ -459,7 +459,7 @@
                                       "children": [
                                         {
                                           "child": {
-                                            "data": "پل",
+                                            "data": "{{appStrings.generated.transaction.transaction_intro.bridge_service}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -477,7 +477,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۰۰,۰۰۰,۰۰۰ ریال",
+                                          "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_label}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -496,7 +496,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "انتقال به مهدی جمشیدپور",
+                                      "data": "{{appStrings.generated.transaction.transaction_intro.transfer}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
@@ -569,7 +569,7 @@
                                       "children": [
                                         {
                                           "child": {
-                                            "data": "پل",
+                                            "data": "{{appStrings.generated.transaction.transaction_intro.bridge_service}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -587,7 +587,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۱۰,۵۰۰,۰۰۰ ریال",
+                                          "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_theme}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -606,7 +606,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "انتقال به مهدی جمشیدپور",
+                                      "data": "{{appStrings.generated.transaction.transaction_intro.transfer}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
@@ -679,7 +679,7 @@
                                       "children": [
                                         {
                                           "child": {
-                                            "data": "پایا",
+                                            "data": "{{appStrings.generated.transaction.transaction_intro.sample_label}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -697,7 +697,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۴۳,۸۰۰,۰۰۰ ریال",
+                                          "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_sample}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -716,7 +716,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "انتقال به مهدی جمشیدپور",
+                                      "data": "{{appStrings.generated.transaction.transaction_intro.transfer}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
@@ -789,7 +789,7 @@
                                       "children": [
                                         {
                                           "child": {
-                                            "data": "پایا",
+                                            "data": "{{appStrings.generated.transaction.transaction_intro.sample_label}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -807,7 +807,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۴۳,۹۰۰,۰۰۰ ریال",
+                                          "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_secondary}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -826,7 +826,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "انتقال به مهدی جمشیدپور",
+                                      "data": "{{appStrings.generated.transaction.transaction_intro.transfer}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
@@ -903,7 +903,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "فیلترها",
+                                      "data": "{{appStrings.generated.transaction.transaction_intro.filter}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -965,7 +965,7 @@
                                   "height": 36.0,
                                   "child": {
                                     "child": {
-                                      "data": "همه",
+                                      "data": "{{appStrings.generated.cartable.cartable_intro.all_filter}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.secondary.color}}",
@@ -1001,7 +1001,7 @@
                                   "height": 36.0,
                                   "child": {
                                     "child": {
-                                      "data": "همه",
+                                      "data": "{{appStrings.generated.cartable.cartable_intro.all_filter}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1069,7 +1069,7 @@
                                   "height": 36.0,
                                   "child": {
                                     "child": {
-                                      "data": "تراکنش های کیف پول",
+                                      "data": "{{appStrings.generated.transaction.transaction_intro.transaction_wallet_money_text}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.secondary.color}}",
@@ -1105,7 +1105,7 @@
                                   "height": 36.0,
                                   "child": {
                                     "child": {
-                                      "data": "تراکنش های کیف پول",
+                                      "data": "{{appStrings.generated.transaction.transaction_intro.transaction_wallet_money_text}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1201,7 +1201,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "پرداخت اقساط",
+                                                        "data": "{{appStrings.generated.installment_payment.installment_payment_receipt.title}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -1219,7 +1219,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۱,۰۰۶,۰۰۰ ریال",
+                                                      "data": "{{appStrings.generated.transaction.transaction_intro.rial}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1238,7 +1238,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۰۱ فروردین ۱۴۰۵ - ۱۱:۴۳",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.title}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1311,7 +1311,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "سرویس کارمزد سفته",
+                                                        "data": "{{appStrings.generated.transaction.transaction_intro.promissory_fee}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -1329,7 +1329,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۳۸,۰۰۰ ریال",
+                                                      "data": "{{appStrings.generated.transaction.transaction_intro.rial_message}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1348,7 +1348,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۰۲ اسفند ۱۴۰۴ - ۱۵:۲۷",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.amount_value}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1421,7 +1421,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "کارت به کارت",
+                                                        "data": "{{appStrings.homePage.cards.cardToCard}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -1439,7 +1439,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۱۰,۰۰۰ ریال",
+                                                      "data": "{{appStrings.generated.transaction.transaction_intro.rial_label}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1458,7 +1458,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۰۶ دی ۱۴۰۴ - ۱۱:۰۲",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.amount_value_text}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1543,7 +1543,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "سرویس کارمزد سفته",
+                                                        "data": "{{appStrings.generated.transaction.transaction_intro.promissory_fee}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -1561,7 +1561,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۳۱۳,۰۰۰ ریال",
+                                                      "data": "{{appStrings.generated.transaction.transaction_intro.rial_description}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1580,7 +1580,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۵۸ بهمن ۱۴۰۴ - ۱۰:۰۵",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.amount_value_label}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1653,7 +1653,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "شارژ کیف پول توبانک",
+                                                        "data": "{{appStrings.generated.transaction.transaction_intro.topup_wallet_money}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -1671,7 +1671,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۵۰,۰۰۰ ریال",
+                                                      "data": "{{appStrings.generated.charge.charge_intro.rial}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1690,7 +1690,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۵۸ دی ۱۴۰۴ - ۱۴:۰۳",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.amount_value_message}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1763,7 +1763,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "کارت به کارت",
+                                                        "data": "{{appStrings.homePage.cards.cardToCard}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -1781,7 +1781,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۱۰,۰۰۰ ریال",
+                                                      "data": "{{appStrings.generated.transaction.transaction_intro.rial_label}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1800,7 +1800,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۰۶ دی ۱۴۰۴ - ۱۵:۰۸",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.amount_value_item}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1893,7 +1893,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "تراکنش کیف پول",
+                                                        "data": "{{appStrings.generated.transaction.transaction_intro.transaction_wallet_money}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -1911,7 +1911,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۱۰,۰۰۰ ریال",
+                                                      "data": "{{appStrings.generated.transaction.transaction_intro.rial_label}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1930,7 +1930,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۰۳ دی ۱۴۰۴ - ۱۳:۳۰",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.amount_value_alt}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2003,7 +2003,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "سرویس اعتبارسنجی",
+                                                        "data": "{{appStrings.generated.transaction.transaction_intro.credit_validation_service}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -2021,7 +2021,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۸,۰۰۰ ریال",
+                                                      "data": "{{appStrings.generated.transaction.transaction_intro.rial_hint}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -2040,7 +2040,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۰۱ دی ۱۴۰۴ - ۱۲:۰۱",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.sample_number}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2113,7 +2113,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "سرویس اعتبارسنجی",
+                                                        "data": "{{appStrings.generated.transaction.transaction_intro.credit_validation_service}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -2131,7 +2131,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۸۰,۰۰۰ ریال",
+                                                      "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_intro.rial}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -2150,7 +2150,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۲۶ آذر ۱۴۰۴ - ۱۱:۱۶",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.sample_number_option}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2223,7 +2223,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "سفارش کارت هدیه",
+                                                        "data": "{{appStrings.generated.transaction.transaction_intro.gift_card}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -2241,7 +2241,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۱,۳۶۸,۵۰۰ ریال",
+                                                      "data": "{{appStrings.generated.transaction.transaction_intro.rial_value}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -2260,7 +2260,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۲۶ آذر ۱۴۰۴ - ۱۱:۵۰",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.sample_number_message}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2333,7 +2333,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "تراکنش کیف پول",
+                                                        "data": "{{appStrings.generated.transaction.transaction_intro.transaction_wallet_money}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -2351,7 +2351,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۱,۴۰۰,۰۰۰ ریال",
+                                                      "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -2370,7 +2370,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۲۶ آذر ۱۴۰۴ - ۱۱:۴۰",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.sample_number_label}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2455,7 +2455,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "شارژ کیف پول توبانک",
+                                                        "data": "{{appStrings.generated.transaction.transaction_intro.topup_wallet_money}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -2473,7 +2473,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۵۰,۰۰۰ ریال",
+                                                      "data": "{{appStrings.generated.charge.charge_intro.rial}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -2492,7 +2492,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۰۸ دی ۱۴۰۴ - ۱۴:۰۳",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.sample_number_theme}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2565,7 +2565,7 @@
                                                   "children": [
                                                     {
                                                       "child": {
-                                                        "data": "انتقال کیف پول",
+                                                        "data": "{{appStrings.generated.transaction.transaction_filter.wallet_transfer}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -2583,7 +2583,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "۲۵,۰۰۰ ریال",
+                                                      "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_option}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -2602,7 +2602,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۰۸ دی ۱۴۰۴ - ۱۰:۱۶",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.sample_number_sample}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",

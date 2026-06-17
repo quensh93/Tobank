@@ -245,7 +245,7 @@
                                       "children": [
                                         {
                                           "type": "text",
-                                          "data": "اعلان",
+                                          "data": "{{appStrings.generated.authentication.authentication_verify_otp.title}}",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
                                           "style": {

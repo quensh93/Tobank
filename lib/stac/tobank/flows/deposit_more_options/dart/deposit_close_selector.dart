@@ -11,14 +11,20 @@ StacWidget depositCloseSelector() {
       values: [
         {
           'key': 'depositCloseSelector.depositNumber',
-          'value': '۱۱۹.۹۲۹۰.۱۶۱۲۹۸۸.۱',
+          'value':
+              '{{appStrings.generated.deposit_more_options.deposit_more_options_intro.amount_value}}',
         },
-        {'key': 'depositCloseSelector.balance', 'value': '۰ ریال'},
+        {
+          'key': 'depositCloseSelector.balance',
+          'value':
+              '{{appStrings.generated.deposit_more_options.deposit_close_selector.rial}}',
+        },
       ],
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        title: 'بستن سپرده',
+        title:
+            '{{appStrings.generated.deposit_more_options.deposit_close_confirm.title}}',
         showSupport: true,
       ),
       body: StacPadding(
@@ -44,7 +50,8 @@ StacWidget depositCloseSelector() {
                 ),
               ),
               child: StacText(
-                data: 'تایید و بستن سپرده',
+                data:
+                    '{{appStrings.generated.deposit_more_options.deposit_close_selector.title}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 18,
@@ -83,18 +90,19 @@ StacWidget _closeDepositConfirmDialogWidget() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           StacCenter(
-            child:  StacCenter(
-                child: StacImage(
-                  src: 'assets/icons/ic_warning_red.svg',
-                  width: 55,
-                  height: 55,
-                  imageType: StacImageType.asset,
-                ),
+            child: StacCenter(
+              child: StacImage(
+                src: 'assets/icons/ic_warning_red.svg',
+                width: 55,
+                height: 55,
+                imageType: StacImageType.asset,
               ),
+            ),
           ),
           StacSizedBox(height: 18),
           StacText(
-            data: 'شما درخواست بستن سپرده زیر را دارید. آیا مطمئن هستید؟',
+            data:
+                '{{appStrings.generated.deposit_more_options.deposit_close_selector.deposit_request}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -120,7 +128,8 @@ StacWidget _closeDepositConfirmDialogWidget() {
                 mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
                 children: [
                   StacText(
-                    data: 'شماره سپرده',
+                    data:
+                        '{{appStrings.generated.card_management.card_management_root.deposit_number}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       color: '{{appColors.current.text.subtitle}}',
@@ -151,7 +160,8 @@ StacWidget _closeDepositConfirmDialogWidget() {
                   style: StacButtonStyle(
                     minimumSize: const StacSize(0, 56),
                     side: StacBorderSide(
-                      color: '{{appColors.current.button.primary.backgroundColor}}',
+                      color:
+                          '{{appColors.current.button.primary.backgroundColor}}',
                       width: 1.4,
                     ),
                     shape: StacRoundedRectangleBorder(
@@ -159,7 +169,7 @@ StacWidget _closeDepositConfirmDialogWidget() {
                     ),
                   ),
                   child: StacText(
-                    data: 'انصراف',
+                    data: '{{appStrings.common.cancel}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       color:
@@ -174,9 +184,9 @@ StacWidget _closeDepositConfirmDialogWidget() {
               StacExpanded(
                 child: StacFilledButton(
                   onPressed: const StacFingerPrintAction(
-                    title: 'احراز هویت',
+                    title: '{{appStrings.menu.items.authentication}}',
                     description:
-                        'لطفا برای ادامه بستن سپرده، احراز هویت انجام دهید',
+                        '{{appStrings.generated.deposit_more_options.deposit_close_selector.authentication_deposit_continue}}',
                     onSuccess: {
                       'actionType': 'sequence',
                       'actions': [
@@ -191,9 +201,10 @@ StacWidget _closeDepositConfirmDialogWidget() {
                     },
                     onFailure: {
                       'actionType': 'showSnackBar',
-                      'title': 'عدم احراز هویت',
+                      'title':
+                          '{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_failed_title}}',
                       'description':
-                          'احراز هویت انجام نشد. لطفا دوباره تلاش کنید.',
+                          '{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_try_again}}',
                       'type': 'error',
                     },
                   ),
@@ -208,7 +219,8 @@ StacWidget _closeDepositConfirmDialogWidget() {
                     ),
                   ),
                   child: StacText(
-                    data: 'بستن سپرده',
+                    data:
+                        '{{appStrings.generated.deposit_more_options.deposit_close_confirm.title}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 18,
@@ -239,12 +251,14 @@ StacWidget _selectorDepositInfoCard() {
       child: StacColumn(
         children: [
           _selectorKeyValueRow(
-            keyText: 'شماره سپرده:',
+            keyText:
+                '{{appStrings.generated.deposit_more_options.deposit_close_selector.deposit_number}}',
             valueKey: 'depositCloseSelector.depositNumber',
           ),
           StacSizedBox(height: 16),
           _selectorKeyValueRow(
-            keyText: 'موجودی سپرده:',
+            keyText:
+                '{{appStrings.generated.deposit_more_options.deposit_close_selector.balance_deposit}}',
             valueKey: 'depositCloseSelector.balance',
           ),
         ],
@@ -283,4 +297,3 @@ StacWidget _selectorKeyValueRow({
     ],
   );
 }
-

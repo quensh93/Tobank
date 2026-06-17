@@ -939,7 +939,7 @@ StacWidget promissoryRealReceiver() {
                                   ],
                                 },
                                 const StacCustomSnackBarAction(
-                                  title: 'خطا',
+                                  title: '{{appStrings.common.error}}',
                                   detail:
                                       '{{appStrings.promissory.invalidDataErrorDetail}}',
                                   duration: 4000,
@@ -962,7 +962,7 @@ StacWidget promissoryRealReceiver() {
                                   ],
                                 },
                                 const StacCustomSnackBarAction(
-                                  title: 'خطا',
+                                  title: '{{appStrings.common.error}}',
                                   detail:
                                       '{{appStrings.promissory.sessionExpiredError}}',
                                   duration: 4000,
@@ -991,7 +991,7 @@ StacWidget promissoryRealReceiver() {
                                   ],
                                 },
                                 const StacCustomSnackBarAction(
-                                  title: 'خطا',
+                                  title: '{{appStrings.common.error}}',
                                   detail:
                                       '{{appStrings.promissory.serverConnectionErrorDetail}}',
                                   duration: 4000,
@@ -1180,7 +1180,7 @@ StacWidget promissoryRealReceiver() {
                                   ],
                                 },
                                 const StacCustomSnackBarAction(
-                                  title: 'خطا',
+                                  title: '{{appStrings.common.error}}',
                                   detail:
                                       '{{appStrings.promissory.invalidDataErrorDetail}}',
                                   duration: 4000,
@@ -1203,7 +1203,7 @@ StacWidget promissoryRealReceiver() {
                                   ],
                                 },
                                 const StacCustomSnackBarAction(
-                                  title: 'خطا',
+                                  title: '{{appStrings.common.error}}',
                                   detail:
                                       '{{appStrings.promissory.serverConnectionErrorDetail}}',
                                   duration: 4000,
@@ -1232,7 +1232,7 @@ StacWidget promissoryRealReceiver() {
                                   ],
                                 },
                                 const StacCustomSnackBarAction(
-                                  title: 'خطا',
+                                  title: '{{appStrings.common.error}}',
                                   detail:
                                       '{{appStrings.promissory.serverConnectionErrorDetail}}',
                                   duration: 4000,

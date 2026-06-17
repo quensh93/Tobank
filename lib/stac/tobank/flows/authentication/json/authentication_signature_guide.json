@@ -17,7 +17,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "راهنما",
+      "data": "{{appStrings.authentication.guideLabel}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -74,7 +74,7 @@
                   "crossAxisAlignment": "stretch",
                   "children": [
                     {
-                      "data": "راهنمای ثبت امضا",
+                      "data": "{{appStrings.generated.authentication.authentication_signature_guide.title}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -90,7 +90,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "نوع راهنما را انتخاب کنید. راهنمای تصویری نمونه‌ی امضای صحیح را نمایش می‌دهد.",
+                      "data": "{{appStrings.generated.authentication.authentication_signature_guide.select_show_image_guide_signature}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.subtitle}}",
@@ -170,7 +170,7 @@
                           "crossAxisAlignment": "stretch",
                           "children": [
                             {
-                              "data": "راهنمای تصویری",
+                              "data": "{{appStrings.generated.authentication.authentication_signature_guide.image}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -186,7 +186,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "مشاهده نمونه صفحه و محل ثبت امضا",
+                              "data": "{{appStrings.generated.authentication.authentication_signature_guide.page_place_submit_signature}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -291,7 +291,7 @@
                           "crossAxisAlignment": "stretch",
                           "children": [
                             {
-                              "data": "راهنمای صوتی",
+                              "data": "{{appStrings.generated.authentication.authentication_signature_guide.audio_guide}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -307,7 +307,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیح صوتی این مرحله",
+                              "data": "{{appStrings.generated.authentication.authentication_signature_guide.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -344,7 +344,7 @@
                 "onTap": {
                   "actionType": "showResult",
                   "title": "{{appStrings.common.comingSoon}}",
-                  "content": "راهنمای صوتی این بخش هنوز اضافه نشده است."
+                  "content": "{{appStrings.generated.authentication.authentication_signature_guide.sample_message}}"
                 },
                 "type": "gestureDetector"
               }

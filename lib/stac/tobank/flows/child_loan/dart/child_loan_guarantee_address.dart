@@ -19,7 +19,8 @@ StacWidget childLoanGuaranteeAddressScreen() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        title: 'تسهیلات فرزندآوری',
+        title:
+            '{{appStrings.generated.child_loan.child_loan_customer_check.title}}',
         showBack: true,
         showSupport: true,
       ),
@@ -30,7 +31,8 @@ StacWidget childLoanGuaranteeAddressScreen() {
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
             children: [
               StacText(
-                data: 'اطلاعات آدرس متقاضی',
+                data:
+                    '{{appStrings.generated.child_loan.child_loan_guarantee_address.title}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacTextStyle(
@@ -42,7 +44,7 @@ StacWidget childLoanGuaranteeAddressScreen() {
               StacSizedBox(height: 16),
               StacText(
                 data:
-                    'کاربر گرامی، لطفا اطلاعات محل سکونت خود را وارد و تصویر اصل سند یا اجاره نامه محل سکونت خود را بارگذاری نمایید.',
+                    '{{appStrings.generated.child_loan.child_loan_guarantee_address.upload_information_image_user_place}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacTextStyle(
@@ -54,7 +56,8 @@ StacWidget childLoanGuaranteeAddressScreen() {
               ),
               StacSizedBox(height: 20),
               StacText(
-                data: 'کد پستی محل سکونت متقاضی',
+                data:
+                    '{{appStrings.generated.child_loan.child_loan_guarantee_address.postal_code_place}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacTextStyle(
@@ -93,7 +96,8 @@ StacWidget childLoanGuaranteeAddressScreen() {
                         'textAlign': 'center',
                         'textAlignVertical': 'center',
                         'decoration': {
-                          'hintText': 'کد پستی محل سکونت را وارد نمایید',
+                          'hintText':
+                              '{{appStrings.generated.child_loan.child_loan_guarantee_address.postal_code_place_enter}}',
                           'hintTextDirection': 'rtl',
                           'hintTextAlign': 'center',
                           'counterText': '',
@@ -150,7 +154,8 @@ StacWidget childLoanGuaranteeAddressScreen() {
                         elevation: 0,
                       ).toJson(),
                       child: StacText(
-                        data: 'استعلام',
+                        data:
+                            '{{appStrings.profile.real.bankInfo.inquiryButtonText}}',
                         style: StacTextStyle(
                           fontSize: 16,
                           fontWeight: StacFontWeight.w700,
@@ -190,55 +195,85 @@ StacWidget _inquiryResultSection() {
           child: StacColumn(
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
             children: [
-              _resultFieldLabel('استان'),
+              _resultFieldLabel(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.province}}',
+              ),
               StacSizedBox(height: 8),
-              _readOnlyField('تهران'),
+              _readOnlyField(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}',
+              ),
               StacSizedBox(height: 16),
-              _resultFieldLabel('شهر'),
+              _resultFieldLabel(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.city}}',
+              ),
               StacSizedBox(height: 8),
-              _readOnlyField('تهران'),
+              _readOnlyField(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}',
+              ),
               StacSizedBox(height: 16),
-              _resultFieldLabel('شهرستان'),
+              _resultFieldLabel(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.county}}',
+              ),
               StacSizedBox(height: 8),
-              _readOnlyField('تهران'),
+              _readOnlyField(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}',
+              ),
               StacSizedBox(height: 16),
-              _resultFieldLabel('خیابان اصلی'),
+              _resultFieldLabel(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.street_main}}',
+              ),
               StacSizedBox(height: 8),
               _editableField(
                 id: 'child_loan_main_street',
-                hint: 'خیابان اصلی ضامن را وارد نمایید',
-                initialValue: 'شهرک صدرا خیابان چهل و نهم',
+                hint:
+                    '{{appStrings.generated.child_loan.child_loan_guarantee_address.street_main_enter}}',
+                initialValue:
+                    '{{appStrings.generated.child_loan.child_loan_guarantee_address.street_city}}',
                 showClearIcon: true,
               ),
               StacSizedBox(height: 16),
-              _resultFieldLabel('خیابان فرعی'),
+              _resultFieldLabel(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.street}}',
+              ),
               StacSizedBox(height: 8),
               _editableField(
                 id: 'child_loan_secondary_street',
-                hint: 'خیابان فرعی خود را وارد نمایید',
-                initialValue: 'خیابان نصر پنجم',
+                hint:
+                    '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.street_enter}}',
+                initialValue:
+                    '{{appStrings.generated.child_loan.child_loan_guarantee_address.street_message}}',
                 showClearIcon: true,
               ),
               StacSizedBox(height: 16),
-              _resultFieldLabel('پلاک'),
+              _resultFieldLabel(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.plaque}}',
+              ),
               StacSizedBox(height: 8),
               _editableField(
                 id: 'child_loan_plaque',
-                hint: 'پلاک خود را وارد نمایید',
-                initialValue: '۷۵',
+                hint:
+                    '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.plaque_enter}}',
+                initialValue:
+                    '{{appStrings.generated.child_loan.child_loan_guarantee_address.number_value}}',
                 showClearIcon: true,
               ),
               StacSizedBox(height: 16),
-              _resultFieldLabel('واحد'),
+              _resultFieldLabel(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.unit}}',
+              ),
               StacSizedBox(height: 8),
               _editableField(
                 id: 'child_loan_unit',
-                hint: 'واحد ضامن را وارد کنید',
-                initialValue: '۲',
+                hint:
+                    '{{appStrings.generated.child_loan.child_loan_guarantee_address.unit_enter_message}}',
+                initialValue:
+                    '{{appStrings.generated.child_loan.child_loan_guarantee_address.number_value_text}}',
                 showClearIcon: true,
               ),
               StacSizedBox(height: 16),
-              _resultFieldLabel('نوع مالکیت'),
+              _resultFieldLabel(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.ownership_type_label}}',
+              ),
               StacSizedBox(height: 8),
               _ownershipSelectorField(),
               StacSizedBox(height: 16),
@@ -250,8 +285,9 @@ StacWidget _inquiryResultSection() {
         StacCustomReactiveElevatedButton(
           enabledKey: 'childLoanPostalInquirySuccess',
           onPressed: const StacFingerPrintAction(
-            title: 'احراز هویت',
-            description: 'لطفا برای ادامه از اثر انگشت استفاده کنید',
+            title: '{{appStrings.menu.items.authentication}}',
+            description:
+                '{{appStrings.generated.child_loan.child_loan_child_check.continue}}',
             onSuccess: {
               'actionType': 'sequence',
               'actions': [
@@ -262,8 +298,10 @@ StacWidget _inquiryResultSection() {
                 },
                 {
                   'actionType': 'snackbar',
-                  'title': 'ثبت',
-                  'detail': 'مرحله با موفقیت ثبت شد',
+                  'title':
+                      '{{appStrings.profile.real.destinations.submitTitle}}',
+                  'detail':
+                      '{{appStrings.generated.child_loan.child_loan_child_check.successfully_submit}}',
                   'duration': 1800,
                 },
                 {'actionType': 'navigate', 'navigationStyle': 'pop'},
@@ -278,7 +316,7 @@ StacWidget _inquiryResultSection() {
             ),
           ).toJson(),
           child: StacText(
-            data: 'ثبت',
+            data: '{{appStrings.profile.real.destinations.submitTitle}}',
             textDirection: StacTextDirection.rtl,
             style: StacTextStyle(
               fontSize: 20,
@@ -421,7 +459,8 @@ StacWidget _ownershipSelectorField() {
                 'type': 'visibility',
                 'visible': '[[!childLoanOwnershipHasValue]]',
                 'child': StacText(
-                  data: 'نوع مالکیت را انتخاب نمایید',
+                  data:
+                      '{{appStrings.generated.child_loan.child_loan_guarantee_address.select}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacTextStyle(
                     fontSize: 16,
@@ -471,9 +510,15 @@ StacWidget _ownershipSelectorField() {
           child: StacColumn(
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
             children: [
-              _ownershipOption('مالک'),
-              _ownershipOption('استیجاری'),
-              _ownershipOption('سایر'),
+              _ownershipOption(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.owner_option}}',
+              ),
+              _ownershipOption(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.rental_option}}',
+              ),
+              _ownershipOption(
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.other_option}}',
+              ),
             ],
           ),
         ).toJson(),
@@ -528,7 +573,8 @@ StacWidget _documentPickerCard() {
         StacPadding(
           padding: StacEdgeInsets.all(16),
           child: StacText(
-            data: 'تصویر سند یا اجاره نامه محل سکونت',
+            data:
+                '{{appStrings.generated.child_loan.child_loan_guarantee_address.image_place}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
@@ -571,7 +617,7 @@ StacWidget _documentSourceRow() {
     mainAxisAlignment: StacMainAxisAlignment.spaceEvenly,
     children: [
       _pickerAction(
-        title: 'دوربین',
+        title: '{{appStrings.authentication.cameraLabel}}',
         iconPath: '{{appAssets.icons.cameraCurrent}}',
         source: 'camera',
       ),
@@ -581,7 +627,7 @@ StacWidget _documentSourceRow() {
         color: '{{appColors.current.input.borderEnabled}}',
       ),
       _pickerAction(
-        title: 'گالری',
+        title: '{{appStrings.authentication.galleryLabel}}',
         iconPath: '{{appAssets.icons.galleryCurrent}}',
         source: 'gallery',
       ),
@@ -641,7 +687,8 @@ StacWidget _uploadSuccessChip() {
         ),
         StacSizedBox(width: 6),
         StacText(
-          data: 'بارگذاری موفق',
+          data:
+              '{{appStrings.generated.child_loan.child_loan_child_check.upload_success}}',
           textDirection: StacTextDirection.rtl,
           style: StacTextStyle(
             fontSize: 12,
@@ -674,7 +721,8 @@ StacWidget _deleteDocumentButton() {
         ),
         StacSizedBox(width: 6),
         StacText(
-          data: 'حذف',
+          data:
+              '{{appStrings.generated.authentication.authentication_selfie.delete}}',
           textDirection: StacTextDirection.rtl,
           style: StacTextStyle(
             fontSize: 13,

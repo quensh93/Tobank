@@ -85,27 +85,16 @@ dynamic resolveVariablesPreservingTypes(dynamic json, StacRegistry registry) {
           );
         }
 
+        if (converted is String && converted.contains('{{')) {
+          return _resolveInlineVariables(converted, registry);
+        }
+
         return converted;
       }
       return json;
     }
 
-    return json.replaceAllMapped(RegExp(r'{{(.*?)}}'), (match) {
-      final variableName = match.group(1)?.trim();
-      var value = registry.getValue(variableName ?? '');
-
-      if (value == null &&
-          variableName != null &&
-          variableName.startsWith('appData.')) {
-        final formKey = variableName.replaceFirst('appData.', 'form.');
-        value = registry.getValue(formKey);
-        if (value != null) {
-          registry.setValue(variableName, value);
-        }
-      }
-
-      return value != null ? value.toString() : match.group(0) ?? '';
-    });
+    return _resolveInlineVariables(json, registry);
   } else if (json is Map<String, dynamic>) {
     if (json.containsKey('type') && json['type'] == 'alias') {
       final val = json['value'];
@@ -136,6 +125,25 @@ dynamic resolveVariablesPreservingTypes(dynamic json, StacRegistry registry) {
         .toList();
   }
   return json;
+}
+
+String _resolveInlineVariables(String value, StacRegistry registry) {
+  return value.replaceAllMapped(RegExp(r'{{(.*?)}}'), (match) {
+    final variableName = match.group(1)?.trim();
+    var resolved = registry.getValue(variableName ?? '');
+
+    if (resolved == null &&
+        variableName != null &&
+        variableName.startsWith('appData.')) {
+      final formKey = variableName.replaceFirst('appData.', 'form.');
+      resolved = registry.getValue(formKey);
+      if (resolved != null) {
+        registry.setValue(variableName, resolved);
+      }
+    }
+
+    return resolved != null ? resolved.toString() : match.group(0) ?? '';
+  });
 }
 
 /// Convert string representations back to their original types (numbers, bools).

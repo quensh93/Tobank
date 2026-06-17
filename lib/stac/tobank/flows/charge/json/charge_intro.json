@@ -25,7 +25,7 @@
       },
       {
         "key": "crSim1Operator",
-        "value": "همراه اول",
+        "value": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
         "condition": "!crChargeFlowInitialized"
       },
       {
@@ -45,7 +45,7 @@
       },
       {
         "key": "crSim2Operator",
-        "value": "همراه اول",
+        "value": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
         "condition": "!crChargeFlowInitialized"
       },
       {
@@ -65,7 +65,7 @@
       },
       {
         "key": "crSim3Operator",
-        "value": "ایرانسل",
+        "value": "{{appStrings.generated.charge.charge_add_sim.irancell_operator}}",
         "condition": "!crChargeFlowInitialized"
       },
       {
@@ -95,7 +95,7 @@
       },
       {
         "key": "crActiveSimOperator",
-        "value": "همراه اول",
+        "value": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
         "condition": "!crChargeFlowInitialized"
       },
       {
@@ -120,7 +120,7 @@
       },
       {
         "key": "crSheetOperator",
-        "value": "همراه اول",
+        "value": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
         "condition": "!crChargeFlowInitialized"
       },
       {
@@ -176,7 +176,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "شارژ",
+        "data": "{{appStrings.homePage.services.topUp}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -229,7 +229,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "سیم‌کارت‌ها",
+                  "data": "{{appStrings.generated.charge.charge_intro.title}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
@@ -291,7 +291,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "سیم‌کارت تکراری است",
+                                      "data": "{{appStrings.generated.charge.charge_intro.is_duplicate_sim_card}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.feedback.error}}",
@@ -579,7 +579,7 @@
                                               },
                                               {
                                                 "key": "crChargeSelectedPresetAmount",
-                                                "value": "۱۰۰,۰۰۰"
+                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}"
                                               }
                                             ]
                                           },
@@ -627,7 +627,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "مبلغ شارژ",
+                                                    "data": "{{appStrings.generated.card_management.card_management_root.amount_topup}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -667,7 +667,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۵۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -697,7 +697,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۵۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -756,27 +756,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -811,7 +811,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۱۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_text}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -841,7 +841,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۱۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_text}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -900,27 +900,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -955,7 +955,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۲۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_label}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -985,7 +985,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۲۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_label}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -1044,27 +1044,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -1105,7 +1105,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۵۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_message}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -1135,7 +1135,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۵۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_message}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -1194,27 +1194,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -1249,7 +1249,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۱,۰۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_item}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -1279,7 +1279,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۱,۰۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_item}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -1338,27 +1338,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -1392,14 +1392,14 @@
                                                           "textDirection": "rtl",
                                                           "textAlign": "center",
                                                           "decoration": {
-                                                            "hintText": "مبلغ دلخواه",
+                                                            "hintText": "{{appStrings.generated.charge.charge_intro.amount}}",
                                                             "hintStyle": {
                                                               "type": "custom",
                                                               "color": "#98A2B3",
                                                               "fontSize": 16.0,
                                                               "fontWeight": "w500"
                                                             },
-                                                            "prefixText": "ریال",
+                                                            "prefixText": "{{appStrings.common.rial}}",
                                                             "prefixStyle": {
                                                               "type": "custom",
                                                               "color": "#98A2B3",
@@ -1514,7 +1514,7 @@
                                                               "right": 6.0
                                                             },
                                                             "child": {
-                                                              "data": "مبلغ شارژ را وارد کنید.",
+                                                              "data": "{{appStrings.generated.charge.charge_intro.amount_topup_enter}}",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.feedback.error}}",
@@ -1546,7 +1546,7 @@
                                                     "textDirection": "rtl",
                                                     "children": [
                                                       {
-                                                        "data": "شارژ شگفت انگیز",
+                                                        "data": "{{appStrings.generated.charge.charge_intro.topup_text}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -1606,7 +1606,7 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰"
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}"
                                                               }
                                                             ]
                                                           },
@@ -1675,7 +1675,7 @@
                                                                 },
                                                                 {
                                                                   "key": "crPkgSelectedName",
-                                                                  "value": "شارژ {{crActiveSimOperator}}"
+                                                                  "value": "{{appStrings.generated.charge.charge_package_list.topup}}"
                                                                 }
                                                               ]
                                                             },
@@ -1707,7 +1707,7 @@
                                                           }
                                                         },
                                                         "child": {
-                                                          "data": "تایید و ادامه",
+                                                          "data": "{{appStrings.authentication.confirmAndContinue}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.primary.onPrimary}}",
@@ -1744,7 +1744,7 @@
                                                           }
                                                         },
                                                         "child": {
-                                                          "data": "تایید و ادامه",
+                                                          "data": "{{appStrings.authentication.confirmAndContinue}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.primary.onPrimary}}",
@@ -1774,7 +1774,7 @@
                                                               },
                                                               {
                                                                 "key": "crPkgSelectedName",
-                                                                "value": "شارژ {{crActiveSimOperator}}"
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.topup}}"
                                                               }
                                                             ]
                                                           },
@@ -1806,7 +1806,7 @@
                                                         }
                                                       },
                                                       "child": {
-                                                        "data": "تایید و ادامه",
+                                                        "data": "{{appStrings.authentication.confirmAndContinue}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.primary.onPrimary}}",
@@ -1965,7 +1965,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "ویرایش",
+                                                            "data": "{{appStrings.verifyOtp.edit}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -2169,7 +2169,7 @@
                                                                       }
                                                                     },
                                                                     "child": {
-                                                                      "data": "ذخیره",
+                                                                      "data": "{{appStrings.promissory.saveButton}}",
                                                                       "style": {
                                                                         "type": "custom",
                                                                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -2220,7 +2220,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "حذف کردن",
+                                                            "data": "{{appStrings.generated.charge.charge_intro.delete}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "#E31D35",
@@ -2283,7 +2283,7 @@
                                                       }
                                                     },
                                                     "child": {
-                                                      "data": "انصراف",
+                                                      "data": "{{appStrings.common.cancel}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -2574,7 +2574,7 @@
                                               },
                                               {
                                                 "key": "crChargeSelectedPresetAmount",
-                                                "value": "۱۰۰,۰۰۰"
+                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}"
                                               }
                                             ]
                                           },
@@ -2622,7 +2622,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "مبلغ شارژ",
+                                                    "data": "{{appStrings.generated.card_management.card_management_root.amount_topup}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2662,7 +2662,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۵۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -2692,7 +2692,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۵۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -2751,27 +2751,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -2806,7 +2806,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۱۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_text}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -2836,7 +2836,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۱۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_text}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -2895,27 +2895,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -2950,7 +2950,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۲۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_label}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -2980,7 +2980,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۲۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_label}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -3039,27 +3039,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -3100,7 +3100,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۵۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_message}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -3130,7 +3130,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۵۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_message}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -3189,27 +3189,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -3244,7 +3244,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۱,۰۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_item}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -3274,7 +3274,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۱,۰۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_item}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -3333,27 +3333,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -3387,14 +3387,14 @@
                                                           "textDirection": "rtl",
                                                           "textAlign": "center",
                                                           "decoration": {
-                                                            "hintText": "مبلغ دلخواه",
+                                                            "hintText": "{{appStrings.generated.charge.charge_intro.amount}}",
                                                             "hintStyle": {
                                                               "type": "custom",
                                                               "color": "#98A2B3",
                                                               "fontSize": 16.0,
                                                               "fontWeight": "w500"
                                                             },
-                                                            "prefixText": "ریال",
+                                                            "prefixText": "{{appStrings.common.rial}}",
                                                             "prefixStyle": {
                                                               "type": "custom",
                                                               "color": "#98A2B3",
@@ -3509,7 +3509,7 @@
                                                               "right": 6.0
                                                             },
                                                             "child": {
-                                                              "data": "مبلغ شارژ را وارد کنید.",
+                                                              "data": "{{appStrings.generated.charge.charge_intro.amount_topup_enter}}",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.feedback.error}}",
@@ -3541,7 +3541,7 @@
                                                     "textDirection": "rtl",
                                                     "children": [
                                                       {
-                                                        "data": "شارژ شگفت انگیز",
+                                                        "data": "{{appStrings.generated.charge.charge_intro.topup_text}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -3601,7 +3601,7 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰"
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}"
                                                               }
                                                             ]
                                                           },
@@ -3670,7 +3670,7 @@
                                                                 },
                                                                 {
                                                                   "key": "crPkgSelectedName",
-                                                                  "value": "شارژ {{crActiveSimOperator}}"
+                                                                  "value": "{{appStrings.generated.charge.charge_package_list.topup}}"
                                                                 }
                                                               ]
                                                             },
@@ -3702,7 +3702,7 @@
                                                           }
                                                         },
                                                         "child": {
-                                                          "data": "تایید و ادامه",
+                                                          "data": "{{appStrings.authentication.confirmAndContinue}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.primary.onPrimary}}",
@@ -3739,7 +3739,7 @@
                                                           }
                                                         },
                                                         "child": {
-                                                          "data": "تایید و ادامه",
+                                                          "data": "{{appStrings.authentication.confirmAndContinue}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.primary.onPrimary}}",
@@ -3769,7 +3769,7 @@
                                                               },
                                                               {
                                                                 "key": "crPkgSelectedName",
-                                                                "value": "شارژ {{crActiveSimOperator}}"
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.topup}}"
                                                               }
                                                             ]
                                                           },
@@ -3801,7 +3801,7 @@
                                                         }
                                                       },
                                                       "child": {
-                                                        "data": "تایید و ادامه",
+                                                        "data": "{{appStrings.authentication.confirmAndContinue}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.primary.onPrimary}}",
@@ -3960,7 +3960,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "ویرایش",
+                                                            "data": "{{appStrings.verifyOtp.edit}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -4164,7 +4164,7 @@
                                                                       }
                                                                     },
                                                                     "child": {
-                                                                      "data": "ذخیره",
+                                                                      "data": "{{appStrings.promissory.saveButton}}",
                                                                       "style": {
                                                                         "type": "custom",
                                                                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -4215,7 +4215,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "حذف کردن",
+                                                            "data": "{{appStrings.generated.charge.charge_intro.delete}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "#E31D35",
@@ -4278,7 +4278,7 @@
                                                       }
                                                     },
                                                     "child": {
-                                                      "data": "انصراف",
+                                                      "data": "{{appStrings.common.cancel}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -4569,7 +4569,7 @@
                                               },
                                               {
                                                 "key": "crChargeSelectedPresetAmount",
-                                                "value": "۱۰۰,۰۰۰"
+                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}"
                                               }
                                             ]
                                           },
@@ -4617,7 +4617,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "مبلغ شارژ",
+                                                    "data": "{{appStrings.generated.card_management.card_management_root.amount_topup}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -4657,7 +4657,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۵۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4687,7 +4687,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۵۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4746,27 +4746,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -4801,7 +4801,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۱۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_text}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4831,7 +4831,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۱۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_text}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4890,27 +4890,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -4945,7 +4945,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۲۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_label}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4975,7 +4975,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۲۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_label}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -5034,27 +5034,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -5095,7 +5095,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۵۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_message}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -5125,7 +5125,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۵۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_message}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -5184,27 +5184,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -5239,7 +5239,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۱,۰۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_item}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -5269,7 +5269,7 @@
                                                               },
                                                               "height": 54.0,
                                                               "child": {
-                                                                "data": "۱,۰۰۰,۰۰۰ ریال",
+                                                                "data": "{{appStrings.generated.charge.charge_intro.rial_item}}",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -5328,27 +5328,27 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                                                                 "condition": "crChargePreset50"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                                                                 "condition": "crChargePreset100"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۲۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                                                                 "condition": "crChargePreset200"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۵۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                                                                 "condition": "crChargePreset500"
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱,۰۰۰,۰۰۰",
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                                                                 "condition": "crChargePreset1000"
                                                               }
                                                             ]
@@ -5382,14 +5382,14 @@
                                                           "textDirection": "rtl",
                                                           "textAlign": "center",
                                                           "decoration": {
-                                                            "hintText": "مبلغ دلخواه",
+                                                            "hintText": "{{appStrings.generated.charge.charge_intro.amount}}",
                                                             "hintStyle": {
                                                               "type": "custom",
                                                               "color": "#98A2B3",
                                                               "fontSize": 16.0,
                                                               "fontWeight": "w500"
                                                             },
-                                                            "prefixText": "ریال",
+                                                            "prefixText": "{{appStrings.common.rial}}",
                                                             "prefixStyle": {
                                                               "type": "custom",
                                                               "color": "#98A2B3",
@@ -5504,7 +5504,7 @@
                                                               "right": 6.0
                                                             },
                                                             "child": {
-                                                              "data": "مبلغ شارژ را وارد کنید.",
+                                                              "data": "{{appStrings.generated.charge.charge_intro.amount_topup_enter}}",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.feedback.error}}",
@@ -5536,7 +5536,7 @@
                                                     "textDirection": "rtl",
                                                     "children": [
                                                       {
-                                                        "data": "شارژ شگفت انگیز",
+                                                        "data": "{{appStrings.generated.charge.charge_intro.topup_text}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -5596,7 +5596,7 @@
                                                               },
                                                               {
                                                                 "key": "crChargeSelectedPresetAmount",
-                                                                "value": "۱۰۰,۰۰۰"
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.title}}"
                                                               }
                                                             ]
                                                           },
@@ -5665,7 +5665,7 @@
                                                                 },
                                                                 {
                                                                   "key": "crPkgSelectedName",
-                                                                  "value": "شارژ {{crActiveSimOperator}}"
+                                                                  "value": "{{appStrings.generated.charge.charge_package_list.topup}}"
                                                                 }
                                                               ]
                                                             },
@@ -5697,7 +5697,7 @@
                                                           }
                                                         },
                                                         "child": {
-                                                          "data": "تایید و ادامه",
+                                                          "data": "{{appStrings.authentication.confirmAndContinue}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.primary.onPrimary}}",
@@ -5734,7 +5734,7 @@
                                                           }
                                                         },
                                                         "child": {
-                                                          "data": "تایید و ادامه",
+                                                          "data": "{{appStrings.authentication.confirmAndContinue}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.primary.onPrimary}}",
@@ -5764,7 +5764,7 @@
                                                               },
                                                               {
                                                                 "key": "crPkgSelectedName",
-                                                                "value": "شارژ {{crActiveSimOperator}}"
+                                                                "value": "{{appStrings.generated.charge.charge_package_list.topup}}"
                                                               }
                                                             ]
                                                           },
@@ -5796,7 +5796,7 @@
                                                         }
                                                       },
                                                       "child": {
-                                                        "data": "تایید و ادامه",
+                                                        "data": "{{appStrings.authentication.confirmAndContinue}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.primary.onPrimary}}",
@@ -5955,7 +5955,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "ویرایش",
+                                                            "data": "{{appStrings.verifyOtp.edit}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -6159,7 +6159,7 @@
                                                                       }
                                                                     },
                                                                     "child": {
-                                                                      "data": "ذخیره",
+                                                                      "data": "{{appStrings.promissory.saveButton}}",
                                                                       "style": {
                                                                         "type": "custom",
                                                                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -6210,7 +6210,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "حذف کردن",
+                                                            "data": "{{appStrings.generated.charge.charge_intro.delete}}",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "#E31D35",
@@ -6273,7 +6273,7 @@
                                                       }
                                                     },
                                                     "child": {
-                                                      "data": "انصراف",
+                                                      "data": "{{appStrings.common.cancel}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -6328,7 +6328,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "شارژی نخریده‌اید",
+                            "data": "{{appStrings.generated.charge.charge_intro.empty_topup_message}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -6344,7 +6344,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "اولین شارژ خود را بخرید",
+                            "data": "{{appStrings.generated.charge.charge_intro.topup}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.subtitle}}",
@@ -6412,7 +6412,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "شارژ جدید",
+                            "data": "{{appStrings.generated.charge.charge_intro.new_topup}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.primary.onPrimary}}",
@@ -6526,7 +6526,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "پس از تایید، سیم‌کارت از لیست حذف خواهد شد.",
+                        "data": "{{appStrings.generated.charge.charge_intro.sim_card_confirm_delete_list}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -6574,7 +6574,7 @@
                                 }
                               },
                               "child": {
-                                "data": "انصراف",
+                                "data": "{{appStrings.common.cancel}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -6683,7 +6683,7 @@
                                 }
                               },
                               "child": {
-                                "data": "حذف کردن",
+                                "data": "{{appStrings.generated.charge.charge_intro.delete}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.primary.onPrimary}}",

@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "ضمانت سفته",
+      "data": "{{appStrings.promissory.guaranteePromissory}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -86,7 +86,7 @@
               "type": "sizedBox"
             },
             {
-              "data": "با انتخاب گزینه امضای سفته، امضاء شما پایین تصویر سفته به صورت الکترونیکی ثبت می‌شود و این عمل به منزله تایید درخواست و ثبت نهایی فرآیند است.",
+              "data": "{{appStrings.promissory.signInstructionsDetail}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
@@ -155,7 +155,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "از امضای ضمانت سفته مطمئن هستید؟",
+                      "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_sign_page.guarantee_promissory_signature}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -178,8 +178,8 @@
                           "child": {
                             "onPressed": {
                               "actionType": "fingerPrint",
-                              "title": "احراز هویت",
-                              "description": "لطفا برای ادامه امضای ضمانت سفته از اثر انگشت استفاده کنید",
+                              "title": "{{appStrings.menu.items.authentication}}",
+                              "description": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_sign_page.guarantee_promissory_continue_signature}}",
                               "onSuccess": {
                                 "actionType": "sequence",
                                 "actions": [
@@ -196,8 +196,8 @@
                               },
                               "onFailure": {
                                 "actionType": "showSnackBar",
-                                "title": "عدم احراز هویت",
-                                "description": "احراز هویت انجام نشد. لطفا دوباره تلاش کنید.",
+                                "title": "{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_failed_title}}",
+                                "description": "{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_try_again}}",
                                 "type": "error"
                               }
                             },
@@ -220,7 +220,7 @@
                               }
                             },
                             "child": {
-                              "data": "تایید",
+                              "data": "{{appStrings.common.confirm}}",
                               "style": {
                                 "type": "custom",
                                 "color": "#FFFFFF",
@@ -262,7 +262,7 @@
                               }
                             },
                             "child": {
-                              "data": "لغو",
+                              "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_intro.cancel}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -308,7 +308,7 @@
             }
           },
           "child": {
-            "data": "امضای سفته",
+            "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_sign_page.sign_promissory}}",
             "style": {
               "type": "custom",
               "color": "#FFFFFF",

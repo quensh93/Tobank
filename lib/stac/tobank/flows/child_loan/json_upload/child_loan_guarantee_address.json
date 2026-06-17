@@ -46,7 +46,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "تسهیلات فرزندآوری",
+        "data": "{{appStrings.generated.child_loan.child_loan_customer_check.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -92,7 +92,7 @@
           "crossAxisAlignment": "stretch",
           "children": [
             {
-              "data": "اطلاعات آدرس متقاضی",
+              "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.title}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
@@ -108,7 +108,7 @@
               "type": "sizedBox"
             },
             {
-              "data": "کاربر گرامی، لطفا اطلاعات محل سکونت خود را وارد و تصویر اصل سند یا اجاره نامه محل سکونت خود را بارگذاری نمایید.",
+              "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.upload_information_image_user_place}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.subtitle}}",
@@ -125,7 +125,7 @@
               "type": "sizedBox"
             },
             {
-              "data": "کد پستی محل سکونت متقاضی",
+              "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.postal_code_place}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
@@ -173,7 +173,7 @@
                       "textAlign": "center",
                       "textAlignVertical": "center",
                       "decoration": {
-                        "hintText": "کد پستی محل سکونت را وارد نمایید",
+                        "hintText": "{{appStrings.generated.child_loan.child_loan_guarantee_address.postal_code_place_enter}}",
                         "hintTextDirection": "rtl",
                         "hintTextAlign": "center",
                         "counterText": "",
@@ -245,7 +245,7 @@
                       }
                     },
                     "child": {
-                      "data": "استعلام",
+                      "data": "{{appStrings.profile.real.bankInfo.inquiryButtonText}}",
                       "style": {
                         "type": "custom",
                         "color": "#FFFFFF",
@@ -294,7 +294,7 @@
                       "crossAxisAlignment": "stretch",
                       "children": [
                         {
-                          "data": "استان",
+                          "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.province}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -329,7 +329,7 @@
                             }
                           },
                           "child": {
-                            "data": "تهران",
+                            "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.subtitle}}",
@@ -347,7 +347,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "شهر",
+                          "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.city}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -382,7 +382,7 @@
                             }
                           },
                           "child": {
-                            "data": "تهران",
+                            "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.subtitle}}",
@@ -400,7 +400,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "شهرستان",
+                          "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.county}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -435,7 +435,7 @@
                             }
                           },
                           "child": {
-                            "data": "تهران",
+                            "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.subtitle}}",
@@ -453,7 +453,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "خیابان اصلی",
+                          "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street_main}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -497,7 +497,7 @@
                                   "textDirection": "rtl",
                                   "textAlign": "right",
                                   "decoration": {
-                                    "hintText": "خیابان اصلی ضامن را وارد نمایید",
+                                    "hintText": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street_main_enter}}",
                                     "hintStyle": {
                                       "fontSize": 14,
                                       "fontWeight": "w500",
@@ -525,7 +525,7 @@
                                     "fontWeight": "w600",
                                     "color": "{{appColors.current.text.title}}"
                                   },
-                                  "initialValue": "شهرک صدرا خیابان چهل و نهم"
+                                  "initialValue": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street_city}}"
                                 },
                                 "type": "expanded"
                               },
@@ -559,7 +559,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "خیابان فرعی",
+                          "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -603,7 +603,7 @@
                                   "textDirection": "rtl",
                                   "textAlign": "right",
                                   "decoration": {
-                                    "hintText": "خیابان فرعی خود را وارد نمایید",
+                                    "hintText": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.street_enter}}",
                                     "hintStyle": {
                                       "fontSize": 14,
                                       "fontWeight": "w500",
@@ -631,7 +631,7 @@
                                     "fontWeight": "w600",
                                     "color": "{{appColors.current.text.title}}"
                                   },
-                                  "initialValue": "خیابان نصر پنجم"
+                                  "initialValue": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street_message}}"
                                 },
                                 "type": "expanded"
                               },
@@ -665,7 +665,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "پلاک",
+                          "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.plaque}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -709,7 +709,7 @@
                                   "textDirection": "rtl",
                                   "textAlign": "right",
                                   "decoration": {
-                                    "hintText": "پلاک خود را وارد نمایید",
+                                    "hintText": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.plaque_enter}}",
                                     "hintStyle": {
                                       "fontSize": 14,
                                       "fontWeight": "w500",
@@ -737,7 +737,7 @@
                                     "fontWeight": "w600",
                                     "color": "{{appColors.current.text.title}}"
                                   },
-                                  "initialValue": "۷۵"
+                                  "initialValue": "{{appStrings.generated.child_loan.child_loan_guarantee_address.number_value}}"
                                 },
                                 "type": "expanded"
                               },
@@ -771,7 +771,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "واحد",
+                          "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.unit}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -815,7 +815,7 @@
                                   "textDirection": "rtl",
                                   "textAlign": "right",
                                   "decoration": {
-                                    "hintText": "واحد ضامن را وارد کنید",
+                                    "hintText": "{{appStrings.generated.child_loan.child_loan_guarantee_address.unit_enter_message}}",
                                     "hintStyle": {
                                       "fontSize": 14,
                                       "fontWeight": "w500",
@@ -843,7 +843,7 @@
                                     "fontWeight": "w600",
                                     "color": "{{appColors.current.text.title}}"
                                   },
-                                  "initialValue": "۲"
+                                  "initialValue": "{{appStrings.generated.child_loan.child_loan_guarantee_address.number_value_text}}"
                                 },
                                 "type": "expanded"
                               },
@@ -877,7 +877,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "نوع مالکیت",
+                          "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.ownership_type_label}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -923,7 +923,7 @@
                                       "type": "visibility",
                                       "visible": "[[!childLoanOwnershipHasValue]]",
                                       "child": {
-                                        "data": "نوع مالکیت را انتخاب نمایید",
+                                        "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.select}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.subtitle}}",
@@ -1005,7 +1005,7 @@
                                           "bottom": 14.0
                                         },
                                         "child": {
-                                          "data": "مالک",
+                                          "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.owner_option}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1024,7 +1024,7 @@
                                           {
                                             "actionType": "setValue",
                                             "key": "childLoanOwnershipValue",
-                                            "value": "مالک"
+                                            "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.owner_option}}"
                                           },
                                           {
                                             "actionType": "setValue",
@@ -1049,7 +1049,7 @@
                                           "bottom": 14.0
                                         },
                                         "child": {
-                                          "data": "استیجاری",
+                                          "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.rental_option}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1068,7 +1068,7 @@
                                           {
                                             "actionType": "setValue",
                                             "key": "childLoanOwnershipValue",
-                                            "value": "استیجاری"
+                                            "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.rental_option}}"
                                           },
                                           {
                                             "actionType": "setValue",
@@ -1093,7 +1093,7 @@
                                           "bottom": 14.0
                                         },
                                         "child": {
-                                          "data": "سایر",
+                                          "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.other_option}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1112,7 +1112,7 @@
                                           {
                                             "actionType": "setValue",
                                             "key": "childLoanOwnershipValue",
-                                            "value": "سایر"
+                                            "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.other_option}}"
                                           },
                                           {
                                             "actionType": "setValue",
@@ -1165,7 +1165,7 @@
                                   "bottom": 16.0
                                 },
                                 "child": {
-                                  "data": "تصویر سند یا اجاره نامه محل سکونت",
+                                  "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.image_place}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -1216,7 +1216,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "دوربین",
+                                                  "data": "{{appStrings.authentication.cameraLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -1272,7 +1272,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "گالری",
+                                                  "data": "{{appStrings.authentication.galleryLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -1383,7 +1383,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بارگذاری موفق",
+                                                      "data": "{{appStrings.generated.child_loan.child_loan_child_check.upload_success}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.secondary.color}}",
@@ -1418,7 +1418,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "حذف",
+                                                  "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -1474,8 +1474,8 @@
                     "enabledKey": "childLoanPostalInquirySuccess",
                     "onPressed": {
                       "actionType": "fingerPrint",
-                      "title": "احراز هویت",
-                      "description": "لطفا برای ادامه از اثر انگشت استفاده کنید",
+                      "title": "{{appStrings.menu.items.authentication}}",
+                      "description": "{{appStrings.generated.child_loan.child_loan_child_check.continue}}",
                       "onSuccess": {
                         "actionType": "sequence",
                         "actions": [
@@ -1486,8 +1486,8 @@
                           },
                           {
                             "actionType": "snackbar",
-                            "title": "ثبت",
-                            "detail": "مرحله با موفقیت ثبت شد",
+                            "title": "{{appStrings.profile.real.destinations.submitTitle}}",
+                            "detail": "{{appStrings.generated.child_loan.child_loan_child_check.successfully_submit}}",
                             "duration": 1800
                           },
                           {
@@ -1514,7 +1514,7 @@
                       }
                     },
                     "child": {
-                      "data": "ثبت",
+                      "data": "{{appStrings.profile.real.destinations.submitTitle}}",
                       "style": {
                         "type": "custom",
                         "color": "#FFFFFF",

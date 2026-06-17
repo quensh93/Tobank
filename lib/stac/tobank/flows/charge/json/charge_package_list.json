@@ -60,7 +60,7 @@
           },
           {
             "key": "crChargeSelectedPresetAmount",
-            "value": "۱۰۰,۰۰۰"
+            "value": "{{appStrings.generated.charge.charge_package_list.title}}"
           }
         ]
       },
@@ -108,7 +108,7 @@
                 "type": "sizedBox"
               },
               {
-                "data": "مبلغ شارژ",
+                "data": "{{appStrings.generated.card_management.card_management_root.amount_topup}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.title}}",
@@ -148,7 +148,7 @@
                           },
                           "height": 54.0,
                           "child": {
-                            "data": "۵۰,۰۰۰ ریال",
+                            "data": "{{appStrings.generated.charge.charge_intro.rial}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -178,7 +178,7 @@
                           },
                           "height": 54.0,
                           "child": {
-                            "data": "۵۰,۰۰۰ ریال",
+                            "data": "{{appStrings.generated.charge.charge_intro.rial}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -237,27 +237,27 @@
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۵۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                             "condition": "crChargePreset50"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۱۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                             "condition": "crChargePreset100"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۲۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                             "condition": "crChargePreset200"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۵۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                             "condition": "crChargePreset500"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۱,۰۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                             "condition": "crChargePreset1000"
                           }
                         ]
@@ -292,7 +292,7 @@
                           },
                           "height": 54.0,
                           "child": {
-                            "data": "۱۰۰,۰۰۰ ریال",
+                            "data": "{{appStrings.generated.charge.charge_intro.rial_text}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -322,7 +322,7 @@
                           },
                           "height": 54.0,
                           "child": {
-                            "data": "۱۰۰,۰۰۰ ریال",
+                            "data": "{{appStrings.generated.charge.charge_intro.rial_text}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -381,27 +381,27 @@
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۵۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                             "condition": "crChargePreset50"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۱۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                             "condition": "crChargePreset100"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۲۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                             "condition": "crChargePreset200"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۵۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                             "condition": "crChargePreset500"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۱,۰۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                             "condition": "crChargePreset1000"
                           }
                         ]
@@ -436,7 +436,7 @@
                           },
                           "height": 54.0,
                           "child": {
-                            "data": "۲۰۰,۰۰۰ ریال",
+                            "data": "{{appStrings.generated.charge.charge_intro.rial_label}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -466,7 +466,7 @@
                           },
                           "height": 54.0,
                           "child": {
-                            "data": "۲۰۰,۰۰۰ ریال",
+                            "data": "{{appStrings.generated.charge.charge_intro.rial_label}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -525,27 +525,27 @@
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۵۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                             "condition": "crChargePreset50"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۱۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                             "condition": "crChargePreset100"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۲۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                             "condition": "crChargePreset200"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۵۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                             "condition": "crChargePreset500"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۱,۰۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                             "condition": "crChargePreset1000"
                           }
                         ]
@@ -586,7 +586,7 @@
                           },
                           "height": 54.0,
                           "child": {
-                            "data": "۵۰۰,۰۰۰ ریال",
+                            "data": "{{appStrings.generated.charge.charge_intro.rial_message}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -616,7 +616,7 @@
                           },
                           "height": 54.0,
                           "child": {
-                            "data": "۵۰۰,۰۰۰ ریال",
+                            "data": "{{appStrings.generated.charge.charge_intro.rial_message}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -675,27 +675,27 @@
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۵۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                             "condition": "crChargePreset50"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۱۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                             "condition": "crChargePreset100"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۲۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                             "condition": "crChargePreset200"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۵۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                             "condition": "crChargePreset500"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۱,۰۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                             "condition": "crChargePreset1000"
                           }
                         ]
@@ -730,7 +730,7 @@
                           },
                           "height": 54.0,
                           "child": {
-                            "data": "۱,۰۰۰,۰۰۰ ریال",
+                            "data": "{{appStrings.generated.charge.charge_intro.rial_item}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -760,7 +760,7 @@
                           },
                           "height": 54.0,
                           "child": {
-                            "data": "۱,۰۰۰,۰۰۰ ریال",
+                            "data": "{{appStrings.generated.charge.charge_intro.rial_item}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -819,27 +819,27 @@
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۵۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value}}",
                             "condition": "crChargePreset50"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۱۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.title}}",
                             "condition": "crChargePreset100"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۲۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_text}}",
                             "condition": "crChargePreset200"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۵۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_label}}",
                             "condition": "crChargePreset500"
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۱,۰۰۰,۰۰۰",
+                            "value": "{{appStrings.generated.charge.charge_package_list.amount_value_message}}",
                             "condition": "crChargePreset1000"
                           }
                         ]
@@ -873,14 +873,14 @@
                       "textDirection": "rtl",
                       "textAlign": "center",
                       "decoration": {
-                        "hintText": "مبلغ دلخواه",
+                        "hintText": "{{appStrings.generated.charge.charge_intro.amount}}",
                         "hintStyle": {
                           "type": "custom",
                           "color": "#98A2B3",
                           "fontSize": 16.0,
                           "fontWeight": "w500"
                         },
-                        "prefixText": "ریال",
+                        "prefixText": "{{appStrings.common.rial}}",
                         "prefixStyle": {
                           "type": "custom",
                           "color": "#98A2B3",
@@ -995,7 +995,7 @@
                           "right": 6.0
                         },
                         "child": {
-                          "data": "مبلغ شارژ را وارد کنید.",
+                          "data": "{{appStrings.generated.charge.charge_intro.amount_topup_enter}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.feedback.error}}",
@@ -1027,7 +1027,7 @@
                 "textDirection": "rtl",
                 "children": [
                   {
-                    "data": "شارژ شگفت انگیز",
+                    "data": "{{appStrings.generated.charge.charge_intro.topup_text}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -1087,7 +1087,7 @@
                           },
                           {
                             "key": "crChargeSelectedPresetAmount",
-                            "value": "۱۰۰,۰۰۰"
+                            "value": "{{appStrings.generated.charge.charge_package_list.title}}"
                           }
                         ]
                       },
@@ -1156,7 +1156,7 @@
                             },
                             {
                               "key": "crPkgSelectedName",
-                              "value": "شارژ {{crActiveSimOperator}}"
+                              "value": "{{appStrings.generated.charge.charge_package_list.topup}}"
                             }
                           ]
                         },
@@ -1188,7 +1188,7 @@
                       }
                     },
                     "child": {
-                      "data": "تایید و ادامه",
+                      "data": "{{appStrings.authentication.confirmAndContinue}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -1225,7 +1225,7 @@
                       }
                     },
                     "child": {
-                      "data": "تایید و ادامه",
+                      "data": "{{appStrings.authentication.confirmAndContinue}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -1255,7 +1255,7 @@
                           },
                           {
                             "key": "crPkgSelectedName",
-                            "value": "شارژ {{crActiveSimOperator}}"
+                            "value": "{{appStrings.generated.charge.charge_package_list.topup}}"
                           }
                         ]
                       },
@@ -1287,7 +1287,7 @@
                     }
                   },
                   "child": {
-                    "data": "تایید و ادامه",
+                    "data": "{{appStrings.authentication.confirmAndContinue}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.primary.onPrimary}}",
@@ -1330,7 +1330,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "شارژ",
+        "data": "{{appStrings.homePage.services.topUp}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -1377,7 +1377,7 @@
           "crossAxisAlignment": "stretch",
           "children": [
             {
-              "data": "شماره سیم کارت اعتباری را وارد کنید",
+              "data": "{{appStrings.generated.charge.charge_add_sim.title}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",

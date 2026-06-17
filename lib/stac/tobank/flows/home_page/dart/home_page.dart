@@ -1,4 +1,4 @@
-﻿// ignore_for_file: unused_element
+// ignore_for_file: unused_element
 import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -61,6 +61,12 @@ StacWidget tobankHomePageDart() {
   );
 }
 
+String _homeString(String key) => '{{appStrings.homePage.$key}}';
+
+String _commonString(String key) => '{{appStrings.common.$key}}';
+
+String _menuString(String key) => '{{appStrings.menu.$key}}';
+
 StacWidget _buildHeader() {
   return StacRow(
     mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
@@ -110,7 +116,7 @@ StacWidget _buildTopTabs() {
     children: [
       _buildTopTab(
         isSelectedKey: 'homePage.tab.services',
-        label: 'خدمات',
+        label: _homeString('tabs.services'),
         iconPath: '{{appAssets.current.icons.other}}',
         selectedIconPath: '{{appAssets.current.icons.otherSelected}}',
         action: _buildTabAction(
@@ -123,7 +129,7 @@ StacWidget _buildTopTabs() {
       _buildTabDivider(),
       _buildTopTab(
         isSelectedKey: 'homePage.tab.investment',
-        label: 'سرمایه‌گذاری',
+        label: _homeString('tabs.investment'),
         iconPath: '{{appAssets.current.icons.finance}}',
         selectedIconPath: '{{appAssets.current.icons.financeSelected}}',
         action: _buildTabAction(
@@ -136,7 +142,7 @@ StacWidget _buildTopTabs() {
       _buildTabDivider(),
       _buildTopTab(
         isSelectedKey: 'homePage.tab.cards',
-        label: 'کارت‌ها',
+        label: _homeString('tabs.cards'),
         iconPath: '{{appAssets.current.icons.card}}',
         selectedIconPath: '{{appAssets.current.icons.cardSelected}}',
         action: _buildTabAction(
@@ -149,7 +155,7 @@ StacWidget _buildTopTabs() {
       _buildTabDivider(),
       _buildTopTab(
         isSelectedKey: 'homePage.tab.deposits',
-        label: 'سپرده‌ها',
+        label: _homeString('tabs.deposits'),
         iconPath: '{{appAssets.current.icons.storedDeposit}}',
         selectedIconPath: '{{appAssets.current.icons.depositSelected}}',
         action: _buildTabAction(
@@ -335,11 +341,11 @@ StacWidget _buildServicesTab() {
           children: [
             _buildServicesRow(
               first: _buildServiceGridItem(
-                label: 'چک صیادی',
+                label: _homeString('services.sayadiCheck'),
                 iconPath: '{{appAssets.current.icons.checkReceive}}',
               ),
               second: _buildServiceGridItem(
-                label: 'شارژ',
+                label: _homeString('services.topUp'),
                 iconPath: '{{appAssets.current.icons.simCharge}}',
                 onTap: const StacSequenceAction(
                   actions: [
@@ -356,7 +362,7 @@ StacWidget _buildServicesTab() {
                 ),
               ),
               third: _buildServiceGridItem(
-                label: 'بسته اینترنت',
+                label: _homeString('services.internetPackage'),
                 iconPath: '{{appAssets.current.icons.internet}}',
                 onTap: const StacSequenceAction(
                   actions: [
@@ -373,7 +379,7 @@ StacWidget _buildServicesTab() {
                 ),
               ),
               fourth: _buildServiceGridItem(
-                label: 'خدمات سفر',
+                label: _homeString('services.travelServices'),
                 iconPath: '{{appAssets.current.icons.megagasht}}',
                 onTap: NavigationAction(
                   fileName: 'tobank_travel_services_page',
@@ -385,7 +391,7 @@ StacWidget _buildServicesTab() {
             StacSizedBox(height: 16),
             _buildServicesRow(
               first: _buildServiceGridItem(
-                label: 'کارت هدیه',
+                label: _homeString('services.giftCard'),
                 iconPath: '{{appAssets.current.icons.giftCard}}',
                 onTap: NavigationAction(
                   fileName: 'gift_card_intro',
@@ -394,11 +400,11 @@ StacWidget _buildServicesTab() {
                 ),
               ),
               second: _buildServiceGridItem(
-                label: 'قبض',
+                label: _homeString('services.bill'),
                 iconPath: '{{appAssets.current.icons.invoice}}',
               ),
               third: _buildServiceGridItem(
-                label: 'پذیرندگی',
+                label: _homeString('services.acceptor'),
                 iconPath: '{{appAssets.current.icons.acceptor}}',
                 onTap: NavigationAction(
                   fileName: 'tobank_acceptor_services_page',
@@ -538,7 +544,7 @@ StacWidget _buildInvestmentTab() {
               ),
               StacSizedBox(height: 12),
               StacText(
-                data: 'صندوق سرمایه‌گذاری',
+                data: _homeString('investment.title'),
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.center,
                 style: StacCustomTextStyle(
@@ -548,9 +554,11 @@ StacWidget _buildInvestmentTab() {
                 ),
               ),
               StacSizedBox(height: 20),
-              _buildInvestmentFeature('معاف از مالیات'),
+              _buildInvestmentFeature(_homeString('investment.featureTaxFree')),
               StacSizedBox(height: 14),
-              _buildInvestmentFeature('تحت مجوز و نظارت سازمان بورس'),
+              _buildInvestmentFeature(
+                _homeString('investment.featureUnderSupervision'),
+              ),
               StacSizedBox(height: 34),
               StacFilledButton(
                 onPressed: const StacCustomSetValueAction(
@@ -571,7 +579,7 @@ StacWidget _buildInvestmentTab() {
                   elevation: 0,
                 ),
                 child: StacText(
-                  data: 'شروع سرمایه گذاری',
+                  data: _homeString('investment.startButton'),
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 16,
@@ -637,33 +645,38 @@ StacWidget _buildCardsTab() {
           walletCard: _buildWalletCardWithHandle().toJson(),
           cards: [
             _buildBankCardItem(
-              cardNumber: '۵۵۰۴ ۱۶۱۷ ۰۲۸۲ ۲۳۳۳',
-              subtitle: 'حساب قرض الحسنه گردشگری',
+              cardNumber: '{{appStrings.generated.home_page.home_page.title}}',
+              subtitle: _homeString('cards.cardSubtitle'),
               selectedIndex: 1,
             ).toJson(),
             _buildBankCardItem(
-              cardNumber: '۵۵۰۴ ۱۶۱۷ ۰۵۰۳ ۰۶۰۳',
-              subtitle: 'حساب قرض الحسنه گردشگری',
+              cardNumber:
+                  '{{appStrings.generated.home_page.home_page.card_number}}',
+              subtitle: _homeString('cards.cardSubtitle'),
               selectedIndex: 3,
             ).toJson(),
             _buildBankCardItem(
-              cardNumber: '۵۵۰۴ ۱۶۶۰ ۱۱۶۵ ۰۶۳۴',
-              subtitle: 'حساب قرض الحسنه گردشگری',
+              cardNumber:
+                  '{{appStrings.generated.home_page.home_page.card_number_text}}',
+              subtitle: _homeString('cards.cardSubtitle'),
               selectedIndex: 2,
             ).toJson(),
             _buildBankCardItem(
-              cardNumber: '۵۵۰۴ ۱۶۷۸ ۳۴۹۱ ۶۲۴۰',
-              subtitle: 'حساب قرض الحسنه گردشگری',
+              cardNumber:
+                  '{{appStrings.generated.home_page.home_page.card_number_label}}',
+              subtitle: _homeString('cards.cardSubtitle'),
               selectedIndex: 4,
             ).toJson(),
             _buildBankCardItem(
-              cardNumber: '۵۰۲۲ ۲۲۹۸ ۷۷۴۵ ۱۲۰۱',
-              subtitle: 'حساب قرض الحسنه گردشگری',
+              cardNumber:
+                  '{{appStrings.generated.home_page.home_page.card_number_message}}',
+              subtitle: _homeString('cards.cardSubtitle'),
               selectedIndex: 5,
             ).toJson(),
             _buildBankCardItem(
-              cardNumber: '۵۸۹۲ ۱۰۱۰ ۶۵۴۳ ۷۹۹۸',
-              subtitle: 'حساب قرض الحسنه گردشگری',
+              cardNumber:
+                  '{{appStrings.generated.home_page.home_page.card_number_item}}',
+              subtitle: _homeString('cards.cardSubtitle'),
               selectedIndex: 5,
             ).toJson(),
           ],
@@ -736,7 +749,7 @@ StacWidget _buildWalletCard() {
                   mainAxisAlignment: StacMainAxisAlignment.end,
                   children: [
                     StacText(
-                      data: 'کیف پول توبانک',
+                      data: _homeString('cards.walletTitle'),
                       textDirection: StacTextDirection.rtl,
                       textAlign: StacTextAlign.right,
                       style: StacCustomTextStyle(
@@ -757,7 +770,8 @@ StacWidget _buildWalletCard() {
                     textDirection: StacTextDirection.rtl,
                     children: [
                       StacText(
-                        data: '۳۳,۲۲۲',
+                        data:
+                            '{{appStrings.generated.home_page.home_page.amount_value}}',
                         textDirection: StacTextDirection.rtl,
                         style: StacCustomTextStyle(
                           fontSize: 18,
@@ -767,7 +781,7 @@ StacWidget _buildWalletCard() {
                       ),
                       StacSizedBox(width: 6),
                       StacText(
-                        data: 'ریال',
+                        data: _commonString('rial'),
                         textDirection: StacTextDirection.rtl,
                         style: StacCustomTextStyle(
                           fontSize: 18 / 1.5,
@@ -858,7 +872,7 @@ StacWidget _buildBankCardItem({
                   ),
                   StacSizedBox(width: 8),
                   StacText(
-                    data: 'بانک‌گردشگری',
+                    data: _homeString('cards.bankTitle'),
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 14,
@@ -957,7 +971,7 @@ StacWidget _buildDepositsTab() {
       ),
       StacSizedBox(height: 24),
       StacText(
-        data: 'خدمات ویژه توبانک',
+        data: _homeString('deposits.specialServicesTitle'),
         textDirection: StacTextDirection.rtl,
         textAlign: StacTextAlign.right,
         style: StacCustomTextStyle(
@@ -971,8 +985,8 @@ StacWidget _buildDepositsTab() {
         children: [
           StacExpanded(
             child: _buildServiceCard(
-              title: 'سایر خدمات',
-              subtitle: 'سفته الکترونیک ...',
+              title: _homeString('deposits.otherServicesTitle'),
+              subtitle: _homeString('deposits.otherServicesSubtitle'),
               iconPath: '{{appAssets.current.icons.promissory}}',
               onTap: NavigationAction(
                 fileName: 'tobank_special_services_page',
@@ -984,8 +998,8 @@ StacWidget _buildDepositsTab() {
           StacSizedBox(width: 12),
           StacExpanded(
             child: _buildServiceCard(
-              title: 'انواع تسهیلات',
-              subtitle: 'ازدواج، کارت اعتباری ...',
+              title: _homeString('deposits.facilitiesTitle'),
+              subtitle: _homeString('deposits.facilitiesSubtitle'),
               iconPath: '{{appAssets.current.icons.creditCard}}',
               onTap: NavigationAction(
                 fileName: 'tobank_facilities_page',
@@ -1022,8 +1036,7 @@ StacWidget _buildUnauthenticatedDepositsState() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           StacText(
-            data:
-                'کاربر گرامی، برای فعال سازی خدمات مرتبط با سپرده‌های بانک گردشگری، لطفا فرآیند احراز هویت را تکمیل نمایید.',
+            data: _homeString('deposits.unauthenticatedMessage'),
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -1052,7 +1065,7 @@ StacWidget _buildUnauthenticatedDepositsState() {
               ),
             ),
             child: StacText(
-              data: 'احراز هویت',
+              data: _menuString('items.authentication'),
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 14,
@@ -1089,8 +1102,7 @@ StacWidget _buildAuthCardPage() {
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
           children: [
             StacText(
-              data:
-                  'کاربر گرامی، برای فعال سازی خدمات مرتبط با سپرده‌های بانک گردشگری، لطفا فرآیند احراز هویت را تکمیل نمایید.',
+              data: _homeString('deposits.unauthenticatedMessage'),
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.center,
               style: StacCustomTextStyle(
@@ -1118,7 +1130,7 @@ StacWidget _buildAuthCardPage() {
                 ),
               ),
               child: StacText(
-                data: 'احراز هویت',
+                data: _menuString('items.authentication'),
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 16,
@@ -1147,15 +1159,15 @@ StacWidget _buildAuthenticatedDepositsState() {
       _buildCreateDepositCard().toJson(),
       _buildExistingDepositCard(
         accountNumber: '110.55.4203401',
-        accountTitle: 'حساب قرض الحسنه جاری توبانک',
+        accountTitle: _homeString('deposits.accounts.firstTitle'),
       ).toJson(),
       _buildExistingDepositCard(
         accountNumber: '110.79.1754212',
-        accountTitle: 'حساب قرض الحسنه جاری سپرده دوم',
+        accountTitle: _homeString('deposits.accounts.secondTitle'),
       ).toJson(),
       _buildExistingDepositCard(
         accountNumber: '110.79.1755809.1',
-        accountTitle: 'حساب قرض الحسنه جاری حقیقی توبانک',
+        accountTitle: _homeString('deposits.accounts.thirdTitle'),
       ).toJson(),
     ],
   );
@@ -1193,7 +1205,7 @@ StacWidget _buildCreateDepositCard() {
                 ),
                 StacSizedBox(width: 8),
                 StacText(
-                  data: 'افتتاح سپرده بانک گردشگری',
+                  data: _homeString('deposits.createTitle'),
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 16,
@@ -1216,7 +1228,7 @@ StacWidget _buildCreateDepositCard() {
                 ),
                 StacSizedBox(width: 8),
                 StacText(
-                  data: 'کوتاه مدت، قرض الحسنه پس انداز، بلندمدت و ...',
+                  data: _homeString('deposits.createSubtitle'),
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 14,
@@ -1242,7 +1254,7 @@ StacWidget _buildCreateDepositCard() {
                 textDirection: StacTextDirection.rtl,
                 children: [
                   StacText(
-                    data: 'افتتاح سپرده',
+                    data: _homeString('deposits.createButton'),
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 16,
@@ -1402,7 +1414,7 @@ StacWidget _buildDepositBalanceRow() {
           ),
           StacSizedBox(width: 1),
           StacText(
-            data: 'ریال',
+            data: _commonString('rial'),
             textDirection: StacTextDirection.rtl,
             style: StacCustomTextStyle(
               fontSize: 18,
@@ -1449,7 +1461,7 @@ StacWidget _buildQuickActionsRow({bool enabled = false}) {
       textDirection: StacTextDirection.rtl,
       children: [
         _buildQuickAction(
-          label: 'گردش سپرده',
+          label: _homeString('deposits.quickActions.turnover'),
           iconPath: '{{appAssets.current.icons.shareDeposit}}',
           enabled: enabled,
           onPressed: enabled
@@ -1457,7 +1469,7 @@ StacWidget _buildQuickActionsRow({bool enabled = false}) {
               : null,
         ),
         _buildQuickAction(
-          label: 'انتقال وجه',
+          label: _homeString('deposits.quickActions.transfer'),
           iconPath: '{{appAssets.current.icons.transferAmount}}',
           enabled: enabled,
           onPressed: enabled
@@ -1469,7 +1481,7 @@ StacWidget _buildQuickActionsRow({bool enabled = false}) {
               : null,
         ),
         _buildQuickAction(
-          label: 'بیشتر',
+          label: _homeString('deposits.quickActions.more'),
           iconPath: '{{appAssets.current.icons.more}}',
           enabled: enabled,
           onPressed: enabled
@@ -1547,15 +1559,15 @@ StacWidget _buildDisabledQuickActionsRow() {
         textDirection: StacTextDirection.rtl,
         children: [
           _buildDisabledQuickAction(
-            label: 'گردش سپرده',
+            label: _homeString('deposits.quickActions.turnover'),
             iconPath: '{{appAssets.current.icons.shareDeposit}}',
           ),
           _buildDisabledQuickAction(
-            label: 'انتقال وجه',
+            label: _homeString('deposits.quickActions.transfer'),
             iconPath: '{{appAssets.current.icons.transferAmount}}',
           ),
           _buildDisabledQuickAction(
-            label: 'بیشتر',
+            label: _homeString('deposits.quickActions.more'),
             iconPath: '{{appAssets.current.icons.more}}',
           ),
         ],

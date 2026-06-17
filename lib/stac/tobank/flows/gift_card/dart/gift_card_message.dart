@@ -25,7 +25,7 @@ StacWidget giftCardRealMessage() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'کارت هدیه',
+        title: '{{appStrings.homePage.services.giftCard}}',
       ),
       body: StacForm(
         child: StacColumn(
@@ -41,7 +41,7 @@ StacWidget giftCardRealMessage() {
                       textDirection: StacTextDirection.rtl,
                       children: [
                         StacText(
-                          data: 'کارت هدیه',
+                          data: '{{appStrings.homePage.services.giftCard}}',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.right,
                           style: StacCustomTextStyle(
@@ -86,7 +86,8 @@ StacWidget giftCardRealMessage() {
                         keyboardType: 'multiline',
                         textInputAction: 'newline',
                         decoration: StacInputDecoration(
-                          hintText: 'متن دلخواهتان را بنویسید (تا ۴۰ کاراکتر)',
+                          hintText:
+                              '{{appStrings.generated.gift_card.gift_card_image_selector.custom_message_hint}}',
                           hintStyle: StacCustomTextStyle(
                             fontSize: 16,
                             fontWeight: StacFontWeight.w500,
@@ -129,7 +130,8 @@ StacWidget giftCardRealMessage() {
                       textDirection: StacTextDirection.rtl,
                       children: [
                         StacText(
-                          data: 'متن پیش‌فرض جایگزین',
+                          data:
+                              '{{appStrings.generated.gift_card.gift_card_custom_message.default_replacement_text}}',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.right,
                           style: StacCustomTextStyle(
@@ -152,32 +154,36 @@ StacWidget giftCardRealMessage() {
                     ),
                     StacSizedBox(height: 14),
                     _buildPresetMessageCard(
-                      message: 'تولدت مبارک',
+                      message:
+                          '{{appStrings.generated.gift_card.gift_card_message.title}}',
                       selectedKey: 'giftCardRealMessageOption1Selected',
                       optionId: 1,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
-                      message: 'سالروز زمینی شدنت مبارک',
+                      message:
+                          '{{appStrings.generated.gift_card.gift_card_message.birthday_message_sample}}',
                       selectedKey: 'giftCardRealMessageOption2Selected',
                       optionId: 2,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
                       message:
-                          'روزی که تو به دنیا آمدی، قلبمان پر از شادی و عشق شد',
+                          '{{appStrings.generated.gift_card.gift_card_message.birthday_joy_message}}',
                       selectedKey: 'giftCardRealMessageOption3Selected',
                       optionId: 3,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
-                      message: 'چه فرخنده روزی است تولد زیباترین دختر دنیا',
+                      message:
+                          '{{appStrings.generated.gift_card.gift_card_message.birthday_daughter}}',
                       selectedKey: 'giftCardRealMessageOption4Selected',
                       optionId: 4,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
-                      message: 'امیدوارم روزگارت به زیبایی قلب مهربانت باشد',
+                      message:
+                          '{{appStrings.generated.gift_card.gift_card_message.heart}}',
                       selectedKey: 'giftCardRealMessageOption5Selected',
                       optionId: 5,
                     ),
@@ -236,7 +242,7 @@ StacWidget giftCardRealMessage() {
                   elevation: 0,
                 ).toJson(),
                 child: StacText(
-                  data: 'ادامه',
+                  data: '{{appStrings.common.continue}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 18,
@@ -256,10 +262,11 @@ StacWidget giftCardRealMessage() {
 StacAction _giftCardMessageGuideBottomSheetAction() {
   return _proxyLegacyBottomSheetAction(const {
     'actionType': 'showGiftCardMessageGuideBottomSheet',
-    'title': 'راهنما',
+    'title': '{{appStrings.authentication.guideLabel}}',
     'description':
-        'در صورت ورود متن دلخواه، یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود',
-    'closeText': 'بستن',
+        '{{appStrings.generated.gift_card.gift_card_message.select_login_text_until_bank_description}}',
+    'closeText':
+        '{{appStrings.generated.gift_card.gift_card_message.close_button}}',
   });
 }
 

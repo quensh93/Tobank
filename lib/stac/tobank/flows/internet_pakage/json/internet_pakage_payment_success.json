@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "اینترنت",
+      "data": "{{appStrings.generated.internet_pakage.internet_pakage_add_sim.title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -131,7 +131,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "پرداخت موفق",
+                          "data": "{{appStrings.promissory.paymentSuccessful}}",
                           "style": {
                             "type": "custom",
                             "color": "#17945A",
@@ -181,7 +181,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "مبلغ",
+                                  "data": "{{appStrings.generated.installment_payment.installment_payment_detail_main.amount_text}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -198,7 +198,7 @@
                                   "type": "expanded"
                                 },
                                 {
-                                  "data": "{{crPayReceiptAmount}} ریال",
+                                  "data": "{{appStrings.generated.internet_pakage.internet_pakage_payment_success.rial}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -227,7 +227,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "زمان تراکنش",
+                                  "data": "{{appStrings.promissory.transactionTime}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -273,7 +273,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "خدمت",
+                                  "data": "{{appStrings.generated.charge.charge_payment_success.service_label}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -319,7 +319,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "پرداخت از طریق",
+                                  "data": "{{appStrings.promissory.paidVia}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -365,7 +365,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "مبدا",
+                                  "data": "{{appStrings.generated.installment_payment.installment_payment_others_receipt.source_label}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -411,7 +411,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "شماره پیگیری",
+                                  "data": "{{appStrings.promissory.trackingNumber}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -472,7 +472,7 @@
                             "crossAxisAlignment": "stretch",
                             "children": [
                               {
-                                "data": "یک شعبه مجازی همراه شماست!",
+                                "data": "{{appStrings.profile.real.about.slogan}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -522,7 +522,7 @@
                   "onPressed": {
                     "actionType": "transferReceipt",
                     "mode": "shareText",
-                    "title": "رسید خرید بسته",
+                    "title": "{{appStrings.generated.internet_pakage.internet_pakage_payment_success.buy_package_receipt}}",
                     "pixelRatio": 3.0,
                     "boundaryKey": "packageRealReceiptContent"
                   },
@@ -562,7 +562,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "اشتراک‌گذاری",
+                        "data": "{{appStrings.generated.card_management.card_management_root.share}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -588,7 +588,7 @@
                   "onPressed": {
                     "actionType": "transferReceipt",
                     "mode": "shareImage",
-                    "title": "رسید خرید بسته",
+                    "title": "{{appStrings.generated.internet_pakage.internet_pakage_payment_success.buy_package_receipt}}",
                     "pixelRatio": 3.0,
                     "boundaryKey": "packageRealReceiptContent"
                   },
@@ -628,7 +628,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "ذخیره در گالری",
+                        "data": "{{appStrings.generated.charge.charge_payment_success.title}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",

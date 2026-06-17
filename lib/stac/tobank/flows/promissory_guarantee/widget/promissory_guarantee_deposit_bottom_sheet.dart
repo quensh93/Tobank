@@ -47,7 +47,8 @@ StacWidget promissoryGuaranteeDepositBottomSheet() {
                     crossAxisAlignment: StacCrossAxisAlignment.stretch,
                     children: [
                       StacText(
-                        data: 'سپرده خود را جهت ضمانت سفته انتخاب کنید:',
+                        data:
+                            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.guarantee_promissory_select_deposit}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacTextStyle(
@@ -60,7 +61,8 @@ StacWidget promissoryGuaranteeDepositBottomSheet() {
                       _depositCard(
                         selectedKey: 'promissoryGuaranteeDeposit1Selected',
                         depositId: '144.9966.763020.1',
-                        title: 'سپرده سرمایه گذاری کوتاه مدت علیرضا حیدریان',
+                        title:
+                            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.deposit}}',
                         shaba: 'IR9606400144996607630200001',
                         selectionValues: const [
                           {
@@ -82,7 +84,7 @@ StacWidget promissoryGuaranteeDepositBottomSheet() {
                         selectedKey: 'promissoryGuaranteeDeposit2Selected',
                         depositId: '132.70.763020.1',
                         title:
-                            'سپرده حقیقی حساب قرض الحسنه جاری حقیقی، ریالی علیرضا حیدریان',
+                            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.deposit_account_rial}}',
                         shaba: 'IR9606400132007007630200001',
                         selectionValues: const [
                           {
@@ -104,7 +106,7 @@ StacWidget promissoryGuaranteeDepositBottomSheet() {
                         selectedKey: 'promissoryGuaranteeDeposit3Selected',
                         depositId: '110.9992.763020.1',
                         title:
-                            'سپرده حقیقی سپرده سرمایه گذاری کوتاه مدت-حقیقی ریالی علیرضا حیدریان',
+                            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.deposit_rial}}',
                         shaba: 'IR6206400110999207630200001',
                         selectionValues: const [
                           {
@@ -160,7 +162,8 @@ StacWidget promissoryGuaranteeDepositBottomSheet() {
                   ),
                 ).toJson(),
                 child: StacText(
-                  data: 'ثبت ضمانت سفته',
+                  data:
+                      '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.guarantee_promissory_submit}}',
                   style: StacTextStyle(
                     fontSize: 18,
                     fontWeight: StacFontWeight.w700,
@@ -256,9 +259,15 @@ StacWidget _depositCardBody({
                       color: '{{appColors.current.input.borderEnabled}}',
                     ),
                     StacSizedBox(height: 16),
-                    _depositKeyValue('شماره سپرده', depositId),
+                    _depositKeyValue(
+                      '{{appStrings.generated.card_management.card_management_root.deposit_number}}',
+                      depositId,
+                    ),
                     StacSizedBox(height: 12),
-                    _depositKeyValue('شماره شبا', shaba),
+                    _depositKeyValue(
+                      '{{appStrings.generated.deposit_more_options.deposit_more_options_intro.iban_number}}',
+                      shaba,
+                    ),
                   ],
                 ),
               ),

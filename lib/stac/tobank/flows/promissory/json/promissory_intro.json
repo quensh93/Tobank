@@ -199,7 +199,7 @@
                                 },
                                 {
                                   "child": {
-                                    "data": "تکمیل شده",
+                                    "data": "{{appStrings.generated.promissory.promissory_intro.title}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -265,7 +265,7 @@
                                 },
                                 {
                                   "child": {
-                                    "data": "در انتظار تکمیل",
+                                    "data": "{{appStrings.generated.child_loan.child_loan_task_list.complete}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -385,7 +385,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "سفته الکترونیکی، یک سند تجاری است که به صورت الکترونیکی، صادر شده و به موجب آن، صادر‌کننده، پرداخت مبلغی را در قبال شخص دیگر، متعهد میشود",
+                                      "data": "{{appStrings.generated.promissory.promissory_intro.promissory_amount_issuer_payment_description}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",

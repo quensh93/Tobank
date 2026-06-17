@@ -35,7 +35,8 @@ StacWidget depositTurnoverIntro() {
                 ),
               ),
               child: StacText(
-                data: 'نمایش گردش سپرده',
+                data:
+                    '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.title}}',
                 style: StacTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
@@ -56,8 +57,16 @@ StacAction showDepositTurnoverBottomSheetAction() {
         values: [
           {'key': 'dtFilterLatestSelected', 'value': true},
           {'key': 'dtFilterTimeSelected', 'value': false},
-          {'key': 'dtFromDate', 'value': '۱۴۰۵/۰۱/۲۹'},
-          {'key': 'dtToDate', 'value': '۱۴۰۵/۰۲/۲۸'},
+          {
+            'key': 'dtFromDate',
+            'value':
+                '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_value}}',
+          },
+          {
+            'key': 'dtToDate',
+            'value':
+                '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_value_text}}',
+          },
         ],
       ),
       StacShowBottomSheetAction(
@@ -96,7 +105,7 @@ StacWidget _buildDepositTurnoverBottomSheet() {
           ),
           StacSizedBox(height: 24),
           StacText(
-            data: 'گردش سپرده',
+            data: '{{appStrings.homePage.deposits.quickActions.turnover}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -121,7 +130,8 @@ StacWidget _buildDepositTurnoverBottomSheet() {
               textDirection: StacTextDirection.rtl,
               children: [
                 StacText(
-                  data: 'شماره سپرده',
+                  data:
+                      '{{appStrings.generated.card_management.card_management_root.deposit_number}}',
                   style: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w500,
@@ -129,7 +139,8 @@ StacWidget _buildDepositTurnoverBottomSheet() {
                   ),
                 ),
                 StacText(
-                  data: '۱۴۴.۹۹۶۶.۷۶۳۰۲۰.۱',
+                  data:
+                      '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.amount_value}}',
                   textDirection: StacTextDirection.ltr,
                   style: StacCustomTextStyle(
                     fontSize: 16,
@@ -142,7 +153,8 @@ StacWidget _buildDepositTurnoverBottomSheet() {
           ),
           StacSizedBox(height: 22),
           StacText(
-            data: 'بر اساس',
+            data:
+                '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.based_on_label}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -156,7 +168,8 @@ StacWidget _buildDepositTurnoverBottomSheet() {
             children: [
               StacExpanded(
                 child: _filterOptionCard(
-                  label: 'گردش آخر ۱۰',
+                  label:
+                      '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.turnover}}',
                   selectedKey: 'dtFilterLatestSelected',
                   onTap: _selectLatestFilterAction(),
                 ),
@@ -164,7 +177,8 @@ StacWidget _buildDepositTurnoverBottomSheet() {
               StacSizedBox(width: 12),
               StacExpanded(
                 child: _filterOptionCard(
-                  label: 'بازه زمانی',
+                  label:
+                      '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_range_label}}',
                   selectedKey: 'dtFilterTimeSelected',
                   onTap: _selectTimeRangeFilterAction(),
                 ),
@@ -181,7 +195,8 @@ StacWidget _buildDepositTurnoverBottomSheet() {
                   children: [
                     StacExpanded(
                       child: StacText(
-                        data: 'تا تاریخ',
+                        data:
+                            '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_until}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
@@ -194,7 +209,8 @@ StacWidget _buildDepositTurnoverBottomSheet() {
                     StacSizedBox(width: 12),
                     StacExpanded(
                       child: StacText(
-                        data: 'از تاریخ',
+                        data:
+                            '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
@@ -244,7 +260,7 @@ StacWidget _buildDepositTurnoverBottomSheet() {
               ),
             ),
             child: StacText(
-              data: 'تایید و ادامه',
+              data: '{{appStrings.authentication.confirmAndContinue}}',
               style: StacTextStyle(
                 fontSize: 18,
                 fontWeight: StacFontWeight.w700,
@@ -259,8 +275,10 @@ StacWidget _buildDepositTurnoverBottomSheet() {
 
 StacAction _buildDepositTurnoverFingerPrintAction() {
   return const StacFingerPrintAction(
-    title: 'صدور اولیه رمز موبایل بانک',
-    description: 'لطفا برای ادامه از اثر انگشت استفاده کنید',
+    title:
+        '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.mobile_pin_bank}}',
+    description:
+        '{{appStrings.generated.child_loan.child_loan_child_check.continue}}',
     onSuccess: {
       'actionType': 'navigate',
       'fileName': 'deposit_turnover_transactions',
@@ -269,8 +287,10 @@ StacAction _buildDepositTurnoverFingerPrintAction() {
     },
     onFailure: {
       'actionType': 'showSnackBar',
-      'title': 'احراز هویت ناموفق بود',
-      'detail': 'لطفا دوباره تلاش کنید.',
+      'title':
+          '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.authentication_failed}}',
+      'detail':
+          '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.try_again}}',
       'type': 'error',
     },
   );
@@ -304,9 +324,10 @@ StacAction _openDepositDateRangePickerAction() {
     'actionType': 'persianDateRangePicker',
     'startDateKey': 'dtFromDate',
     'endDateKey': 'dtToDate',
-    'helpText': 'انتخاب بازه زمانی',
-    'confirmText': 'تایید',
-    'cancelText': 'انصراف',
+    'helpText':
+        '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.select}}',
+    'confirmText': '{{appStrings.common.confirm}}',
+    'cancelText': '{{appStrings.common.cancel}}',
     'firstDate': '1400/01/01',
     'lastDate': '1450/12/29',
   });

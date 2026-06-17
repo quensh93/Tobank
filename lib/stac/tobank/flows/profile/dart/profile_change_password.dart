@@ -8,7 +8,7 @@ StacWidget profileRealChangePassword() {
     appBar: buildTobankFlowAppBar(
       showSupport: true,
       showBack: true,
-      title: 'تغییر رمز عبور',
+      title: '{{appStrings.profile.real.changePassword.title}}',
     ),
     body: StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -20,29 +20,44 @@ StacWidget profileRealChangePassword() {
               crossAxisAlignment: StacCrossAxisAlignment.stretch,
               children: [
                 _passwordSection(
-                  label: 'رمز عبور فعلی',
+                  label:
+                      '{{appStrings.profile.real.changePassword.currentPasswordLabel}}',
                   fieldId: 'profileRealCurrentPassword',
-                  hint: 'رمز عبور فعلی را وارد کنید',
+                  hint:
+                      '{{appStrings.profile.real.changePassword.currentPasswordHint}}',
                   action: StacTextInputAction.next,
                 ),
                 StacSizedBox(height: 16),
                 _passwordSection(
-                  label: 'رمز عبور جدید',
+                  label:
+                      '{{appStrings.profile.real.changePassword.newPasswordLabel}}',
                   fieldId: 'profileRealNewPassword',
-                  hint: 'رمز عبور جدید را وارد کنید',
+                  hint:
+                      '{{appStrings.profile.real.changePassword.newPasswordHint}}',
                   action: StacTextInputAction.next,
                 ),
                 StacSizedBox(height: 12),
-                _passwordRule(text: 'شامل حروف کوچک و بزرگ انگلیسی'),
+                _passwordRule(
+                  text:
+                      '{{appStrings.profile.real.changePassword.ruleUpperLower}}',
+                ),
                 StacSizedBox(height: 8),
-                _passwordRule(text: 'شامل حداقل ۸ کاراکتر'),
+                _passwordRule(
+                  text:
+                      '{{appStrings.profile.real.changePassword.ruleMinLength}}',
+                ),
                 StacSizedBox(height: 8),
-                _passwordRule(text: 'شامل عدد'),
+                _passwordRule(
+                  text:
+                      '{{appStrings.profile.real.changePassword.ruleHasNumber}}',
+                ),
                 StacSizedBox(height: 20),
                 _passwordSection(
-                  label: 'تکرار رمز عبور جدید',
+                  label:
+                      '{{appStrings.profile.real.changePassword.confirmPasswordLabel}}',
                   fieldId: 'profileRealConfirmNewPassword',
-                  hint: 'رمز عبور جدید را دوباره وارد کنید',
+                  hint:
+                      '{{appStrings.profile.real.changePassword.confirmPasswordHint}}',
                   action: StacTextInputAction.done,
                 ),
               ],
@@ -59,7 +74,7 @@ StacWidget profileRealChangePassword() {
             ),
             child: StacCenter(
               child: StacText(
-                data: 'تایید و ذخیره',
+                data: '{{appStrings.profile.real.changePassword.submit}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 16,

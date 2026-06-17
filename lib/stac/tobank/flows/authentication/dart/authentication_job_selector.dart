@@ -121,4 +121,3 @@ StacWidget _buildJobListItem(String title) {
     ),
   );
 }
-

@@ -119,12 +119,13 @@ StacWidget _buildMyPromissoryCards() {
       children: [
         _buildMyPromissoryCard(
           icon: 'assets/icons/ic_promissory_request_history.svg',
-          title: 'تکمیل شده',
+          title: '{{appStrings.generated.promissory.promissory_intro.title}}',
         ),
         StacSizedBox(height: 12),
         _buildMyPromissoryCard(
           icon: 'assets/icons/ic_promissory_finalize_history.svg',
-          title: 'در انتظار تکمیل',
+          title:
+              '{{appStrings.generated.child_loan.child_loan_task_list.complete}}',
         ),
       ],
     ),
@@ -243,7 +244,7 @@ StacWidget _buildTitleCard() {
                 StacSizedBox(height: 12),
                 StacText(
                   data:
-                      'سفته الکترونیکی، یک سند تجاری است که به صورت الکترونیکی، صادر شده و به موجب آن، صادر‌کننده، پرداخت مبلغی را در قبال شخص دیگر، متعهد میشود',
+                      '{{appStrings.generated.promissory.promissory_intro.promissory_amount_issuer_payment_description}}',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -268,7 +269,11 @@ StacWidget _buildServiceCards() {
         icon: 'assets/icons/ic_promissory_request.svg',
         title: '{{appStrings.promissory.requestPromissory}}',
         description: '{{appStrings.promissory.requestPromissoryDesc}}',
-        onTap: NavigationAction(fileName: 'promissory_rules', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+        onTap: NavigationAction(
+          fileName: 'promissory_rules',
+          navMode: NavModes.dart,
+          navigationStyle: NavigationStyle.push,
+        ),
       ),
       StacSizedBox(height: 12),
       _buildServiceCard(
@@ -361,4 +366,3 @@ StacWidget _buildServiceCard({
     ),
   );
 }
-

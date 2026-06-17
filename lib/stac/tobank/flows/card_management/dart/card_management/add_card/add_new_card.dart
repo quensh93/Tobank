@@ -1,4 +1,4 @@
-﻿import 'package:stac/stac.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -13,7 +13,7 @@ StacWidget dashboardAddNewCard() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: buildTobankFlowAppBar(
-      title: 'افزودن کارت جدید',
+      title: '{{appStrings.profile.real.destinations.addCardTitle}}',
       showSupport: true,
       showBack: true,
     ),
@@ -39,7 +39,7 @@ StacWidget dashboardAddNewCard() {
                 children: [
                   StacText(
                     data:
-                        'بانک\u200cهای مبدا تحت پوشش به مقصد کلیه بانک\u200cهای کشور',
+                        '{{appStrings.generated.card_management.add_new_card.bank_u200c_bank_u200c}}',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.center,
                     style: StacCustomTextStyle(
@@ -118,7 +118,7 @@ StacWidget dashboardAddNewCard() {
                     ),
                     StacSizedBox(width: 8),
                     StacText(
-                      data: 'اسکن کارت',
+                      data: '{{appStrings.profile.real.destinations.scanCard}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacCustomTextStyle(
                         fontSize: 14,
@@ -135,7 +135,7 @@ StacWidget dashboardAddNewCard() {
 
             // ── Card number field ──────────────────────────────────────
             StacText(
-              data: 'شماره کارت',
+              data: '{{appStrings.profile.real.destinations.cardNumberLabel}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -157,12 +157,14 @@ StacWidget dashboardAddNewCard() {
                 {
                   'rule': 'matches',
                   'options': {'pattern': r'^\d{16}$'},
-                  'message': 'شماره کارت باید ۱۶ رقم باشد',
+                  'message':
+                      '{{appStrings.generated.card_management.card_management_add_card.card_number}}',
                 },
               ],
               onChanged: _validateAddNewCardAction(),
               decoration: {
-                'hintText': 'شماره کارت ۱۶ رقمی را وارد کنید',
+                'hintText':
+                    '{{appStrings.generated.card_management.card_management_add_card.card_number_enter}}',
                 'hintStyle': {
                   'type': 'custom',
                   'fontSize': 14,
@@ -198,7 +200,8 @@ StacWidget dashboardAddNewCard() {
 
             // ── Expire date field (two fields: سال + ماه) ───────────────
             StacText(
-              data: 'تاریخ انقضا کارت',
+              data:
+                  '{{appStrings.generated.card_management.card_management_add_card.date_card}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -219,7 +222,8 @@ StacWidget dashboardAddNewCard() {
                     readOnly: true,
                     onTap: _showExpirePickerAction(),
                     decoration: {
-                      'hintText': 'سال',
+                      'hintText':
+                          '{{appStrings.generated.transfer.transfer_confirm.year}}',
                       'hintStyle': {
                         'type': 'custom',
                         'fontSize': 14,
@@ -260,7 +264,8 @@ StacWidget dashboardAddNewCard() {
                     readOnly: true,
                     onTap: _showExpirePickerAction(),
                     decoration: {
-                      'hintText': 'ماه',
+                      'hintText':
+                          '{{appStrings.generated.transfer.transfer_confirm.month}}',
                       'hintStyle': {
                         'type': 'custom',
                         'fontSize': 14,
@@ -310,7 +315,7 @@ StacWidget dashboardAddNewCard() {
 
             // ── Card title field ───────────────────────────────────────
             StacText(
-              data: 'عنوان کارت',
+              data: '{{appStrings.profile.real.destinations.cardTitleLabel}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -330,12 +335,14 @@ StacWidget dashboardAddNewCard() {
                 {
                   'rule': 'matches',
                   'options': {'pattern': r'.+'},
-                  'message': 'عنوان کارت نمی\u200cتواند خالی باشد',
+                  'message':
+                      '{{appStrings.generated.card_management.add_new_card.title_card_not_u200c_can}}',
                 },
               ],
               onChanged: _validateAddNewCardAction(),
               decoration: {
-                'hintText': 'عنوان دلخواه برای کارت وارد کنید',
+                'hintText':
+                    '{{appStrings.generated.card_management.card_management_add_card.title_card_enter}}',
                 'hintStyle': {
                   'type': 'custom',
                   'fontSize': 14,
@@ -375,8 +382,10 @@ StacWidget dashboardAddNewCard() {
               onPressed: StacSequenceAction(
                 actions: [
                   StacCustomSnackBarAction(
-                    title: 'ثبت شد',
-                    detail: 'کارت جدید با موفقیت اضافه شد.',
+                    title:
+                        '{{appStrings.generated.card_management.card_management_add_card.submit}}',
+                    detail:
+                        '{{appStrings.generated.card_management.card_management_add_card.successfully_new_card}}',
                     duration: 3000,
                   ),
                   const StacNavigateAction(
@@ -405,7 +414,8 @@ StacWidget dashboardAddNewCard() {
                 ),
               ).toJson(),
               child: StacText(
-                data: 'ثبت کارت',
+                data:
+                    '{{appStrings.generated.card_management.card_management_add_card.submit_card}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 14,
@@ -437,10 +447,11 @@ StacAction _showExpirePickerAction() {
     'formFieldId': _expireDateFieldId,
     'yearFieldId': 'addNewCard.expireYear',
     'monthFieldId': 'addNewCard.expireMonth',
-    'title': 'تاریخ انقضای کارت را انتخاب نمایید',
-    'monthTitle': 'ماه',
-    'yearTitle': 'سال',
-    'confirmText': 'تایید',
+    'title':
+        '{{appStrings.generated.transfer.transfer_confirm.select_date_card}}',
+    'monthTitle': '{{appStrings.generated.transfer.transfer_confirm.month}}',
+    'yearTitle': '{{appStrings.generated.transfer.transfer_confirm.year}}',
+    'confirmText': '{{appStrings.common.confirm}}',
     'onSelectedAction': {
       'actionType': 'validateFields',
       'resultKey': _submitEnabledKey,

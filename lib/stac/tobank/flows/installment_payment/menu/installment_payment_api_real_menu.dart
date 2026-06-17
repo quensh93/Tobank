@@ -10,7 +10,8 @@ import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 StacWidget installmentPaymentApiRealMenu() {
   return StacScaffold(
     appBar: buildTobankFlowAppBar(
-      title: 'پرداخت اقساط api. واقعی',
+      title:
+          '{{appStrings.generated.installment_payment.installment_payment_api_real_menu.installment_payment_api_real}}',
       showBack: true,
     ),
     body: StacPadding(
@@ -29,7 +30,8 @@ StacWidget installmentPaymentApiRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگزاری از دارت',
+              data:
+                  '{{appStrings.generated.installment_payment.installment_payment_api_real_menu.dart}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -38,7 +40,11 @@ StacWidget installmentPaymentApiRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'installment_payment_start', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'installment_payment_start',
+              navMode: NavModes.localJson,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -47,7 +53,8 @@ StacWidget installmentPaymentApiRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگزاری از جیسون محلی',
+              data:
+                  '{{appStrings.generated.installment_payment.installment_payment_api_real_menu.json_local}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -56,7 +63,11 @@ StacWidget installmentPaymentApiRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacOutlinedButton(
-            onPressed: NavigationAction(fileName: 'installment_payment_start', navMode: NavModes.apiJson, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'installment_payment_start',
+              navMode: NavModes.apiJson,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -65,7 +76,8 @@ StacWidget installmentPaymentApiRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگزاری از json api',
+              data:
+                  '{{appStrings.generated.installment_payment.installment_payment_api_real_menu.json_api}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -110,7 +122,8 @@ StacWidget _loanPaymentBottomSheet() {
           ),
           StacSizedBox(height: 24),
           StacText(
-            data: 'پرداخت اقساط',
+            data:
+                '{{appStrings.generated.installment_payment.installment_payment_receipt.title}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
@@ -121,11 +134,16 @@ StacWidget _loanPaymentBottomSheet() {
           ),
           StacSizedBox(height: 16),
           _loanBottomSheetItem(
-            title: 'پرداخت اقساط خود',
+            title:
+                '{{appStrings.generated.installment_payment.installment_payment_list_main.title}}',
             onTap: const StacSequenceAction(
               actions: [
                 StacNavigateAction(navigationStyle: NavigationStyle.pop),
-                NavigationAction(fileName: 'installment_payment_list_main', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                NavigationAction(
+                  fileName: 'installment_payment_list_main',
+                  navMode: NavModes.dart,
+                  navigationStyle: NavigationStyle.push,
+                ),
               ],
             ),
           ),
@@ -135,7 +153,8 @@ StacWidget _loanPaymentBottomSheet() {
             height: 16,
           ),
           _loanBottomSheetItem(
-            title: 'پرداخت اقساط دیگران',
+            title:
+                '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.title}}',
             onTap: StacSequenceAction(
               actions: [
                 const StacNavigateAction(navigationStyle: NavigationStyle.pop),

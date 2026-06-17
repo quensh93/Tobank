@@ -10,7 +10,7 @@ StacWidget userCreditValidationReceipt() {
     appBar: buildTobankFlowAppBar(
       showSupport: true,
       showBack: true,
-      title: 'اعتبارسنجی',
+      title: '{{appStrings.authentication.stepValidation}}',
     ),
     body: StacCustomWidget.fromJson({
       'type': 'receiptRepaintBoundary',
@@ -31,7 +31,7 @@ StacWidget userCreditValidationReceipt() {
             ),
             StacSizedBox(height: 12),
             StacText(
-              data: 'پرداخت موفق',
+              data: '{{appStrings.promissory.paymentSuccessful}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.center,
               style: StacCustomTextStyle(
@@ -42,7 +42,7 @@ StacWidget userCreditValidationReceipt() {
             ),
             StacSizedBox(height: 8),
             StacText(
-              data: 'عملیات پرداخت با موفقیت انجام شد',
+              data: '{{appStrings.promissory.successfulMessage}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.center,
               style: StacCustomTextStyle(
@@ -66,7 +66,8 @@ StacAction _shareValidationReceiptAction() {
   return StacCustomAction.fromJson({
     'actionType': 'transferReceipt',
     'mode': 'shareImage',
-    'title': 'گزارش اعتبارسنجی',
+    'title':
+        '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.report_credit_validation}}',
     'pixelRatio': 3.0,
     'boundaryKey': 'userCreditValidationReceiptContent',
   });
@@ -85,15 +86,30 @@ StacWidget _receiptDetailCard() {
     ),
     child: StacColumn(
       children: [
-        _receiptRow('مبلغ پرداخت', '۸۰,۰۰۰ ریال'),
+        _receiptRow(
+          '{{appStrings.generated.user_credit_validation.user_credit_validation_receipt.amount_payment}}',
+          '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.rial}}',
+        ),
         _line(),
-        _receiptRow('تاریخ پرداخت', '۰۳ خرداد ۱۴۰۵ - ۱۰:۱۳'),
+        _receiptRow(
+          '{{appStrings.promissory.payDate}}',
+          '{{appStrings.generated.user_credit_validation.user_credit_validation_receipt.amount_value}}',
+        ),
         _line(),
-        _receiptRow('کد پیگیری', '۵۰۰۰ ۳۰۷۰ ۹۰۰۰ ۰۷۹۵ ۸۵۰۶'),
+        _receiptRow(
+          '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.code}}',
+          '{{appStrings.generated.user_credit_validation.user_credit_validation_receipt.card_number}}',
+        ),
         _line(),
-        _receiptRow('متقاضی', 'علیرضا حیدریان'),
+        _receiptRow(
+          '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.applicant_role}}',
+          '{{appStrings.profile.real.destinations.depositItem2Title}}',
+        ),
         _line(),
-        _receiptRow('روش پرداخت', 'سپرده'),
+        _receiptRow(
+          '{{appStrings.promissory.paymentMethod}}',
+          '{{appStrings.profile.real.destinations.tabDeposit}}',
+        ),
       ],
     ),
   );
@@ -125,7 +141,8 @@ StacWidget _reportCard() {
             StacSizedBox(width: 8),
             StacExpanded(
               child: StacText(
-                data: 'گزارش اعتبارسنجی',
+                data:
+                    '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.report_credit_validation}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 16,
@@ -135,7 +152,11 @@ StacWidget _reportCard() {
               ),
             ),
             StacGestureDetector(
-              onTap: NavigationAction(fileName: 'user_credit_validation_preview', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+              onTap: NavigationAction(
+                fileName: 'user_credit_validation_preview',
+                navMode: NavModes.dart,
+                navigationStyle: NavigationStyle.push,
+              ),
               child: StacPadding(
                 padding: StacEdgeInsets.all(6),
                 child: StacImage(
@@ -170,7 +191,8 @@ StacWidget _reportCard() {
         ),
         StacSizedBox(height: 10),
         StacText(
-          data: 'کاربر گرامی گزارش اعتبارسنجی شما در بخش گزارش‌ها نیز قابل مشاهده است',
+          data:
+              '{{appStrings.generated.user_credit_validation.user_credit_validation_receipt.user}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 14,

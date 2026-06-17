@@ -515,7 +515,8 @@ StacWidget _buildReceiverSection() {
                 visible: '[[!recipientType]]',
                 child: StacText(
                   // نام
-                  data: 'نام',
+                  data:
+                      '{{appStrings.generated.promissory.promissory_confirm.name}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 14,
@@ -555,7 +556,11 @@ StacWidget _buildSubmitButton() {
           borderRadius: StacBorderRadius.all(12),
         ),
       ),
-      onPressed: NavigationAction(fileName: 'promissory_payment', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      onPressed: NavigationAction(
+        fileName: 'promissory_payment',
+        navMode: NavModes.dart,
+        navigationStyle: NavigationStyle.push,
+      ),
       child: StacText(
         // تایید و پرداخت
         data: '{{appStrings.promissory.confirmAndPay}}',

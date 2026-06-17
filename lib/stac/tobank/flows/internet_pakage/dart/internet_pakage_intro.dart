@@ -34,7 +34,8 @@ StacWidget packageRealIntro() {
         },
         {
           'key': 'crSim1Operator',
-          'value': 'همراه اول',
+          'value':
+              '{{appStrings.generated.charge.charge_add_sim.mci_operator}}',
           'condition': '!crChargeFlowInitialized',
         },
         {
@@ -55,7 +56,8 @@ StacWidget packageRealIntro() {
         },
         {
           'key': 'crSim2Operator',
-          'value': 'همراه اول',
+          'value':
+              '{{appStrings.generated.charge.charge_add_sim.mci_operator}}',
           'condition': '!crChargeFlowInitialized',
         },
         {
@@ -76,7 +78,8 @@ StacWidget packageRealIntro() {
         },
         {
           'key': 'crSim3Operator',
-          'value': 'ایرانسل',
+          'value':
+              '{{appStrings.generated.charge.charge_add_sim.irancell_operator}}',
           'condition': '!crChargeFlowInitialized',
         },
         {
@@ -107,7 +110,8 @@ StacWidget packageRealIntro() {
         },
         {
           'key': 'crActiveSimOperator',
-          'value': 'همراه اول',
+          'value':
+              '{{appStrings.generated.charge.charge_add_sim.mci_operator}}',
           'condition': '!crChargeFlowInitialized',
         },
         {
@@ -133,7 +137,8 @@ StacWidget packageRealIntro() {
         },
         {
           'key': 'crSheetOperator',
-          'value': 'همراه اول',
+          'value':
+              '{{appStrings.generated.charge.charge_add_sim.mci_operator}}',
           'condition': '!crChargeFlowInitialized',
         },
         {
@@ -175,7 +180,8 @@ StacWidget packageRealIntro() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'اینترنت',
+        title:
+            '{{appStrings.generated.internet_pakage.internet_pakage_add_sim.title}}',
       ),
       body: StacStack(
         children: [
@@ -187,7 +193,7 @@ StacWidget packageRealIntro() {
                 children: [
                   StacSizedBox(height: 24),
                   StacText(
-                    data: 'سیم‌کارت‌ها',
+                    data: '{{appStrings.generated.charge.charge_intro.title}}',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.right,
                     style: StacCustomTextStyle(
@@ -294,7 +300,8 @@ StacWidget packageRealIntro() {
                             ),
                             StacSizedBox(height: 24),
                             StacText(
-                              data: 'بسته‌ی اینترنتی نخریده‌اید',
+                              data:
+                                  '{{appStrings.generated.internet_pakage.internet_pakage_intro.title}}',
                               textDirection: StacTextDirection.rtl,
                               textAlign: StacTextAlign.center,
                               style: StacCustomTextStyle(
@@ -305,7 +312,8 @@ StacWidget packageRealIntro() {
                             ),
                             StacSizedBox(height: 8),
                             StacText(
-                              data: 'اولین بسته اینترنت خود را بخرید',
+                              data:
+                                  '{{appStrings.generated.internet_pakage.internet_pakage_intro.internet_package}}',
                               textDirection: StacTextDirection.rtl,
                               textAlign: StacTextAlign.center,
                               style: StacCustomTextStyle(
@@ -388,7 +396,11 @@ StacAction _openInternetPakageFlow({
           {'key': 'crSimShowDuplicateBanner', 'value': false},
         ],
       ),
-      NavigationAction(fileName: 'internet_pakage_list', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      NavigationAction(
+        fileName: 'internet_pakage_list',
+        navMode: NavModes.dart,
+        navigationStyle: NavigationStyle.push,
+      ),
     ],
   );
 }
@@ -501,7 +513,7 @@ StacWidget _buildActionSheet() {
                 ),
                 StacSizedBox(width: 8),
                 StacText(
-                  data: 'ویرایش',
+                  data: '{{appStrings.verifyOtp.edit}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 16,
@@ -536,7 +548,7 @@ StacWidget _buildActionSheet() {
                 StacIcon(icon: 'delete_outline', size: 25, color: '#E31D35'),
                 StacSizedBox(width: 8),
                 StacText(
-                  data: 'حذف کردن',
+                  data: '{{appStrings.generated.charge.charge_intro.delete}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 16,
@@ -563,7 +575,7 @@ StacWidget _buildActionSheet() {
             elevation: 0,
           ),
           child: StacText(
-            data: 'انصراف',
+            data: '{{appStrings.common.cancel}}',
             textDirection: StacTextDirection.rtl,
             style: StacCustomTextStyle(
               fontSize: 16,
@@ -698,7 +710,7 @@ StacWidget _buildEditSheet() {
               elevation: 0,
             ),
             child: StacText(
-              data: 'ذخیره',
+              data: '{{appStrings.promissory.saveButton}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 16,
@@ -770,7 +782,8 @@ StacWidget _buildDeleteDialogOverlay() {
               ),
               StacSizedBox(height: 12),
               StacText(
-                data: 'پس از تایید، سیم‌کارت از لیست حذف خواهد شد.',
+                data:
+                    '{{appStrings.generated.charge.charge_intro.sim_card_confirm_delete_list}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.center,
                 style: StacCustomTextStyle(
@@ -800,7 +813,7 @@ StacWidget _buildDeleteDialogOverlay() {
                         ),
                       ),
                       child: StacText(
-                        data: 'انصراف',
+                        data: '{{appStrings.common.cancel}}',
                         textDirection: StacTextDirection.rtl,
                         style: StacCustomTextStyle(
                           fontSize: 16,
@@ -878,7 +891,8 @@ StacWidget _buildDeleteDialogOverlay() {
                         elevation: 0,
                       ),
                       child: StacText(
-                        data: 'حذف کردن',
+                        data:
+                            '{{appStrings.generated.charge.charge_intro.delete}}',
                         textDirection: StacTextDirection.rtl,
                         style: StacCustomTextStyle(
                           fontSize: 16,

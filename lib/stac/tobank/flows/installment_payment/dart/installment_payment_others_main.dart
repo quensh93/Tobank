@@ -15,7 +15,8 @@ StacWidget installmentPaymentOthersMain() {
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
-        title: 'پرداخت اقساط دیگران',
+        title:
+            '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.title}}',
         showSupport: true,
         showBack: true,
       ),
@@ -34,7 +35,8 @@ StacWidget installmentPaymentOthersMain() {
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
             children: [
               StacText(
-                data: 'شماره تسهیلات',
+                data:
+                    '{{appStrings.generated.installment_payment.installment_payment_others_main.title}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacTextStyle(
@@ -70,7 +72,8 @@ StacWidget installmentPaymentOthersMain() {
               ),
               StacSizedBox(height: 30),
               StacText(
-                data: 'کدملی دارنده تسهیلات',
+                data:
+                    '{{appStrings.generated.installment_payment.installment_payment_others_main.loan}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacTextStyle(
@@ -111,7 +114,7 @@ StacWidget installmentPaymentOthersMain() {
                   ),
                 ).toJson(),
                 child: StacText(
-                  data: 'ادامه',
+                  data: '{{appStrings.common.continue}}',
                   style: StacTextStyle(
                     fontSize: 18,
                     fontWeight: StacFontWeight.w600,
@@ -119,7 +122,7 @@ StacWidget installmentPaymentOthersMain() {
                   ),
                 ).toJson(),
                 loadingChild: StacText(
-                  data: 'ادامه',
+                  data: '{{appStrings.common.continue}}',
                   style: StacTextStyle(
                     fontSize: 18,
                     fontWeight: StacFontWeight.w600,

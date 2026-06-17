@@ -30,7 +30,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "انتقال وجه",
+        "data": "{{appStrings.menu.items.transfer}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -111,7 +111,7 @@
                             "textDirection": "rtl",
                             "children": [
                               {
-                                "data": "مبلغ انتقال",
+                                "data": "{{appStrings.generated.card_management.card_management_root.amount_transfer}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -129,7 +129,7 @@
                                   "textDirection": "ltr",
                                   "children": [
                                     {
-                                      "data": "ریال",
+                                      "data": "{{appStrings.common.rial}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -183,7 +183,7 @@
                               {
                                 "width": 42.0,
                                 "child": {
-                                  "data": "مبدا",
+                                  "data": "{{appStrings.generated.installment_payment.installment_payment_others_receipt.source_label}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -299,7 +299,7 @@
                               {
                                 "width": 42.0,
                                 "child": {
-                                  "data": "مقصد",
+                                  "data": "{{appStrings.generated.transfer.transfer_card_result.destination_label}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -404,7 +404,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "تاریخ انقضا",
+                      "data": "{{appStrings.generated.transfer.transfer_confirm.date}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -425,7 +425,7 @@
                       "textDirection": "ltr",
                       "textAlign": "right",
                       "decoration": {
-                        "hintText": "۰۶/۱۰",
+                        "hintText": "{{appStrings.generated.transfer.transfer_confirm.date_value}}",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
@@ -475,10 +475,10 @@
                       "onTap": {
                         "actionType": "showCardExpireSelectBottomSheet",
                         "formFieldId": "transferApiCardExpireInput",
-                        "title": "تاریخ انقضای کارت را انتخاب نمایید",
-                        "monthTitle": "ماه",
-                        "yearTitle": "سال",
-                        "confirmText": "تایید",
+                        "title": "{{appStrings.generated.transfer.transfer_confirm.select_date_card}}",
+                        "monthTitle": "{{appStrings.generated.transfer.transfer_confirm.month}}",
+                        "yearTitle": "{{appStrings.generated.transfer.transfer_confirm.year}}",
+                        "confirmText": "{{appStrings.common.confirm}}",
                         "onSelectedAction": {
                           "actionType": "validateFields",
                           "resultKey": "transferApiCardPaymentEnabled",
@@ -526,7 +526,7 @@
                       "textDirection": "ltr",
                       "textAlign": "right",
                       "decoration": {
-                        "hintText": "CVV2 را وارد نمایید",
+                        "hintText": "{{appStrings.generated.transfer.transfer_confirm.cvv2_enter}}",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
@@ -580,7 +580,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "رمز پویا",
+                      "data": "{{appStrings.generated.transfer.transfer_confirm.dynamic_pin}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -607,7 +607,7 @@
                             "textDirection": "ltr",
                             "textAlign": "right",
                             "decoration": {
-                              "hintText": "رمز پویا را وارد نمایید",
+                              "hintText": "{{appStrings.generated.transfer.transfer_confirm.dynamic_pin_enter}}",
                               "hintStyle": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -666,8 +666,8 @@
                             "type": "otpCountdownButton",
                             "initialSeconds": 119,
                             "startOnTap": true,
-                            "requestLabel": "رمز پویا",
-                            "retryLabel": "دریافت مجدد",
+                            "requestLabel": "{{appStrings.generated.transfer.transfer_confirm.dynamic_pin}}",
+                            "retryLabel": "{{appStrings.generated.transfer.transfer_confirm.receive_again}}",
                             "showIcon": false,
                             "borderColor": "{{appColors.current.input.borderEnabled}}",
                             "expiredBorderColor": "{{appColors.current.input.borderEnabled}}",
@@ -717,7 +717,7 @@
                                         "children": [
                                           {
                                             "type": "text",
-                                            "data": "اعلان",
+                                            "data": "{{appStrings.generated.authentication.authentication_verify_otp.title}}",
                                             "textDirection": "rtl",
                                             "textAlign": "right",
                                             "style": {
@@ -734,7 +734,7 @@
                                           },
                                           {
                                             "type": "text",
-                                            "data": "رمز پویا با موفقیت ارسال شد.",
+                                            "data": "{{appStrings.generated.transfer.transfer_confirm.successfully_dynamic_pin_sent}}",
                                             "textDirection": "rtl",
                                             "textAlign": "right",
                                             "style": {
@@ -823,7 +823,7 @@
                                         "children": [
                                           {
                                             "type": "text",
-                                            "data": "اعلان",
+                                            "data": "{{appStrings.generated.authentication.authentication_verify_otp.title}}",
                                             "textDirection": "rtl",
                                             "textAlign": "right",
                                             "style": {
@@ -840,7 +840,7 @@
                                           },
                                           {
                                             "type": "text",
-                                            "data": "رمز پویا با موفقیت ارسال شد.",
+                                            "data": "{{appStrings.generated.transfer.transfer_confirm.successfully_dynamic_pin_sent}}",
                                             "textDirection": "rtl",
                                             "textAlign": "right",
                                             "style": {
@@ -918,7 +918,7 @@
                     "bottom": 14.0
                   },
                   "decoration": {
-                    "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                    "color": "{{appColors.current.background.surface}}",
                     "borderRadius": {
                       "topLeft": 12.0,
                       "topRight": 12.0,
@@ -931,10 +931,10 @@
                     "crossAxisAlignment": "stretch",
                     "children": [
                       {
-                        "data": "تایید اطلاعات کارت به کارت",
+                        "data": "{{appStrings.generated.transfer.transfer_confirm.title}}",
                         "style": {
                           "type": "custom",
-                          "color": "__STAC_OPEN__appColors.current.text.title}}",
+                          "color": "{{appColors.current.text.title}}",
                           "fontSize": 17.0,
                           "fontWeight": "w700"
                         },
@@ -951,10 +951,10 @@
                         "textDirection": "rtl",
                         "children": [
                           {
-                            "data": "کارت مقصد",
+                            "data": "{{appStrings.generated.transfer.transfer_amount.card}}",
                             "style": {
                               "type": "custom",
-                              "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                              "color": "{{appColors.current.text.subtitle}}",
                               "fontSize": 15.0,
                               "fontWeight": "w600"
                             },
@@ -967,10 +967,10 @@
                           },
                           {
                             "child": {
-                              "data": "__STAC_OPEN__transferApiCardDestinationNumber}}",
+                              "data": "{{transferApiCardDestinationNumber}}",
                               "style": {
                                 "type": "custom",
-                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                "color": "{{appColors.current.text.title}}",
                                 "fontSize": 15.0,
                                 "fontWeight": "w700"
                               },
@@ -992,10 +992,10 @@
                         "textDirection": "rtl",
                         "children": [
                           {
-                            "data": "نام صاحب کارت",
+                            "data": "{{appStrings.generated.transfer.transfer_card_result.name_card}}",
                             "style": {
                               "type": "custom",
-                              "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                              "color": "{{appColors.current.text.subtitle}}",
                               "fontSize": 15.0,
                               "fontWeight": "w600"
                             },
@@ -1008,10 +1008,10 @@
                           },
                           {
                             "child": {
-                              "data": "__STAC_OPEN__transferApiCardDestinationName}}",
+                              "data": "{{transferApiCardDestinationName}}",
                               "style": {
                                 "type": "custom",
-                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                "color": "{{appColors.current.text.title}}",
                                 "fontSize": 15.0,
                                 "fontWeight": "w700"
                               },
@@ -1033,10 +1033,10 @@
                         "textDirection": "rtl",
                         "children": [
                           {
-                            "data": "مبلغ انتقال",
+                            "data": "{{appStrings.generated.card_management.card_management_root.amount_transfer}}",
                             "style": {
                               "type": "custom",
-                              "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                              "color": "{{appColors.current.text.subtitle}}",
                               "fontSize": 15.0,
                               "fontWeight": "w600"
                             },
@@ -1049,10 +1049,10 @@
                           },
                           {
                             "child": {
-                              "data": "__STAC_OPEN__transferApiCardAmountRaw}} ریال",
+                              "data": "{{appStrings.generated.transfer.transfer_confirm.rial}}",
                               "style": {
                                 "type": "custom",
-                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                "color": "{{appColors.current.text.title}}",
                                 "fontSize": 15.0,
                                 "fontWeight": "w700"
                               },
@@ -1089,8 +1089,8 @@
                                 ]
                               },
                               "style": {
-                                "foregroundColor": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
-                                "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
+                                "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                "backgroundColor": "{{appColors.current.primary.color}}",
                                 "elevation": 0.0,
                                 "fixedSize": {
                                   "width": 999999.0,
@@ -1107,10 +1107,10 @@
                                 }
                               },
                               "child": {
-                                "data": "تایید",
+                                "data": "{{appStrings.common.confirm}}",
                                 "style": {
                                   "type": "custom",
-                                  "color": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                  "color": "{{appColors.current.primary.onPrimary}}",
                                   "fontSize": 16.0,
                                   "fontWeight": "w700"
                                 },
@@ -1135,7 +1135,7 @@
                                   "height": 50.0
                                 },
                                 "side": {
-                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                  "color": "{{appColors.current.input.borderEnabled}}",
                                   "width": 1.2
                                 },
                                 "shape": {
@@ -1149,10 +1149,10 @@
                                 }
                               },
                               "child": {
-                                "data": "انصراف",
+                                "data": "{{appStrings.common.cancel}}",
                                 "style": {
                                   "type": "custom",
-                                  "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                  "color": "{{appColors.current.text.title}}",
                                   "fontSize": 16.0,
                                   "fontWeight": "w700"
                                 },
@@ -1208,7 +1208,7 @@
                 }
               },
               "child": {
-                "data": "انتقال وجه",
+                "data": "{{appStrings.menu.items.transfer}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.onPrimary}}",
@@ -1268,7 +1268,7 @@
                           "textDirection": "rtl",
                           "children": [
                             {
-                              "data": "مبلغ انتقال",
+                              "data": "{{appStrings.generated.card_management.card_management_root.amount_transfer}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -1305,7 +1305,7 @@
                           "textDirection": "ltr",
                           "children": [
                             {
-                              "data": "ریال",
+                              "data": "{{appStrings.common.rial}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -1359,7 +1359,7 @@
                       {
                         "width": 42.0,
                         "child": {
-                          "data": "مبدا",
+                          "data": "{{appStrings.generated.installment_payment.installment_payment_others_receipt.source_label}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -1407,7 +1407,7 @@
                           "crossAxisAlignment": "stretch",
                           "children": [
                             {
-                              "data": "سجاد رحمانی پور",
+                              "data": "{{appStrings.profile.real.destinations.depositItem4Title}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -1423,7 +1423,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "۱۱۰.۹۹۲۲.۱۷۹۳۸۵۸.۱",
+                              "data": "{{appStrings.generated.transfer.transfer_in_bank_confirm.title}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -1463,7 +1463,7 @@
                       {
                         "width": 42.0,
                         "child": {
-                          "data": "مقصد",
+                          "data": "{{appStrings.generated.transfer.transfer_card_result.destination_label}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -1590,7 +1590,7 @@
                 }
               },
               "child": {
-                "data": "انتقال وجه",
+                "data": "{{appStrings.menu.items.transfer}}",
                 "style": {
                   "type": "custom",
                   "color": "#FFFFFF",

@@ -34,7 +34,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "آدرس دریافت کارت بانکی",
+        "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -80,7 +80,7 @@
         "crossAxisAlignment": "stretch",
         "children": [
           {
-            "data": "رنگ کارت خود را انتخاب کنید",
+            "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_template.title}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",
@@ -110,8 +110,8 @@
           {
             "onPressed": {
               "actionType": "fingerPrint",
-              "title": "احراز هویت",
-              "description": "لطفا برای ادامه صدور کارت، احراز هویت انجام دهید",
+              "title": "{{appStrings.menu.items.authentication}}",
+              "description": "{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_continue_card}}",
               "onSuccess": {
                 "actionType": "navigate",
                 "fileName": "deposit_card_issue_result",
@@ -121,8 +121,8 @@
               },
               "onFailure": {
                 "actionType": "showSnackBar",
-                "title": "عدم احراز هویت",
-                "description": "احراز هویت انجام نشد. لطفا دوباره تلاش کنید.",
+                "title": "{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_failed_title}}",
+                "description": "{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_try_again}}",
                 "type": "error"
               }
             },
@@ -145,7 +145,7 @@
               }
             },
             "child": {
-              "data": "انتخاب و ادامه",
+              "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_template.select_continue}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.primary.onPrimary}}",

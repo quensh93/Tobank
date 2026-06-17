@@ -14,13 +14,17 @@ StacWidget installmentPaymentOthersDetailMain() {
         {'key': 'othersDetailAmountHasText', 'value': false},
         {'key': 'othersDetailPayEnabled', 'value': false},
         {'key': 'othersDetailAmountWords', 'value': ''},
-        {'key': 'othersPayment.receiverName', 'value': 'مهدی جمشیدپور'},
+        {
+          'key': 'othersPayment.receiverName',
+          'value': '{{appStrings.profile.real.userName}}',
+        },
       ],
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
-        title: 'پرداخت اقساط دیگران',
+        title:
+            '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.title}}',
         showSupport: true,
         showBack: true,
       ),
@@ -53,11 +57,20 @@ StacWidget _loanInfoCard() {
     ),
     child: StacColumn(
       children: [
-        _detailRow('شماره تسهیلات', '{{othersPayment.loanNumber}}'),
+        _detailRow(
+          '{{appStrings.generated.installment_payment.installment_payment_others_main.title}}',
+          '{{othersPayment.loanNumber}}',
+        ),
         _dashedDivider(),
-        _detailRow('نوع تسهیلات', 'قرض الحسنه طرح پارسا (۲ درصدی)'),
+        _detailRow(
+          '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.loan}}',
+          '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.number_value}}',
+        ),
         _dashedDivider(),
-        _detailRow('دریافت کننده', '{{othersPayment.receiverName}}'),
+        _detailRow(
+          '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.receive}}',
+          '{{othersPayment.receiverName}}',
+        ),
       ],
     ),
   );
@@ -77,7 +90,8 @@ StacWidget _paymentCard() {
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
         StacText(
-          data: 'مبلغ مورد نظر را وارد نمایید',
+          data:
+              '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.amount_enter}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.right,
           style: StacTextStyle(
@@ -130,7 +144,8 @@ StacWidget _paymentCard() {
             ),
           ).toJson(),
           child: StacText(
-            data: 'پرداخت',
+            data:
+                '{{appStrings.generated.card_management.card_management_root.payment}}',
             style: StacTextStyle(
               fontSize: 18,
               fontWeight: StacFontWeight.w700,
@@ -138,7 +153,8 @@ StacWidget _paymentCard() {
             ),
           ).toJson(),
           loadingChild: StacText(
-            data: 'پرداخت',
+            data:
+                '{{appStrings.generated.card_management.card_management_root.payment}}',
             style: StacTextStyle(
               fontSize: 18,
               fontWeight: StacFontWeight.w700,
@@ -198,7 +214,8 @@ StacWidget _buildOthersPaymentAccountsBottomSheet() {
           ),
           StacSizedBox(height: 14),
           StacText(
-            data: 'پرداخت اقساط دیگران',
+            data:
+                '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.title}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
@@ -218,7 +235,7 @@ StacWidget _buildOthersPaymentAccountsBottomSheet() {
               borderRadius: StacBorderRadius.all(6),
             ),
             child: StacText(
-              data: 'حساب‌ها',
+              data: '{{appStrings.generated.charge.charge_payment.account}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacTextStyle(
@@ -232,28 +249,35 @@ StacWidget _buildOthersPaymentAccountsBottomSheet() {
           _othersPaymentAccountCard(
             selectedKey: 'othersPaymentSheet.acc1Selected',
             onTap: _selectOthersPaymentAccount(canSubmit: true, account: 1),
-            title: 'سپرده ۶ ماهه کوتاه مدت توبانکی',
-            depositNo: '۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱',
-            cardNo: '۵۵۹۴ - ۱۶۱۷ - ۱۲۳۴ - ۵۶۷۸',
-            amount: '۸۱۱,۱۲۴,۶۰۷ ریال',
+            title: '{{appStrings.generated.charge.charge_payment.deposit}}',
+            depositNo:
+                '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}',
+            cardNo:
+                '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number_text}}',
+            amount:
+                '{{appStrings.generated.charge.charge_payment.rial_message}}',
             isInsufficient: false,
           ),
           StacSizedBox(height: 10),
           _othersPaymentAccountCard(
             selectedKey: 'othersPaymentSheet.acc2Selected',
             onTap: _selectOthersPaymentAccount(canSubmit: false, account: 2),
-            title: 'سپرده حقیقی سپرده سرمایه‌گذاری بلند مدت حقیقی ریالی زهرا حبیبی',
-            depositNo: '۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱',
-            cardNo: '۵۵۹۴ - ۱۶۱۷ - ۱۲۳۴ - ۵۶۷۸',
-            amount: '۷۴۵,۵۲۴,۶۰۷ ریال',
+            title:
+                '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.deposit_rial}}',
+            depositNo:
+                '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}',
+            cardNo:
+                '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number_text}}',
+            amount: '{{appStrings.generated.charge.charge_payment.rial_label}}',
             isInsufficient: true,
           ),
           StacSizedBox(height: 96),
           StacCustomVisibility(
             visible: '[[othersPaymentSheet.canSubmit]]',
             child: _othersPaymentSheetSubmitButton(enabled: true).toJson(),
-            replacement: _othersPaymentSheetSubmitButton(enabled: false)
-                .toJson(),
+            replacement: _othersPaymentSheetSubmitButton(
+              enabled: false,
+            ).toJson(),
           ),
           StacSizedBox(height: 7),
         ],
@@ -282,7 +306,8 @@ StacWidget _othersPaymentSheetSubmitButton({required bool enabled}) {
             actions: [
               const StacNavigateAction(navigationStyle: NavigationStyle.pop),
               StacNavigateAction(
-                widgetJson: others_receipt.installmentPaymentOthersReceipt()
+                widgetJson: others_receipt
+                    .installmentPaymentOthersReceipt()
                     .toJson(),
                 navigationStyle: NavigationStyle.push,
               ),
@@ -297,7 +322,7 @@ StacWidget _othersPaymentSheetSubmitButton({required bool enabled}) {
       elevation: 0,
     ),
     child: StacText(
-      data: 'تایید و پرداخت',
+      data: '{{appStrings.promissory.confirmAndPay}}',
       style: StacTextStyle(
         fontSize: 19,
         fontWeight: StacFontWeight.w700,
@@ -343,9 +368,16 @@ StacWidget _othersPaymentAccountCard({
           ],
         ),
         StacSizedBox(height: 12),
-        _othersPaymentSheetMetaRow(label: 'شماره سپرده', value: depositNo),
+        _othersPaymentSheetMetaRow(
+          label:
+              '{{appStrings.generated.card_management.card_management_root.deposit_number}}',
+          value: depositNo,
+        ),
         StacSizedBox(height: 8),
-        _othersPaymentSheetMetaRow(label: 'شماره کارت', value: cardNo),
+        _othersPaymentSheetMetaRow(
+          label: '{{appStrings.profile.real.destinations.cardNumberLabel}}',
+          value: cardNo,
+        ),
         StacContainer(
           margin: StacEdgeInsets.symmetric(vertical: 10),
           height: 1,
@@ -355,7 +387,8 @@ StacWidget _othersPaymentAccountCard({
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              data: 'قابل برداشت',
+              data:
+                  '{{appStrings.generated.charge.charge_payment.withdrawable_label}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
                 fontSize: 16,
@@ -382,7 +415,8 @@ StacWidget _othersPaymentAccountCard({
                   borderRadius: StacBorderRadius.all(999),
                 ),
                 child: StacText(
-                  data: 'موجودی ناکافی',
+                  data:
+                      '{{appStrings.generated.installment_payment.installment_payment_detail_main.balance}}',
                   style: StacTextStyle(
                     fontSize: 13,
                     fontWeight: StacFontWeight.w500,
@@ -509,7 +543,8 @@ StacWidget _amountInput({required bool showCurrency}) {
           destinationKey: 'othersDetailAmountWords',
           divideBy: 10,
           minDigits: 2,
-          suffix: 'تومان',
+          suffix:
+              '{{appStrings.generated.installment_payment.installment_payment_detail_main.toman}}',
         ),
         StacValidateFieldsAction(
           resultKey: 'othersDetailAmountHasText',
@@ -522,8 +557,8 @@ StacWidget _amountInput({required bool showCurrency}) {
     textDirection: 'ltr',
     textAlign: 'center',
     decoration: {
-      'hintText': 'مبلغ دلخواه',
-      if (showCurrency) 'prefixText': 'ریال',
+      'hintText': '{{appStrings.generated.charge.charge_intro.amount}}',
+      if (showCurrency) 'prefixText': '{{appStrings.common.rial}}',
       if (showCurrency)
         'prefixStyle': {
           'fontSize': 18,

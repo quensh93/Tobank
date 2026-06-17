@@ -7,7 +7,10 @@ import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 StacWidget authenticationRealSignatureGuide() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildTobankFlowAppBar(title: 'راهنما', showSupport: false),
+    appBar: buildTobankFlowAppBar(
+      title: '{{appStrings.authentication.guideLabel}}',
+      showSupport: false,
+    ),
     body: StacSafeArea(
       bottom: true,
       top: false,
@@ -37,7 +40,8 @@ StacWidget authenticationRealSignatureGuide() {
                     crossAxisAlignment: StacCrossAxisAlignment.stretch,
                     children: [
                       StacText(
-                        data: 'راهنمای ثبت امضا',
+                        data:
+                            '{{appStrings.generated.authentication.authentication_signature_guide.title}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
@@ -49,7 +53,7 @@ StacWidget authenticationRealSignatureGuide() {
                       StacSizedBox(height: 12),
                       StacText(
                         data:
-                            'نوع راهنما را انتخاب کنید. راهنمای تصویری نمونه‌ی امضای صحیح را نمایش می‌دهد.',
+                            '{{appStrings.generated.authentication.authentication_signature_guide.select_show_image_guide_signature}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
@@ -64,19 +68,28 @@ StacWidget authenticationRealSignatureGuide() {
                 ),
                 StacSizedBox(height: 20),
                 _buildGuideOptionCard(
-                  title: 'راهنمای تصویری',
-                  subtitle: 'مشاهده نمونه صفحه و محل ثبت امضا',
+                  title:
+                      '{{appStrings.generated.authentication.authentication_signature_guide.image}}',
+                  subtitle:
+                      '{{appStrings.generated.authentication.authentication_signature_guide.page_place_submit_signature}}',
                   iconAsset: '{{appAssets.icons.visualTutorialCurrent}}',
-                  onTap: NavigationAction(fileName: 'authentication_signature_visual_guide', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                  onTap: NavigationAction(
+                    fileName: 'authentication_signature_visual_guide',
+                    navMode: NavModes.dart,
+                    navigationStyle: NavigationStyle.push,
+                  ),
                 ),
                 StacSizedBox(height: 12),
                 _buildGuideOptionCard(
-                  title: 'راهنمای صوتی',
-                  subtitle: 'توضیح صوتی این مرحله',
+                  title:
+                      '{{appStrings.generated.authentication.authentication_signature_guide.audio_guide}}',
+                  subtitle:
+                      '{{appStrings.generated.authentication.authentication_signature_guide.description}}',
                   iconAsset: '{{appAssets.icons.voiceTutorialCurrent}}',
                   onTap: const StacShowResultAction(
                     title: '{{appStrings.common.comingSoon}}',
-                    content: 'راهنمای صوتی این بخش هنوز اضافه نشده است.',
+                    content:
+                        '{{appStrings.generated.authentication.authentication_signature_guide.sample_message}}',
                   ),
                 ),
               ],

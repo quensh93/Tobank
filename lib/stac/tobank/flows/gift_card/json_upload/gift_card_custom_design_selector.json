@@ -24,7 +24,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "کارت هدیه",
+        "data": "{{appStrings.homePage.services.giftCard}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -78,7 +78,7 @@
                     "type": "visibility",
                     "visible": "[[giftCardRealCustomHasSelection]]",
                     "child": {
-                      "data": "متن و تصویر انتخابی خود را بررسی و تایید نمایید",
+                      "data": "{{appStrings.generated.gift_card.gift_card_custom_design_selector.select_confirm_image_text}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -94,7 +94,7 @@
                     "type": "visibility",
                     "visible": "[[!giftCardRealCustomHasSelection]]",
                     "child": {
-                      "data": "متن و تصویر مورد نظر خود را انتخاب کنید",
+                      "data": "{{appStrings.generated.gift_card.gift_card_custom_design_selector.select_image_text}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -238,7 +238,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "۵۰۵۴  ۱۶۳۰  ****  ****",
+                                  "data": "{{appStrings.generated.gift_card.gift_card_design_selector.title}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "#000000",
@@ -306,7 +306,7 @@
                             "height": 140.0,
                             "child": {
                               "child": {
-                                "data": "تصویر مورد نظر شما",
+                                "data": "{{appStrings.generated.gift_card.gift_card_custom_design_selector.image}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -344,7 +344,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "متن مورد نظر شما",
+                                  "data": "{{appStrings.generated.gift_card.gift_card_custom_design_selector.custom_text_hint}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "#000000",
@@ -360,7 +360,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "۵۰۵۴  ۱۶۳۰  ****  ****",
+                                  "data": "{{appStrings.generated.gift_card.gift_card_design_selector.title}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "#000000",
@@ -525,7 +525,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "۵۰۵۴  ۱۶۳۰  ****  ****",
+                                      "data": "{{appStrings.generated.gift_card.gift_card_design_selector.title}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "#000000",
@@ -594,7 +594,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "انتخاب متن و تصویر",
+                                "data": "{{appStrings.generated.gift_card.gift_card_custom_design_selector.select_image_text_alt}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -669,7 +669,7 @@
                   }
                 },
                 "child": {
-                  "data": "تایید و ذخیره",
+                  "data": "{{appStrings.profile.real.changePassword.submit}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.primary.onPrimary}}",

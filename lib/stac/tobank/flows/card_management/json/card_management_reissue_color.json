@@ -1,4 +1,4 @@
-﻿{
+{
   "type": "stateFull",
   "onInit": {
     "actionType": "setValue",
@@ -38,7 +38,7 @@
       ],
       "title": {
         "type": "text",
-        "data": "صدور کارت المثنی",
+        "data": "{{appStrings.generated.card_management.card_management_reissue_color.card_reissue}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -62,7 +62,7 @@
         "children": [
           {
             "type": "text",
-            "data": "رنگ کارت خود را انتخاب کنید",
+            "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_template.title}}",
             "textDirection": "rtl",
             "textAlign": "right",
             "style": {
@@ -92,10 +92,10 @@
             "type": "filledButton",
             "onPressed": {
               "actionType": "showLogoutConfirmDialog",
-              "title": "تایید انتخاب",
-              "description": "آیا از انتخاب رنگ کارت المثنی اطمینان دارید؟",
-              "positiveText": "تایید",
-              "negativeText": "انصراف",
+              "title": "{{appStrings.generated.card_management.card_management_reissue_color.select_confirm}}",
+              "description": "{{appStrings.generated.card_management.card_management_reissue_color.card_reissue_select_color}}",
+              "positiveText": "{{appStrings.common.confirm}}",
+              "negativeText": "{{appStrings.common.cancel}}",
               "positiveAction": {
                 "actionType": "sequence",
                 "actions": [
@@ -134,7 +134,7 @@
             },
             "child": {
               "type": "text",
-              "data": "تایید و ادامه",
+              "data": "{{appStrings.authentication.confirmAndContinue}}",
               "textDirection": "rtl",
               "style": {
                 "type": "custom",

@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "تسهیلات فرزندآوری api واقعی",
+      "data": "{{appStrings.generated.child_loan.child_loan_api_real_menu.loan_child_api_real}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -80,7 +80,7 @@
             }
           },
           "child": {
-            "data": "بارگذاری از DART",
+            "data": "{{appStrings.promissory.debug.loadDart}}",
             "style": {
               "type": "custom",
               "fontSize": 16.0,
@@ -110,7 +110,7 @@
             }
           },
           "child": {
-            "data": "بارگذاری از JSON",
+            "data": "{{appStrings.generated.child_loan.child_loan_api_real_menu.upload_json}}",
             "style": {
               "type": "custom",
               "fontSize": 16.0,
@@ -140,7 +140,7 @@
             }
           },
           "child": {
-            "data": "بارگذاری از JSON API",
+            "data": "{{appStrings.generated.child_loan.child_loan_api_real_menu.upload_json_api}}",
             "style": {
               "type": "custom",
               "fontSize": 16.0,

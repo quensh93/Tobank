@@ -114,7 +114,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "شارژ",
+        "data": "{{appStrings.homePage.services.topUp}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -169,7 +169,7 @@
                       "crossAxisAlignment": "stretch",
                       "children": [
                         {
-                          "data": "شماره سیم کارت اعتباری را وارد کنید",
+                          "data": "{{appStrings.generated.charge.charge_add_sim.title}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -217,8 +217,8 @@
                                     "actionType": "pickContactPhone",
                                     "formFieldId": "crAddPhone",
                                     "targetKey": "crAddEnteredPhone",
-                                    "permissionDeniedMessage": "دسترسی مخاطبین مجاز نیست",
-                                    "invalidMobileMessage": "شماره همراه معتبر در مخاطب یافت نشد",
+                                    "permissionDeniedMessage": "{{appStrings.generated.card_management.card_management_root.not}}",
+                                    "invalidMobileMessage": "{{appStrings.generated.card_management.card_management_root.mobile_number}}",
                                     "onContactSelected": {
                                       "actionType": "sequence",
                                       "actions": [
@@ -619,7 +619,7 @@
                               "right": 6.0
                             },
                             "child": {
-                              "data": "شماره همراه نامعتبر است",
+                              "data": "{{appStrings.generated.charge.charge_add_sim.mobile_number}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.feedback.error}}",
@@ -645,7 +645,7 @@
                               "right": 6.0
                             },
                             "child": {
-                              "data": "اپراتور مورد نظر پشتیبانی نمی‌شود",
+                              "data": "{{appStrings.generated.charge.charge_add_sim.unsupported_operator_message}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.feedback.error}}",
@@ -698,7 +698,7 @@
                         }
                       },
                       "child": {
-                        "data": "ادامه",
+                        "data": "{{appStrings.common.continue}}",
                         "style": {
                           "type": "custom",
                           "color": "#98A2B3",
@@ -747,7 +747,7 @@
                         }
                       },
                       "child": {
-                        "data": "ادامه",
+                        "data": "{{appStrings.common.continue}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.primary.onPrimary}}",
@@ -777,7 +777,7 @@
                               },
                               {
                                 "key": "crSim3Operator",
-                                "value": "ایرانسل"
+                                "value": "{{appStrings.generated.charge.charge_add_sim.irancell_operator}}"
                               },
                               {
                                 "key": "crSim3Logo",
@@ -797,7 +797,7 @@
                               },
                               {
                                 "key": "crActiveSimOperator",
-                                "value": "ایرانسل"
+                                "value": "{{appStrings.generated.charge.charge_add_sim.irancell_operator}}"
                               },
                               {
                                 "key": "crActiveSimLogo",
@@ -805,7 +805,7 @@
                               },
                               {
                                 "key": "crSim3Operator",
-                                "value": "همراه اول",
+                                "value": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
                                 "condition": "crAddIsMci"
                               },
                               {
@@ -815,7 +815,7 @@
                               },
                               {
                                 "key": "crActiveSimOperator",
-                                "value": "همراه اول",
+                                "value": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
                                 "condition": "crAddIsMci"
                               },
                               {
@@ -848,12 +848,12 @@
                           {
                             "actionType": "setValue",
                             "key": "crSim3Number",
-                            "value": "__STAC_OPEN__crAddEnteredPhone}}"
+                            "value": "{{crAddEnteredPhone}}"
                           },
                           {
                             "actionType": "setValue",
                             "key": "crActiveSimNumber",
-                            "value": "__STAC_OPEN__crAddEnteredPhone}}"
+                            "value": "{{crAddEnteredPhone}}"
                           },
                           {
                             "fileName": "charge_package_list",
@@ -902,7 +902,7 @@
                         }
                       },
                       "child": {
-                        "data": "ادامه",
+                        "data": "{{appStrings.common.continue}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.primary.onPrimary}}",
@@ -939,7 +939,7 @@
                                 "bottom": 12.0
                               },
                               "decoration": {
-                                "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                "color": "{{appColors.current.background.surface}}",
                                 "border": {
                                   "color": "#2B8BFA",
                                   "width": 2.0
@@ -986,10 +986,10 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "مجاز نیست",
+                                    "data": "{{appStrings.generated.charge.charge_add_sim.not}}",
                                     "style": {
                                       "type": "custom",
-                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                      "color": "{{appColors.current.text.title}}",
                                       "fontSize": 18.0,
                                       "fontWeight": "w700"
                                     },
@@ -1002,10 +1002,10 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "شماره انتخابی شما جز سیم‌کارت‌های تکراری می‌باشد، لطفا یکی دیگر انتخاب کنید.",
+                                    "data": "{{appStrings.generated.charge.charge_add_sim.sim_card_select_number}}",
                                     "style": {
                                       "type": "custom",
-                                      "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                      "color": "{{appColors.current.text.subtitle}}",
                                       "fontSize": 13.0,
                                       "fontWeight": "w500"
                                     },
@@ -1023,8 +1023,8 @@
                                       "actionType": "navigate"
                                     },
                                     "style": {
-                                      "foregroundColor": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
-                                      "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
+                                      "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                      "backgroundColor": "{{appColors.current.primary.color}}",
                                       "elevation": 0.0,
                                       "fixedSize": {
                                         "width": 999999.0,
@@ -1041,10 +1041,10 @@
                                       }
                                     },
                                     "child": {
-                                      "data": "متوجه شدم",
+                                      "data": "{{appStrings.generated.authentication.authentication_rules.understood}}",
                                       "style": {
                                         "type": "custom",
-                                        "color": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                        "color": "{{appColors.current.primary.onPrimary}}",
                                         "fontSize": 14.0,
                                         "fontWeight": "w700"
                                       },
@@ -1100,7 +1100,7 @@
                         }
                       },
                       "child": {
-                        "data": "ادامه",
+                        "data": "{{appStrings.common.continue}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.primary.onPrimary}}",
@@ -1121,7 +1121,7 @@
                             "bottom": 16.0
                           },
                           "decoration": {
-                            "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                            "color": "{{appColors.current.background.surface}}",
                             "borderRadius": {
                               "topLeft": 22.0,
                               "topRight": 22.0
@@ -1154,7 +1154,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "اپراتور",
+                                "data": "{{appStrings.generated.charge.charge_add_sim.operator_label}}",
                                 "style": {
                                   "type": "custom",
                                   "fontSize": 18.0,
@@ -1169,10 +1169,10 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "در صورت ترابرد سیم‌کارت اپراتور خود را انتخاب نمایید",
+                                "data": "{{appStrings.generated.charge.charge_add_sim.sim_card_select}}",
                                 "style": {
                                   "type": "custom",
-                                  "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                  "color": "{{appColors.current.text.subtitle}}",
                                   "fontSize": 13.0
                                 },
                                 "textAlign": "center",
@@ -1209,7 +1209,7 @@
                                       },
                                       "decoration": {
                                         "border": {
-                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                          "color": "{{appColors.current.input.borderEnabled}}",
                                           "width": 1.0
                                         },
                                         "borderRadius": {
@@ -1234,7 +1234,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "همراه اول",
+                                            "data": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 18.0,
@@ -1274,7 +1274,7 @@
                                             "replacement": {
                                               "decoration": {
                                                 "border": {
-                                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                  "color": "{{appColors.current.input.borderEnabled}}",
                                                   "width": 1.0
                                                 },
                                                 "shape": "circle"
@@ -1300,7 +1300,7 @@
                                     },
                                     "decoration": {
                                       "border": {
-                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                        "color": "{{appColors.current.input.borderEnabled}}",
                                         "width": 1.0
                                       },
                                       "borderRadius": {
@@ -1325,7 +1325,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "همراه اول",
+                                          "data": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 18.0,
@@ -1365,7 +1365,7 @@
                                           "replacement": {
                                             "decoration": {
                                               "border": {
-                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                 "width": 1.0
                                               },
                                               "shape": "circle"
@@ -1430,7 +1430,7 @@
                                       },
                                       "decoration": {
                                         "border": {
-                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                          "color": "{{appColors.current.input.borderEnabled}}",
                                           "width": 1.0
                                         },
                                         "borderRadius": {
@@ -1455,7 +1455,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "ایرانسل",
+                                            "data": "{{appStrings.generated.charge.charge_add_sim.irancell_operator}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 18.0,
@@ -1495,7 +1495,7 @@
                                             "replacement": {
                                               "decoration": {
                                                 "border": {
-                                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                  "color": "{{appColors.current.input.borderEnabled}}",
                                                   "width": 1.0
                                                 },
                                                 "shape": "circle"
@@ -1521,7 +1521,7 @@
                                     },
                                     "decoration": {
                                       "border": {
-                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                        "color": "{{appColors.current.input.borderEnabled}}",
                                         "width": 1.0
                                       },
                                       "borderRadius": {
@@ -1546,7 +1546,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "ایرانسل",
+                                          "data": "{{appStrings.generated.charge.charge_add_sim.irancell_operator}}",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 18.0,
@@ -1586,7 +1586,7 @@
                                           "replacement": {
                                             "decoration": {
                                               "border": {
-                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                 "width": 1.0
                                               },
                                               "shape": "circle"
@@ -1651,7 +1651,7 @@
                                       },
                                       "decoration": {
                                         "border": {
-                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                          "color": "{{appColors.current.input.borderEnabled}}",
                                           "width": 1.0
                                         },
                                         "borderRadius": {
@@ -1676,7 +1676,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "رایتل",
+                                            "data": "{{appStrings.generated.charge.charge_add_sim.rightel_operator}}",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 18.0,
@@ -1716,7 +1716,7 @@
                                             "replacement": {
                                               "decoration": {
                                                 "border": {
-                                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                  "color": "{{appColors.current.input.borderEnabled}}",
                                                   "width": 1.0
                                                 },
                                                 "shape": "circle"
@@ -1742,7 +1742,7 @@
                                     },
                                     "decoration": {
                                       "border": {
-                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                        "color": "{{appColors.current.input.borderEnabled}}",
                                         "width": 1.0
                                       },
                                       "borderRadius": {
@@ -1767,7 +1767,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "رایتل",
+                                          "data": "{{appStrings.generated.charge.charge_add_sim.rightel_operator}}",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 18.0,
@@ -1807,7 +1807,7 @@
                                           "replacement": {
                                             "decoration": {
                                               "border": {
-                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                 "width": 1.0
                                               },
                                               "shape": "circle"
@@ -1865,7 +1865,7 @@
                                           "bottom": 16.0
                                         },
                                         "decoration": {
-                                          "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                          "color": "{{appColors.current.background.surface}}",
                                           "borderRadius": {
                                             "topLeft": 22.0,
                                             "topRight": 22.0
@@ -1898,7 +1898,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "نوع سیم کارت",
+                                              "data": "{{appStrings.generated.charge.charge_add_sim.sim_card}}",
                                               "style": {
                                                 "type": "custom",
                                                 "fontSize": 18.0,
@@ -1913,10 +1913,10 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "__STAC_OPEN__crAddEnteredPhone}}",
+                                              "data": "{{crAddEnteredPhone}}",
                                               "style": {
                                                 "type": "custom",
-                                                "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                "color": "{{appColors.current.text.subtitle}}",
                                                 "fontSize": 16.0
                                               },
                                               "textAlign": "center",
@@ -1953,7 +1953,7 @@
                                                     },
                                                     "decoration": {
                                                       "border": {
-                                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                        "color": "{{appColors.current.input.borderEnabled}}",
                                                         "width": 1.0
                                                       },
                                                       "borderRadius": {
@@ -1967,7 +1967,7 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "دائمی",
+                                                          "data": "{{appStrings.generated.charge.charge_add_sim.postpaid_sim_type}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "fontSize": 16.0,
@@ -2007,7 +2007,7 @@
                                                           "replacement": {
                                                             "decoration": {
                                                               "border": {
-                                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                                 "width": 1.0
                                                               },
                                                               "shape": "circle"
@@ -2033,7 +2033,7 @@
                                                   },
                                                   "decoration": {
                                                     "border": {
-                                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                      "color": "{{appColors.current.input.borderEnabled}}",
                                                       "width": 1.0
                                                     },
                                                     "borderRadius": {
@@ -2047,7 +2047,7 @@
                                                     "textDirection": "rtl",
                                                     "children": [
                                                       {
-                                                        "data": "دائمی",
+                                                        "data": "{{appStrings.generated.charge.charge_add_sim.postpaid_sim_type}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "fontSize": 16.0,
@@ -2087,7 +2087,7 @@
                                                         "replacement": {
                                                           "decoration": {
                                                             "border": {
-                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "color": "{{appColors.current.input.borderEnabled}}",
                                                               "width": 1.0
                                                             },
                                                             "shape": "circle"
@@ -2148,7 +2148,7 @@
                                                     },
                                                     "decoration": {
                                                       "border": {
-                                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                        "color": "{{appColors.current.input.borderEnabled}}",
                                                         "width": 1.0
                                                       },
                                                       "borderRadius": {
@@ -2162,7 +2162,7 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "اعتباری",
+                                                          "data": "{{appStrings.generated.charge.charge_add_sim.prepaid_sim_type}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "fontSize": 16.0,
@@ -2202,7 +2202,7 @@
                                                           "replacement": {
                                                             "decoration": {
                                                               "border": {
-                                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                                 "width": 1.0
                                                               },
                                                               "shape": "circle"
@@ -2228,7 +2228,7 @@
                                                   },
                                                   "decoration": {
                                                     "border": {
-                                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                      "color": "{{appColors.current.input.borderEnabled}}",
                                                       "width": 1.0
                                                     },
                                                     "borderRadius": {
@@ -2242,7 +2242,7 @@
                                                     "textDirection": "rtl",
                                                     "children": [
                                                       {
-                                                        "data": "اعتباری",
+                                                        "data": "{{appStrings.generated.charge.charge_add_sim.prepaid_sim_type}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "fontSize": 16.0,
@@ -2282,7 +2282,7 @@
                                                         "replacement": {
                                                           "decoration": {
                                                             "border": {
-                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "color": "{{appColors.current.input.borderEnabled}}",
                                                               "width": 1.0
                                                             },
                                                             "shape": "circle"
@@ -2370,7 +2370,7 @@
                                                       },
                                                       {
                                                         "key": "crSim3Operator",
-                                                        "value": "همراه اول",
+                                                        "value": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
                                                         "condition": "crAddOpMciSel"
                                                       },
                                                       {
@@ -2380,7 +2380,7 @@
                                                       },
                                                       {
                                                         "key": "crSim3Operator",
-                                                        "value": "ایرانسل",
+                                                        "value": "{{appStrings.generated.charge.charge_add_sim.irancell_operator}}",
                                                         "condition": "crAddOpIrancellSel"
                                                       },
                                                       {
@@ -2390,7 +2390,7 @@
                                                       },
                                                       {
                                                         "key": "crSim3Operator",
-                                                        "value": "رایتل",
+                                                        "value": "{{appStrings.generated.charge.charge_add_sim.rightel_operator}}",
                                                         "condition": "crAddOpRightelSel"
                                                       },
                                                       {
@@ -2400,7 +2400,7 @@
                                                       },
                                                       {
                                                         "key": "crActiveSimOperator",
-                                                        "value": "همراه اول",
+                                                        "value": "{{appStrings.generated.charge.charge_add_sim.mci_operator}}",
                                                         "condition": "crAddOpMciSel"
                                                       },
                                                       {
@@ -2410,7 +2410,7 @@
                                                       },
                                                       {
                                                         "key": "crActiveSimOperator",
-                                                        "value": "ایرانسل",
+                                                        "value": "{{appStrings.generated.charge.charge_add_sim.irancell_operator}}",
                                                         "condition": "crAddOpIrancellSel"
                                                       },
                                                       {
@@ -2420,7 +2420,7 @@
                                                       },
                                                       {
                                                         "key": "crActiveSimOperator",
-                                                        "value": "رایتل",
+                                                        "value": "{{appStrings.generated.charge.charge_add_sim.rightel_operator}}",
                                                         "condition": "crAddOpRightelSel"
                                                       },
                                                       {
@@ -2433,12 +2433,12 @@
                                                   {
                                                     "actionType": "setValue",
                                                     "key": "crSim3Number",
-                                                    "value": "__STAC_OPEN__crAddEnteredPhone}}"
+                                                    "value": "{{crAddEnteredPhone}}"
                                                   },
                                                   {
                                                     "actionType": "setValue",
                                                     "key": "crActiveSimNumber",
-                                                    "value": "__STAC_OPEN__crAddEnteredPhone}}"
+                                                    "value": "{{crAddEnteredPhone}}"
                                                   },
                                                   {
                                                     "fileName": "charge_package_list",
@@ -2450,8 +2450,8 @@
                                                 ]
                                               },
                                               "style": {
-                                                "foregroundColor": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
-                                                "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
+                                                "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                                "backgroundColor": "{{appColors.current.primary.color}}",
                                                 "elevation": 0.0,
                                                 "fixedSize": {
                                                   "width": 999999.0,
@@ -2468,10 +2468,10 @@
                                                 }
                                               },
                                               "child": {
-                                                "data": "تایید و ادامه",
+                                                "data": "{{appStrings.authentication.confirmAndContinue}}",
                                                 "style": {
                                                   "type": "custom",
-                                                  "color": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                                  "color": "{{appColors.current.primary.onPrimary}}",
                                                   "fontSize": 16.0,
                                                   "fontWeight": "w700"
                                                 },
@@ -2490,8 +2490,8 @@
                                   ]
                                 },
                                 "style": {
-                                  "foregroundColor": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
-                                  "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
+                                  "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                  "backgroundColor": "{{appColors.current.primary.color}}",
                                   "elevation": 0.0,
                                   "fixedSize": {
                                     "width": 999999.0,
@@ -2508,10 +2508,10 @@
                                   }
                                 },
                                 "child": {
-                                  "data": "تایید و ادامه",
+                                  "data": "{{appStrings.authentication.confirmAndContinue}}",
                                   "style": {
                                     "type": "custom",
-                                    "color": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                    "color": "{{appColors.current.primary.onPrimary}}",
                                     "fontSize": 16.0,
                                     "fontWeight": "w700"
                                   },
@@ -2565,7 +2565,7 @@
                         }
                       },
                       "child": {
-                        "data": "ادامه",
+                        "data": "{{appStrings.common.continue}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.primary.onPrimary}}",
@@ -2626,7 +2626,7 @@
                         }
                       },
                       "child": {
-                        "data": "ادامه",
+                        "data": "{{appStrings.common.continue}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.primary.onPrimary}}",

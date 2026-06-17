@@ -1,4 +1,4 @@
-﻿import 'package:stac/stac.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -14,7 +14,8 @@ const _serviceSecondPinTitle =
 const _serviceReissueTitle = '{{appStrings.cardsManagement.services.reissue}}';
 const _serviceBlockTitle = '{{appStrings.cardsManagement.services.block}}';
 const _serviceBalanceTitle = '{{appStrings.cardsManagement.services.balance}}';
-const _walletTransferMockDestinationWallet = 'سینایی';
+const _walletTransferMockDestinationWallet =
+    '{{appStrings.generated.card_management.card_management_root.sample_cardholder_name}}';
 
 @StacScreen(screenName: 'card_management_root')
 StacWidget dashboardCardsManagement() {
@@ -56,40 +57,54 @@ StacWidget dashboardCardsManagement() {
               'blocked',
             ],
             pages: [
-              _buildWalletCard(balance: '۱۸۴,۶۰۰').toJson(),
+              _buildWalletCard(
+                balance:
+                    '{{appStrings.generated.card_management.cards_management.title}}',
+              ).toJson(),
               _buildTobankCard(
-                cardNumber: '۵۰۵۴ ۱۶۱۷ ۰۲۸۴ ۴۶۹۱',
+                cardNumber:
+                    '{{appStrings.generated.transfer.transfer_amount.card_number_label}}',
                 title:
                     '{{appStrings.cardsManagement.cards.gardeshgariVirtual}}',
-                expDate: '۰۶/۰۹',
-                amount: '۱۲,۴۵۰,۰۰۰',
+                expDate:
+                    '{{appStrings.generated.card_management.cards_management.date_value}}',
+                amount:
+                    '{{appStrings.generated.card_management.cards_management.amount_value}}',
                 depositNumber: '0107500462808',
                 amountVisibleKey: 'cardsManagement.tobankCard.0.amountVisible',
                 showRefresh: true,
               ).toJson(),
               _buildThirdPartyCard(
                 bankName: '{{appStrings.cardsManagement.cards.samanBank}}',
-                cardNumber: '۶۲۱۹ ۸۶۱۰ ۵۵۵۴ ۱۴۲۸',
+                cardNumber:
+                    '{{appStrings.generated.card_management.cards_management.card_number}}',
                 owner: 'test',
-                expDate: '۰۵/۰۷',
+                expDate:
+                    '{{appStrings.generated.card_management.cards_management.date_value_text}}',
               ).toJson(),
               _buildTobankCard(
-                cardNumber: '۵۰۵۴ ۱۶۱۷ ۰۵۰۳ ۰۶۰۳',
+                cardNumber:
+                    '{{appStrings.generated.card_management.cards_management.card_number_text}}',
                 title: '{{appStrings.cardsManagement.cards.secondDeposit}}',
-                expDate: '۰۷/۱۰',
-                amount: '۸,۳۲۰,۰۰۰',
+                expDate:
+                    '{{appStrings.generated.card_management.cards_management.date_value_label}}',
+                amount:
+                    '{{appStrings.generated.card_management.cards_management.amount_value_text}}',
                 depositNumber: '0107500462816',
                 amountVisibleKey: 'cardsManagement.tobankCard.1.amountVisible',
               ).toJson(),
               _buildThirdPartyCard(
                 bankName: '{{appStrings.cardsManagement.cards.mellatBank}}',
-                cardNumber: '۶۱۰۴ ۳۳۷۸ ۱۲۹۰ ۲۲۰۱',
+                cardNumber:
+                    '{{appStrings.generated.card_management.cards_management.card_number_label}}',
                 owner: 'ali',
-                expDate: '۰۹/۱۱',
+                expDate:
+                    '{{appStrings.generated.card_management.cards_management.date_value_message}}',
               ).toJson(),
               _buildBlockedCard(
-                cardNumber: '۵۰۵۴ ۱۶۱۶ ۵۰۱۷ ۴۷۸۶',
-                bankName: 'بانک‌گردشگری',
+                cardNumber:
+                    '{{appStrings.generated.card_management.cards_management.card_number_message}}',
+                bankName: '{{appStrings.homePage.cards.bankTitle}}',
               ).toJson(),
             ],
           ),
@@ -144,7 +159,7 @@ StacWidget _buildWalletCard({required String balance}) {
           child: StacRow(
             children: [
               StacText(
-                data: 'ریال',
+                data: '{{appStrings.common.rial}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 16,
@@ -211,8 +226,7 @@ StacWidget _buildTobankCard({
                 ),
                 StacSizedBox(width: 8),
                 StacText(
-                  data:
-                      '\u0628\u0627\u0646\u06a9\u200c\u06af\u0631\u062f\u0634\u06af\u0631\u06cc',
+                  data: '{{appStrings.homePage.cards.bankTitle}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 15,
@@ -267,7 +281,7 @@ StacWidget _buildTobankCard({
                 ),
                 StacSizedBox(width: 2),
                 StacText(
-                  data: '\u0631\u06cc\u0627\u0644',
+                  data: '{{appStrings.common.rial}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 14,
@@ -350,7 +364,7 @@ StacWidget _buildTobankCard({
             ),
             StacText(
               data:
-                  '\u062a\u0627\u0631\u06cc\u062e \u0627\u0646\u0642\u0636\u0627: $expDate',
+                  '{{appStrings.generated.card_management.card_management_root.sample_cardholder_name}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 14,
@@ -472,7 +486,7 @@ StacWidget _buildThirdPartyCard({
             ),
             StacText(
               data:
-                  '\u062a\u0627\u0631\u06cc\u062e \u0627\u0646\u0642\u0636\u0627: $expDate',
+                  '{{appStrings.generated.card_management.card_management_root.sample_cardholder_name}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 14,
@@ -844,7 +858,8 @@ StacWidget _cardDetailsBottomSheet() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'جزئیات',
+            data:
+                '{{appStrings.generated.card_management.card_management_root.details}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -857,7 +872,8 @@ StacWidget _cardDetailsBottomSheet() {
           _cardDetailDefaultItem(),
           StacSizedBox(height: 16),
           _cardDetailActionItem(
-            title: 'ویرایش کارت',
+            title:
+                '{{appStrings.generated.card_management.card_management_root.edit_card}}',
             iconAsset: 'assets/icons/ic_card_edit.svg',
             onTap: StacSequenceAction(
               actions: [
@@ -876,11 +892,14 @@ StacWidget _cardDetailsBottomSheet() {
               children: [
                 StacSizedBox(height: 16),
                 _cardDetailActionItem(
-                  title: 'حذف کارت',
+                  title:
+                      '{{appStrings.generated.card_management.card_management_root.delete_card}}',
                   iconAsset: 'assets/icons/ic_card_delete.svg',
                   onTap: StacShowDialogAction(
-                    title: 'حذف کارت',
-                    description: 'آیا از حذف این کارت اطمینان دارید؟',
+                    title:
+                        '{{appStrings.generated.card_management.card_management_root.delete_card}}',
+                    description:
+                        '{{appStrings.generated.card_management.card_management_root.delete_card_message}}',
                     positiveText: '{{appStrings.common.confirm}}',
                     negativeText: '{{appStrings.common.cancel}}',
                     positiveAction: StacSequenceAction(
@@ -892,8 +911,10 @@ StacWidget _cardDetailsBottomSheet() {
                           navigationStyle: NavigationStyle.pushAndRemoveAll,
                         ),
                         StacCustomSnackBarAction(
-                          title: 'کارت حذف شد',
-                          detail: 'کارت با موفقیت از لیست حذف شد.',
+                          title:
+                              '{{appStrings.generated.card_management.card_management_root.delete_card_text}}',
+                          detail:
+                              '{{appStrings.generated.card_management.card_management_root.successfully_delete_card_list}}',
                           duration: 3000,
                         ),
                       ],
@@ -934,7 +955,8 @@ StacWidget _shareCardBottomSheet() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'اشتراک‌گذاری',
+            data:
+                '{{appStrings.generated.card_management.card_management_root.share}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -945,7 +967,7 @@ StacWidget _shareCardBottomSheet() {
           ),
           StacSizedBox(height: 24),
           _shareInfoItem(
-            title: 'شماره کارت',
+            title: '{{appStrings.profile.real.destinations.cardNumberLabel}}',
             valueKey: 'cardsManagement.share.cardNumber',
             iconAsset: 'assets/icons/ic_share_card.svg',
           ),
@@ -955,7 +977,8 @@ StacWidget _shareCardBottomSheet() {
               children: [
                 StacSizedBox(height: 16),
                 _shareInfoItem(
-                  title: 'شماره سپرده',
+                  title:
+                      '{{appStrings.generated.card_management.card_management_root.deposit_number}}',
                   valueKey: 'cardsManagement.share.depositNumber',
                   iconAsset: 'assets/icons/ic_share_deposit.svg',
                 ),
@@ -1066,7 +1089,8 @@ StacWidget _cardDetailDefaultItem() {
           StacSizedBox(width: 8),
           StacExpanded(
             child: StacText(
-              data: 'انتخاب کارت پیش‌فرض',
+              data:
+                  '{{appStrings.generated.card_management.card_management_root.select_card}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 16,
@@ -1295,7 +1319,8 @@ StacWidget _walletChargeBottomSheet() {
             ),
             StacSizedBox(height: 16),
             StacText(
-              data: 'شارژ کیف پول',
+              data:
+                  '{{appStrings.generated.card_management.card_management_root.topup_wallet_money}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -1316,7 +1341,7 @@ StacWidget _walletChargeBottomSheet() {
               ),
               child: StacText(
                 data:
-                    'مبلغ کیف پول شما قابل برداشت نیست و فقط در بخش خدمات توبانک قابل استفاده میباشد',
+                    '{{appStrings.generated.card_management.card_management_root.amount_wallet_money_not_services}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacCustomTextStyle(
@@ -1328,7 +1353,8 @@ StacWidget _walletChargeBottomSheet() {
             ),
             StacSizedBox(height: 20),
             StacText(
-              data: 'مبلغ شارژ',
+              data:
+                  '{{appStrings.generated.card_management.card_management_root.amount_topup}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -1344,7 +1370,8 @@ StacWidget _walletChargeBottomSheet() {
               textAlign: 'right',
               keyboardType: 'number',
               formatThousands: true,
-              thousandsSeparator: '،',
+              thousandsSeparator:
+                  '{{appStrings.common.persianThousandsSeparator}}',
               onChanged: StacCustomSetValueAction(
                 values: [
                   {
@@ -1376,7 +1403,8 @@ StacWidget _walletChargeBottomSheet() {
                 ],
               ),
               decoration: {
-                'hintText': 'مبلغ شارژ را به ریال وارد کنید',
+                'hintText':
+                    '{{appStrings.generated.card_management.card_management_root.amount_rial_topup_enter_message}}',
                 'hintStyle': {
                   'textDirection': 'rtl',
                   'style': {
@@ -1385,7 +1413,7 @@ StacWidget _walletChargeBottomSheet() {
                   },
                 },
                 'helperText':
-                    'حداقل مبلغ شارژ ۱۰،۰۰۰ ریال و سقف موجودی ۵۰،۰۰۰،۰۰۰ ریال',
+                    '{{appStrings.generated.card_management.card_management_root.balance_amount_rial_topup}}',
                 'helperStyle': {
                   'textDirection': 'rtl',
                   'style': {
@@ -1440,9 +1468,10 @@ StacWidget _walletChargeBottomSheet() {
                   textDirection: StacTextDirection.rtl,
                   children: [
                     _amountChip(
-                      '۵۰،۰۰۰ ریال',
+                      '{{appStrings.generated.card_management.card_management_root.rial_message}}',
                       rawValue: '50000',
-                      fieldValue: '۵۰،۰۰۰',
+                      fieldValue:
+                          '{{appStrings.generated.card_management.cards_management.amount_value_label}}',
                       selectedKey:
                           'cardsManagement.wallet.amountPreset50kSelected',
                       resetKeys: const [
@@ -1453,9 +1482,10 @@ StacWidget _walletChargeBottomSheet() {
                     ),
                     StacSizedBox(width: 8),
                     _amountChip(
-                      '۲۰۰،۰۰۰ ریال',
+                      '{{appStrings.generated.card_management.card_management_root.rial_label}}',
                       rawValue: '200000',
-                      fieldValue: '۲۰۰،۰۰۰',
+                      fieldValue:
+                          '{{appStrings.generated.card_management.cards_management.amount_value_message}}',
                       selectedKey:
                           'cardsManagement.wallet.amountPreset200kSelected',
                       resetKeys: const [
@@ -1471,9 +1501,10 @@ StacWidget _walletChargeBottomSheet() {
                   textDirection: StacTextDirection.rtl,
                   children: [
                     _amountChip(
-                      '۵۰۰،۰۰۰ ریال',
+                      '{{appStrings.generated.card_management.card_management_root.rial_description}}',
                       rawValue: '500000',
-                      fieldValue: '۵۰۰،۰۰۰',
+                      fieldValue:
+                          '{{appStrings.generated.card_management.cards_management.amount_value_item}}',
                       selectedKey:
                           'cardsManagement.wallet.amountPreset500kSelected',
                       resetKeys: const [
@@ -1484,9 +1515,10 @@ StacWidget _walletChargeBottomSheet() {
                     ),
                     StacSizedBox(width: 8),
                     _amountChip(
-                      '۱،۰۰۰،۰۰۰ ریال',
+                      '{{appStrings.generated.card_management.card_management_root.rial_hint}}',
                       rawValue: '1000000',
-                      fieldValue: '۱،۰۰۰،۰۰۰',
+                      fieldValue:
+                          '{{appStrings.generated.card_management.cards_management.amount_value_alt}}',
                       selectedKey:
                           'cardsManagement.wallet.amountPreset1000kSelected',
                       resetKeys: const [
@@ -1538,7 +1570,7 @@ StacWidget _walletChargeContinueButton() {
       shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
     ),
     child: StacText(
-      data: 'ادامه',
+      data: '{{appStrings.common.continue}}',
       textDirection: StacTextDirection.rtl,
       style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
     ),
@@ -1548,8 +1580,10 @@ StacWidget _walletChargeContinueButton() {
 StacWidget _walletChargeDisabledButton() {
   return StacFilledButton(
     onPressed: const StacCustomSnackBarAction(
-      title: 'مبلغ شارژ انتخاب نشده',
-      detail: 'لطفاً مبلغ شارژ را وارد کنید یا از مبالغ پیشنهادی انتخاب کنید.',
+      title:
+          '{{appStrings.generated.card_management.card_management_root.select_amount_topup}}',
+      detail:
+          '{{appStrings.generated.card_management.card_management_root.select_amount_topup_enter_message}}',
       duration: 2000,
     ),
     style: StacButtonStyle(
@@ -1560,7 +1594,7 @@ StacWidget _walletChargeDisabledButton() {
       shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
     ),
     child: StacText(
-      data: 'ادامه',
+      data: '{{appStrings.common.continue}}',
       textDirection: StacTextDirection.rtl,
       style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
     ),
@@ -1680,7 +1714,8 @@ StacWidget _walletPaymentMethodBottomSheet() {
           ),
           StacSizedBox(height: 20),
           StacText(
-            data: 'افزایش موجودی کیف پول',
+            data:
+                '{{appStrings.generated.card_management.card_management_root.top_up_balance_wallet_money}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -1691,13 +1726,13 @@ StacWidget _walletPaymentMethodBottomSheet() {
           ),
           StacSizedBox(height: 28),
           _walletPaymentSummaryRow(
-            title: 'مبلغ قابل پرداخت',
+            title: '{{appStrings.promissory.payableAmount}}',
             valueKey: 'cardsManagement.wallet.chargeAmount',
-            suffix: 'ریال',
+            suffix: '{{appStrings.common.rial}}',
           ),
           StacSizedBox(height: 28),
           StacText(
-            data: 'روش پرداخت',
+            data: '{{appStrings.promissory.paymentMethod}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -1743,7 +1778,8 @@ StacWidget _walletPaymentMethodBottomSheet() {
                   child: StacPadding(
                     padding: StacEdgeInsets.only(right: 16),
                     child: StacText(
-                      data: 'درگاه بانکی',
+                      data:
+                          '{{appStrings.generated.card_management.card_management_root.bank}}',
                       textDirection: StacTextDirection.rtl,
                       textAlign: StacTextAlign.right,
                       style: StacCustomTextStyle(
@@ -1762,8 +1798,10 @@ StacWidget _walletPaymentMethodBottomSheet() {
             onPressed: StacShowDialogAction(
               dialogActionType: 'showLogoutConfirmDialog',
               warningIconAsset: 'assets/icons/ic_warning_red.svg',
-              title: 'تایید افزایش موجودی',
-              description: 'آیا از افزایش موجودی کیف پول مطمئن هستید؟',
+              title:
+                  '{{appStrings.generated.card_management.card_management_root.top_up_balance_confirm}}',
+              description:
+                  '{{appStrings.generated.card_management.card_management_root.top_up_balance_wallet_money_message}}',
               positiveText: '{{appStrings.common.confirm}}',
               negativeText: '{{appStrings.common.cancel}}',
               positiveAction: StacSequenceAction(
@@ -1772,8 +1810,10 @@ StacWidget _walletPaymentMethodBottomSheet() {
                   const StacCloseDialogAction(),
                   const StacCloseDialogAction(),
                   StacCustomSnackBarAction(
-                    title: 'افزایش موجودی با موفقیت ثبت شد',
-                    detail: 'موجودی کیف پول به‌روزرسانی شد. (mock)',
+                    title:
+                        '{{appStrings.generated.card_management.card_management_root.top_up_balance_successfully_submit}}',
+                    detail:
+                        '{{appStrings.generated.card_management.card_management_root.balance_wallet_money_mock}}',
                     duration: 3000,
                   ),
                 ],
@@ -1792,7 +1832,8 @@ StacWidget _walletPaymentMethodBottomSheet() {
               ),
             ),
             child: StacText(
-              data: 'پرداخت',
+              data:
+                  '{{appStrings.generated.card_management.card_management_root.payment}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 14,
@@ -1871,7 +1912,8 @@ StacWidget _walletTransferBottomSheet() {
             ),
             StacSizedBox(height: 16),
             StacText(
-              data: 'انتقال وجه کیف پول',
+              data:
+                  '{{appStrings.generated.card_management.card_management_root.money_transfer_wallet_money}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -1882,7 +1924,7 @@ StacWidget _walletTransferBottomSheet() {
             ),
             StacSizedBox(height: 24),
             StacText(
-              data: 'شماره موبایل',
+              data: '{{appStrings.authentication.mobileNumberLabel}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -1911,7 +1953,8 @@ StacWidget _walletTransferBottomSheet() {
                       {
                         'rule': 'matches',
                         'options': {'pattern': r'^09\d{9}$'},
-                        'message': 'شماره موبایل معتبر نیست',
+                        'message':
+                            '{{appStrings.generated.card_management.card_management_root.mobile_number_not}}',
                       },
                     ],
                     onChanged: StacSequenceAction(
@@ -1939,7 +1982,8 @@ StacWidget _walletTransferBottomSheet() {
                       ],
                     ),
                     decoration: {
-                      'hintText': 'شماره همراه مقصد را وارد کنید',
+                      'hintText':
+                          '{{appStrings.generated.card_management.card_management_root.mobile_number_enter_message}}',
                       'hintStyle': {
                         'textDirection': 'rtl',
                         'style': {
@@ -1978,8 +2022,10 @@ StacWidget _walletTransferBottomSheet() {
                   onTap: StacPickContactPhoneAction(
                     formFieldId: 'wallet_transfer_phone',
                     targetKey: 'cardsManagement.wallet.transferPhone',
-                    permissionDeniedMessage: 'دسترسی مخاطبین مجاز نیست',
-                    invalidMobileMessage: 'شماره همراه معتبر در مخاطب یافت نشد',
+                    permissionDeniedMessage:
+                        '{{appStrings.generated.card_management.card_management_root.not}}',
+                    invalidMobileMessage:
+                        '{{appStrings.generated.card_management.card_management_root.mobile_number}}',
                   ),
                   child: StacContainer(
                     width: 52,
@@ -2006,7 +2052,8 @@ StacWidget _walletTransferBottomSheet() {
             ),
             StacSizedBox(height: 16),
             StacText(
-              data: 'مبلغ انتقال',
+              data:
+                  '{{appStrings.generated.card_management.card_management_root.amount_transfer}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -2024,12 +2071,14 @@ StacWidget _walletTransferBottomSheet() {
               autovalidateMode: 'always',
               keyboardType: 'number',
               formatThousands: true,
-              thousandsSeparator: '،',
+              thousandsSeparator:
+                  '{{appStrings.common.persianThousandsSeparator}}',
               validatorRules: const [
                 {
                   'rule': 'matches',
                   'options': {'pattern': r'^\d{5,}$'},
-                  'message': 'حداقل مبلغ انتقال ۱۰،۰۰۰ ریال است',
+                  'message':
+                      '{{appStrings.generated.card_management.card_management_root.amount_rial_transfer}}',
                 },
               ],
               onChanged: StacSequenceAction(
@@ -2050,7 +2099,8 @@ StacWidget _walletTransferBottomSheet() {
                 ],
               ),
               decoration: {
-                'hintText': 'مبلغ را به ریال وارد کنید',
+                'hintText':
+                    '{{appStrings.generated.card_management.card_management_root.amount_rial_enter_message}}',
                 'hintStyle': {
                   'textDirection': 'rtl',
                   'style': {
@@ -2085,7 +2135,8 @@ StacWidget _walletTransferBottomSheet() {
             ),
             StacSizedBox(height: 16),
             StacText(
-              data: 'توضیحات(اختیاری)',
+              data:
+                  '{{appStrings.generated.card_management.card_management_root.description}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -2105,7 +2156,8 @@ StacWidget _walletTransferBottomSheet() {
                 value: const StacGetFormValueAction(id: 'wallet_transfer_desc'),
               ),
               decoration: {
-                'hintText': 'توضیحات انتقال وجه را وارد کنید',
+                'hintText':
+                    '{{appStrings.generated.card_management.card_management_root.money_transfer_description_enter_message}}',
                 'hintStyle': {
                   'textDirection': 'rtl',
                   'style': {
@@ -2193,7 +2245,7 @@ StacWidget _walletTransferBottomSheet() {
                 ),
               ).toJson(),
               child: StacText(
-                data: 'ادامه',
+                data: '{{appStrings.common.continue}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 14,
@@ -2207,9 +2259,6 @@ StacWidget _walletTransferBottomSheet() {
     ),
   );
 }
-
-
-
 
 // ─── Wallet: Transfer Confirm ─────────────────────────────────────────────
 
@@ -2265,7 +2314,8 @@ StacWidget _walletTransferConfirmBottomSheet() {
             mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
             children: [
               StacText(
-                data: 'مبلغ انتقال',
+                data:
+                    '{{appStrings.generated.card_management.card_management_root.amount_transfer}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 14,
@@ -2275,7 +2325,8 @@ StacWidget _walletTransferConfirmBottomSheet() {
               ),
               StacFlexible(
                 child: StacText(
-                  data: '{{cardsManagement.wallet.transferAmount}} ریال',
+                  data:
+                      '{{appStrings.generated.card_management.card_management_root.rial}}',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.left,
                   style: StacCustomTextStyle(
@@ -2302,12 +2353,13 @@ StacWidget _walletTransferConfirmBottomSheet() {
               crossAxisAlignment: StacCrossAxisAlignment.stretch,
               children: [
                 _summaryRowFromRegistry(
-                  label: 'کیف پول مقصد',
+                  label:
+                      '{{appStrings.generated.card_management.card_management_root.wallet_money}}',
                   value: _walletTransferMockDestinationWallet,
                 ),
                 StacSizedBox(height: 12),
                 _summaryRowFromRegistry(
-                  label: 'توضیحات',
+                  label: '{{appStrings.promissory.descriptionLabel}}',
                   value: '{{cardsManagement.wallet.transferDescription}}',
                 ),
               ],
@@ -2318,9 +2370,10 @@ StacWidget _walletTransferConfirmBottomSheet() {
             onPressed: StacShowDialogAction(
               dialogActionType: 'showLogoutConfirmDialog',
               warningIconAsset: 'assets/icons/ic_warning_red.svg',
-              title: 'آیا از پرداخت وجه مطمئن هستید؟',
+              title:
+                  '{{appStrings.generated.card_management.card_management_root.payment_money}}',
               description:
-                  'بعد از پرداخت، بازگشت وجه امکان پذیر نیست. لذا از دستور پرداخت اطمینان حاصل فرمایید',
+                  '{{appStrings.generated.card_management.card_management_root.irreversible_payment_warning}}',
               positiveText: '{{appStrings.common.confirm}}',
               negativeText: '{{appStrings.common.cancel}}',
               positiveAction: StacSequenceAction(
@@ -2347,7 +2400,8 @@ StacWidget _walletTransferConfirmBottomSheet() {
               ),
             ),
             child: StacText(
-              data: 'پرداخت',
+              data:
+                  '{{appStrings.generated.card_management.card_management_root.payment}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 14,
@@ -2360,7 +2414,6 @@ StacWidget _walletTransferConfirmBottomSheet() {
     ),
   );
 }
-
 
 StacWidget _summaryRowFromRegistry({
   required String label,
@@ -2421,7 +2474,8 @@ StacWidget _primaryPinSelectBottomSheet() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'خدمات مورد نظر خود را انتخاب نمایید',
+            data:
+                '{{appStrings.generated.card_management.card_management_root.select_services}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -2432,7 +2486,8 @@ StacWidget _primaryPinSelectBottomSheet() {
           ),
           StacSizedBox(height: 24),
           _pinServiceRow(
-            label: 'دریافت رمز اول',
+            label:
+                '{{appStrings.generated.card_management.card_management_root.get_first_pin_title}}',
             selectedKey: 'cardsManagement.pin.primaryEventIsGet',
             onTap: StacCustomSetValueAction(
               values: [
@@ -2450,7 +2505,8 @@ StacWidget _primaryPinSelectBottomSheet() {
           ),
           StacSizedBox(height: 12),
           _pinServiceRow(
-            label: 'تغییر رمز اول',
+            label:
+                '{{appStrings.generated.card_management.card_management_root.change_first_pin_title}}',
             selectedKey: 'cardsManagement.pin.primaryEventIsChange',
             onTap: StacCustomSetValueAction(
               values: [
@@ -2588,7 +2644,7 @@ StacWidget _pinContinueButton({required String screenName}) {
       shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
     ),
     child: StacText(
-      data: 'ادامه',
+      data: '{{appStrings.common.continue}}',
       textDirection: StacTextDirection.rtl,
       style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
     ),
@@ -2598,8 +2654,10 @@ StacWidget _pinContinueButton({required String screenName}) {
 StacWidget _pinDisabledButton() {
   return StacFilledButton(
     onPressed: const StacCustomSnackBarAction(
-      title: 'انتخاب نشده',
-      detail: 'لطفاً یک گزینه را انتخاب کنید.',
+      title:
+          '{{appStrings.generated.card_management.card_management_root.select}}',
+      detail:
+          '{{appStrings.generated.card_management.card_management_root.select_message}}',
       duration: 2000,
     ),
     style: StacButtonStyle(
@@ -2610,7 +2668,7 @@ StacWidget _pinDisabledButton() {
       shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
     ),
     child: StacText(
-      data: 'ادامه',
+      data: '{{appStrings.common.continue}}',
       textDirection: StacTextDirection.rtl,
       style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
     ),
@@ -2643,7 +2701,8 @@ StacWidget _secondaryPinSelectBottomSheet() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'خدمات مورد نظر خود را انتخاب نمایید',
+            data:
+                '{{appStrings.generated.card_management.card_management_root.select_services}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -2654,7 +2713,8 @@ StacWidget _secondaryPinSelectBottomSheet() {
           ),
           StacSizedBox(height: 24),
           _secPinServiceRow(
-            label: 'دریافت رمز دوم',
+            label:
+                '{{appStrings.generated.card_management.card_management_root.get_second_pin_title}}',
             selectedKey: 'cardsManagement.pin.secondaryEventIsGet',
             onTap: StacCustomSetValueAction(
               values: [
@@ -2675,7 +2735,8 @@ StacWidget _secondaryPinSelectBottomSheet() {
           ),
           StacSizedBox(height: 12),
           _secPinServiceRow(
-            label: 'تغییر رمز دوم',
+            label:
+                '{{appStrings.generated.card_management.card_management_root.change_second_pin_title}}',
             selectedKey: 'cardsManagement.pin.secondaryEventIsChange',
             onTap: StacCustomSetValueAction(
               values: [
@@ -2813,7 +2874,7 @@ StacWidget _secContinueButton({required String screenName}) {
       shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
     ),
     child: StacText(
-      data: 'ادامه',
+      data: '{{appStrings.common.continue}}',
       textDirection: StacTextDirection.rtl,
       style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
     ),
@@ -2823,8 +2884,10 @@ StacWidget _secContinueButton({required String screenName}) {
 StacWidget _secDisabledButton() {
   return StacFilledButton(
     onPressed: const StacCustomSnackBarAction(
-      title: 'انتخاب نشده',
-      detail: 'لطفاً یک گزینه را انتخاب کنید.',
+      title:
+          '{{appStrings.generated.card_management.card_management_root.select}}',
+      detail:
+          '{{appStrings.generated.card_management.card_management_root.select_message}}',
       duration: 2000,
     ),
     style: StacButtonStyle(
@@ -2835,7 +2898,7 @@ StacWidget _secDisabledButton() {
       shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
     ),
     child: StacText(
-      data: 'ادامه',
+      data: '{{appStrings.common.continue}}',
       textDirection: StacTextDirection.rtl,
       style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
     ),
@@ -2870,7 +2933,8 @@ StacWidget _reissuePostalCodeBottomSheet() {
             ),
             StacSizedBox(height: 16),
             StacText(
-              data: 'در صورت درخواست صدور کارت المثنی',
+              data:
+                  '{{appStrings.generated.card_management.card_management_root.card_reissue_request}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -2882,20 +2946,21 @@ StacWidget _reissuePostalCodeBottomSheet() {
             StacSizedBox(height: 16),
             _infoBullet(
               text:
-                  'شماره کارت، تاریخ انقضاء و CVV2 کارت بانکی تغییر خواهد کرد',
+                  '{{appStrings.generated.card_management.card_management_root.card_number_date_cvv2_card}}',
             ),
             StacSizedBox(height: 8),
             _infoBullet(
               text:
-                  'کارمزد صدور کارت المثنی از سپرده متعلق به کارت بانکی مذکور کسر خواهد شد',
+                  '{{appStrings.generated.card_management.card_management_root.card_reissue_deposit_fee_card_description}}',
             ),
             StacSizedBox(height: 8),
             _infoBullet(
-              text: 'کارمزد صدور کارت المثنی (۵۷۰٬۰۰۰) ریال می‌باشد.',
+              text:
+                  '{{appStrings.generated.card_management.card_management_root.card_reissue_rial_fee}}',
             ),
             StacSizedBox(height: 24),
             StacText(
-              data: 'کد پستی',
+              data: '{{appStrings.profile.real.bankInfo.postalCodeLabel}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -2909,8 +2974,21 @@ StacWidget _reissuePostalCodeBottomSheet() {
               id: 'reissue_postal_code',
               textDirection: 'rtl',
               textAlign: 'right',
+              supportTextDirection: 'rtl',
+              autovalidateMode: 'always',
               keyboardType: 'number',
               maxLength: 10,
+              inputFormatters: const [
+                {'type': 'allow', 'rule': '[0-9۰-۹]'},
+              ],
+              validatorRules: const [
+                {
+                  'rule': 'matches',
+                  'options': {'pattern': r'^[0-9۰-۹]{10}$'},
+                  'message':
+                      '{{appStrings.generated.card_management.card_management_root.postal_code_message}}',
+                },
+              ],
               onChanged: StacSequenceAction(
                 actions: [
                   StacCustomSetValueAction(
@@ -2926,7 +3004,8 @@ StacWidget _reissuePostalCodeBottomSheet() {
                 ],
               ),
               decoration: {
-                'hintText': 'کد پستی محل سکونت را وارد کنید',
+                'hintText':
+                    '{{appStrings.profile.real.bankInfo.postalCodeHint}}',
                 'hintStyle': {
                   'textDirection': 'rtl',
                   'style': {
@@ -3003,7 +3082,7 @@ StacWidget _reissuePostalCodeBottomSheet() {
                 ),
               ).toJson(),
               child: StacText(
-                data: 'استعلام',
+                data: '{{appStrings.profile.real.bankInfo.inquiryButtonText}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 14,
@@ -3103,8 +3182,7 @@ StacWidget _cardBlockBottomSheet() {
           ),
           StacSizedBox(height: 12),
           StacText(
-            data:
-                'در صورت ارسال درخواست مسدودی، تمامی امکانات کارت شما غیرفعال می‌شود و برای استفاده مجدد از کارت باید به صورت حضوری به شعبه بانک مراجعه نمایید.',
+            data: '{{appStrings.cardsManagement.block.description}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -3235,8 +3313,7 @@ StacWidget _blockSubmitButton() {
       dialogActionType: 'showLogoutConfirmDialog',
       warningIconAsset: 'assets/icons/ic_warning_red.svg',
       title: '{{appStrings.cardsManagement.block.confirmTitle}}',
-      description:
-          'کارت [[cardsManagement.sheet.cardNumber]] مسدود خواهد شد. این عملیات قابل بازگشت نیست.',
+      description: '{{appStrings.cardsManagement.block.confirmDescription}}',
       positiveText: '{{appStrings.common.confirm}}',
       negativeText: '{{appStrings.common.cancel}}',
       positiveAction: StacSequenceAction(
@@ -3249,7 +3326,7 @@ StacWidget _blockSubmitButton() {
           ),
           StacCustomSnackBarAction(
             title: '{{appStrings.cardsManagement.block.successTitle}}',
-            detail: 'کارت در اسرع وقت مسدود خواهد شد. (mock)',
+            detail: '{{appStrings.cardsManagement.block.successDetail}}',
             duration: 3500,
           ),
         ],
@@ -3278,8 +3355,10 @@ StacWidget _blockSubmitButton() {
 StacWidget _blockDisabledSubmitButton() {
   return StacFilledButton(
     onPressed: const StacCustomSnackBarAction(
-      title: 'دلیل مسدودی انتخاب نشده',
-      detail: 'لطفاً دلیل مسدود سازی کارت را انتخاب کنید.',
+      title:
+          '{{appStrings.generated.card_management.card_management_root.select_text}}',
+      detail:
+          '{{appStrings.generated.card_management.card_management_root.select_card_message}}',
       duration: 2000,
     ),
     style: StacButtonStyle(

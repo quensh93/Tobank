@@ -21,15 +21,17 @@ StacWidget promissoryGuaranteeFinalPage() {
         },
         {
           'key': 'promissoryGuaranteeIssuerName',
-          'value': 'زهرا حاجی ابراهیمی',
+          'value':
+              '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.sample_person_name}}',
         },
         {
           'key': 'promissoryGuaranteeAmount',
-          'value': '۶۸۹,۰۰۰,۰۰۰ ریال',
+          'value':
+              '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.rial}}',
         },
         {
           'key': 'promissoryGuaranteeDueDate',
-          'value': 'عندالمطالبه',
+          'value': '{{appStrings.promissory.onDemand}}',
         },
         {
           'key': 'promissoryGuaranteeNationalCode',
@@ -43,7 +45,7 @@ StacWidget promissoryGuaranteeFinalPage() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        title: 'ضمانت سفته',
+        title: '{{appStrings.promissory.guaranteePromissory}}',
         showBack: true,
         showSupport: true,
       ),
@@ -67,7 +69,8 @@ StacWidget promissoryGuaranteeFinalPage() {
                         _successMark(),
                         StacSizedBox(height: 16),
                         StacText(
-                          data: 'عملیات موفق',
+                          data:
+                              '{{appStrings.generated.promissory.rules.success_operation}}',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.center,
                           style: StacTextStyle(
@@ -78,7 +81,8 @@ StacWidget promissoryGuaranteeFinalPage() {
                         ),
                         StacSizedBox(height: 8),
                         StacText(
-                          data: 'ضمانت سفته شما با موفقیت ثبت شد!',
+                          data:
+                              '{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.guarantee_promissory_successfully_submit}}',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.center,
                           style: StacTextStyle(
@@ -99,21 +103,23 @@ StacWidget promissoryGuaranteeFinalPage() {
               ),
               StacRow(
                 children: [
-                StacExpanded(
-                  child: _actionButton(
-                    title: 'اشتراک‌گذاری',
+                  StacExpanded(
+                    child: _actionButton(
+                      title:
+                          '{{appStrings.generated.card_management.card_management_root.share}}',
                       iconAsset: 'assets/icons/ic_share.svg',
                       mode: 'shareText',
+                    ),
                   ),
-                ),
-                StacSizedBox(width: 10),
-                StacExpanded(
-                  child: _actionButton(
-                    title: 'ذخیره در گالری',
+                  StacSizedBox(width: 10),
+                  StacExpanded(
+                    child: _actionButton(
+                      title:
+                          '{{appStrings.generated.charge.charge_payment_success.title}}',
                       iconAsset: 'assets/icons/ic_download.svg',
                       mode: 'shareImage',
+                    ),
                   ),
-                ),
                 ],
               ),
             ],
@@ -166,35 +172,35 @@ StacWidget _buildReceiptCard() {
       textDirection: StacTextDirection.rtl,
       children: [
         buildPromissoryDetailRow(
-          'مبلغ سفته',
+          '{{appStrings.promissory.amountLabel}}',
           '{{promissoryGuaranteeAmount}}',
         ),
         StacSizedBox(height: 12),
         buildPromissoryDivider(),
         StacSizedBox(height: 12),
         buildPromissoryDetailRow(
-          'نام صادرکننده',
+          '{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.issuer_name}}',
           '{{promissoryGuaranteeIssuerName}}',
         ),
         StacSizedBox(height: 12),
         buildPromissoryDivider(),
         StacSizedBox(height: 12),
         buildPromissoryDetailRow(
-          'کد ملی صادرکننده',
+          '{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.issuer_national_code}}',
           '{{promissoryGuaranteeNationalCode}}',
         ),
         StacSizedBox(height: 12),
         buildPromissoryDivider(),
         StacSizedBox(height: 12),
         buildPromissoryDetailRow(
-          'تاریخ پرداخت',
+          '{{appStrings.promissory.payDate}}',
           '{{promissoryGuaranteeDueDate}}',
         ),
         StacSizedBox(height: 12),
         buildPromissoryDivider(),
         StacSizedBox(height: 12),
         buildPromissoryDetailRow(
-          'شناسه یکتای سفته',
+          '{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.identifier_promissory}}',
           '{{promissoryGuaranteePromissoryId}}',
         ),
       ],
@@ -232,7 +238,7 @@ StacWidget _buildPdfCard() {
                 ),
                 StacSizedBox(width: 8),
                 StacText(
-                  data: 'سفته',
+                  data: '{{appStrings.promissory.promissory}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacTextStyle(
                     fontSize: 16,
@@ -245,52 +251,53 @@ StacWidget _buildPdfCard() {
             StacRow(
               textDirection: StacTextDirection.rtl,
               children: [
-              StacGestureDetector(
-                onTap: const NavigationAction(
-                  fileName: 'promissory_guarantee_preview_page',
-                  navMode: NavModes.dart,
-                  navigationStyle: NavigationStyle.push,
-                ),
-                child: StacPadding(
-                  padding: StacEdgeInsets.all(8),
-                  child: StacImage(
-                    src: 'assets/icons/ic_show.svg',
-                    imageType: StacImageType.asset,
-                    width: 24,
-                    height: 24,
-                    color: '{{appColors.current.text.title}}',
+                StacGestureDetector(
+                  onTap: const NavigationAction(
+                    fileName: 'promissory_guarantee_preview_page',
+                    navMode: NavModes.dart,
+                    navigationStyle: NavigationStyle.push,
+                  ),
+                  child: StacPadding(
+                    padding: StacEdgeInsets.all(8),
+                    child: StacImage(
+                      src: 'assets/icons/ic_show.svg',
+                      imageType: StacImageType.asset,
+                      width: 24,
+                      height: 24,
+                      color: '{{appColors.current.text.title}}',
+                    ),
                   ),
                 ),
-              ),
-              StacSizedBox(width: 8),
-              StacGestureDetector(
-                onTap: const StacCustomAction.fromJson({
-                  'actionType': 'transferReceipt',
-                  'mode': 'shareImage',
-                  'title': 'رسید ضمانت سفته',
-                  'pixelRatio': 3.0,
-                  'boundaryKey': 'promissoryGuaranteeReceiptContent',
-                }),
-                child: StacPadding(
-                  padding: StacEdgeInsets.all(8),
-                  child: StacImage(
-                    src: 'assets/icons/ic_share.svg',
-                    imageType: StacImageType.asset,
-                    width: 24,
-                    height: 24,
-                    color: '{{appColors.current.text.title}}',
+                StacSizedBox(width: 8),
+                StacGestureDetector(
+                  onTap: const StacCustomAction.fromJson({
+                    'actionType': 'transferReceipt',
+                    'mode': 'shareImage',
+                    'title':
+                        '{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.guarantee_promissory_receipt}}',
+                    'pixelRatio': 3.0,
+                    'boundaryKey': 'promissoryGuaranteeReceiptContent',
+                  }),
+                  child: StacPadding(
+                    padding: StacEdgeInsets.all(8),
+                    child: StacImage(
+                      src: 'assets/icons/ic_share.svg',
+                      imageType: StacImageType.asset,
+                      width: 24,
+                      height: 24,
+                      color: '{{appColors.current.text.title}}',
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
           ],
         ),
         StacSizedBox(height: 8),
         buildPromissoryDivider(),
         StacSizedBox(height: 8),
         StacText(
-          data: 'کاربر گرامی سفته شما در بخش سفته‌های من نیز قابل دانلود است',
+          data: '{{appStrings.promissory.downloadMessage}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.right,
           style: StacTextStyle(
@@ -314,7 +321,8 @@ StacWidget _actionButton({
     onPressed: StacCustomAction.fromJson({
       'actionType': 'transferReceipt',
       'mode': mode,
-      'title': 'رسید ضمانت سفته',
+      'title':
+          '{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.guarantee_promissory_receipt}}',
       'pixelRatio': 3.0,
       'boundaryKey': 'promissoryGuaranteeReceiptContent',
     }),
@@ -324,9 +332,7 @@ StacWidget _actionButton({
         color: '{{appColors.current.input.borderEnabled}}',
         width: 1,
       ),
-      shape: StacRoundedRectangleBorder(
-        borderRadius: StacBorderRadius.all(10),
-      ),
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(10)),
     ),
     child: StacRow(
       mainAxisAlignment: StacMainAxisAlignment.center,

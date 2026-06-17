@@ -25,7 +25,11 @@ StacWidget chargeRealPackageList() {
             {'key': 'crChargeContinueOptionalValid', 'value': false},
             {'key': 'crChargeShowAmountError', 'value': false},
             {'key': 'crChargeEnteredAmount', 'value': ''},
-            {'key': 'crChargeSelectedPresetAmount', 'value': '۱۰۰,۰۰۰'},
+            {
+              'key': 'crChargeSelectedPresetAmount',
+              'value':
+                  '{{appStrings.generated.charge.charge_package_list.title}}',
+            },
           ],
         ),
         _showChargeAmountSheetAction(),
@@ -36,7 +40,7 @@ StacWidget chargeRealPackageList() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'شارژ',
+        title: '{{appStrings.homePage.services.topUp}}',
       ),
       body: StacSafeArea(
         top: false,
@@ -46,7 +50,7 @@ StacWidget chargeRealPackageList() {
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
             children: [
               StacText(
-                data: 'شماره سیم کارت اعتباری را وارد کنید',
+                data: '{{appStrings.generated.charge.charge_add_sim.title}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacCustomTextStyle(
@@ -132,7 +136,8 @@ StacWidget _buildChargeAmountSheet() {
         ),
         StacSizedBox(height: 18),
         StacText(
-          data: 'مبلغ شارژ',
+          data:
+              '{{appStrings.generated.card_management.card_management_root.amount_topup}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.center,
           style: StacCustomTextStyle(
@@ -147,7 +152,7 @@ StacWidget _buildChargeAmountSheet() {
           children: [
             StacExpanded(
               child: _presetAmountItem(
-                label: '۵۰,۰۰۰ ریال',
+                label: '{{appStrings.generated.charge.charge_intro.rial}}',
                 selectedKey: 'crChargePreset50',
                 onTap: _selectPreset('50'),
               ),
@@ -155,7 +160,7 @@ StacWidget _buildChargeAmountSheet() {
             StacSizedBox(width: 10),
             StacExpanded(
               child: _presetAmountItem(
-                label: '۱۰۰,۰۰۰ ریال',
+                label: '{{appStrings.generated.charge.charge_intro.rial_text}}',
                 selectedKey: 'crChargePreset100',
                 onTap: _selectPreset('100'),
               ),
@@ -163,7 +168,8 @@ StacWidget _buildChargeAmountSheet() {
             StacSizedBox(width: 10),
             StacExpanded(
               child: _presetAmountItem(
-                label: '۲۰۰,۰۰۰ ریال',
+                label:
+                    '{{appStrings.generated.charge.charge_intro.rial_label}}',
                 selectedKey: 'crChargePreset200',
                 onTap: _selectPreset('200'),
               ),
@@ -176,7 +182,8 @@ StacWidget _buildChargeAmountSheet() {
           children: [
             StacExpanded(
               child: _presetAmountItem(
-                label: '۵۰۰,۰۰۰ ریال',
+                label:
+                    '{{appStrings.generated.charge.charge_intro.rial_message}}',
                 selectedKey: 'crChargePreset500',
                 onTap: _selectPreset('500'),
               ),
@@ -184,7 +191,7 @@ StacWidget _buildChargeAmountSheet() {
             StacSizedBox(width: 10),
             StacExpanded(
               child: _presetAmountItem(
-                label: '۱,۰۰۰,۰۰۰ ریال',
+                label: '{{appStrings.generated.charge.charge_intro.rial_item}}',
                 selectedKey: 'crChargePreset1000',
                 onTap: _selectPreset('1000'),
               ),
@@ -205,7 +212,8 @@ StacWidget _buildChargeAmountSheet() {
                 keyboardType: 'number',
                 decoration: {
                   ...StacInputDecoration(
-                    hintText: 'مبلغ دلخواه',
+                    hintText:
+                        '{{appStrings.generated.charge.charge_intro.amount}}',
                     hintStyle: StacCustomTextStyle(
                       color: '#98A2B3',
                       fontSize: 16,
@@ -215,7 +223,7 @@ StacWidget _buildChargeAmountSheet() {
                       horizontal: 14,
                       vertical: 14,
                     ),
-                    prefixText: 'ریال',
+                    prefixText: '{{appStrings.common.rial}}',
                     prefixStyle: StacCustomTextStyle(
                       fontSize: 16,
                       fontWeight: StacFontWeight.w500,
@@ -233,7 +241,8 @@ StacWidget _buildChargeAmountSheet() {
                 child: StacPadding(
                   padding: StacEdgeInsets.only(top: 8, right: 6),
                   child: StacText(
-                    data: 'مبلغ شارژ را وارد کنید.',
+                    data:
+                        '{{appStrings.generated.charge.charge_intro.amount_topup_enter}}',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.right,
                     style: StacCustomTextStyle(
@@ -254,7 +263,7 @@ StacWidget _buildChargeAmountSheet() {
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              data: 'شارژ شگفت انگیز',
+              data: '{{appStrings.generated.charge.charge_intro.topup_text}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 16,
@@ -388,27 +397,31 @@ StacAction _selectPreset(String preset) {
       {'key': 'crChargeContinueOptionalValid', 'value': false},
       {
         'key': 'crChargeSelectedPresetAmount',
-        'value': '۵۰,۰۰۰',
+        'value':
+            '{{appStrings.generated.charge.charge_package_list.amount_value}}',
         'condition': 'crChargePreset50',
       },
       {
         'key': 'crChargeSelectedPresetAmount',
-        'value': '۱۰۰,۰۰۰',
+        'value': '{{appStrings.generated.charge.charge_package_list.title}}',
         'condition': 'crChargePreset100',
       },
       {
         'key': 'crChargeSelectedPresetAmount',
-        'value': '۲۰۰,۰۰۰',
+        'value':
+            '{{appStrings.generated.charge.charge_package_list.amount_value_text}}',
         'condition': 'crChargePreset200',
       },
       {
         'key': 'crChargeSelectedPresetAmount',
-        'value': '۵۰۰,۰۰۰',
+        'value':
+            '{{appStrings.generated.charge.charge_package_list.amount_value_label}}',
         'condition': 'crChargePreset500',
       },
       {
         'key': 'crChargeSelectedPresetAmount',
-        'value': '۱,۰۰۰,۰۰۰',
+        'value':
+            '{{appStrings.generated.charge.charge_package_list.amount_value_message}}',
         'condition': 'crChargePreset1000',
       },
     ],
@@ -472,7 +485,10 @@ StacAction _onAmazingChanged() {
       {'key': 'crChargePreset200', 'value': false},
       {'key': 'crChargePreset500', 'value': false},
       {'key': 'crChargePreset1000', 'value': false},
-      {'key': 'crChargeSelectedPresetAmount', 'value': '۱۰۰,۰۰۰'},
+      {
+        'key': 'crChargeSelectedPresetAmount',
+        'value': '{{appStrings.generated.charge.charge_package_list.title}}',
+      },
     ],
   );
 }
@@ -487,10 +503,18 @@ StacAction _presetContinueAction() {
             'key': 'crPkgSelectedAmount',
             'value': '{{crChargeSelectedPresetAmount}}',
           },
-          {'key': 'crPkgSelectedName', 'value': 'شارژ {{crActiveSimOperator}}'},
+          {
+            'key': 'crPkgSelectedName',
+            'value':
+                '{{appStrings.generated.charge.charge_package_list.topup}}',
+          },
         ],
       ),
-      NavigationAction(fileName: 'charge_payment', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      NavigationAction(
+        fileName: 'charge_payment',
+        navMode: NavModes.dart,
+        navigationStyle: NavigationStyle.push,
+      ),
     ],
   );
 }
@@ -502,10 +526,18 @@ StacAction _optionalContinueAction() {
       StacCustomSetValueAction(
         values: [
           {'key': 'crPkgSelectedAmount', 'value': '{{crChargeEnteredAmount}}'},
-          {'key': 'crPkgSelectedName', 'value': 'شارژ {{crActiveSimOperator}}'},
+          {
+            'key': 'crPkgSelectedName',
+            'value':
+                '{{appStrings.generated.charge.charge_package_list.topup}}',
+          },
         ],
       ),
-      NavigationAction(fileName: 'charge_payment', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      NavigationAction(
+        fileName: 'charge_payment',
+        navMode: NavModes.dart,
+        navigationStyle: NavigationStyle.push,
+      ),
     ],
   );
 }
@@ -521,7 +553,7 @@ StacWidget _continueButton({required StacAction onPressed}) {
       elevation: 0,
     ),
     child: StacText(
-      data: 'تایید و ادامه',
+      data: '{{appStrings.authentication.confirmAndContinue}}',
       textDirection: StacTextDirection.rtl,
       style: StacCustomTextStyle(
         fontSize: 16,
@@ -531,4 +563,3 @@ StacWidget _continueButton({required StacAction onPressed}) {
     ),
   );
 }
-

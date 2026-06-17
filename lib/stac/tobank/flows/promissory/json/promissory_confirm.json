@@ -693,7 +693,7 @@
                             "type": "visibility",
                             "visible": "[[!recipientType]]",
                             "child": {
-                              "data": "نام",
+                              "data": "{{appStrings.generated.promissory.promissory_confirm.name}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",

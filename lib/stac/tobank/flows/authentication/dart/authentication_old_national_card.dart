@@ -563,4 +563,3 @@ StacWidget _buildDeleteButton({required StacAction onTap}) {
     ),
   );
 }
-

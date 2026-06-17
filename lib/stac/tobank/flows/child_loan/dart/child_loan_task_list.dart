@@ -7,7 +7,8 @@ import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 StacWidget childLoanTaskListScreen() {
   return StacScaffold(
     appBar: buildTobankFlowAppBar(
-      title: 'تسهیلات فرزندآوری',
+      title:
+          '{{appStrings.generated.child_loan.child_loan_customer_check.title}}',
       showBack: true,
       showSupport: true,
     ),
@@ -20,7 +21,7 @@ StacWidget childLoanTaskListScreen() {
             'type': 'visibility',
             'visible': '[[!childLoanTaskResidenceCompleted]]',
             'child': _taskItemCard(
-              'اطلاعات محل سکونت متقاضی',
+              '{{appStrings.generated.cartable.cartable_detail.information_place}}',
               routeName: 'child_loan_guarantee_address',
             ).toJson(),
           }),
@@ -29,7 +30,7 @@ StacWidget childLoanTaskListScreen() {
             'type': 'visibility',
             'visible': '[[!childLoanTaskChildInfoCompleted]]',
             'child': _taskItemCard(
-              'اطلاعات فرزند متقاضی',
+              '{{appStrings.generated.cartable.cartable_detail.information_child}}',
               routeName: 'child_loan_child_check',
             ).toJson(),
           }),
@@ -38,7 +39,7 @@ StacWidget childLoanTaskListScreen() {
             'type': 'visibility',
             'visible': '[[!childLoanTaskDocsCompleted]]',
             'child': _taskItemCard(
-              'مدارک متقاضی',
+              '{{appStrings.generated.cartable.cartable_detail.documents}}',
               routeName: 'child_loan_customer_document',
             ).toJson(),
           }),
@@ -87,12 +88,17 @@ StacWidget _taskItemCard(String title, {required String routeName}) {
             children: [
               _statusChip(),
               StacGestureDetector(
-                onTap: NavigationAction(fileName: routeName, navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                onTap: NavigationAction(
+                  fileName: routeName,
+                  navMode: NavModes.dart,
+                  navigationStyle: NavigationStyle.push,
+                ),
                 child: StacRow(
                   textDirection: StacTextDirection.rtl,
                   children: [
                     StacText(
-                      data: 'تکمیل',
+                      data:
+                          '{{appStrings.generated.child_loan.child_loan_task_list.title}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacTextStyle(
                         fontSize: 16,
@@ -140,7 +146,8 @@ StacWidget _statusChip() {
         ),
         StacSizedBox(width: 8),
         StacText(
-          data: 'در انتظار تکمیل',
+          data:
+              '{{appStrings.generated.child_loan.child_loan_task_list.complete}}',
           textDirection: StacTextDirection.rtl,
           style: StacTextStyle(
             fontSize: 12,

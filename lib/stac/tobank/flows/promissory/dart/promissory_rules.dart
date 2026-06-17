@@ -192,8 +192,9 @@ StacWidget _buildContinueButton() {
           {'actionType': 'setValue', 'key': 'isSanaLoading', 'value': true},
           {
             'actionType': 'networkRequest',
-            'url':
-                SduiConfig.bizUrl('governance/v1.0/sana/{{userData.nationalCode}}/1'),
+            'url': SduiConfig.bizUrl(
+              'governance/v1.0/sana/{{userData.nationalCode}}/1',
+            ),
             'method': 'get',
             'headers': {
               'accept': 'application/json',
@@ -210,7 +211,11 @@ StacWidget _buildContinueButton() {
                       'key': 'isSanaLoading',
                       'value': false,
                     },
-                    NavigationAction(fileName: 'promissory_issuer', navMode: NavModes.dart, navigationStyle: NavigationStyle.push).toJson(),
+                    NavigationAction(
+                      fileName: 'promissory_issuer',
+                      navMode: NavModes.dart,
+                      navigationStyle: NavigationStyle.push,
+                    ).toJson(),
                   ],
                 },
               },
@@ -225,7 +230,7 @@ StacWidget _buildContinueButton() {
                       'value': false,
                     },
                     const StacCustomSnackBarAction(
-                      title: 'خطا',
+                      title: '{{appStrings.common.error}}',
                       detail: '{{appStrings.promissory.serverConnectionError}}',
                       duration: 4000,
                     ).toJson(),
@@ -243,7 +248,7 @@ StacWidget _buildContinueButton() {
                       'value': false,
                     },
                     const StacCustomSnackBarAction(
-                      title: 'خطا',
+                      title: '{{appStrings.common.error}}',
                       detail: '{{data.status.message.0}}',
                       duration: 4000,
                     ).toJson(),
@@ -275,4 +280,3 @@ StacWidget _buildContinueButton() {
     ),
   );
 }
-

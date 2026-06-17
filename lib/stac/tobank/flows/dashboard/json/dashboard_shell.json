@@ -1,4 +1,4 @@
-﻿{
+{
   "length": 4,
   "initialIndex": 3,
   "child": {
@@ -62,7 +62,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "حساب کاربری",
+                      "data": "{{appStrings.profile.real.accountTitle}}",
                       "children": null,
                       "style": {
                         "type": "custom",
@@ -254,8 +254,8 @@
                       },
                       "onTap": {
                         "actionType": "showResult",
-                        "title": "ویرایش تصویر",
-                        "content": "این بخش به زودی فعال می‌شود."
+                        "title": "{{appStrings.profile.real.editImageTitle}}",
+                        "content": "{{appStrings.profile.real.comingSoon}}"
                       },
                       "onTapDown": null,
                       "onTapUp": null,
@@ -325,7 +325,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "مهدی جمشیدپور",
+                      "data": "{{appStrings.profile.real.userName}}",
                       "children": null,
                       "style": {
                         "type": "custom",
@@ -369,7 +369,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "09142767469",
+                      "data": "{{appStrings.profile.real.phoneNumber}}",
                       "children": null,
                       "style": {
                         "type": "custom",
@@ -517,7 +517,7 @@
                                           {
                                             "flex": null,
                                             "child": {
-                                              "data": "اطلاعات بانکی",
+                                              "data": "{{appStrings.profile.real.menu.bankInfo}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -721,7 +721,7 @@
                                           {
                                             "flex": null,
                                             "child": {
-                                              "data": "دعوت از دوستان",
+                                              "data": "{{appStrings.profile.real.menu.inviteFriends}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -925,7 +925,7 @@
                                           {
                                             "flex": null,
                                             "child": {
-                                              "data": "مدیریت مقصدها",
+                                              "data": "{{appStrings.profile.real.menu.destinations}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -1129,7 +1129,7 @@
                                           {
                                             "flex": null,
                                             "child": {
-                                              "data": "تنظیمات",
+                                              "data": "{{appStrings.profile.real.menu.settings}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -1333,7 +1333,7 @@
                                           {
                                             "flex": null,
                                             "child": {
-                                              "data": "قوانین و مقررات",
+                                              "data": "{{appStrings.login.rulesAndRegulations}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -1537,7 +1537,7 @@
                                           {
                                             "flex": null,
                                             "child": {
-                                              "data": "درباره ما",
+                                              "data": "{{appStrings.profile.real.menu.aboutUs}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -1741,7 +1741,7 @@
                                           {
                                             "flex": null,
                                             "child": {
-                                              "data": "تماس با ما",
+                                              "data": "{{appStrings.profile.real.menu.contactUs}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -1873,7 +1873,7 @@
                               "type": "padding"
                             },
                             {
-                              "data": "نسخه برنامه ۳.۲.۶",
+                              "data": "{{appStrings.profile.real.appVersion}}",
                               "children": null,
                               "style": {
                                 "type": "custom",
@@ -2031,7 +2031,7 @@
                         {
                           "tabs": [
                             {
-                              "text": "تاریخچه فعالیت‌ها",
+                              "text": "{{appStrings.generated.cartable.cartable_intro.date_active}}",
                               "icon": null,
                               "iconMargin": null,
                               "height": 62.0,
@@ -2039,7 +2039,7 @@
                               "type": "tab"
                             },
                             {
-                              "text": "کارتابل",
+                              "text": "{{appStrings.menu.items.inbox}}",
                               "icon": null,
                               "iconMargin": null,
                               "height": 62.0,
@@ -2234,7 +2234,7 @@
                                             "bottom": 6.0
                                           },
                                           "child": {
-                                            "data": "همه",
+                                            "data": "{{appStrings.generated.cartable.cartable_intro.all_filter}}",
                                             "children": null,
                                             "style": {
                                               "type": "custom",
@@ -2318,7 +2318,7 @@
                                             "bottom": 6.0
                                           },
                                           "child": {
-                                            "data": "همه",
+                                            "data": "{{appStrings.generated.cartable.cartable_intro.all_filter}}",
                                             "children": null,
                                             "style": {
                                               "type": "custom",
@@ -2503,7 +2503,7 @@
                                             "bottom": 6.0
                                           },
                                           "child": {
-                                            "data": "درخواست‌های باز",
+                                            "data": "{{appStrings.generated.cartable.cartable_intro.request}}",
                                             "children": null,
                                             "style": {
                                               "type": "custom",
@@ -2587,7 +2587,7 @@
                                             "bottom": 6.0
                                           },
                                           "child": {
-                                            "data": "درخواست‌های باز",
+                                            "data": "{{appStrings.generated.cartable.cartable_intro.request}}",
                                             "children": null,
                                             "style": {
                                               "type": "custom",
@@ -2772,7 +2772,7 @@
                                             "bottom": 6.0
                                           },
                                           "child": {
-                                            "data": "درخواست‌های بسته",
+                                            "data": "{{appStrings.generated.cartable.cartable_intro.request_package}}",
                                             "children": null,
                                             "style": {
                                               "type": "custom",
@@ -2856,7 +2856,7 @@
                                             "bottom": 6.0
                                           },
                                           "child": {
-                                            "data": "درخواست‌های بسته",
+                                            "data": "{{appStrings.generated.cartable.cartable_intro.request_package}}",
                                             "children": null,
                                             "style": {
                                               "type": "custom",
@@ -3090,7 +3090,7 @@
                                                       "spacing": null,
                                                       "children": [
                                                         {
-                                                          "data": "وام قرض الحسنه ازدواج",
+                                                          "data": "{{appStrings.generated.cartable.cartable_detail.loan}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -3152,7 +3152,7 @@
                                                               "spacing": null,
                                                               "children": [
                                                                 {
-                                                                  "data": "وضعیت درخواست",
+                                                                  "data": "{{appStrings.generated.cartable.cartable_intro.status_request}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -3237,7 +3237,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "باز",
+                                                              "data": "{{appStrings.generated.cartable.cartable_detail.open_status}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -3302,7 +3302,7 @@
                                                               "spacing": null,
                                                               "children": [
                                                                 {
-                                                                  "data": "تاریخ ثبت درخواست",
+                                                                  "data": "{{appStrings.generated.cartable.cartable_intro.date_submit_request}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -3387,7 +3387,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "۶ دی ۱۴۰۴",
+                                                              "data": "{{appStrings.generated.cartable.cartable_intro.amount_value}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -3488,7 +3488,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "جزئیات",
+                                                              "data": "{{appStrings.generated.card_management.card_management_root.details}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -3719,7 +3719,7 @@
                                                       "spacing": null,
                                                       "children": [
                                                         {
-                                                          "data": "تکمیل مدارک",
+                                                          "data": "{{appStrings.generated.cartable.cartable_detail.documents_complete}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -3781,7 +3781,7 @@
                                                               "spacing": null,
                                                               "children": [
                                                                 {
-                                                                  "data": "وضعیت درخواست",
+                                                                  "data": "{{appStrings.generated.cartable.cartable_intro.status_request}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -3866,7 +3866,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "بسته",
+                                                              "data": "{{appStrings.generated.cartable.cartable_detail.package}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -3931,7 +3931,7 @@
                                                               "spacing": null,
                                                               "children": [
                                                                 {
-                                                                  "data": "تاریخ ثبت درخواست",
+                                                                  "data": "{{appStrings.generated.cartable.cartable_intro.date_submit_request}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -4016,7 +4016,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "۲۴ فروردین ۱۴۰۵",
+                                                              "data": "{{appStrings.generated.cartable.cartable_intro.amount_value_message}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -4117,7 +4117,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "جزئیات",
+                                                              "data": "{{appStrings.generated.card_management.card_management_root.details}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -4326,7 +4326,7 @@
                                                       "spacing": null,
                                                       "children": [
                                                         {
-                                                          "data": "تکمیل مدارک",
+                                                          "data": "{{appStrings.generated.cartable.cartable_detail.documents_complete}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -4388,7 +4388,7 @@
                                                               "spacing": null,
                                                               "children": [
                                                                 {
-                                                                  "data": "وضعیت درخواست",
+                                                                  "data": "{{appStrings.generated.cartable.cartable_intro.status_request}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -4473,7 +4473,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "بسته",
+                                                              "data": "{{appStrings.generated.cartable.cartable_detail.package}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -4538,7 +4538,7 @@
                                                               "spacing": null,
                                                               "children": [
                                                                 {
-                                                                  "data": "تاریخ ثبت درخواست",
+                                                                  "data": "{{appStrings.generated.cartable.cartable_intro.date_submit_request}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -4623,7 +4623,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "۲۳ فروردین ۱۴۰۵",
+                                                              "data": "{{appStrings.generated.cartable.cartable_intro.amount_value_label}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -4724,7 +4724,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "جزئیات",
+                                                              "data": "{{appStrings.generated.card_management.card_management_root.details}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -4933,7 +4933,7 @@
                                                       "spacing": null,
                                                       "children": [
                                                         {
-                                                          "data": "تکمیل مدارک",
+                                                          "data": "{{appStrings.generated.cartable.cartable_detail.documents_complete}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -4995,7 +4995,7 @@
                                                               "spacing": null,
                                                               "children": [
                                                                 {
-                                                                  "data": "وضعیت درخواست",
+                                                                  "data": "{{appStrings.generated.cartable.cartable_intro.status_request}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -5080,7 +5080,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "بسته",
+                                                              "data": "{{appStrings.generated.cartable.cartable_detail.package}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -5145,7 +5145,7 @@
                                                               "spacing": null,
                                                               "children": [
                                                                 {
-                                                                  "data": "تاریخ ثبت درخواست",
+                                                                  "data": "{{appStrings.generated.cartable.cartable_intro.date_submit_request}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -5230,7 +5230,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "۲۳ فروردین ۱۴۰۵",
+                                                              "data": "{{appStrings.generated.cartable.cartable_intro.amount_value_label}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -5331,7 +5331,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "جزئیات",
+                                                              "data": "{{appStrings.generated.card_management.card_management_root.details}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -5582,7 +5582,7 @@
                                           "spacing": null,
                                           "children": [
                                             {
-                                              "data": "نوع درخواست: تسهیلات قرض الحسنه ازدواج",
+                                              "data": "{{appStrings.generated.cartable.cartable_intro.title}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -5635,7 +5635,7 @@
                                               "spacing": null,
                                               "children": [
                                                 {
-                                                  "data": "مرحله بعد",
+                                                  "data": "{{appStrings.generated.cartable.cartable_intro.next_step}}",
                                                   "children": null,
                                                   "style": {
                                                     "type": "custom",
@@ -5681,7 +5681,7 @@
                                                 {
                                                   "flex": null,
                                                   "child": {
-                                                    "data": "اصلاح اطلاعات محل سکونت متقاضی",
+                                                    "data": "{{appStrings.generated.cartable.cartable_intro.information_place}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -5799,7 +5799,7 @@
                                                         "type": "sizedBox"
                                                       },
                                                       {
-                                                        "data": "جزئیات",
+                                                        "data": "{{appStrings.generated.card_management.card_management_root.details}}",
                                                         "children": null,
                                                         "style": {
                                                           "type": "custom",
@@ -5991,7 +5991,7 @@
                                                         "type": "sizedBox"
                                                       },
                                                       {
-                                                        "data": "ادامه فرآیند",
+                                                        "data": "{{appStrings.generated.cartable.cartable_intro.continue_process}}",
                                                         "children": null,
                                                         "style": {
                                                           "type": "custom",
@@ -6035,8 +6035,8 @@
                                                 },
                                                 "onTap": {
                                                   "actionType": "showResult",
-                                                  "title": "ادامه فرآیند",
-                                                  "content": "ادامه فرآیند به زودی فعال می‌شود."
+                                                  "title": "{{appStrings.generated.cartable.cartable_intro.continue_process}}",
+                                                  "content": "{{appStrings.generated.cartable.cartable_intro.continue_active_process}}"
                                                 },
                                                 "onTapDown": null,
                                                 "onTapUp": null,
@@ -6318,7 +6318,7 @@
                         {
                           "tabs": [
                             {
-                              "text": "سپرده‌ها",
+                              "text": "{{appStrings.homePage.tabs.deposits}}",
                               "icon": null,
                               "iconMargin": null,
                               "height": 54.0,
@@ -6326,7 +6326,7 @@
                               "type": "tab"
                             },
                             {
-                              "text": "توبانک",
+                              "text": "{{appStrings.splash.title}}",
                               "icon": null,
                               "iconMargin": null,
                               "height": 54.0,
@@ -6568,7 +6568,7 @@
                                                 {
                                                   "flex": null,
                                                   "child": {
-                                                    "data": "پل",
+                                                    "data": "{{appStrings.generated.transaction.transaction_intro.bridge_service}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -6614,7 +6614,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۲۹۹,۹۰۰,۰۰۰ ریال",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_message}}",
                                                   "children": null,
                                                   "style": {
                                                     "type": "custom",
@@ -6661,7 +6661,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "انتقال به مهدی جمشیدپور",
+                                              "data": "{{appStrings.generated.transaction.transaction_intro.transfer}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -6811,7 +6811,7 @@
                                                 {
                                                   "flex": null,
                                                   "child": {
-                                                    "data": "پل",
+                                                    "data": "{{appStrings.generated.transaction.transaction_intro.bridge_service}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -6857,7 +6857,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۵۰۰,۰۰۰,۰۰۰ ریال",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_label}}",
                                                   "children": null,
                                                   "style": {
                                                     "type": "custom",
@@ -6904,7 +6904,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "انتقال به مهدی جمشیدپور",
+                                              "data": "{{appStrings.generated.transaction.transaction_intro.transfer}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -7054,7 +7054,7 @@
                                                 {
                                                   "flex": null,
                                                   "child": {
-                                                    "data": "پل",
+                                                    "data": "{{appStrings.generated.transaction.transaction_intro.bridge_service}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -7100,7 +7100,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۵۰۰,۰۰۰,۰۰۰ ریال",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_label}}",
                                                   "children": null,
                                                   "style": {
                                                     "type": "custom",
@@ -7147,7 +7147,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "انتقال به مهدی جمشیدپور",
+                                              "data": "{{appStrings.generated.transaction.transaction_intro.transfer}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -7297,7 +7297,7 @@
                                                 {
                                                   "flex": null,
                                                   "child": {
-                                                    "data": "پل",
+                                                    "data": "{{appStrings.generated.transaction.transaction_intro.bridge_service}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -7343,7 +7343,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۱۰,۵۰۰,۰۰۰ ریال",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_theme}}",
                                                   "children": null,
                                                   "style": {
                                                     "type": "custom",
@@ -7390,7 +7390,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "انتقال به مهدی جمشیدپور",
+                                              "data": "{{appStrings.generated.transaction.transaction_intro.transfer}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -7540,7 +7540,7 @@
                                                 {
                                                   "flex": null,
                                                   "child": {
-                                                    "data": "پایا",
+                                                    "data": "{{appStrings.generated.transaction.transaction_intro.sample_label}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -7586,7 +7586,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۵۴۳,۸۰۰,۰۰۰ ریال",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_sample}}",
                                                   "children": null,
                                                   "style": {
                                                     "type": "custom",
@@ -7633,7 +7633,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "انتقال به مهدی جمشیدپور",
+                                              "data": "{{appStrings.generated.transaction.transaction_intro.transfer}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -7783,7 +7783,7 @@
                                                 {
                                                   "flex": null,
                                                   "child": {
-                                                    "data": "پایا",
+                                                    "data": "{{appStrings.generated.transaction.transaction_intro.sample_label}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -7829,7 +7829,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۵۴۳,۹۰۰,۰۰۰ ریال",
+                                                  "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_secondary}}",
                                                   "children": null,
                                                   "style": {
                                                     "type": "custom",
@@ -7876,7 +7876,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "انتقال به مهدی جمشیدپور",
+                                              "data": "{{appStrings.generated.transaction.transaction_intro.transfer}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -8041,7 +8041,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "فیلترها",
+                                              "data": "{{appStrings.generated.transaction.transaction_intro.filter}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -8225,7 +8225,7 @@
                                             "widthFactor": null,
                                             "heightFactor": null,
                                             "child": {
-                                              "data": "همه",
+                                              "data": "{{appStrings.generated.cartable.cartable_intro.all_filter}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -8310,7 +8310,7 @@
                                             "widthFactor": null,
                                             "heightFactor": null,
                                             "child": {
-                                              "data": "همه",
+                                              "data": "{{appStrings.generated.cartable.cartable_intro.all_filter}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -8488,7 +8488,7 @@
                                             "widthFactor": null,
                                             "heightFactor": null,
                                             "child": {
-                                              "data": "تراکنش های کیف پول",
+                                              "data": "{{appStrings.generated.transaction.transaction_intro.transaction_wallet_money_text}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -8573,7 +8573,7 @@
                                             "widthFactor": null,
                                             "heightFactor": null,
                                             "child": {
-                                              "data": "تراکنش های کیف پول",
+                                              "data": "{{appStrings.generated.transaction.transaction_intro.transaction_wallet_money_text}}",
                                               "children": null,
                                               "style": {
                                                 "type": "custom",
@@ -8819,7 +8819,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "پرداخت اقساط",
+                                                                "data": "{{appStrings.generated.installment_payment.installment_payment_receipt.title}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -8865,7 +8865,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۱,۰۰۶,۰۰۰ ریال",
+                                                              "data": "{{appStrings.generated.transaction.transaction_intro.rial}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -8912,7 +8912,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۱ فروردین ۱۴۰۵ - ۱۱:۴۳",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.title}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -9062,7 +9062,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "سرویس کارمزد سفته",
+                                                                "data": "{{appStrings.generated.transaction.transaction_intro.promissory_fee}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -9108,7 +9108,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۳۸,۰۰۰ ریال",
+                                                              "data": "{{appStrings.generated.transaction.transaction_intro.rial_message}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -9155,7 +9155,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۲ اسفند ۱۴۰۴ - ۱۵:۲۷",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.amount_value}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -9305,7 +9305,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "کارت به کارت",
+                                                                "data": "{{appStrings.homePage.cards.cardToCard}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -9351,7 +9351,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۱۰,۰۰۰ ریال",
+                                                              "data": "{{appStrings.generated.transaction.transaction_intro.rial_label}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -9398,7 +9398,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۶ دی ۱۴۰۴ - ۱۱:۰۲",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.amount_value_text}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -9570,7 +9570,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "سرویس کارمزد سفته",
+                                                                "data": "{{appStrings.generated.transaction.transaction_intro.promissory_fee}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -9616,7 +9616,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۳۱۳,۰۰۰ ریال",
+                                                              "data": "{{appStrings.generated.transaction.transaction_intro.rial_description}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -9663,7 +9663,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۵۸ بهمن ۱۴۰۴ - ۱۰:۰۵",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.amount_value_label}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -9813,7 +9813,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "شارژ کیف پول توبانک",
+                                                                "data": "{{appStrings.generated.transaction.transaction_intro.topup_wallet_money}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -9859,7 +9859,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۵۰,۰۰۰ ریال",
+                                                              "data": "{{appStrings.generated.charge.charge_intro.rial}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -9906,7 +9906,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۵۸ دی ۱۴۰۴ - ۱۴:۰۳",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.amount_value_message}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -10056,7 +10056,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "کارت به کارت",
+                                                                "data": "{{appStrings.homePage.cards.cardToCard}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -10102,7 +10102,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۱۰,۰۰۰ ریال",
+                                                              "data": "{{appStrings.generated.transaction.transaction_intro.rial_label}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -10149,7 +10149,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۶ دی ۱۴۰۴ - ۱۵:۰۸",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.amount_value_item}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -10337,7 +10337,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "تراکنش کیف پول",
+                                                                "data": "{{appStrings.generated.transaction.transaction_intro.transaction_wallet_money}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -10383,7 +10383,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۱۰,۰۰۰ ریال",
+                                                              "data": "{{appStrings.generated.transaction.transaction_intro.rial_label}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -10430,7 +10430,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۳ دی ۱۴۰۴ - ۱۳:۳۰",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.amount_value_alt}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -10580,7 +10580,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "سرویس اعتبارسنجی",
+                                                                "data": "{{appStrings.generated.transaction.transaction_intro.credit_validation_service}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -10626,7 +10626,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۸,۰۰۰ ریال",
+                                                              "data": "{{appStrings.generated.transaction.transaction_intro.rial_hint}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -10673,7 +10673,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۱ دی ۱۴۰۴ - ۱۲:۰۱",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.sample_number}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -10823,7 +10823,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "سرویس اعتبارسنجی",
+                                                                "data": "{{appStrings.generated.transaction.transaction_intro.credit_validation_service}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -10869,7 +10869,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۸۰,۰۰۰ ریال",
+                                                              "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_intro.rial}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -10916,7 +10916,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۲۶ آذر ۱۴۰۴ - ۱۱:۱۶",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.sample_number_option}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -11066,7 +11066,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "سفارش کارت هدیه",
+                                                                "data": "{{appStrings.generated.transaction.transaction_intro.gift_card}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -11112,7 +11112,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۱,۳۶۸,۵۰۰ ریال",
+                                                              "data": "{{appStrings.generated.transaction.transaction_intro.rial_value}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -11159,7 +11159,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۲۶ آذر ۱۴۰۴ - ۱۱:۵۰",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.sample_number_message}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -11309,7 +11309,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "تراکنش کیف پول",
+                                                                "data": "{{appStrings.generated.transaction.transaction_intro.transaction_wallet_money}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -11355,7 +11355,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۱,۴۰۰,۰۰۰ ریال",
+                                                              "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -11402,7 +11402,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۲۶ آذر ۱۴۰۴ - ۱۱:۴۰",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.sample_number_label}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -11574,7 +11574,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "شارژ کیف پول توبانک",
+                                                                "data": "{{appStrings.generated.transaction.transaction_intro.topup_wallet_money}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -11620,7 +11620,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۵۰,۰۰۰ ریال",
+                                                              "data": "{{appStrings.generated.charge.charge_intro.rial}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -11667,7 +11667,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۸ دی ۱۴۰۴ - ۱۴:۰۳",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.sample_number_theme}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -11817,7 +11817,7 @@
                                                             {
                                                               "flex": null,
                                                               "child": {
-                                                                "data": "انتقال کیف پول",
+                                                                "data": "{{appStrings.generated.transaction.transaction_filter.wallet_transfer}}",
                                                                 "children": null,
                                                                 "style": {
                                                                   "type": "custom",
@@ -11863,7 +11863,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۲۵,۰۰۰ ریال",
+                                                              "data": "{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_option}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -11910,7 +11910,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۸ دی ۱۴۰۴ - ۱۰:۱۶",
+                                                          "data": "{{appStrings.generated.transaction.transaction_intro.sample_number_sample}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -12044,47 +12044,47 @@
               {
                 "actionType": "setValue",
                 "values": [
-              {
-                "key": "homePage.tab.deposits",
-                "value": true
-              },
-              {
-                "key": "homePage.tab.cards",
-                "value": false
-              },
-              {
-                "key": "homePage.tab.investment",
-                "value": false
-              },
-              {
-                "key": "homePage.tab.services",
-                "value": false
-              },
-              {
-                "key": "homePage.balanceVisible",
-                "value": false
-              },
-              {
-                "key": "homePage.depositPageIndex",
-                "value": 3
-              },
-              {
-                "key": "homePage.page.create",
-                "value": false
-              },
-              {
-                "key": "homePage.page.first",
-                "value": false
-              },
-              {
-                "key": "homePage.page.second",
-                "value": false
-              },
-              {
-                "key": "homePage.page.third",
-                "value": true
-              }
-            ]
+                  {
+                    "key": "homePage.tab.deposits",
+                    "value": true
+                  },
+                  {
+                    "key": "homePage.tab.cards",
+                    "value": false
+                  },
+                  {
+                    "key": "homePage.tab.investment",
+                    "value": false
+                  },
+                  {
+                    "key": "homePage.tab.services",
+                    "value": false
+                  },
+                  {
+                    "key": "homePage.balanceVisible",
+                    "value": false
+                  },
+                  {
+                    "key": "homePage.depositPageIndex",
+                    "value": 3
+                  },
+                  {
+                    "key": "homePage.page.create",
+                    "value": false
+                  },
+                  {
+                    "key": "homePage.page.first",
+                    "value": false
+                  },
+                  {
+                    "key": "homePage.page.second",
+                    "value": false
+                  },
+                  {
+                    "key": "homePage.page.third",
+                    "value": true
+                  }
+                ]
               }
             ]
           },
@@ -12380,7 +12380,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "خدمات",
+                                          "data": "{{appStrings.homePage.tabs.services}}",
                                           "children": null,
                                           "style": {
                                             "type": "custom",
@@ -12466,7 +12466,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "خدمات",
+                                          "data": "{{appStrings.homePage.tabs.services}}",
                                           "children": null,
                                           "style": {
                                             "type": "custom",
@@ -12646,7 +12646,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "سرمایه‌گذاری",
+                                          "data": "{{appStrings.homePage.tabs.investment}}",
                                           "children": null,
                                           "style": {
                                             "type": "custom",
@@ -12732,7 +12732,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "سرمایه‌گذاری",
+                                          "data": "{{appStrings.homePage.tabs.investment}}",
                                           "children": null,
                                           "style": {
                                             "type": "custom",
@@ -12912,7 +12912,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "کارت‌ها",
+                                          "data": "{{appStrings.homePage.tabs.cards}}",
                                           "children": null,
                                           "style": {
                                             "type": "custom",
@@ -12998,7 +12998,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "کارت‌ها",
+                                          "data": "{{appStrings.homePage.tabs.cards}}",
                                           "children": null,
                                           "style": {
                                             "type": "custom",
@@ -13178,7 +13178,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "سپرده‌ها",
+                                          "data": "{{appStrings.homePage.tabs.deposits}}",
                                           "children": null,
                                           "style": {
                                             "type": "custom",
@@ -13264,7 +13264,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "سپرده‌ها",
+                                          "data": "{{appStrings.homePage.tabs.deposits}}",
                                           "children": null,
                                           "style": {
                                             "type": "custom",
@@ -13454,7 +13454,7 @@
                                                       "spacing": null,
                                                       "children": [
                                                         {
-                                                          "data": "کیف پول توبانک",
+                                                          "data": "{{appStrings.homePage.cards.walletTitle}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -13531,7 +13531,7 @@
                                                         "spacing": null,
                                                         "children": [
                                                           {
-                                                            "data": "۳۳,۲۲۲",
+                                                            "data": "{{appStrings.generated.home_page.home_page.amount_value}}",
                                                             "children": null,
                                                             "style": {
                                                               "type": "custom",
@@ -13575,7 +13575,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "ریال",
+                                                            "data": "{{appStrings.common.rial}}",
                                                             "children": null,
                                                             "style": {
                                                               "type": "custom",
@@ -13844,7 +13844,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بانک‌گردشگری",
+                                                      "data": "{{appStrings.homePage.cards.bankTitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -13894,7 +13894,7 @@
                                                   "spacing": null,
                                                   "children": [
                                                     {
-                                                      "data": "۵۵۰۴ ۱۶۱۷ ۰۲۸۲ ۲۳۳۳",
+                                                      "data": "{{appStrings.generated.home_page.home_page.title}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -13932,7 +13932,7 @@
                                                       "type": "text"
                                                     },
                                                     {
-                                                      "data": "حساب قرض الحسنه گردشگری",
+                                                      "data": "{{appStrings.homePage.cards.cardSubtitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -14164,7 +14164,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بانک‌گردشگری",
+                                                      "data": "{{appStrings.homePage.cards.bankTitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -14214,7 +14214,7 @@
                                                   "spacing": null,
                                                   "children": [
                                                     {
-                                                      "data": "۵۵۰۴ ۱۶۱۷ ۰۵۰۳ ۰۶۰۳",
+                                                      "data": "{{appStrings.generated.home_page.home_page.card_number}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -14252,7 +14252,7 @@
                                                       "type": "text"
                                                     },
                                                     {
-                                                      "data": "حساب قرض الحسنه گردشگری",
+                                                      "data": "{{appStrings.homePage.cards.cardSubtitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -14484,7 +14484,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بانک‌گردشگری",
+                                                      "data": "{{appStrings.homePage.cards.bankTitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -14534,7 +14534,7 @@
                                                   "spacing": null,
                                                   "children": [
                                                     {
-                                                      "data": "۵۵۰۴ ۱۶۶۰ ۱۱۶۵ ۰۶۳۴",
+                                                      "data": "{{appStrings.generated.home_page.home_page.card_number_text}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -14572,7 +14572,7 @@
                                                       "type": "text"
                                                     },
                                                     {
-                                                      "data": "حساب قرض الحسنه گردشگری",
+                                                      "data": "{{appStrings.homePage.cards.cardSubtitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -14804,7 +14804,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بانک‌گردشگری",
+                                                      "data": "{{appStrings.homePage.cards.bankTitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -14854,7 +14854,7 @@
                                                   "spacing": null,
                                                   "children": [
                                                     {
-                                                      "data": "۵۵۰۴ ۱۶۷۸ ۳۴۹۱ ۶۲۴۰",
+                                                      "data": "{{appStrings.generated.home_page.home_page.card_number_label}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -14892,7 +14892,7 @@
                                                       "type": "text"
                                                     },
                                                     {
-                                                      "data": "حساب قرض الحسنه گردشگری",
+                                                      "data": "{{appStrings.homePage.cards.cardSubtitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -15124,7 +15124,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بانک‌گردشگری",
+                                                      "data": "{{appStrings.homePage.cards.bankTitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -15174,7 +15174,7 @@
                                                   "spacing": null,
                                                   "children": [
                                                     {
-                                                      "data": "۵۰۲۲ ۲۲۹۸ ۷۷۴۵ ۱۲۰۱",
+                                                      "data": "{{appStrings.generated.home_page.home_page.card_number_message}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -15212,7 +15212,7 @@
                                                       "type": "text"
                                                     },
                                                     {
-                                                      "data": "حساب قرض الحسنه گردشگری",
+                                                      "data": "{{appStrings.homePage.cards.cardSubtitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -15444,7 +15444,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بانک‌گردشگری",
+                                                      "data": "{{appStrings.homePage.cards.bankTitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -15494,7 +15494,7 @@
                                                   "spacing": null,
                                                   "children": [
                                                     {
-                                                      "data": "۵۸۹۲ ۱۰۱۰ ۶۵۴۳ ۷۹۹۸",
+                                                      "data": "{{appStrings.generated.home_page.home_page.card_number_item}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -15532,7 +15532,7 @@
                                                       "type": "text"
                                                     },
                                                     {
-                                                      "data": "حساب قرض الحسنه گردشگری",
+                                                      "data": "{{appStrings.homePage.cards.cardSubtitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -15793,7 +15793,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "کارت به کارت",
+                                                    "data": "{{appStrings.homePage.cards.cardToCard}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -15907,7 +15907,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "چک صیادی",
+                                                    "data": "{{appStrings.homePage.services.sayadiCheck}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -16021,7 +16021,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "موجودی",
+                                                    "data": "{{appStrings.homePage.cards.balance}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -16135,7 +16135,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "شارژ",
+                                                    "data": "{{appStrings.homePage.services.topUp}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -16261,7 +16261,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "بسته اینترنت",
+                                                    "data": "{{appStrings.homePage.services.internetPackage}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -16376,7 +16376,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "خدمات سفر",
+                                                      "data": "{{appStrings.homePage.services.travelServices}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -16558,7 +16558,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "کارت هدیه",
+                                                    "data": "{{appStrings.homePage.services.giftCard}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -16672,7 +16672,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "قبض",
+                                                    "data": "{{appStrings.homePage.services.bill}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -16799,7 +16799,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "پذیرندگی",
+                                                      "data": "{{appStrings.homePage.services.acceptor}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -17105,7 +17105,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "افتتاح سپرده بانک گردشگری",
+                                                            "data": "{{appStrings.homePage.deposits.createTitle}}",
                                                             "children": null,
                                                             "style": {
                                                               "type": "custom",
@@ -17175,7 +17175,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "کوتاه مدت، قرض الحسنه پس انداز، بلندمدت و ...",
+                                                            "data": "{{appStrings.homePage.deposits.createSubtitle}}",
                                                             "children": null,
                                                             "style": {
                                                               "type": "custom",
@@ -17272,7 +17272,7 @@
                                                           "spacing": null,
                                                           "children": [
                                                             {
-                                                              "data": "افتتاح سپرده",
+                                                              "data": "{{appStrings.homePage.deposits.createButton}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -17607,7 +17607,7 @@
                                                                                     "type": "sizedBox"
                                                                                   },
                                                                                   {
-                                                                                    "data": "ریال",
+                                                                                    "data": "{{appStrings.common.rial}}",
                                                                                     "children": null,
                                                                                     "style": {
                                                                                       "type": "custom",
@@ -17799,7 +17799,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "حساب قرض الحسنه جاری توبانک",
+                                                                  "data": "{{appStrings.homePage.deposits.accounts.firstTitle}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -17980,7 +17980,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "گردش سپرده",
+                                                                  "data": "{{appStrings.homePage.deposits.quickActions.turnover}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -18133,7 +18133,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "انتقال وجه",
+                                                                  "data": "{{appStrings.homePage.deposits.quickActions.transfer}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -18286,7 +18286,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "بیشتر",
+                                                                  "data": "{{appStrings.homePage.deposits.quickActions.more}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -18579,7 +18579,7 @@
                                                                                     "type": "sizedBox"
                                                                                   },
                                                                                   {
-                                                                                    "data": "ریال",
+                                                                                    "data": "{{appStrings.common.rial}}",
                                                                                     "children": null,
                                                                                     "style": {
                                                                                       "type": "custom",
@@ -18771,7 +18771,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "حساب قرض الحسنه جاری سپرده دوم",
+                                                                  "data": "{{appStrings.homePage.deposits.accounts.secondTitle}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -18952,7 +18952,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "گردش سپرده",
+                                                                  "data": "{{appStrings.homePage.deposits.quickActions.turnover}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -19105,7 +19105,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "انتقال وجه",
+                                                                  "data": "{{appStrings.homePage.deposits.quickActions.transfer}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -19258,7 +19258,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "بیشتر",
+                                                                  "data": "{{appStrings.homePage.deposits.quickActions.more}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -19551,7 +19551,7 @@
                                                                                     "type": "sizedBox"
                                                                                   },
                                                                                   {
-                                                                                    "data": "ریال",
+                                                                                    "data": "{{appStrings.common.rial}}",
                                                                                     "children": null,
                                                                                     "style": {
                                                                                       "type": "custom",
@@ -19743,7 +19743,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "حساب قرض الحسنه جاری حقیقی توبانک",
+                                                                  "data": "{{appStrings.homePage.deposits.accounts.thirdTitle}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -19924,7 +19924,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "گردش سپرده",
+                                                                  "data": "{{appStrings.homePage.deposits.quickActions.turnover}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -20077,7 +20077,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "انتقال وجه",
+                                                                  "data": "{{appStrings.homePage.deposits.quickActions.transfer}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -20230,7 +20230,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "بیشتر",
+                                                                  "data": "{{appStrings.homePage.deposits.quickActions.more}}",
                                                                   "children": null,
                                                                   "style": {
                                                                     "type": "custom",
@@ -20341,7 +20341,7 @@
                                                     "spacing": null,
                                                     "children": [
                                                       {
-                                                        "data": "کاربر گرامی، برای فعال سازی خدمات مرتبط با سپرده‌های بانک گردشگری، لطفا فرآیند احراز هویت را تکمیل نمایید.",
+                                                        "data": "{{appStrings.homePage.deposits.unauthenticatedMessage}}",
                                                         "children": null,
                                                         "style": {
                                                           "type": "custom",
@@ -20436,7 +20436,7 @@
                                                         "autofocus": null,
                                                         "clipBehavior": null,
                                                         "child": {
-                                                          "data": "احراز هویت",
+                                                          "data": "{{appStrings.menu.items.authentication}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -20561,7 +20561,7 @@
                                                                     "type": "sizedBox"
                                                                   },
                                                                   {
-                                                                    "data": "گردش سپرده",
+                                                                    "data": "{{appStrings.homePage.deposits.quickActions.turnover}}",
                                                                     "children": null,
                                                                     "style": {
                                                                       "type": "custom",
@@ -20668,7 +20668,7 @@
                                                                     "type": "sizedBox"
                                                                   },
                                                                   {
-                                                                    "data": "انتقال وجه",
+                                                                    "data": "{{appStrings.homePage.deposits.quickActions.transfer}}",
                                                                     "children": null,
                                                                     "style": {
                                                                       "type": "custom",
@@ -20775,7 +20775,7 @@
                                                                     "type": "sizedBox"
                                                                   },
                                                                   {
-                                                                    "data": "بیشتر",
+                                                                    "data": "{{appStrings.homePage.deposits.quickActions.more}}",
                                                                     "children": null,
                                                                     "style": {
                                                                       "type": "custom",
@@ -20886,7 +20886,7 @@
                                               "spacing": null,
                                               "children": [
                                                 {
-                                                  "data": "کاربر گرامی، برای فعال سازی خدمات مرتبط با سپرده‌های بانک گردشگری، لطفا فرآیند احراز هویت را تکمیل نمایید.",
+                                                  "data": "{{appStrings.homePage.deposits.unauthenticatedMessage}}",
                                                   "children": null,
                                                   "style": {
                                                     "type": "custom",
@@ -20987,7 +20987,7 @@
                                                   "autofocus": null,
                                                   "clipBehavior": null,
                                                   "child": {
-                                                    "data": "احراز هویت",
+                                                    "data": "{{appStrings.menu.items.authentication}}",
                                                     "children": null,
                                                     "style": {
                                                       "type": "custom",
@@ -21159,7 +21159,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "گردش سپرده",
+                                                              "data": "{{appStrings.homePage.deposits.quickActions.turnover}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -21312,7 +21312,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "انتقال وجه",
+                                                              "data": "{{appStrings.homePage.deposits.quickActions.transfer}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -21465,7 +21465,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "بیشتر",
+                                                              "data": "{{appStrings.homePage.deposits.quickActions.more}}",
                                                               "children": null,
                                                               "style": {
                                                                 "type": "custom",
@@ -21528,7 +21528,7 @@
                                         "type": "sizedBox"
                                       },
                                       {
-                                        "data": "خدمات ویژه توبانک",
+                                        "data": "{{appStrings.homePage.deposits.specialServicesTitle}}",
                                         "children": null,
                                         "style": {
                                           "type": "custom",
@@ -21657,7 +21657,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "سایر خدمات",
+                                                            "data": "{{appStrings.homePage.deposits.otherServicesTitle}}",
                                                             "children": null,
                                                             "style": {
                                                               "type": "custom",
@@ -21704,7 +21704,7 @@
                                                         "type": "sizedBox"
                                                       },
                                                       {
-                                                        "data": "سفته الکترونیک ...",
+                                                        "data": "{{appStrings.homePage.deposits.otherServicesSubtitle}}",
                                                         "children": null,
                                                         "style": {
                                                           "type": "custom",
@@ -21901,7 +21901,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "انواع تسهیلات",
+                                                          "data": "{{appStrings.homePage.deposits.facilitiesTitle}}",
                                                           "children": null,
                                                           "style": {
                                                             "type": "custom",
@@ -21948,7 +21948,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "ازدواج، کارت اعتباری ...",
+                                                      "data": "{{appStrings.homePage.deposits.facilitiesSubtitle}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -22201,7 +22201,7 @@
                                                 "type": "sizedBox"
                                               },
                                               {
-                                                "data": "صندوق سرمایه‌گذاری",
+                                                "data": "{{appStrings.homePage.investment.title}}",
                                                 "children": null,
                                                 "style": {
                                                   "type": "custom",
@@ -22281,7 +22281,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "معاف از مالیات",
+                                                      "data": "{{appStrings.homePage.investment.featureTaxFree}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -22366,7 +22366,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "تحت مجوز و نظارت سازمان بورس",
+                                                      "data": "{{appStrings.homePage.investment.featureUnderSupervision}}",
                                                       "children": null,
                                                       "style": {
                                                         "type": "custom",
@@ -22482,7 +22482,7 @@
                                                 "autofocus": null,
                                                 "clipBehavior": null,
                                                 "child": {
-                                                  "data": "شروع سرمایه گذاری",
+                                                  "data": "{{appStrings.homePage.investment.startButton}}",
                                                   "children": null,
                                                   "style": {
                                                     "type": "custom",
@@ -22775,7 +22775,7 @@
               "excludeFromSemantics": null,
               "type": "image"
             },
-            "label": "پروفایل",
+            "label": "{{appStrings.menu.items.profile}}",
             "activeIcon": {
               "src": "assets/icons/ic_profile_main_selected.svg",
               "alignment": null,
@@ -22808,7 +22808,7 @@
               "excludeFromSemantics": null,
               "type": "image"
             },
-            "label": "کارتابل",
+            "label": "{{appStrings.menu.items.inbox}}",
             "activeIcon": {
               "src": "assets/icons/ic_cardboard_selected.svg",
               "alignment": null,
@@ -22841,7 +22841,7 @@
               "excludeFromSemantics": null,
               "type": "image"
             },
-            "label": "تراکنش‌ها",
+            "label": "{{appStrings.generated.dashboard.dashboard_shell.transaction}}",
             "activeIcon": {
               "src": "assets/icons/ic_transaction_main_selected.svg",
               "alignment": null,
@@ -22874,7 +22874,7 @@
               "excludeFromSemantics": null,
               "type": "image"
             },
-            "label": "خانه",
+            "label": "{{appStrings.home.title}}",
             "activeIcon": {
               "src": "assets/icons/ic_home_main_selected.svg",
               "alignment": null,

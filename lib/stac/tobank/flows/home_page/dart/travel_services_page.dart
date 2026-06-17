@@ -88,4 +88,3 @@ StacWidget _buildMegaGashtHeader() {
     ],
   );
 }
-
