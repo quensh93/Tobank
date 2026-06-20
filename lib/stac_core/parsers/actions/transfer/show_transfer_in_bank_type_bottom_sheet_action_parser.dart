@@ -153,11 +153,13 @@ class ShowTransferInBankTypeBottomSheetActionParser
                           itemBuilder: (itemContext, index) {
                             final item = options[index];
                             final disabled = !item.enabled;
-                            final iconAsset = disabled &&
+                            final iconAsset =
+                                disabled &&
                                     item.iconAsset.contains('ic_bank_transfer')
                                 ? 'assets/icons/ic_bank_transfer_disabled.svg'
                                 : item.iconAsset;
                             const disabledTextColor = Color(0xFF98A2B3);
+                            const disabledIconColor = Color(0xFFC7CDD6);
                             final titleColor = disabled
                                 ? disabledTextColor
                                 : colorScheme.onSurface;
@@ -184,9 +186,10 @@ class ShowTransferInBankTypeBottomSheetActionParser
                                       : null,
                                   border: Border.all(
                                     color: disabled
-                                        ? const Color(0xFFD0D5DD)
-                                        : colorScheme.outlineVariant
-                                              .withValues(alpha: 0.24),
+                                        ? const Color(0xFFEAECF0)
+                                        : colorScheme.outlineVariant.withValues(
+                                            alpha: 0.24,
+                                          ),
                                     width: 1,
                                   ),
                                 ),
@@ -213,7 +216,7 @@ class ShowTransferInBankTypeBottomSheetActionParser
                                             height: 24,
                                             colorFilter: disabled
                                                 ? ColorFilter.mode(
-                                                    disabledTextColor,
+                                                    disabledIconColor,
                                                     BlendMode.srcIn,
                                                   )
                                                 : null,

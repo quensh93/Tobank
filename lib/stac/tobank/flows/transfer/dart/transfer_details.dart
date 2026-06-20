@@ -428,14 +428,21 @@ StacWidget _transferTypeItem({
   required bool enabled,
   required StacAction onTap,
 }) {
+  final disabledIconAsset = iconAsset.contains('ic_bank_transfer')
+      ? 'assets/icons/ic_bank_transfer_disabled.svg'
+      : iconAsset;
+
   return StacGestureDetector(
     onTap: enabled ? onTap : null,
     child: StacContainer(
       padding: StacEdgeInsets.symmetric(horizontal: 14, vertical: 16),
       decoration: StacBoxDecoration(
+        color: enabled ? null : '#F8F9FB',
         borderRadius: StacBorderRadius.all(11),
         border: StacBorder.all(
-          color: '{{appColors.current.input.borderEnabled}}',
+          color: enabled
+              ? '{{appColors.current.input.borderEnabled}}'
+              : '#EAECF0',
           width: 1,
         ),
       ),
@@ -447,14 +454,17 @@ StacWidget _transferTypeItem({
             height: 46,
             decoration: StacBoxDecoration(
               shape: StacBoxShape.circle,
-              color: '{{appColors.current.background.surfaceContainer}}',
+              color: enabled
+                  ? '{{appColors.current.background.surfaceContainer}}'
+                  : '#F2F4F7',
             ),
             child: StacCenter(
               child: StacImage(
-                src: iconAsset,
+                src: enabled ? iconAsset : disabledIconAsset,
                 imageType: StacImageType.asset,
                 width: 24,
                 height: 24,
+                color: enabled ? null : '#C7CDD6',
               ),
             ),
           ),
@@ -472,7 +482,7 @@ StacWidget _transferTypeItem({
                     fontWeight: StacFontWeight.w700,
                     color: enabled
                         ? '{{appColors.current.text.title}}'
-                        : '{{appColors.current.text.hint}}',
+                        : '#98A2B3',
                   ),
                 ),
                 StacSizedBox(height: 7),
@@ -485,7 +495,7 @@ StacWidget _transferTypeItem({
                     fontWeight: StacFontWeight.w500,
                     color: enabled
                         ? '{{appColors.current.text.subtitle}}'
-                        : '{{appColors.current.text.hint}}',
+                        : '#98A2B3',
                   ),
                 ),
               ],

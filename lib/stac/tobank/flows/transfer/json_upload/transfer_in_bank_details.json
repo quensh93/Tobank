@@ -1386,8 +1386,9 @@
                             "bottom": 16.0
                           },
                           "decoration": {
+                            "color": "#F8F9FB",
                             "border": {
-                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "color": "#EAECF0",
                               "width": 1.0
                             },
                             "borderRadius": {
@@ -1402,15 +1403,16 @@
                             "children": [
                               {
                                 "decoration": {
-                                  "color": "{{appColors.current.background.surfaceContainer}}",
+                                  "color": "#F2F4F7",
                                   "shape": "circle"
                                 },
                                 "width": 46.0,
                                 "height": 46.0,
                                 "child": {
                                   "child": {
-                                    "src": "assets/icons/ic_bank_transfer_dark.svg",
+                                    "src": "assets/icons/ic_bank_transfer_disabled.svg",
                                     "imageType": "asset",
+                                    "color": "#C7CDD6",
                                     "width": 24.0,
                                     "height": 24.0,
                                     "type": "image"
@@ -1431,7 +1433,7 @@
                                       "data": "{{appStrings.generated.transaction.transaction_intro.bridge_service}}",
                                       "style": {
                                         "type": "custom",
-                                        "color": "{{appColors.current.text.hint}}",
+                                        "color": "#98A2B3",
                                         "fontSize": 18.0,
                                         "fontWeight": "w700"
                                       },
@@ -1447,7 +1449,7 @@
                                       "data": "{{appStrings.generated.transfer.transfer_in_bank_details.active_transfer_bank_not}}",
                                       "style": {
                                         "type": "custom",
-                                        "color": "{{appColors.current.text.hint}}",
+                                        "color": "#98A2B3",
                                         "fontSize": 14.0,
                                         "fontWeight": "w500"
                                       },
@@ -1480,8 +1482,9 @@
                             "bottom": 16.0
                           },
                           "decoration": {
+                            "color": "#F8F9FB",
                             "border": {
-                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "color": "#EAECF0",
                               "width": 1.0
                             },
                             "borderRadius": {
@@ -1496,15 +1499,16 @@
                             "children": [
                               {
                                 "decoration": {
-                                  "color": "{{appColors.current.background.surfaceContainer}}",
+                                  "color": "#F2F4F7",
                                   "shape": "circle"
                                 },
                                 "width": 46.0,
                                 "height": 46.0,
                                 "child": {
                                   "child": {
-                                    "src": "assets/icons/ic_bank_transfer_dark.svg",
+                                    "src": "assets/icons/ic_bank_transfer_disabled.svg",
                                     "imageType": "asset",
+                                    "color": "#C7CDD6",
                                     "width": 24.0,
                                     "height": 24.0,
                                     "type": "image"
@@ -1525,7 +1529,7 @@
                                       "data": "{{appStrings.generated.transaction.transaction_intro.sample_label}}",
                                       "style": {
                                         "type": "custom",
-                                        "color": "{{appColors.current.text.hint}}",
+                                        "color": "#98A2B3",
                                         "fontSize": 18.0,
                                         "fontWeight": "w700"
                                       },
@@ -1541,7 +1545,7 @@
                                       "data": "{{appStrings.generated.transfer.transfer_in_bank_details.active_transfer_bank_not}}",
                                       "style": {
                                         "type": "custom",
-                                        "color": "{{appColors.current.text.hint}}",
+                                        "color": "#98A2B3",
                                         "fontSize": 14.0,
                                         "fontWeight": "w500"
                                       },
@@ -1574,8 +1578,9 @@
                             "bottom": 16.0
                           },
                           "decoration": {
+                            "color": "#F8F9FB",
                             "border": {
-                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "color": "#EAECF0",
                               "width": 1.0
                             },
                             "borderRadius": {
@@ -1590,15 +1595,16 @@
                             "children": [
                               {
                                 "decoration": {
-                                  "color": "{{appColors.current.background.surfaceContainer}}",
+                                  "color": "#F2F4F7",
                                   "shape": "circle"
                                 },
                                 "width": 46.0,
                                 "height": 46.0,
                                 "child": {
                                   "child": {
-                                    "src": "assets/icons/ic_bank_transfer_dark.svg",
+                                    "src": "assets/icons/ic_bank_transfer_disabled.svg",
                                     "imageType": "asset",
+                                    "color": "#C7CDD6",
                                     "width": 24.0,
                                     "height": 24.0,
                                     "type": "image"
@@ -1619,7 +1625,7 @@
                                       "data": "{{appStrings.generated.transfer.transfer_details.satna_method}}",
                                       "style": {
                                         "type": "custom",
-                                        "color": "{{appColors.current.text.hint}}",
+                                        "color": "#98A2B3",
                                         "fontSize": 18.0,
                                         "fontWeight": "w700"
                                       },
@@ -1635,7 +1641,7 @@
                                       "data": "{{appStrings.generated.transfer.transfer_in_bank_details.active_transfer_bank_not}}",
                                       "style": {
                                         "type": "custom",
-                                        "color": "{{appColors.current.text.hint}}",
+                                        "color": "#98A2B3",
                                         "fontSize": 14.0,
                                         "fontWeight": "w500"
                                       },
