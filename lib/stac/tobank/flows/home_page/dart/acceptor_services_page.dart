@@ -47,7 +47,7 @@ StacWidget _buildAcceptorHeader() {
             StacSizedBox(width: 40),
             StacExpanded(
               child: StacText(
-                data: '????????',
+                data: '{{appStrings.homePage.services.acceptor}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.center,
                 style: StacCustomTextStyle(
@@ -71,7 +71,7 @@ StacWidget _buildAcceptorHeader() {
                   ),
                 ),
                 child: StacText(
-                  data: '????',
+                  data: '{{appStrings.common.close}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 14,

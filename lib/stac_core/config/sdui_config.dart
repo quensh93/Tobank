@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:stac/stac.dart';
+import '../navigation/flow_registry.dart';
 
 /// Central configuration for the Server-Driven UI (SDUI) backend.
 ///
@@ -67,13 +68,26 @@ class SduiConfig {
   }
 
   /// Common namespace prefix shared by all SDUI pathKeys.
+  ///
+  /// The flow segment is inserted between this prefix and the leaf [name] by
+  /// [pathKey], e.g. `ipaam.form.mobile` + `home_page` + `tobank_facilities_page`.
   static const String pathKeyPrefix = String.fromEnvironment(
     'SDUI_PATHKEY_PREFIX',
-    defaultValue: 'ipaam.builder.form.form',
+    defaultValue: 'ipaam.form.mobile',
   );
 
   /// Build a fully-qualified pathKey from a leaf [name].
-  static String pathKey(String name) => '$pathKeyPrefix.$name';
+  ///
+  /// Flow-aware: derives the owning flow via [FlowRegistry.flowOf] so the
+  /// result matches the backend layout `<prefix>.<flow>.<name>` (same
+  /// convention as localJson asset paths). Falls back to `<prefix>.<name>`
+  /// when no flow matches.
+  static String pathKey(String name) {
+    final flow = FlowRegistry.flowOf(name);
+    return flow != null
+        ? '$pathKeyPrefix.$flow.$name'
+        : '$pathKeyPrefix.$name';
+  }
 
   /// Endpoint path for resolving a config by [fullPathKey] + [build].
   /// Mirrors `ConfigApiRequest.endpoint`.

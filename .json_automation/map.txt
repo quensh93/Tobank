@@ -4,6 +4,13 @@ ipaam.form.mobile                 [folder]1   1   2026-06-17 09:19  http://192.1
     assets                        [config]4   4   2026-06-20 09:32  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config.assets/1
     colors                        [config]4   4   2026-06-20 09:32  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config.colors/1
     probe_type                    [screen]1   1   2026-06-20 09:29  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config.probe_type/1
-    strings                       [config]10  10  2026-06-20 09:56  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config.strings/1
+    strings                       [config]12  12  2026-06-20 13:54  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config.strings/1
   dashboard                       [folder]1   1   2026-06-20 08:52  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.dashboard/1
-    dashboard_shell               [screen]4   4   2026-06-20 09:36  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.dashboard.dashboard_shell/1
+    dashboard_menu                [screen]1   1   2026-06-20 13:55  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.dashboard.dashboard_menu/1
+    dashboard_shell               [screen]7   7   2026-06-20 13:55  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.dashboard.dashboard_shell/1
+  home_page                       [folder]1   1   2026-06-20 11:38  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.home_page/1
+    tobank_acceptor_services_page [screen]2   2   2026-06-20 13:55  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.home_page.tobank_acceptor_services_page/1
+    tobank_facilities_page        [screen]2   2   2026-06-20 13:55  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.home_page.tobank_facilities_page/1
+    tobank_home_page_dart         [screen]1   1   2026-06-20 13:55  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.home_page.tobank_home_page_dart/1
+    tobank_special_services_page  [screen]2   2   2026-06-20 13:55  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.home_page.tobank_special_services_page/1
+    tobank_travel_services_page   [screen]2   2   2026-06-20 13:55  http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.home_page.tobank_travel_services_page/1

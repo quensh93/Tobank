@@ -134,7 +134,6 @@ flutter:
     - path: lib/stac/tobank/flows/profile/json/
       flavors: [dev]
     - path: lib/stac/tobank/flows/dashboard/json/
-      flavors: [dev]
     - path: lib/stac/tobank/flows/card_management/json/
       flavors: [dev]
     - path: lib/stac/tobank/flows/charge/json/

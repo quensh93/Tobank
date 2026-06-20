@@ -426,6 +426,61 @@ def _walk_navfix(node: Any, nav_mode: str, counter: list[int]) -> None:
             _walk_navfix(v, nav_mode, counter)
 
 
+# mojibake = UTF-8 bytes that stac build read as cp1252/latin1 then re-emitted
+# as UTF-8. Deterministic to reverse: re-encode cp1252/latin1, decode utf-8.
+MOJIBAKE_RE = re.compile(r"Ã|Ø|Ù|â€|Û|Ú")
+
+
+def _demojibake(s: str) -> str:
+    """Reverse double-encoding. Idempotent; returns s unchanged if no markers
+    or if no clean reversal exists."""
+    if not MOJIBAKE_RE.search(s):
+        return s
+    for enc in ("cp1252", "latin1"):
+        try:
+            fixed = s.encode(enc).decode("utf-8")
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            continue
+        if not MOJIBAKE_RE.search(fixed):
+            return fixed
+    # hybrid: stac decoded with cp1252 where defined, latin1 for the handful
+    # of bytes cp1252 leaves undefined (0x81, 0x8d, 0x8f, 0x90, 0x9d). One codec
+    # can't reverse a string that mixes both -> rebuild bytes per char.
+    try:
+        raw = bytearray()
+        for ch in s:
+            try:
+                raw += ch.encode("cp1252")
+            except UnicodeEncodeError:
+                raw += ch.encode("latin1") if ord(ch) <= 0xFF else ch.encode("utf-8")
+        fixed = raw.decode("utf-8")
+        if not MOJIBAKE_RE.search(fixed):
+            return fixed
+    except (UnicodeDecodeError, UnicodeEncodeError):
+        pass
+    return s
+
+
+def _walk_demojibake(node: Any) -> Any:
+    if isinstance(node, dict):
+        return {k: _walk_demojibake(v) for k, v in node.items()}
+    if isinstance(node, list):
+        return [_walk_demojibake(v) for v in node]
+    if isinstance(node, str):
+        return _demojibake(node)
+    return node
+
+
+def _scan_mojibake(node: Any) -> int:
+    if isinstance(node, dict):
+        return sum(_scan_mojibake(v) for v in node.values())
+    if isinstance(node, list):
+        return sum(_scan_mojibake(v) for v in node)
+    if isinstance(node, str) and MOJIBAKE_RE.search(node):
+        return 1
+    return 0
+
+
 def navfix_fetched(nav_mode: str) -> tuple[int, int]:
     """Force navMode on navigate-with-fileName actions. Returns (fixed, files)."""
     files = fetched_files()
@@ -524,18 +579,26 @@ def _wipe_dir(d: Path) -> None:
 
 def run_stac_build() -> tuple[bool, str]:
     """Invoke `stac build` at REPO root (stac.yaml + default_stac_options.dart
-    live there; source=lib/stac/ready_for_build). Returns (ok, output)."""
+    live there; source=lib/stac/ready_for_build). Streams output live as it
+    arrives. Returns (ok, full_output)."""
     cmd = [STAC_BIN, "build", "-p", str(REPO)]
+    lines: list[str] = []
     try:
-        proc = subprocess.run(
-            cmd, cwd=str(REPO), capture_output=True, text=True,
-            timeout=CFG.timeout * 6, shell=(os.name == "nt"))
+        proc = subprocess.Popen(
+            cmd, cwd=str(REPO), stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT, text=True, bufsize=1,
+            encoding="utf-8", errors="replace",
+            shell=(os.name == "nt"))
     except FileNotFoundError:
         return False, f"stac binary not found: {STAC_BIN} (set STAC_BIN env)"
-    except subprocess.TimeoutExpired:
-        return False, "stac build timed out"
-    out = (proc.stdout or "") + (proc.stderr or "")
-    return proc.returncode == 0, out.strip()
+    assert proc.stdout is not None
+    # No timeout: wait for stac build to finish (or emit its own error).
+    for line in proc.stdout:
+        line = line.rstrip("\n")
+        lines.append(line)
+        log("DEBUG", line)
+    proc.wait()
+    return proc.returncode == 0, "\n".join(lines).strip()
 
 
 def run_build(crumb: str, nav_mode: str, flows: list[str]) -> None:
@@ -548,9 +611,10 @@ def run_build(crumb: str, nav_mode: str, flows: list[str]) -> None:
     log("INFO", f"flows: {', '.join(flows)}")
     print()
     rows = []
-    for flow in flows:
+    total = len(flows)
+    for i, flow in enumerate(flows, 1):
         print()
-        log("INFO", paint(flow, C.B))
+        log("INFO", paint(f"[{i}/{total}] {flow}", C.B))
         flow_dir = FLOWS_DIR / flow
         # recursive: dart files at any depth (dart/, menu/, nested subdirs)
         darts = sorted(flow_dir.rglob("*.dart")) if flow_dir.exists() else []
@@ -573,14 +637,10 @@ def run_build(crumb: str, nav_mode: str, flows: list[str]) -> None:
         # 3. run stac build
         log("INFO", "run `stac build`")
         ok, out = run_stac_build()
-        if CFG.verbose and out:
-            for line in out.splitlines():
-                log("DEBUG", line)
         if not ok:
             log("ERR", f"stac build failed for {flow}")
-            if not CFG.verbose and out:
-                for line in out.splitlines()[-8:]:
-                    log("ERR", line)
+            for line in out.splitlines()[-8:]:
+                log("ERR", line)
             rows.append((flow, "ERR", "stac build failed"))
             continue
         # 4. read output
@@ -589,20 +649,36 @@ def run_build(crumb: str, nav_mode: str, flows: list[str]) -> None:
             log("WARN", "stac build produced no json")
             rows.append((flow, "WARN", "no output json"))
             continue
-        # 5. navMode correction + 6. move -> built_json/<flow>/
+        # 5. navMode correction + mojibake repair + 6. move -> built_json/<flow>/
         dest = BUILT_DIR / flow
         _wipe_dir(dest)
+        flow_mojibake = 0
         for jf in built:
             try:
                 data = json.loads(jf.read_text(encoding="utf-8"))
             except json.JSONDecodeError:
                 log("WARN", f"skip invalid json: {jf.name}")
                 continue
+            before = _scan_mojibake(data)
+            if before:
+                data = _walk_demojibake(data)
+                after = _scan_mojibake(data)
+                fixed = before - after
+                log("OK" if after == 0 else "WARN",
+                    f"mojibake repaired in {jf.name}: {fixed}/{before} fixed")
+                if after:
+                    log("ERR", f"{after} mojibake string(s) UNFIXED in {jf.name}")
+                    flow_mojibake += after
             _walk_navfix(data, nav_mode, [0])
             (dest / jf.name).write_text(
                 json.dumps(data, ensure_ascii=False, indent=2) + "\n",
                 encoding="utf-8")
         log("OK", f"navMode -> {nav_mode}, moved {len(built)} screen(s)")
+        if flow_mojibake:
+            log("ERR", f"{flow}: {flow_mojibake} mojibake string(s) unfixed")
+            rows.append((flow, "ERR",
+                         f"built ({len(built)}), {flow_mojibake} mojibake UNFIXED"))
+            continue
         log("OK", f"{flow} built ({len(built)} screens)")
         rows.append((flow, "OK", f"built_json/{flow}/ ({len(built)} screens)"))
     summary(rows)
@@ -1347,6 +1423,108 @@ def section_system() -> None:
             pause()
 
 
+# ---------------------------------------------------------------- clean
+def _dir_stats(p: Path) -> tuple[int, int]:
+    """Return (file_count, total_bytes) for a dir tree. (0,0) if missing."""
+    if not p.exists():
+        return 0, 0
+    n = sz = 0
+    for f in p.rglob("*"):
+        if f.is_file():
+            n += 1
+            try:
+                sz += f.stat().st_size
+            except OSError:
+                pass
+    return n, sz
+
+
+def _human(b: int) -> str:
+    for unit in ("B", "KB", "MB", "GB"):
+        if b < 1024:
+            return f"{b:.0f}{unit}" if unit == "B" else f"{b:.1f}{unit}"
+        b /= 1024
+    return f"{b:.1f}TB"
+
+
+# clean targets: (label, path)
+CLEAN_TARGETS: list[tuple[str, Path]] = [
+    ("ready_for_build", READY_DIR),
+    (".build", STAC_ROOT / ".build"),
+    ("built_json", BUILT_DIR),
+    ("fetched", FETCHED_DIR),
+]
+
+
+def section_clean() -> None:
+    crumb = "Home > Clean"
+    while True:
+        screen(crumb)
+        print(" " + paint("Clean built/output folders", C.B))
+        print(paint("  delete generated dirs (source dart untouched)", C.DIM))
+        print()
+        print(f"  {'#':<3}{'target':<18}{'files':<8}{'size':<10}path")
+        print(paint("  " + "-" * 78, C.DIM))
+        present = []
+        for i, (label, p) in enumerate(CLEAN_TARGETS, 1):
+            n, sz = _dir_stats(p)
+            exists = p.exists()
+            mark = paint(str(i), C.B + C.CYAN) if exists else paint(str(i), C.DIM)
+            fc = str(n) if exists else "-"
+            szc = _human(sz) if exists else "-"
+            line = f"  {mark:<12}{label:<18}{fc:<8}{szc:<10}{paint(str(p), C.DIM)}"
+            print(line)
+            if exists:
+                present.append((label, p))
+        print(paint("  " + "-" * 78, C.DIM))
+        print()
+        print(f"   {paint('a', C.B + C.CYAN)})  clean ALL present")
+        print(f"   {paint('0', C.DIM)})  {paint('back to home', C.DIM)}")
+        print()
+        print(paint("   multi-select ok, e.g.  1 3", C.DIM))
+        raw = input(paint("\n > ", C.B + C.GREEN)).strip().lower()
+        if raw in {"0", ""}:
+            return
+        if raw == "a":
+            picks = [p for _, p in CLEAN_TARGETS if p.exists()]
+        else:
+            picks = []
+            for tok in raw.split():
+                if tok.isdigit() and 1 <= int(tok) <= len(CLEAN_TARGETS):
+                    picks.append(CLEAN_TARGETS[int(tok) - 1][1])
+        picks = [p for p in picks if p.exists()]
+        if not picks:
+            log("WARN", "nothing to clean")
+            pause()
+            continue
+        # confirm
+        screen(crumb + " > confirm")
+        print(" " + paint("Delete these dirs?", C.B + C.RED))
+        print()
+        for p in picks:
+            n, sz = _dir_stats(p)
+            print(f"   - {p}  ({n} files, {_human(sz)})")
+        print()
+        print(f"   {paint('1', C.B + C.RED)})  yes, delete")
+        print(f"   {paint('0', C.DIM)})  cancel")
+        ans = input(paint("\n > ", C.B + C.GREEN)).strip().lower()
+        if ans != "1":
+            log("INFO", "cancelled")
+            pause()
+            continue
+        rows = []
+        for p in picks:
+            try:
+                shutil.rmtree(p)
+                log("OK", f"deleted {p}")
+                rows.append((p.name, "OK", str(p)))
+            except OSError as e:
+                log("ERR", f"failed {p}: {e}")
+                rows.append((p.name, "ERR", str(e)))
+        summary(rows)
+        pause()
+
+
 # ---------------------------------------------------------------- home
 def section_home() -> None:
     options = [
@@ -1354,6 +1532,7 @@ def section_home() -> None:
         ("2", paint("Upload", C.B) + "  POST jsons to panel"),
         ("3", paint("Fetch", C.B) + "   download from panel (sandbox)"),
         ("5", paint("Map", C.B) + "     full tree from path_key (folders/configs/screens)"),
+        ("6", paint("Clean", C.B) + "   delete built/output dirs (.build, built_json, ...)"),
         ("4", paint("System", C.B) + "  settings"),
     ]
     while True:
@@ -1382,6 +1561,8 @@ def section_home() -> None:
             section_fetch()
         elif choice == "5":
             run_map("Home > Map")
+        elif choice == "6":
+            section_clean()
         elif choice == "4":
             section_system()
         else:

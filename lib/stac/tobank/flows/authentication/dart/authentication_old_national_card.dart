@@ -111,7 +111,7 @@ StacWidget authenticationRealOldNationalCard() {
   );
 }
 
-/// Top section: description text + "??????" guide button
+/// Top section: description text + guide button
 StacWidget _buildDescriptionAndGuide() {
   return StacRow(
     textDirection: StacTextDirection.rtl,
@@ -133,10 +133,10 @@ StacWidget _buildDescriptionAndGuide() {
       StacSizedBox(width: 12),
       StacGestureDetector(
         onTap: const StacShowGuideOptionsBottomSheetAction(
-          title: '??????',
+          title: '{{appStrings.authentication.guideLabel}}',
           options: [
             {
-              'title': '??????? ??????',
+              'title': '{{appStrings.authentication.guideVisualTutorial}}',
               'iconAsset': '{{appAssets.icons.visualTutorialCurrent}}',
               'onTap': {
                 'actionType': 'launchUrl',
@@ -146,7 +146,7 @@ StacWidget _buildDescriptionAndGuide() {
               },
             },
             {
-              'title': '??????? ????',
+              'title': '{{appStrings.authentication.guideAudioTutorial}}',
               'iconAsset': '{{appAssets.icons.voiceTutorialCurrent}}',
               'onTap': {
                 'actionType': 'playAudioUrl',
@@ -236,7 +236,7 @@ StacWidget _buildTrackingCodeSection() {
   );
 }
 
-/// "??? ???" card with camera button
+/// Capture-photo card with camera button
 StacWidget _buildCapturePhotoCard() {
   return StacContainer(
     decoration: StacBoxDecoration(
@@ -290,7 +290,7 @@ StacWidget _buildCapturePhotoCard() {
   );
 }
 
-/// "??? ?????" card with video button
+/// Capture-video card with video button
 StacWidget _buildCaptureVideoCard() {
   return StacContainer(
     decoration: StacBoxDecoration(
@@ -347,19 +347,19 @@ StacWidget _buildCaptureVideoCard() {
 StacWidget _buildPhotoCaptureTrigger() {
   return StacGestureDetector(
     onTap: const StacShowPhotoTipsBottomSheetAction(
-      title: '???? ???? ???? ???',
+      title: '{{appStrings.authentication.photoTipsTitle}}',
       iconAsset: '{{appAssets.icons.cameraCurrent}}',
       tips: [
-        '???? ????? ????? ???',
-        '??? ???? ???? ? ???? ???? ????',
-        '?? ????? ??????? ????',
-        '??? ???? ?????? ??? ???? ?? ?????',
-        '????? ?? ???? ???? ??? ?? ???? ??? (???? ???? ??????? ???? ?? ???????? ????)',
+        '{{appStrings.authentication.photoTip1}}',
+        '{{appStrings.authentication.photoTip2}}',
+        '{{appStrings.authentication.photoTip3}}',
+        '{{appStrings.authentication.photoTip4}}',
+        '{{appStrings.authentication.photoTip5}}',
       ],
       previewAsset:
           'https://appapi.tobank.ir/api/v1.0/media/ekyc/personal_picture_sample.png',
-      continueText: '?????',
-      cancelText: '??????',
+      continueText: '{{appStrings.authentication.continueLabel}}',
+      cancelText: '{{appStrings.authentication.backLabel}}',
       continueAction: {
         'actionType': 'pickFile',
         'fileType': 'image',
@@ -371,9 +371,9 @@ StacWidget _buildPhotoCaptureTrigger() {
         'cropAspectRatioX': 3,
         'cropAspectRatioY': 4,
         'previewBeforeConfirm': true,
-        'previewSheetTitle': '??? ????? ??? ???? ????? ??? ????',
-        'confirmButtonText': '?????',
-        'retryButtonText': '??????',
+        'previewSheetTitle': '{{appStrings.authentication.photoPreviewConfirmTitle}}',
+        'confirmButtonText': '{{appStrings.authentication.confirmLabel}}',
+        'retryButtonText': '{{appStrings.authentication.backLabel}}',
       },
     ),
     child: StacRow(
@@ -404,19 +404,19 @@ StacWidget _buildPhotoCaptureTrigger() {
 StacWidget _buildVideoCaptureTrigger() {
   return StacGestureDetector(
     onTap: const StacShowPhotoTipsBottomSheetAction(
-      title: '???? ???? ???? ?????',
+      title: '{{appStrings.authentication.videoTipsTitle}}',
       iconAsset: '{{appAssets.icons.videoCurrent}}',
       tips: [
-        '???? ????? ????? ???',
-        '???? ???? ???? ? ???? ???? ????',
-        '???????? ????? (?????? ???? ?? ????)',
-        '???? ?? ??? ?? ????? ???? ????? ????',
-        '????? ???? ???? ???? ????? ?? ???? ??? (???? ???? ??????? ???? ?? ???? ??? ????)',
+        '{{appStrings.authentication.videoTip1}}',
+        '{{appStrings.authentication.videoTip2}}',
+        '{{appStrings.authentication.videoTip3}}',
+        '{{appStrings.authentication.videoTip4}}',
+        '{{appStrings.authentication.videoTip5}}',
       ],
       previewAsset:
           'https://appapi.tobank.ir/api/v1.0/media/ekyc/face_movement_video.mp4',
-      continueText: '?????',
-      cancelText: '??????',
+      continueText: '{{appStrings.authentication.continueLabel}}',
+      cancelText: '{{appStrings.authentication.backLabel}}',
       continueAction: {
         'actionType': 'pickFile',
         'fileType': 'video',
@@ -426,9 +426,9 @@ StacWidget _buildVideoCaptureTrigger() {
         'source': 'camera',
         'cameraDevice': 'front',
         'previewBeforeConfirm': true,
-        'previewSheetTitle': '?????? ????? ??? ???? ????? ??? ????',
-        'confirmButtonText': '?????',
-        'retryButtonText': '??????',
+        'previewSheetTitle': '{{appStrings.authentication.videoPreviewConfirmTitle}}',
+        'confirmButtonText': '{{appStrings.authentication.confirmLabel}}',
+        'retryButtonText': '{{appStrings.authentication.backLabel}}',
       },
     ),
     child: StacRow(
@@ -551,7 +551,7 @@ StacWidget _buildDeleteButton({required StacAction onTap}) {
         ),
         StacSizedBox(width: 6),
         StacText(
-          data: '???',
+          data: '{{appStrings.authentication.deleteLabel}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 15,

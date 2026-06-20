@@ -45,7 +45,7 @@
             "right": 16.0
           },
           "child": {
-            "data": "???? ?????? ??? ?? ?????? ????",
+            "data": "حوزه فعالیت خود را انتخاب کنید",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",
@@ -84,7 +84,7 @@
                       }
                     },
                     "child": {
-                      "data": "????",
+                      "data": "پزشک",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -105,7 +105,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "????"
+                            "value": "پزشک"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -138,7 +138,7 @@
                       }
                     },
                     "child": {
-                      "data": "????????",
+                      "data": "بازرگانی",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -159,7 +159,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "????????"
+                            "value": "بازرگانی"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -192,7 +192,7 @@
                       }
                     },
                     "child": {
-                      "data": "????????",
+                      "data": "بازنشسته",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -213,7 +213,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "????????"
+                            "value": "بازنشسته"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -246,7 +246,7 @@
                       }
                     },
                     "child": {
-                      "data": "??????",
+                      "data": "تولیدی",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -267,7 +267,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "??????"
+                            "value": "تولیدی"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -300,7 +300,7 @@
                       }
                     },
                     "child": {
-                      "data": "??????",
+                      "data": "خدماتی",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -321,7 +321,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "??????"
+                            "value": "خدماتی"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -354,7 +354,7 @@
                       }
                     },
                     "child": {
-                      "data": "????????",
+                      "data": "ساختمانی",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -375,7 +375,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "????????"
+                            "value": "ساختمانی"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -408,7 +408,7 @@
                       }
                     },
                     "child": {
-                      "data": "??????",
+                      "data": "فرهنگی",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -429,7 +429,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "??????"
+                            "value": "فرهنگی"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -462,7 +462,7 @@
                       }
                     },
                     "child": {
-                      "data": "?????? ????",
+                      "data": "کارمند دولت",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -483,7 +483,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "?????? ????"
+                            "value": "کارمند دولت"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -516,7 +516,7 @@
                       }
                     },
                     "child": {
-                      "data": "????? ??????? ?????? ????? ???? ?...",
+                      "data": "مراکز تفریحی، ورزشی، موزه، دینی و...",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -537,7 +537,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "????? ??????? ?????? ????? ???? ?..."
+                            "value": "مراکز تفریحی، ورزشی، موزه، دینی و..."
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -570,7 +570,7 @@
                       }
                     },
                     "child": {
-                      "data": "?????",
+                      "data": "وکالت",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -591,7 +591,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "?????"
+                            "value": "وکالت"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -624,7 +624,7 @@
                       }
                     },
                     "child": {
-                      "data": "???? ???",
+                      "data": "خانه دار",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -645,7 +645,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "???? ???"
+                            "value": "خانه دار"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -678,7 +678,7 @@
                       }
                     },
                     "child": {
-                      "data": "?????? ????",
+                      "data": "مستمری بگیر",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -699,7 +699,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "?????? ????"
+                            "value": "مستمری بگیر"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -732,7 +732,7 @@
                       }
                     },
                     "child": {
-                      "data": "??????",
+                      "data": "دانشجو",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -753,7 +753,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "??????"
+                            "value": "دانشجو"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -786,7 +786,7 @@
                       }
                     },
                     "child": {
-                      "data": "?????",
+                      "data": "بیکار",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -807,7 +807,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "?????"
+                            "value": "بیکار"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -840,7 +840,7 @@
                       }
                     },
                     "child": {
-                      "data": "????? ???? ??????",
+                      "data": "دارای بیمه بیکاری",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -861,7 +861,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "????? ???? ??????"
+                            "value": "دارای بیمه بیکاری"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -894,7 +894,7 @@
                       }
                     },
                     "child": {
-                      "data": "????? ????? ???? ???? ?????? ?????",
+                      "data": "اشخاص خارجی فاقد مجوز فعالیت معتبر",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -915,7 +915,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "????? ????? ???? ???? ?????? ?????"
+                            "value": "اشخاص خارجی فاقد مجوز فعالیت معتبر"
                           },
                           {
                             "key": "authenticationHasSelectedJob",
@@ -948,7 +948,7 @@
                       }
                     },
                     "child": {
-                      "data": "???? ?????? ???????(????? ????? ????????? ?????...",
+                      "data": "سایر فعالان گردشگری(صنایع دستی، راهنمایان تور،و...",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -969,7 +969,7 @@
                         "values": [
                           {
                             "key": "authenticationSelectedJobTitle",
-                            "value": "???? ?????? ???????(????? ????? ????????? ?????..."
+                            "value": "سایر فعالان گردشگری(صنایع دستی، راهنمایان تور،و..."
                           },
                           {
                             "key": "authenticationHasSelectedJob",
