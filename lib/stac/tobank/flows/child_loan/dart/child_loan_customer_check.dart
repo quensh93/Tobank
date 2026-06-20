@@ -11,9 +11,21 @@ StacWidget childLoanCustomerCheckScreen() {
       values: [
         {'key': 'childLoanChildSelected', 'value': false},
         {'key': 'childLoanChildExpanded', 'value': false},
-        {'key': 'childLoanChildrenText', 'value': 'انتخاب فرزند'},
-        {'key': 'child_loan_child_count', 'value': 'انتخاب فرزند'},
-        {'key': 'childLoanAmountText', 'value': 'ابتدا فرزند را انتخاب کنید'},
+        {
+          'key': 'childLoanChildrenText',
+          'value':
+              '{{appStrings.generated.child_loan.child_loan_customer_check.select_child}}',
+        },
+        {
+          'key': 'child_loan_child_count',
+          'value':
+              '{{appStrings.generated.child_loan.child_loan_customer_check.select_child}}',
+        },
+        {
+          'key': 'childLoanAmountText',
+          'value':
+              '{{appStrings.generated.child_loan.child_loan_customer_check.select_child_message}}',
+        },
         {'key': 'childLoanTrackingHasValue', 'value': false},
         {'key': 'childLoanContinueEnabled', 'value': false},
         {'key': 'childLoanContinueLoading', 'value': false},
@@ -24,7 +36,8 @@ StacWidget childLoanCustomerCheckScreen() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        title: 'تسهیلات فرزندآوری',
+        title:
+            '{{appStrings.generated.child_loan.child_loan_customer_check.title}}',
         showBack: true,
         showSupport: true,
       ),
@@ -40,15 +53,21 @@ StacWidget childLoanCustomerCheckScreen() {
                   children: [
                     _infoCard(),
                     StacSizedBox(height: 24),
-                    _label('شعبه عامل'),
+                    _label(
+                      '{{appStrings.generated.child_loan.child_loan_customer_check.branch_label}}',
+                    ),
                     StacSizedBox(height: 8),
-                    _inputBox('تهران - شعبه مرکزی'),
+                    _inputBox(
+                      '{{appStrings.generated.child_loan.child_loan_customer_check.central_tehran_branch}}',
+                    ),
                     StacSizedBox(height: 24),
                     _trackingTitle(),
                     StacSizedBox(height: 8),
                     _trackingBox(),
                     StacSizedBox(height: 16),
-                    _label('فرزند'),
+                    _label(
+                      '{{appStrings.generated.child_loan.child_loan_customer_check.child}}',
+                    ),
                     StacSizedBox(height: 8),
                     _childrenSelector(),
                     _hiddenChildSelectionField(),
@@ -84,7 +103,8 @@ StacWidget _infoCard() {
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
         StacText(
-          data: 'اطلاعات شما',
+          data:
+              '{{appStrings.generated.child_loan.child_loan_customer_check.information}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.right,
           style: StacTextStyle(
@@ -94,14 +114,20 @@ StacWidget _infoCard() {
           ),
         ),
         StacSizedBox(height: 16),
-        _rowValue('نام و نام‌خانوادگی', 'علی سینایی اصل'),
+        _rowValue(
+          '{{appStrings.generated.child_loan.child_loan_customer_check.name}}',
+          '{{appStrings.generated.profile.profile_destinations.ali_sinaei_asl_name}}',
+        ),
         StacSizedBox(height: 10),
         StacContainer(
           height: 1,
           color: '{{appColors.current.input.borderEnabled}}',
         ),
         StacSizedBox(height: 10),
-        _rowValue('کد ملی', '۱۲۷۲۲۱۲۵۱۹۱'),
+        _rowValue(
+          '{{appStrings.login.nationalCodeTitle}}',
+          '{{appStrings.generated.child_loan.child_loan_customer_check.amount_value}}',
+        ),
       ],
     ),
   );
@@ -179,7 +205,8 @@ StacWidget _trackingTitle() {
       mainAxisSize: StacMainAxisSize.min,
       children: [
         StacText(
-          data: 'کد رهگیری بانک مرکزی',
+          data:
+              '{{appStrings.generated.child_loan.child_loan_customer_check.tracking_code_bank}}',
           textDirection: StacTextDirection.rtl,
           style: StacTextStyle(
             fontSize: 16,
@@ -234,7 +261,8 @@ StacWidget _trackingBox() {
             textDirection: 'ltr',
             textAlign: 'right',
             decoration: {
-              'hintText': 'کد رهگیری بانک مرکزی متقاضی را وارد نمایید',
+              'hintText':
+                  '{{appStrings.generated.child_loan.child_loan_customer_check.tracking_code_bank_enter}}',
               'counterText': '',
               'border': {'type': 'none'},
               'enabledBorder': {'type': 'none'},
@@ -334,11 +362,21 @@ StacWidget _childrenSelector() {
           child: StacColumn(
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
             children: [
-              _childOption('فرزند نخست'),
-              _childOption('فرزند دوم'),
-              _childOption('فرزند سوم'),
-              _childOption('فرزند چهارم'),
-              _childOption('فرزند پنجم یا بالاتر'),
+              _childOption(
+                '{{appStrings.generated.child_loan.child_loan_customer_check.child_message}}',
+              ),
+              _childOption(
+                '{{appStrings.generated.child_loan.child_loan_customer_check.child_label}}',
+              ),
+              _childOption(
+                '{{appStrings.generated.child_loan.child_loan_customer_check.child_description}}',
+              ),
+              _childOption(
+                '{{appStrings.generated.child_loan.child_loan_customer_check.child_hint}}',
+              ),
+              _childOption(
+                '{{appStrings.generated.child_loan.child_loan_customer_check.child_value}}',
+              ),
             ],
           ),
         ).toJson(),
@@ -404,10 +442,22 @@ String _loanAmountByChildTitle(String title) {
   const int baseAmount = 400000000;
 
   int step = 1;
-  if (title == 'فرزند دوم') step = 2;
-  if (title == 'فرزند سوم') step = 3;
-  if (title == 'فرزند چهارم') step = 4;
-  if (title == 'فرزند پنجم یا بالاتر') step = 5;
+  if (title ==
+      '{{appStrings.generated.child_loan.child_loan_customer_check.child_label}}') {
+    step = 2;
+  }
+  if (title ==
+      '{{appStrings.generated.child_loan.child_loan_customer_check.child_description}}') {
+    step = 3;
+  }
+  if (title ==
+      '{{appStrings.generated.child_loan.child_loan_customer_check.child_hint}}') {
+    step = 4;
+  }
+  if (title ==
+      '{{appStrings.generated.child_loan.child_loan_customer_check.child_value}}') {
+    step = 5;
+  }
 
   final double factor = 1 + (0.3 * (step - 1));
   final int amount = (baseAmount * factor).round();
@@ -426,7 +476,7 @@ String _formatAmountFa(int amount) {
     }
   }
   final String grouped = out.toString().split('').reversed.join();
-  return '$grouped ریال';
+  return '$grouped {{appStrings.common.rial}}';
 }
 
 StacWidget _loanAmountSection() {
@@ -451,7 +501,8 @@ StacWidget _loanAmountSection() {
             mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
             children: [
               StacText(
-                data: 'مبلغ تسهیلات',
+                data:
+                    '{{appStrings.generated.child_loan.child_loan_customer_check.loan_amount}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacTextStyle(
                   fontSize: 16,
@@ -481,8 +532,9 @@ StacWidget _continueButton() {
     enabledKey: 'childLoanContinueEnabled',
     loadingKey: 'childLoanContinueLoading',
     onPressed: const StacFingerPrintAction(
-      title: 'احراز هویت',
-      description: 'لطفا برای ادامه از اثر انگشت استفاده کنید',
+      title: '{{appStrings.menu.items.authentication}}',
+      description:
+          '{{appStrings.generated.child_loan.child_loan_child_check.continue}}',
       onSuccess: {
         'actionType': 'sequence',
         'actions': [
@@ -511,7 +563,7 @@ StacWidget _continueButton() {
       disabledBackgroundColor: '{{appColors.current.input.borderEnabled}}',
     ).toJson(),
     child: StacText(
-      data: 'ادامه',
+      data: '{{appStrings.common.continue}}',
       textDirection: StacTextDirection.rtl,
       style: StacTextStyle(
         fontSize: 20,

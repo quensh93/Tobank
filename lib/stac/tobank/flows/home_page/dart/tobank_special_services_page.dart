@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
@@ -9,7 +9,7 @@ StacWidget tobankSpecialServicesPage() {
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: StacAppBar(
       title: StacText(
-        data: 'خدمات ویژه توبانک',
+        data: '{{appStrings.homePage.deposits.specialServicesTitle}}',
         textDirection: StacTextDirection.rtl,
         style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
       ),
@@ -57,42 +57,55 @@ StacWidget tobankSpecialServicesPage() {
         children: [
           _buildServicesRow(
             first: _buildServiceTile(
-              title: 'خدمات موبایل بانک',
-              subtitle: 'فعال سازی خدمات و صدور رمز',
+              title:
+                  '{{appStrings.generated.home_page.tobank_special_services_page.title}}',
+              subtitle:
+                  '{{appStrings.generated.home_page.tobank_special_services_page.active_services_pin}}',
               iconPath: 'assets/icons/ic_menu_mobile.svg',
               onTap: _mobileBankServicesBottomSheetAction(),
             ),
             second: _buildServiceTile(
-              title: 'خدمات اینترنت بانک',
-              subtitle: 'فعال سازی خدمات و صدور رمز',
+              title:
+                  '{{appStrings.generated.home_page.tobank_special_services_page.services_bank}}',
+              subtitle:
+                  '{{appStrings.generated.home_page.tobank_special_services_page.active_services_pin}}',
               iconPath: 'assets/icons/ic_menu_internet.svg',
-              onTap: NavigationAction(fileName: 'charge_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             ),
           ),
           StacSizedBox(height: 16),
           _buildServicesRow(
             first: _buildServiceTile(
-              title: 'صندوق امانات',
-              subtitle: 'اجاره صندوق، رزرو زمان بازدید',
+              title:
+                  '{{appStrings.generated.home_page.tobank_special_services_page.safe_deposit_box}}',
+              subtitle:
+                  '{{appStrings.generated.home_page.tobank_special_services_page.time}}',
               iconPath: 'assets/icons/ic_safe_box.svg',
             ),
             second: _buildServiceTile(
-              title: 'ضمانت نامه نظام وظیفه',
-              subtitle: 'ثبت ضمانتنامه',
+              title:
+                  '{{appStrings.generated.home_page.tobank_special_services_page.guarantee}}',
+              subtitle:
+                  '{{appStrings.generated.home_page.tobank_special_services_page.submit}}',
               iconPath: 'assets/icons/ic_military_guarantee.svg',
             ),
           ),
           StacSizedBox(height: 16),
           _buildServicesRow(
             first: _buildServiceTile(
-              title: 'سفته آنلاین',
-              subtitle: 'صدور و خدمات',
+              title: '{{appStrings.promissory.PromissoryTitle}}',
+              subtitle:
+                  '{{appStrings.generated.home_page.tobank_special_services_page.services}}',
               iconPath: 'assets/icons/ic_promissory.svg',
-              onTap: NavigationAction(fileName: 'promissory_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+              onTap: NavigationAction(
+                fileName: 'promissory_intro',
+                navMode: NavModes.dart,
+                navigationStyle: NavigationStyle.push,
+              ),
             ),
             second: _buildServiceTile(
-              title: 'اعتبارسنجی',
-              subtitle: 'اعتبارسنجی خود و سایرین',
+              title: '{{appStrings.authentication.stepValidation}}',
+              subtitle:
+                  '{{appStrings.generated.home_page.tobank_special_services_page.credit_validation}}',
               iconPath: 'assets/icons/ic_cbs_search.svg',
             ),
           ),
@@ -214,7 +227,8 @@ StacWidget _mobileBankServicesSheet() {
           ),
           StacSizedBox(height: 20),
           StacText(
-            data: 'خدمات موبایل بانک',
+            data:
+                '{{appStrings.generated.home_page.tobank_special_services_page.title}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -225,13 +239,15 @@ StacWidget _mobileBankServicesSheet() {
           ),
           StacSizedBox(height: 16),
           _mobileBankSheetItem(
-            title: 'صدور اولیه رمز موبایل بانک',
+            title:
+                '{{appStrings.generated.deposit_turnover.deposit_turnover_intro.mobile_pin_bank}}',
             iconPath: 'assets/icons/ic_bank_lock.svg',
             resultAction: _mobileBankActivationConfirmAction(),
           ),
           StacSizedBox(height: 12),
           _mobileBankSheetItem(
-            title: 'بازیابی رمز موبایل بانک',
+            title:
+                '{{appStrings.generated.home_page.tobank_special_services_page.mobile_pin_bank}}',
             iconPath: 'assets/icons/ic_lock_retrieval.svg',
             resultAction: _mobileBankRecoveryUsernameAction(),
           ),
@@ -294,7 +310,8 @@ StacWidget _mobileBankActivationConfirmSheet() {
               ),
               StacSizedBox(width: 8),
               StacText(
-                data: 'توجه',
+                data:
+                    '{{appStrings.generated.home_page.tobank_special_services_page.sample_message}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 15,
@@ -307,7 +324,7 @@ StacWidget _mobileBankActivationConfirmSheet() {
           StacSizedBox(height: 14),
           StacText(
             data:
-                'کاربر گرامی، جهت دریافت نام‌کاربری و رمزعبور، نیازمند فعال سازی سرویس می‌باشید',
+                '{{appStrings.generated.home_page.tobank_special_services_page.active_user_receive}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -321,9 +338,10 @@ StacWidget _mobileBankActivationConfirmSheet() {
           StacFilledButton(
             onPressed: StacCloseDialogAction(
               result: _buildMobileBankFingerPrintAction(
-                description: 'برای صدور اولیه رمز موبایل بانک احراز هویت کنید',
+                description:
+                    '{{appStrings.generated.home_page.tobank_special_services_page.authentication_mobile_pin_bank}}',
                 failureMessage:
-                    'احراز هویت ناموفق بود. عملیات "صدور اولیه رمز موبایل بانک" انجام نشد.',
+                    '{{appStrings.generated.home_page.tobank_special_services_page.authentication_failed_mobile_operation_pin}}',
               ).toJson(),
             ),
             style: StacButtonStyle(
@@ -338,7 +356,8 @@ StacWidget _mobileBankActivationConfirmSheet() {
               ),
             ),
             child: StacText(
-              data: 'فعال‌سازی',
+              data:
+                  '{{appStrings.generated.home_page.tobank_special_services_page.active}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 14,
@@ -376,7 +395,8 @@ StacWidget _mobileBankRecoveryUsernameSheet() {
           ),
           StacSizedBox(height: 20),
           StacText(
-            data: 'خدمات موبایل بانک',
+            data:
+                '{{appStrings.generated.home_page.tobank_special_services_page.title}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -387,7 +407,8 @@ StacWidget _mobileBankRecoveryUsernameSheet() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'نام کاربری موبایل بانک',
+            data:
+                '{{appStrings.generated.home_page.tobank_special_services_page.mobile_name_bank}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -413,7 +434,8 @@ StacWidget _mobileBankRecoveryUsernameSheet() {
               'textAlign': 'right',
               'keyboardType': 'number',
               'decoration': {
-                'hintText': 'نام کاربری موبایل بانک',
+                'hintText':
+                    '{{appStrings.generated.home_page.tobank_special_services_page.mobile_name_bank}}',
                 'hintStyle': {
                   'type': 'custom',
                   'fontSize': 14,
@@ -450,9 +472,10 @@ StacWidget _mobileBankRecoveryUsernameSheet() {
           StacFilledButton(
             onPressed: StacCloseDialogAction(
               result: _buildMobileBankFingerPrintAction(
-                description: 'برای بازیابی رمز موبایل بانک احراز هویت کنید',
+                description:
+                    '{{appStrings.generated.home_page.tobank_special_services_page.authentication_mobile_pin_bank_message}}',
                 failureMessage:
-                    'احراز هویت ناموفق بود. عملیات "بازیابی رمز موبایل بانک" انجام نشد.',
+                    '{{appStrings.generated.home_page.tobank_special_services_page.mobile_pin_recovery_auth_failed}}',
               ).toJson(),
             ),
             style: StacButtonStyle(
@@ -465,7 +488,8 @@ StacWidget _mobileBankRecoveryUsernameSheet() {
               elevation: 0,
             ),
             child: StacText(
-              data: 'تایید و بازیابی رمز موبایل بانک',
+              data:
+                  '{{appStrings.generated.home_page.tobank_special_services_page.mobile_confirm_pin_bank}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 16,
@@ -485,14 +509,17 @@ StacAction _buildMobileBankFingerPrintAction({
   required String failureMessage,
 }) {
   return StacFingerPrintAction(
-    title: 'احراز هویت',
+    title: '{{appStrings.menu.items.authentication}}',
     description: description,
     onSuccess: const StacCustomSnackBarAction(
-      title: 'درخواست شما با موفقیت ثبت شد!',
-      detail: 'مراتب از طریق پیامک به شما اطلاع داده خواهد شد.',
+      title:
+          '{{appStrings.generated.deposit_more_options.deposit_card_issue_result.title}}',
+      detail:
+          '{{appStrings.generated.home_page.tobank_special_services_page.sms_notification_message}}',
     ).toJson(),
     onFailure: StacCustomSnackBarAction(
-      title: 'احراز هویت ناموفق بود.',
+      title:
+          '{{appStrings.generated.home_page.tobank_special_services_page.authentication_failed}}',
       detail: failureMessage,
     ).toJson(),
   );
@@ -556,4 +583,3 @@ StacWidget _mobileBankSheetItem({
     ),
   );
 }
-

@@ -84,7 +84,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "احراز هویت شما با موفقیت انجام شد!",
+                    "data": "{{appStrings.generated.authentication.authentication_final.title}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -114,7 +114,7 @@
                 {
                   "actionType": "navigate",
                   "fileName": "dashboard_shell",
-                  "navMode": "dart",
+                  "navMode": "localJson",
                   "navigationStyle": "pushReplacement"
                 }
               ]

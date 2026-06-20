@@ -25,27 +25,27 @@
       },
       {
         "key": "giftCardRealAmountLabel1",
-        "value": "۵,۰۰۰,۰۰۰ ریال"
+        "value": "{{appStrings.generated.gift_card.gift_card_select_amount.rial}}"
       },
       {
         "key": "giftCardRealAmountLabel2",
-        "value": "۵,۰۰۰,۰۰۰ ریال"
+        "value": "{{appStrings.generated.gift_card.gift_card_select_amount.rial}}"
       },
       {
         "key": "giftCardRealAmountLabel3",
-        "value": "۵,۰۰۰,۰۰۰ ریال"
+        "value": "{{appStrings.generated.gift_card.gift_card_select_amount.rial}}"
       },
       {
         "key": "giftCardRealCardCount1",
-        "value": "۱"
+        "value": "{{appStrings.generated.gift_card.gift_card_select_amount.number_value}}"
       },
       {
         "key": "giftCardRealCardCount2",
-        "value": "۱"
+        "value": "{{appStrings.generated.gift_card.gift_card_select_amount.number_value}}"
       },
       {
         "key": "giftCardRealCardCount3",
-        "value": "۱"
+        "value": "{{appStrings.generated.gift_card.gift_card_select_amount.number_value}}"
       }
     ]
   },
@@ -70,7 +70,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "کارت هدیه",
+        "data": "{{appStrings.homePage.services.giftCard}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -125,7 +125,7 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "data": "مبلغ کارت هدیه را وارد یا انتخاب نمایید",
+                        "data": "{{appStrings.generated.gift_card.gift_card_select_amount.title}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -158,10 +158,10 @@
                               "actions": [
                                 {
                                   "actionType": "showGiftCardAmountGuideBottomSheet",
-                                  "title": "راهنما",
+                                  "title": "{{appStrings.authentication.guideLabel}}",
                                   "minAmount": 1000000,
                                   "maxAmount": 50000000,
-                                  "closeText": "بستن"
+                                  "closeText": "{{appStrings.generated.gift_card.gift_card_message.close_button}}"
                                 },
                                 {
                                   "navigationStyle": "pop",
@@ -310,7 +310,7 @@
                           "textDirection": "rtl",
                           "children": [
                             {
-                              "data": "تعداد کارت",
+                              "data": "{{appStrings.generated.gift_card.gift_card_select_amount.card}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -604,7 +604,7 @@
                                 "textDirection": "rtl",
                                 "children": [
                                   {
-                                    "data": "تعداد کارت",
+                                    "data": "{{appStrings.generated.gift_card.gift_card_select_amount.card}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -902,7 +902,7 @@
                                 "textDirection": "rtl",
                                 "children": [
                                   {
-                                    "data": "تعداد کارت",
+                                    "data": "{{appStrings.generated.gift_card.gift_card_select_amount.card}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -1056,7 +1056,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "افزودن کارت با مبلغ جدید",
+                              "data": "{{appStrings.generated.gift_card.gift_card_select_amount.amount_new_card}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -1104,19 +1104,21 @@
                   "actions": [
                     {
                       "actionType": "showGiftCardDesignTypeBottomSheet",
-                      "title": "طرح کارت را انتخاب کنید",
-                      "readyDesignTitle": "طرح‌های آماده",
-                      "customDesignTitle": "طرح سفارشی",
+                      "title": "{{appStrings.generated.gift_card.gift_card_select_amount.select_card}}",
+                      "readyDesignTitle": "{{appStrings.generated.gift_card.gift_card_select_amount.ready_designs_title}}",
+                      "customDesignTitle": "{{appStrings.generated.gift_card.gift_card_image_selector.custom_design_title}}",
                       "readyDesignAction": {
                         "actionType": "navigate",
                         "fileName": "gift_card_design_selector",
-                        "navMode": "dart",
+                        "navMode": "localJson",
+                        "pathOverride": "lib/stac/tobank/flows/gift_card/json/gift_card_design_selector.json",
                         "navigationStyle": "push"
                       },
                       "customDesignAction": {
                         "actionType": "navigate",
                         "fileName": "gift_card_custom_design_selector",
-                        "navMode": "dart",
+                        "navMode": "localJson",
+                        "pathOverride": "lib/stac/tobank/flows/gift_card/json/gift_card_custom_design_selector.json",
                         "navigationStyle": "push"
                       }
                     },
@@ -1153,7 +1155,7 @@
               }
             },
             "child": {
-              "data": "ادامه",
+              "data": "{{appStrings.common.continue}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.primary.onPrimary}}",

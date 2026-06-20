@@ -52,7 +52,7 @@
             "type": "iconButton"
           },
           "title": {
-            "data": "انتخاب سپرده",
+            "data": "{{appStrings.promissory.selectDepositTitle}}",
             "style": {
               "type": "alias",
               "value": "{{appStyles.appbarStyle}}"
@@ -76,7 +76,7 @@
                 "right": 16.0
               },
               "child": {
-                "data": "سپرده خود را جهت صدور سفته انتخاب کنید",
+                "data": "{{appStrings.generated.promissory.request_promissory_deposit.select_deposit_promissory}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.title}}",
@@ -133,7 +133,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "حساب جاری اصلی",
+                                  "data": "{{appStrings.generated.promissory.request_promissory_deposit.account_main}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -191,7 +191,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "شماره سپرده: ",
+                                  "data": "{{appStrings.promissory.depositNumberLabel}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -202,7 +202,7 @@
                                   "type": "text"
                                 },
                                 {
-                                  "data": "۱۲۳۴۵۶۷۸۹۰",
+                                  "data": "{{appStrings.generated.promissory.deposits_data.title}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -223,7 +223,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "شماره شبا: ",
+                                  "data": "{{appStrings.promissory.ibanLabel}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -235,7 +235,7 @@
                                 },
                                 {
                                   "child": {
-                                    "data": "IR۱۲۱۰۱۲۳۴۵۶۷۸۹۰۱۲۳۴۵۶۷۸۹۰۱",
+                                    "data": "{{appStrings.generated.promissory.deposits_data.ir1210123456789012345678901}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -322,7 +322,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "حساب پس‌انداز",
+                                  "data": "{{appStrings.generated.promissory.request_promissory_deposit.account}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -380,7 +380,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "شماره سپرده: ",
+                                  "data": "{{appStrings.promissory.depositNumberLabel}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -391,7 +391,7 @@
                                   "type": "text"
                                 },
                                 {
-                                  "data": "۰۹۸۷۶۵۰۴۳۲۱",
+                                  "data": "{{appStrings.generated.promissory.deposits_data.amount_value}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -412,7 +412,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "شماره شبا: ",
+                                  "data": "{{appStrings.promissory.ibanLabel}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -424,7 +424,7 @@
                                 },
                                 {
                                   "child": {
-                                    "data": "IR۱۲۱۰۰۰۹۸۷۶۵۰۴۳۲۱۰۹۸۷۶۵۰۴۳۲۱۰",
+                                    "data": "{{appStrings.generated.promissory.deposits_data.ir1210009876504321098765043210}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -511,7 +511,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "حساب قرض‌الحسنه",
+                                  "data": "{{appStrings.generated.promissory.request_promissory_deposit.account_data}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -569,7 +569,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "شماره سپرده: ",
+                                  "data": "{{appStrings.promissory.depositNumberLabel}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -580,7 +580,7 @@
                                   "type": "text"
                                 },
                                 {
-                                  "data": "۱۱۲۲۳۳۴۴۵۵",
+                                  "data": "{{appStrings.generated.promissory.deposits_data.amount_value_text}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -601,7 +601,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "شماره شبا: ",
+                                  "data": "{{appStrings.promissory.ibanLabel}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -613,7 +613,7 @@
                                 },
                                 {
                                   "child": {
-                                    "data": "IR۱۲۱۰۱۱۲۲۳۳۴۴۵۵۰۱۱۲۲۳۳۴۴۵۵۶",
+                                    "data": "{{appStrings.generated.promissory.deposits_data.ir12101122334455011223344556}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",

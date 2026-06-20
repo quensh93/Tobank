@@ -245,7 +245,7 @@
                                       "children": [
                                         {
                                           "type": "text",
-                                          "data": "اعلان",
+                                          "data": "{{appStrings.generated.authentication.authentication_verify_otp.title}}",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
                                           "style": {
@@ -377,10 +377,10 @@
                   "type": "text"
                 },
                 "onPressed": {
+                  "actionType": "navigate",
                   "fileName": "authentication_national_card_front",
-                  "navMode": "dart",
-                  "navigationStyle": "push",
-                  "actionType": "navigate"
+                  "navMode": "localJson",
+                  "navigationStyle": "push"
                 }
               },
               "type": "padding"

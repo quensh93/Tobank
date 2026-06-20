@@ -16,11 +16,11 @@
           },
           {
             "key": "dtFromDate",
-            "value": "۱۴۰۵/۰۱/۲۹"
+            "value": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_value}}"
           },
           {
             "key": "dtToDate",
-            "value": "۱۴۰۵/۰۲/۲۸"
+            "value": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_value_text}}"
           }
         ]
       },
@@ -68,7 +68,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "گردش سپرده",
+                  "data": "{{appStrings.homePage.deposits.quickActions.turnover}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
@@ -108,7 +108,7 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "data": "شماره سپرده",
+                        "data": "{{appStrings.generated.card_management.card_management_root.deposit_number}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.subtitle}}",
@@ -118,7 +118,7 @@
                         "type": "text"
                       },
                       {
-                        "data": "۱۴۴.۹۹۶۶.۷۶۳۰۲۰.۱",
+                        "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.amount_value}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -138,7 +138,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "بر اساس",
+                  "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.based_on_label}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
@@ -185,7 +185,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "گردش آخر ۱۰",
+                                  "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.turnover}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.secondary.color}}",
@@ -264,7 +264,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "گردش آخر ۱۰",
+                                  "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.turnover}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -342,7 +342,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "بازه زمانی",
+                                  "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_range_label}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.secondary.color}}",
@@ -400,9 +400,9 @@
                                 "actionType": "persianDateRangePicker",
                                 "startDateKey": "dtFromDate",
                                 "endDateKey": "dtToDate",
-                                "helpText": "انتخاب بازه زمانی",
-                                "confirmText": "تایید",
-                                "cancelText": "انصراف",
+                                "helpText": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.select}}",
+                                "confirmText": "{{appStrings.common.confirm}}",
+                                "cancelText": "{{appStrings.common.cancel}}",
                                 "firstDate": "1400/01/01",
                                 "lastDate": "1450/12/29"
                               }
@@ -436,7 +436,7 @@
                               "textDirection": "rtl",
                               "children": [
                                 {
-                                  "data": "بازه زمانی",
+                                  "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_range_label}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -482,9 +482,9 @@
                                 "actionType": "persianDateRangePicker",
                                 "startDateKey": "dtFromDate",
                                 "endDateKey": "dtToDate",
-                                "helpText": "انتخاب بازه زمانی",
-                                "confirmText": "تایید",
-                                "cancelText": "انصراف",
+                                "helpText": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.select}}",
+                                "confirmText": "{{appStrings.common.confirm}}",
+                                "cancelText": "{{appStrings.common.cancel}}",
                                 "firstDate": "1400/01/01",
                                 "lastDate": "1450/12/29"
                               }
@@ -512,7 +512,7 @@
                         "children": [
                           {
                             "child": {
-                              "data": "تا تاریخ",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_until}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -531,7 +531,7 @@
                           },
                           {
                             "child": {
-                              "data": "از تاریخ",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -610,9 +610,9 @@
                                 "actionType": "persianDateRangePicker",
                                 "startDateKey": "dtFromDate",
                                 "endDateKey": "dtToDate",
-                                "helpText": "انتخاب بازه زمانی",
-                                "confirmText": "تایید",
-                                "cancelText": "انصراف",
+                                "helpText": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.select}}",
+                                "confirmText": "{{appStrings.common.confirm}}",
+                                "cancelText": "{{appStrings.common.cancel}}",
                                 "firstDate": "1400/01/01",
                                 "lastDate": "1450/12/29"
                               },
@@ -681,9 +681,9 @@
                                 "actionType": "persianDateRangePicker",
                                 "startDateKey": "dtFromDate",
                                 "endDateKey": "dtToDate",
-                                "helpText": "انتخاب بازه زمانی",
-                                "confirmText": "تایید",
-                                "cancelText": "انصراف",
+                                "helpText": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.select}}",
+                                "confirmText": "{{appStrings.common.confirm}}",
+                                "cancelText": "{{appStrings.common.cancel}}",
                                 "firstDate": "1400/01/01",
                                 "lastDate": "1450/12/29"
                               },
@@ -710,8 +710,8 @@
                     "actionType": "closeDialog",
                     "result": {
                       "actionType": "fingerPrint",
-                      "title": "صدور اولیه رمز موبایل بانک",
-                      "description": "لطفا برای ادامه از اثر انگشت استفاده کنید",
+                      "title": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.mobile_pin_bank}}",
+                      "description": "{{appStrings.generated.child_loan.child_loan_child_check.continue}}",
                       "onSuccess": {
                         "actionType": "navigate",
                         "navigationStyle": "push",
@@ -720,8 +720,8 @@
                       },
                       "onFailure": {
                         "actionType": "showSnackBar",
-                        "title": "احراز هویت ناموفق بود",
-                        "detail": "لطفا دوباره تلاش کنید.",
+                        "title": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.authentication_failed}}",
+                        "detail": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.try_again}}",
                         "type": "error"
                       }
                     }
@@ -744,7 +744,7 @@
                     }
                   },
                   "child": {
-                    "data": "تایید و ادامه",
+                    "data": "{{appStrings.authentication.confirmAndContinue}}",
                     "style": {
                       "type": "custom",
                       "fontSize": 18,
@@ -826,7 +826,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "گردش سپرده",
+                        "data": "{{appStrings.homePage.deposits.quickActions.turnover}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -866,7 +866,7 @@
                           "textDirection": "rtl",
                           "children": [
                             {
-                              "data": "شماره سپرده",
+                              "data": "{{appStrings.generated.card_management.card_management_root.deposit_number}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -876,7 +876,7 @@
                               "type": "text"
                             },
                             {
-                              "data": "۱۴۴.۹۹۶۶.۷۶۳۰۲۰.۱",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.amount_value}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -896,7 +896,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "بر اساس",
+                        "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.based_on_label}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -943,7 +943,7 @@
                                     "textDirection": "rtl",
                                     "children": [
                                       {
-                                        "data": "گردش آخر ۱۰",
+                                        "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.turnover}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.secondary.color}}",
@@ -1022,7 +1022,7 @@
                                     "textDirection": "rtl",
                                     "children": [
                                       {
-                                        "data": "گردش آخر ۱۰",
+                                        "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.turnover}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
@@ -1100,7 +1100,7 @@
                                     "textDirection": "rtl",
                                     "children": [
                                       {
-                                        "data": "بازه زمانی",
+                                        "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_range_label}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.secondary.color}}",
@@ -1158,9 +1158,9 @@
                                       "actionType": "persianDateRangePicker",
                                       "startDateKey": "dtFromDate",
                                       "endDateKey": "dtToDate",
-                                      "helpText": "انتخاب بازه زمانی",
-                                      "confirmText": "تایید",
-                                      "cancelText": "انصراف",
+                                      "helpText": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.select}}",
+                                      "confirmText": "{{appStrings.common.confirm}}",
+                                      "cancelText": "{{appStrings.common.cancel}}",
                                       "firstDate": "1400/01/01",
                                       "lastDate": "1450/12/29"
                                     }
@@ -1194,7 +1194,7 @@
                                     "textDirection": "rtl",
                                     "children": [
                                       {
-                                        "data": "بازه زمانی",
+                                        "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_range_label}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
@@ -1240,9 +1240,9 @@
                                       "actionType": "persianDateRangePicker",
                                       "startDateKey": "dtFromDate",
                                       "endDateKey": "dtToDate",
-                                      "helpText": "انتخاب بازه زمانی",
-                                      "confirmText": "تایید",
-                                      "cancelText": "انصراف",
+                                      "helpText": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.select}}",
+                                      "confirmText": "{{appStrings.common.confirm}}",
+                                      "cancelText": "{{appStrings.common.cancel}}",
                                       "firstDate": "1400/01/01",
                                       "lastDate": "1450/12/29"
                                     }
@@ -1270,7 +1270,7 @@
                               "children": [
                                 {
                                   "child": {
-                                    "data": "تا تاریخ",
+                                    "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date_until}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -1289,7 +1289,7 @@
                                 },
                                 {
                                   "child": {
-                                    "data": "از تاریخ",
+                                    "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.date}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -1368,9 +1368,9 @@
                                       "actionType": "persianDateRangePicker",
                                       "startDateKey": "dtFromDate",
                                       "endDateKey": "dtToDate",
-                                      "helpText": "انتخاب بازه زمانی",
-                                      "confirmText": "تایید",
-                                      "cancelText": "انصراف",
+                                      "helpText": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.select}}",
+                                      "confirmText": "{{appStrings.common.confirm}}",
+                                      "cancelText": "{{appStrings.common.cancel}}",
                                       "firstDate": "1400/01/01",
                                       "lastDate": "1450/12/29"
                                     },
@@ -1439,9 +1439,9 @@
                                       "actionType": "persianDateRangePicker",
                                       "startDateKey": "dtFromDate",
                                       "endDateKey": "dtToDate",
-                                      "helpText": "انتخاب بازه زمانی",
-                                      "confirmText": "تایید",
-                                      "cancelText": "انصراف",
+                                      "helpText": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.select}}",
+                                      "confirmText": "{{appStrings.common.confirm}}",
+                                      "cancelText": "{{appStrings.common.cancel}}",
                                       "firstDate": "1400/01/01",
                                       "lastDate": "1450/12/29"
                                     },
@@ -1468,8 +1468,8 @@
                           "actionType": "closeDialog",
                           "result": {
                             "actionType": "fingerPrint",
-                            "title": "صدور اولیه رمز موبایل بانک",
-                            "description": "لطفا برای ادامه از اثر انگشت استفاده کنید",
+                            "title": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.mobile_pin_bank}}",
+                            "description": "{{appStrings.generated.child_loan.child_loan_child_check.continue}}",
                             "onSuccess": {
                               "actionType": "navigate",
                               "navigationStyle": "push",
@@ -1478,8 +1478,8 @@
                             },
                             "onFailure": {
                               "actionType": "showSnackBar",
-                              "title": "احراز هویت ناموفق بود",
-                              "detail": "لطفا دوباره تلاش کنید.",
+                              "title": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.authentication_failed}}",
+                              "detail": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.try_again}}",
                               "type": "error"
                             }
                           }
@@ -1502,7 +1502,7 @@
                           }
                         },
                         "child": {
-                          "data": "تایید و ادامه",
+                          "data": "{{appStrings.authentication.confirmAndContinue}}",
                           "style": {
                             "type": "custom",
                             "fontSize": 18,
@@ -1542,7 +1542,7 @@
               }
             },
             "child": {
-              "data": "نمایش گردش سپرده",
+              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.title}}",
               "style": {
                 "type": "custom",
                 "fontSize": 16,

@@ -13,11 +13,11 @@
       },
       {
         "key": "giftCardRealReceiverProvince",
-        "value": "تهران"
+        "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}"
       },
       {
         "key": "giftCardRealReceiverCity",
-        "value": "تهران"
+        "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}"
       },
       {
         "key": "giftCardRealDeliveryDate",
@@ -50,7 +50,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "کارت هدیه",
+        "data": "{{appStrings.homePage.services.giftCard}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -105,7 +105,7 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "data": "گیرنده خودم هستم",
+                        "data": "{{appStrings.generated.gift_card.gift_card_receiver_info.title}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -167,7 +167,7 @@
                       "crossAxisAlignment": "stretch",
                       "children": [
                         {
-                          "data": "نام و نام‌خانوادگی",
+                          "data": "{{appStrings.generated.child_loan.child_loan_customer_check.name}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -201,7 +201,7 @@
                             "textDirection": "rtl",
                             "textAlign": "right",
                             "decoration": {
-                              "hintText": "نام و نام‌خانوادگی را وارد کنید",
+                              "hintText": "{{appStrings.generated.gift_card.gift_card_receiver_info.name_enter_message}}",
                               "hintStyle": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -254,7 +254,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "شماره همراه گیرنده",
+                          "data": "{{appStrings.generated.gift_card.gift_card_receiver_info.mobile_number_receiver}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -288,7 +288,7 @@
                             "textDirection": "rtl",
                             "textAlign": "right",
                             "decoration": {
-                              "hintText": "تلفن همراه تحویل گیرنده را وارد کنید",
+                              "hintText": "{{appStrings.generated.gift_card.gift_card_receiver_info.receiver_phone_enter_message}}",
                               "hintStyle": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
@@ -353,7 +353,7 @@
                     }
                   },
                   {
-                    "data": "استان",
+                    "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.province}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -431,29 +431,29 @@
                               "actions": [
                                 {
                                   "actionType": "showGiftCardLocationSelectorBottomSheet",
-                                  "title": "انتخاب استان",
+                                  "title": "{{appStrings.generated.gift_card.gift_card_receiver_info.select_province}}",
                                   "selectedKey": "giftCardRealReceiverProvince",
                                   "options": [
-                                    "تهران",
-                                    "اصفهان",
-                                    "فارس",
-                                    "خراسان رضوی",
-                                    "آذربایجان شرقی",
-                                    "خوزستان",
-                                    "گیلان",
-                                    "مازندران",
-                                    "البرز",
-                                    "کرمان",
-                                    "یزد",
-                                    "قم",
-                                    "کرمانشاه",
-                                    "همدان",
-                                    "گلستان",
-                                    "مرکزی",
-                                    "زنجان",
-                                    "اردبیل",
-                                    "قزوین",
-                                    "سمنان"
+                                    "{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.sample_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.sample_message}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.sample_label}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.east_azerbaijan_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.khuzestan_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.gilan_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.mazandaran_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.alborz_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.kerman_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.yazd_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.qom_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.kermanshah_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.hamedan_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.golestan_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.markazi_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.zanjan_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.ardabil_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.qazvin_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.semnan_province}}"
                                   ]
                                 },
                                 {
@@ -501,7 +501,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "شهر",
+                    "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.city}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -579,29 +579,29 @@
                               "actions": [
                                 {
                                   "actionType": "showGiftCardLocationSelectorBottomSheet",
-                                  "title": "انتخاب شهر",
+                                  "title": "{{appStrings.generated.gift_card.gift_card_receiver_info.select_city}}",
                                   "selectedKey": "giftCardRealReceiverCity",
                                   "options": [
-                                    "تهران",
-                                    "مشهد",
-                                    "اصفهان",
-                                    "شیراز",
-                                    "تبریز",
-                                    "اهواز",
-                                    "رشت",
-                                    "کرج",
-                                    "قم",
-                                    "کرمانشاه",
-                                    "ارومیه",
-                                    "یزد",
-                                    "همدان",
-                                    "قزوین",
-                                    "اردبیل",
-                                    "زاهدان",
-                                    "بندرعباس",
-                                    "گرگان",
-                                    "زنجان",
-                                    "اراک"
+                                    "{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.mashhad_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.sample_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.shiraz_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.tabriz_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.ahvaz_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.rasht_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.karaj_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.qom_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.kermanshah_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.urmia_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.yazd_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.hamedan_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.qazvin_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.ardabil_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.zahedan_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.bandar_abbas_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.gorgan_city}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.zanjan_province}}",
+                                    "{{appStrings.generated.gift_card.gift_card_receiver_info.arak_city}}"
                                   ]
                                 },
                                 {
@@ -649,7 +649,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "کد پستی گیرنده",
+                    "data": "{{appStrings.generated.gift_card.gift_card_receiver_info.postal_code_receiver}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -683,7 +683,7 @@
                       "textDirection": "rtl",
                       "textAlign": "right",
                       "decoration": {
-                        "hintText": "کد پستی را وارد کنید",
+                        "hintText": "{{appStrings.generated.gift_card.gift_card_receiver_info.postal_code_enter_message}}",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
@@ -744,7 +744,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "آدرس پستی گیرنده",
+                    "data": "{{appStrings.generated.gift_card.gift_card_receiver_info.receiver_address_postal}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -778,7 +778,7 @@
                       "textDirection": "rtl",
                       "textAlign": "right",
                       "decoration": {
-                        "hintText": "آدرس پستی را وارد کنید",
+                        "hintText": "{{appStrings.generated.gift_card.gift_card_receiver_info.address_postal_enter_message}}",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
@@ -856,20 +856,20 @@
                     "actions": [
                       {
                         "actionType": "showGiftCardSelectDateBottomSheet",
-                        "title": "لطفا تاریخ و بازه‌زمانی تحویل هدیه را انتخاب کنید",
-                        "dateTitle": "تاریخ تحویل",
-                        "timeTitle": "محدوده ساعتی تحویل",
-                        "confirmText": "تایید",
-                        "noDateSelectedText": "تاریخی انتخاب نشده است",
+                        "title": "{{appStrings.generated.gift_card.gift_card_receiver_info.select_date}}",
+                        "dateTitle": "{{appStrings.generated.gift_card.gift_card_receiver_info.date}}",
+                        "timeTitle": "{{appStrings.generated.gift_card.gift_card_receiver_info.time}}",
+                        "confirmText": "{{appStrings.common.confirm}}",
+                        "noDateSelectedText": "{{appStrings.generated.gift_card.gift_card_receiver_info.select_date_message}}",
                         "dateOptions": [
-                          "پنج‌شنبه ۱۴۰۵/۰۲/۰۳",
-                          "جمعه ۱۴۰۵/۰۲/۰۴",
-                          "شنبه ۱۴۰۵/۰۲/۰۵"
+                          "{{appStrings.generated.gift_card.gift_card_receiver_info.date_value}}",
+                          "{{appStrings.generated.gift_card.gift_card_receiver_info.date_value_message}}",
+                          "{{appStrings.generated.gift_card.gift_card_receiver_info.date_value_label}}"
                         ],
                         "timeOptions": [
-                          "۱۳ - ۱۸",
-                          "۱۰ - ۱۳",
-                          "۱۸ - ۲۱"
+                          "{{appStrings.generated.gift_card.gift_card_receiver_info.number_value}}",
+                          "{{appStrings.generated.gift_card.gift_card_receiver_info.number_value_text}}",
+                          "{{appStrings.generated.gift_card.gift_card_receiver_info.number_value_label}}"
                         ],
                         "selectedDateKey": "giftCardRealDeliveryDate",
                         "selectedTimeKey": "giftCardRealDeliveryTime",
@@ -926,7 +926,7 @@
                 }
               },
               "child": {
-                "data": "ادامه",
+                "data": "{{appStrings.common.continue}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.primary.onPrimary}}",

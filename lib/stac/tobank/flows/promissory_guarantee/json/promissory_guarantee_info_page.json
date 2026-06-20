@@ -26,7 +26,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "ضمانت سفته api واقعی",
+        "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_info_page.guarantee_promissory_api_real}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -84,7 +84,7 @@
                       "crossAxisAlignment": "stretch",
                       "children": [
                         {
-                          "data": "شناسه یکتای سفته",
+                          "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.identifier_promissory}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -107,7 +107,7 @@
                           "supportTextDirection": "rtl",
                           "autovalidateMode": "always",
                           "decoration": {
-                            "hintText": "شناسه یکتای سفته را وارد کنید",
+                            "hintText": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_info_page.identifier_promissory_enter}}",
                             "filled": false,
                             "isDense": true,
                             "contentPadding": {
@@ -162,7 +162,7 @@
                               "options": {
                                 "pattern": "^\\d{1,20}$"
                               },
-                              "message": "شناسه یکتای سفته معتبر نیست"
+                              "message": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_info_page.identifier_promissory_not}}"
                             }
                           ],
                           "onChanged": {
@@ -191,7 +191,7 @@
                       "crossAxisAlignment": "stretch",
                       "children": [
                         {
-                          "data": "کد ملی صادرکننده",
+                          "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.issuer_national_code}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -214,7 +214,7 @@
                           "supportTextDirection": "rtl",
                           "autovalidateMode": "always",
                           "decoration": {
-                            "hintText": "کد ملی صادرکننده را وارد کنید",
+                            "hintText": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_info_page.issuer_national_code_enter}}",
                             "filled": false,
                             "isDense": true,
                             "contentPadding": {
@@ -269,7 +269,7 @@
                               "options": {
                                 "pattern": "^\\d{10}$"
                               },
-                              "message": "کد ملی باید ۱۰ رقم باشد"
+                              "message": "{{appStrings.generated.promissory.promissory_receiver.national_code}}"
                             }
                           ],
                           "onChanged": {
@@ -353,7 +353,7 @@
                 }
               },
               "child": {
-                "data": "استعلام",
+                "data": "{{appStrings.profile.real.bankInfo.inquiryButtonText}}",
                 "style": {
                   "type": "custom",
                   "fontSize": 18.0,

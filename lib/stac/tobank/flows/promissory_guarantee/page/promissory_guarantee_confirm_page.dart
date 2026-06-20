@@ -15,7 +15,7 @@ StacWidget promissoryGuaranteeConfirmPage() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        title: 'ضمانت سفته',
+        title: '{{appStrings.promissory.guaranteePromissory}}',
         showBack: true,
         showSupport: true,
       ),
@@ -31,14 +31,16 @@ StacWidget promissoryGuaranteeConfirmPage() {
                 StacSizedBox(height: 24),
                 _buildMultilineField(
                   id: 'guarantee_payment_address',
-                  title: 'آدرس',
-                  hint: 'آدرس محل پرداخت را بنویسید (تا ۲۰۰ کاراکتر)',
+                  title: '{{appStrings.profile.real.bankInfo.addressLabel}}',
+                  hint:
+                      '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.payment_place_address_until}}',
                 ),
                 StacSizedBox(height: 24),
                 _buildMultilineField(
                   id: 'guarantee_description',
-                  title: 'توضیحات',
-                  hint: 'توضیحات ضمانت را بنویسید (تا ۲۰۰ کاراکتر)',
+                  title: '{{appStrings.promissory.descriptionLabel}}',
+                  hint:
+                      '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.description_guarantee_until}}',
                 ),
                 StacSizedBox(height: 40),
                 StacCustomReactiveElevatedButton(
@@ -74,7 +76,7 @@ StacWidget promissoryGuaranteeConfirmPage() {
                     ),
                   ).toJson(),
                   child: StacText(
-                    data: 'تایید و ادامه',
+                    data: '{{appStrings.authentication.confirmAndContinue}}',
                     style: StacTextStyle(
                       fontSize: 18,
                       fontWeight: StacFontWeight.w700,
@@ -106,22 +108,31 @@ StacWidget _buildInfoCard() {
       child: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
-          _sectionTitle('اطلاعات سفته'),
+          _sectionTitle('{{appStrings.promissory.dataTitle}}'),
           StacSizedBox(height: 8),
           StacDivider(
             thickness: 1,
             color: '{{appColors.current.input.borderEnabled}}',
           ),
           StacSizedBox(height: 8),
-          _buildKeyValue('مبلغ سفته', '۶۸۹,۰۰۰,۰۰۰ ریال'),
+          _buildKeyValue(
+            '{{appStrings.promissory.amountLabel}}',
+            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.rial}}',
+          ),
           StacSizedBox(height: 16),
-          _buildKeyValue('تاریخ پرداخت', 'عندالمطالبه'),
-          StacSizedBox(height: 16),
-          _buildLabelValue('توضیحات', 'سفته وام پارسا'),
+          _buildKeyValue(
+            '{{appStrings.promissory.payDate}}',
+            '{{appStrings.promissory.onDemand}}',
+          ),
           StacSizedBox(height: 16),
           _buildLabelValue(
-            'محل پرداخت',
-            'سعادت آباد، بلوار فرهنگ، نبش کوچه نور، پلاک ۶',
+            '{{appStrings.promissory.descriptionLabel}}',
+            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.promissory_loan}}',
+          ),
+          StacSizedBox(height: 16),
+          _buildLabelValue(
+            '{{appStrings.promissory.paymentPlaceLabel}}',
+            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.plaque}}',
           ),
           StacSizedBox(height: 16),
           StacDivider(
@@ -129,17 +140,26 @@ StacWidget _buildInfoCard() {
             color: '{{appColors.current.input.borderEnabled}}',
           ),
           StacSizedBox(height: 16),
-          _sectionTitle('اطلاعات صادرکننده'),
+          _sectionTitle('{{appStrings.promissory.issuerTitle}}'),
           StacSizedBox(height: 16),
-          _buildKeyValue('کد ملی', '۰۰۲۰۹۲۰۷۸۴'),
+          _buildKeyValue(
+            '{{appStrings.login.nationalCodeTitle}}',
+            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.title}}',
+          ),
           StacSizedBox(height: 16),
-          _buildKeyValue('شماره موبایل صادرکننده', '۰۹۱۲۹۴۶۵۸۷۲'),
+          _buildKeyValue(
+            '{{appStrings.promissory.issuerPhoneNumber}}',
+            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.amount_value}}',
+          ),
           StacSizedBox(height: 16),
-          _buildKeyValue('نام و نام‌خانوادگی', 'زهرا حاجی ابراهیمی'),
+          _buildKeyValue(
+            '{{appStrings.generated.child_loan.child_loan_customer_check.name}}',
+            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.sample_person_name}}',
+          ),
           StacSizedBox(height: 16),
           _buildLabelValue(
-            'آدرس محل اقامت',
-            'تهران - تهران - تهران اکباتان - پلاک ۲ - طبقه ۳ - واحد ۳',
+            '{{appStrings.promissory.residencesAddress}}',
+            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.plaque_unit_floor}}',
           ),
           StacSizedBox(height: 16),
           StacDivider(
@@ -147,13 +167,24 @@ StacWidget _buildInfoCard() {
             color: '{{appColors.current.input.borderEnabled}}',
           ),
           StacSizedBox(height: 16),
-          _sectionTitle('اطلاعات دریافت‌کننده'),
+          _sectionTitle(
+            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.information}}',
+          ),
           StacSizedBox(height: 16),
-          _buildKeyValue('شناسه ملی', '۱۰۳۲۰۴۳۵۲۶۸'),
+          _buildKeyValue(
+            '{{appStrings.promissory.nationalId}}',
+            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.amount_value_text}}',
+          ),
           StacSizedBox(height: 16),
-          _buildKeyValue('شماره تماس', '۰۲۱۳۳۹۵۳۳۹۵'),
+          _buildKeyValue(
+            '{{appStrings.promissory.contactNumber}}',
+            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.amount_value_label}}',
+          ),
           StacSizedBox(height: 16),
-          _buildKeyValue('نام شرکت', 'بانک گردشگری'),
+          _buildKeyValue(
+            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.name}}',
+            '{{appStrings.generated.transfer.transfer_card_result.bank}}',
+          ),
         ],
       ),
     ),
@@ -270,7 +301,8 @@ StacWidget _buildMultilineField({
           {
             'rule': 'matches',
             'options': {'pattern': r'^.{1,200}$'},
-            'message': 'این فیلد الزامی است',
+            'message':
+                '{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.required_field_message}}',
           },
         ],
         onChanged: StacSequenceAction(

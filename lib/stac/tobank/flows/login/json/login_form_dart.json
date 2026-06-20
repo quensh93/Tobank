@@ -476,7 +476,7 @@
                       },
                       {
                         "key": "login.birthDateClean",
-                        "value": "__STAC_OPEN__replace(login.birthDate,'/','')}}"
+                        "value": "{{replace(login.birthDate,'/','')}}"
                       }
                     ]
                   },
@@ -485,11 +485,11 @@
                     "url": "http://192.168.107.22:8280/api/digitalbanking/logins/v1.0/tobank/users",
                     "method": "post",
                     "data": {
-                      "nationalId": "__STAC_OPEN__login.nationalCode}}",
-                      "mobileNumber": "__STAC_OPEN__login.mobile}}",
-                      "gpayToken": "__STAC_OPEN__login.gpayToken}}",
-                      "birthDate": "__STAC_OPEN__login.birthDateClean}}",
-                      "cif": "__STAC_OPEN__login.cif}}"
+                      "nationalId": "{{login.nationalCode}}",
+                      "mobileNumber": "{{login.mobile}}",
+                      "gpayToken": "{{login.gpayToken}}",
+                      "birthDate": "{{login.birthDateClean}}",
+                      "cif": "{{login.cif}}"
                     },
                     "headers": {
                       "accept": "*/*",
@@ -516,22 +516,22 @@
                                 },
                                 {
                                   "key": "auth.accessToken",
-                                  "value": "__STAC_OPEN__data.result.data.access_token}}"
+                                  "value": "{{data.result.data.access_token}}"
                                 },
                                 {
                                   "key": "auth.accessTokenRaw",
-                                  "value": "__STAC_OPEN__replace(data.result.data.access_token,'Bearer ','')}}"
+                                  "value": "{{replace(data.result.data.access_token,'Bearer ','')}}"
                                 },
                                 {
                                   "key": "userData.nationalCode",
-                                  "value": "__STAC_OPEN__login.nationalCode}}"
+                                  "value": "{{login.nationalCode}}"
                                 }
                               ]
                             },
                             {
                               "actionType": "auth_persist",
-                              "accessToken": "__STAC_OPEN__data.result.data.access_token}}",
-                              "nationalCode": "__STAC_OPEN__login.nationalCode}}"
+                              "accessToken": "{{data.result.data.access_token}}",
+                              "nationalCode": "{{login.nationalCode}}"
                             },
                             {
                               "actionType": "navigate",

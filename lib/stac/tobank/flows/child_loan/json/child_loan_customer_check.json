@@ -13,15 +13,15 @@
       },
       {
         "key": "childLoanChildrenText",
-        "value": "انتخاب فرزند"
+        "value": "{{appStrings.generated.child_loan.child_loan_customer_check.select_child}}"
       },
       {
         "key": "child_loan_child_count",
-        "value": "انتخاب فرزند"
+        "value": "{{appStrings.generated.child_loan.child_loan_customer_check.select_child}}"
       },
       {
         "key": "childLoanAmountText",
-        "value": "ابتدا فرزند را انتخاب کنید"
+        "value": "{{appStrings.generated.child_loan.child_loan_customer_check.select_child_message}}"
       },
       {
         "key": "childLoanTrackingHasValue",
@@ -70,7 +70,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "تسهیلات فرزندآوری",
+        "data": "{{appStrings.generated.child_loan.child_loan_customer_check.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -143,7 +143,7 @@
                       "crossAxisAlignment": "stretch",
                       "children": [
                         {
-                          "data": "اطلاعات شما",
+                          "data": "{{appStrings.generated.child_loan.child_loan_customer_check.information}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -163,7 +163,7 @@
                           "textDirection": "rtl",
                           "children": [
                             {
-                              "data": "نام و نام‌خانوادگی",
+                              "data": "{{appStrings.generated.child_loan.child_loan_customer_check.name}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -174,7 +174,7 @@
                               "type": "text"
                             },
                             {
-                              "data": "علی سینایی اصل",
+                              "data": "{{appStrings.generated.profile.profile_destinations.ali_sinaei_asl_name}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -205,7 +205,7 @@
                           "textDirection": "rtl",
                           "children": [
                             {
-                              "data": "کد ملی",
+                              "data": "{{appStrings.login.nationalCodeTitle}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -216,7 +216,7 @@
                               "type": "text"
                             },
                             {
-                              "data": "۱۲۷۲۲۱۲۵۱۹۱",
+                              "data": "{{appStrings.generated.child_loan.child_loan_customer_check.amount_value}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -239,7 +239,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "شعبه عامل",
+                    "data": "{{appStrings.generated.child_loan.child_loan_customer_check.branch_label}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -275,7 +275,7 @@
                       }
                     },
                     "child": {
-                      "data": "تهران - شعبه مرکزی",
+                      "data": "{{appStrings.generated.child_loan.child_loan_customer_check.central_tehran_branch}}",
                       "style": {
                         "type": "custom",
                         "color": "#8A94A6",
@@ -299,7 +299,7 @@
                       "textDirection": "ltr",
                       "children": [
                         {
-                          "data": "کد رهگیری بانک مرکزی",
+                          "data": "{{appStrings.generated.child_loan.child_loan_customer_check.tracking_code_bank}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -348,7 +348,7 @@
                             "textDirection": "ltr",
                             "textAlign": "right",
                             "decoration": {
-                              "hintText": "کد رهگیری بانک مرکزی متقاضی را وارد نمایید",
+                              "hintText": "{{appStrings.generated.child_loan.child_loan_customer_check.tracking_code_bank_enter}}",
                               "counterText": "",
                               "border": {
                                 "type": "none"
@@ -457,7 +457,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "فرزند",
+                    "data": "{{appStrings.generated.child_loan.child_loan_customer_check.child}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -568,7 +568,7 @@
                                   },
                                   "width": 999999.0,
                                   "child": {
-                                    "data": "فرزند نخست",
+                                    "data": "{{appStrings.generated.child_loan.child_loan_customer_check.child_message}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -589,19 +589,19 @@
                                       "values": [
                                         {
                                           "key": "childLoanChildrenText",
-                                          "value": "فرزند نخست"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_message}}"
                                         },
                                         {
                                           "key": "child_loan_child_count",
-                                          "value": "فرزند نخست"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_message}}"
                                         },
                                         {
                                           "key": "child_loan_child_count_field",
-                                          "value": "فرزند نخست"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_message}}"
                                         },
                                         {
                                           "key": "childLoanAmountText",
-                                          "value": "400,000,000 ریال"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.rial}}"
                                         },
                                         {
                                           "key": "childLoanChildSelected",
@@ -641,7 +641,7 @@
                                   },
                                   "width": 999999.0,
                                   "child": {
-                                    "data": "فرزند دوم",
+                                    "data": "{{appStrings.generated.child_loan.child_loan_customer_check.child_label}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -662,19 +662,19 @@
                                       "values": [
                                         {
                                           "key": "childLoanChildrenText",
-                                          "value": "فرزند دوم"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_label}}"
                                         },
                                         {
                                           "key": "child_loan_child_count",
-                                          "value": "فرزند دوم"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_label}}"
                                         },
                                         {
                                           "key": "child_loan_child_count_field",
-                                          "value": "فرزند دوم"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_label}}"
                                         },
                                         {
                                           "key": "childLoanAmountText",
-                                          "value": "520,000,000 ریال"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.rial_data}}"
                                         },
                                         {
                                           "key": "childLoanChildSelected",
@@ -714,7 +714,7 @@
                                   },
                                   "width": 999999.0,
                                   "child": {
-                                    "data": "فرزند سوم",
+                                    "data": "{{appStrings.generated.child_loan.child_loan_customer_check.child_description}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -735,19 +735,19 @@
                                       "values": [
                                         {
                                           "key": "childLoanChildrenText",
-                                          "value": "فرزند سوم"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_description}}"
                                         },
                                         {
                                           "key": "child_loan_child_count",
-                                          "value": "فرزند سوم"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_description}}"
                                         },
                                         {
                                           "key": "child_loan_child_count_field",
-                                          "value": "فرزند سوم"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_description}}"
                                         },
                                         {
                                           "key": "childLoanAmountText",
-                                          "value": "640,000,000 ریال"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.rial_item}}"
                                         },
                                         {
                                           "key": "childLoanChildSelected",
@@ -787,7 +787,7 @@
                                   },
                                   "width": 999999.0,
                                   "child": {
-                                    "data": "فرزند چهارم",
+                                    "data": "{{appStrings.generated.child_loan.child_loan_customer_check.child_hint}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -808,19 +808,19 @@
                                       "values": [
                                         {
                                           "key": "childLoanChildrenText",
-                                          "value": "فرزند چهارم"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_hint}}"
                                         },
                                         {
                                           "key": "child_loan_child_count",
-                                          "value": "فرزند چهارم"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_hint}}"
                                         },
                                         {
                                           "key": "child_loan_child_count_field",
-                                          "value": "فرزند چهارم"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_hint}}"
                                         },
                                         {
                                           "key": "childLoanAmountText",
-                                          "value": "760,000,000 ریال"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.rial_value}}"
                                         },
                                         {
                                           "key": "childLoanChildSelected",
@@ -860,7 +860,7 @@
                                   },
                                   "width": 999999.0,
                                   "child": {
-                                    "data": "فرزند پنجم یا بالاتر",
+                                    "data": "{{appStrings.generated.child_loan.child_loan_customer_check.child_value}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -881,19 +881,19 @@
                                       "values": [
                                         {
                                           "key": "childLoanChildrenText",
-                                          "value": "فرزند پنجم یا بالاتر"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_value}}"
                                         },
                                         {
                                           "key": "child_loan_child_count",
-                                          "value": "فرزند پنجم یا بالاتر"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_value}}"
                                         },
                                         {
                                           "key": "child_loan_child_count_field",
-                                          "value": "فرزند پنجم یا بالاتر"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.child_value}}"
                                         },
                                         {
                                           "key": "childLoanAmountText",
-                                          "value": "880,000,000 ریال"
+                                          "value": "{{appStrings.generated.child_loan.child_loan_customer_check.rial_message}}"
                                         },
                                         {
                                           "key": "childLoanChildSelected",
@@ -978,7 +978,7 @@
                             "textDirection": "rtl",
                             "children": [
                               {
-                                "data": "مبلغ تسهیلات",
+                                "data": "{{appStrings.generated.child_loan.child_loan_customer_check.loan_amount}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -1031,8 +1031,8 @@
               "loadingKey": "childLoanContinueLoading",
               "onPressed": {
                 "actionType": "fingerPrint",
-                "title": "احراز هویت",
-                "description": "لطفا برای ادامه از اثر انگشت استفاده کنید",
+                "title": "{{appStrings.menu.items.authentication}}",
+                "description": "{{appStrings.generated.child_loan.child_loan_child_check.continue}}",
                 "onSuccess": {
                   "actionType": "sequence",
                   "actions": [
@@ -1084,7 +1084,7 @@
                 }
               },
               "child": {
-                "data": "ادامه",
+                "data": "{{appStrings.common.continue}}",
                 "style": {
                   "type": "custom",
                   "color": "#FFFFFF",

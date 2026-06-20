@@ -28,8 +28,9 @@ StacWidget promissoryRealPaymentDeposits() {
         ],
       ),
       StacNetworkRequestAction(
-        url:
-            SduiConfig.bizUrl('deposits/v1.0/customer/{{userData.nationalCode}}'),
+        url: SduiConfig.bizUrl(
+          'deposits/v1.0/customer/{{userData.nationalCode}}',
+        ),
         method: 'get',
         headers: {
           'accept': 'application/json',
@@ -183,8 +184,7 @@ StacWidget promissoryRealPaymentDeposits() {
         ],
       ).toJson(),
       StacNetworkRequestAction(
-        url:
-            SduiConfig.bizUrl('collateral/v1.0/promissories/draft'),
+        url: SduiConfig.bizUrl('collateral/v1.0/promissories/draft'),
         method: 'post',
         headers: {
           'accept': 'application/json',
@@ -241,7 +241,11 @@ StacWidget promissoryRealPaymentDeposits() {
                   'sourceKey': 'rawTransactionTime',
                   'destinationKey': 'transactionTime',
                 },
-                NavigationAction(fileName: 'promissory_sign', navMode: NavModes.dart, navigationStyle: NavigationStyle.push).toJson(),
+                NavigationAction(
+                  fileName: 'promissory_sign',
+                  navMode: NavModes.dart,
+                  navigationStyle: NavigationStyle.push,
+                ).toJson(),
               ],
             ).toJson(),
           },
@@ -258,7 +262,7 @@ StacWidget promissoryRealPaymentDeposits() {
                   ],
                 },
                 const StacCustomSnackBarAction(
-                  title: 'خطا',
+                  title: '{{appStrings.common.error}}',
                   detail: '{{data.status.message.0}}',
                 ).toJson(),
               ],
@@ -277,7 +281,7 @@ StacWidget promissoryRealPaymentDeposits() {
                   ],
                 },
                 const StacCustomSnackBarAction(
-                  title: 'خطا',
+                  title: '{{appStrings.common.error}}',
                   detail: '{{data.status.message.0}}',
                 ).toJson(),
               ],
@@ -662,4 +666,3 @@ StacWidget _buildDepositCardTemplate() {
     ),
   );
 }
-

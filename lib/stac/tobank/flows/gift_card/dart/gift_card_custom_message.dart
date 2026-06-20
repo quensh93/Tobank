@@ -23,7 +23,7 @@ StacWidget giftCardRealCustomMessage() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: '???? ????',
+        title: '{{appStrings.homePage.services.giftCard}}',
       ),
       body: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -50,7 +50,7 @@ StacWidget giftCardRealCustomMessage() {
                       ),
                       child: StacText(
                         data:
-                            '???? ??? ?? ??????? ??????? ?? ?????? ???? ?? ?? ???? ??? ?????? ???? ?? ??? ?????? ???? ??? ??????? ??????? ?? ???',
+                            '{{appStrings.generated.gift_card.gift_card_custom_message.select_text_until_bank_text}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
@@ -67,7 +67,8 @@ StacWidget giftCardRealCustomMessage() {
                     textDirection: StacTextDirection.rtl,
                     children: [
                       StacText(
-                        data: '??? ??????? ???????',
+                        data:
+                            '{{appStrings.generated.gift_card.gift_card_custom_message.default_replacement_text}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
@@ -90,32 +91,36 @@ StacWidget giftCardRealCustomMessage() {
                   ),
                   StacSizedBox(height: 14),
                   _buildCustomAltMessageCard(
-                    message: '??????? ??????? ???',
+                    message:
+                        '{{appStrings.generated.gift_card.gift_card_custom_message.happiness_wish_message}}',
                     selectedKey: 'giftCardRealCustomAltMessageOption1Selected',
                     optionId: 1,
                   ),
                   StacSizedBox(height: 12),
                   _buildCustomAltMessageCard(
-                    message: '???? ????? ?????? ??? ? ????? ?????????? ?????',
+                    message:
+                        '{{appStrings.generated.gift_card.gift_card_custom_message.wedding_anniversary_message}}',
                     selectedKey: 'giftCardRealCustomAltMessageOption2Selected',
                     optionId: 2,
                   ),
                   StacSizedBox(height: 12),
                   _buildCustomAltMessageCard(
-                    message: '???? ???? ??? ????',
+                    message:
+                        '{{appStrings.generated.gift_card.gift_card_custom_message.all_my_heart_message}}',
                     selectedKey: 'giftCardRealCustomAltMessageOption3Selected',
                     optionId: 3,
                   ),
                   StacSizedBox(height: 12),
                   _buildCustomAltMessageCard(
-                    message: '????? ????? ????? ?????? ??',
+                    message:
+                        '{{appStrings.generated.gift_card.gift_card_custom_message.forever_companion_message}}',
                     selectedKey: 'giftCardRealCustomAltMessageOption4Selected',
                     optionId: 4,
                   ),
                   StacSizedBox(height: 12),
                   _buildCustomAltMessageCard(
                     message:
-                        '???? ??? ?? ?????? ?? ????? ???? ???? ?? ?????? ?? ????',
+                        '{{appStrings.generated.gift_card.gift_card_custom_message.romantic_poem_message}}',
                     selectedKey: 'giftCardRealCustomAltMessageOption5Selected',
                     optionId: 5,
                   ),
@@ -168,7 +173,7 @@ StacWidget giftCardRealCustomMessage() {
                 elevation: 0,
               ).toJson(),
               child: StacText(
-                data: '?????',
+                data: '{{appStrings.common.continue}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 18,
@@ -288,4 +293,3 @@ StacWidget _buildCustomAltMessageCard({
     ),
   );
 }
-

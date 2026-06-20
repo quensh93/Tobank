@@ -42,6 +42,8 @@ class KycCheckActionParser extends StacActionParser<KycCheckActionModel> {
     );
 
     final isCompleted = storedValue == 'true';
+    // do this for make ehraz true
+    // final isCompleted = storedValue == null ? true : storedValue == 'true';
 
     StacRegistry.instance.setValue(model.targetKey, isCompleted);
     RegistryNotifier.instance.notify();

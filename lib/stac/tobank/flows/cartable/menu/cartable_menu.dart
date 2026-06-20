@@ -8,7 +8,7 @@ StacWidget cartableRealMenu() {
   return StacScaffold(
     appBar: StacAppBar(
       title: StacText(
-        data: 'منوی دیباگ کارتابل',
+        data: '{{appStrings.generated.cartable.cartable_menu.title}}',
         textDirection: StacTextDirection.rtl,
         style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
       ),
@@ -33,7 +33,7 @@ StacWidget cartableRealMenu() {
         mainAxisAlignment: StacMainAxisAlignment.center,
         children: [
           StacText(
-            data: 'مسیرهای ورود جریان',
+            data: '{{appStrings.promissory.debug.flowEntryPoints}}',
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
               fontSize: 18,
@@ -43,7 +43,12 @@ StacWidget cartableRealMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'cartable_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              navMode: NavModes.localJson,
+              pathOverride:
+                  'lib/stac/tobank/flows/cartable/json/cartable_intro.json',
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -52,7 +57,29 @@ StacWidget cartableRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از DART',
+              data: '{{appStrings.promissory.debug.loadLocalJson}}',
+              style: StacTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w600,
+              ),
+            ),
+          ),
+          StacSizedBox(height: 16),
+          StacFilledButton(
+            onPressed: NavigationAction(
+              fileName: 'cartable_intro',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            ),
+            style: StacButtonStyle(
+              padding: StacEdgeInsets.symmetric(vertical: 16),
+              backgroundColor:
+                  '{{appColors.current.button.primary.backgroundColor}}',
+              foregroundColor:
+                  '{{appColors.current.button.primary.foregroundColor}}',
+            ),
+            child: StacText(
+              data: '{{appStrings.promissory.debug.loadDart}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,

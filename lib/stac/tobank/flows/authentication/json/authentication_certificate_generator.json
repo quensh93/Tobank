@@ -105,7 +105,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "لطفا اطلاعات تکمیلی مورد نیاز را وارد کنید",
+                      "data": "{{appStrings.generated.authentication.authentication_certificate_generator.title}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.subtitle}}",
@@ -122,7 +122,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "نام به انگلیسی",
+                      "data": "{{appStrings.generated.authentication.authentication_certificate_generator.english_first_name}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -145,7 +145,7 @@
                       "supportTextDirection": "rtl",
                       "autovalidateMode": "always",
                       "decoration": {
-                        "hintText": "نام خود را به انگلیسی وارد کنید",
+                        "hintText": "{{appStrings.generated.authentication.authentication_certificate_generator.first_name_english_enter}}",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
@@ -218,13 +218,20 @@
                       },
                       "keyboardType": "text",
                       "textInputAction": "next",
+                      "maxLength": 40,
+                      "inputFormatters": [
+                        {
+                          "type": "allow",
+                          "rule": "[A-Za-z ]"
+                        }
+                      ],
                       "validatorRules": [
                         {
                           "rule": "matches",
                           "options": {
                             "pattern": "^[A-Za-z ]{2,}$"
                           },
-                          "message": "لطفا نام را به انگلیسی و به‌صورت صحیح وارد کنید"
+                          "message": "{{appStrings.generated.authentication.authentication_certificate_generator.name_english_valid_enter_message}}"
                         }
                       ],
                       "onChanged": {
@@ -262,21 +269,14 @@
                             ]
                           }
                         ]
-                      },
-                      "maxLength": 40,
-                      "inputFormatters": [
-                        {
-                          "type": "allow",
-                          "rule": "[A-Za-z ]"
-                        }
-                      ]
+                      }
                     },
                     {
                       "height": 18.0,
                       "type": "sizedBox"
                     },
                     {
-                      "data": "نام خانوادگی به انگلیسی",
+                      "data": "{{appStrings.generated.authentication.authentication_certificate_generator.english_last_name}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -299,7 +299,7 @@
                       "supportTextDirection": "rtl",
                       "autovalidateMode": "always",
                       "decoration": {
-                        "hintText": "نام خانوادگی خود را به انگلیسی وارد کنید",
+                        "hintText": "{{appStrings.generated.authentication.authentication_certificate_generator.last_name_english_enter}}",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
@@ -372,13 +372,20 @@
                       },
                       "keyboardType": "text",
                       "textInputAction": "next",
+                      "maxLength": 60,
+                      "inputFormatters": [
+                        {
+                          "type": "allow",
+                          "rule": "[A-Za-z ]"
+                        }
+                      ],
                       "validatorRules": [
                         {
                           "rule": "matches",
                           "options": {
                             "pattern": "^[A-Za-z ]{2,}$"
                           },
-                          "message": "لطفا نام خانوادگی را به انگلیسی و به‌صورت صحیح وارد کنید"
+                          "message": "{{appStrings.generated.authentication.authentication_certificate_generator.last_name_english_valid_enter_message}}"
                         }
                       ],
                       "onChanged": {
@@ -416,21 +423,14 @@
                             ]
                           }
                         ]
-                      },
-                      "maxLength": 60,
-                      "inputFormatters": [
-                        {
-                          "type": "allow",
-                          "rule": "[A-Za-z ]"
-                        }
-                      ]
+                      }
                     },
                     {
                       "height": 18.0,
                       "type": "sizedBox"
                     },
                     {
-                      "data": "ایمیل",
+                      "data": "{{appStrings.generated.authentication.authentication_certificate_generator.email}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -453,7 +453,7 @@
                       "supportTextDirection": "rtl",
                       "autovalidateMode": "always",
                       "decoration": {
-                        "hintText": "ایمیل خود را وارد کنید",
+                        "hintText": "{{appStrings.generated.authentication.authentication_certificate_generator.email_enter}}",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
@@ -526,13 +526,14 @@
                       },
                       "keyboardType": "emailAddress",
                       "textInputAction": "next",
+                      "maxLength": 80,
                       "validatorRules": [
                         {
                           "rule": "matches",
                           "options": {
                             "pattern": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
                           },
-                          "message": "لطفا ایمیل معتبر وارد کنید"
+                          "message": "{{appStrings.generated.authentication.authentication_certificate_generator.email_enter_message}}"
                         }
                       ],
                       "onChanged": {
@@ -570,15 +571,14 @@
                             ]
                           }
                         ]
-                      },
-                      "maxLength": 80
+                      }
                     },
                     {
                       "height": 18.0,
                       "type": "sizedBox"
                     },
                     {
-                      "data": "شماره تلفن منزل",
+                      "data": "{{appStrings.generated.authentication.authentication_certificate_generator.home_phone_number}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -601,7 +601,7 @@
                       "supportTextDirection": "rtl",
                       "autovalidateMode": "always",
                       "decoration": {
-                        "hintText": "شماره تلفن منزل را با پیش شماره استان وارد کنید",
+                        "hintText": "{{appStrings.generated.authentication.authentication_certificate_generator.home_phone_number_province_prefix}}",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
@@ -674,13 +674,20 @@
                       },
                       "keyboardType": "phone",
                       "textInputAction": "done",
+                      "maxLength": 11,
+                      "inputFormatters": [
+                        {
+                          "type": "allow",
+                          "rule": "[0-9]"
+                        }
+                      ],
                       "validatorRules": [
                         {
                           "rule": "matches",
                           "options": {
                             "pattern": "^0\\d{10}$"
                           },
-                          "message": "لطفا شماره تلفن منزل را با پیش‌شماره صحیح وارد کنید"
+                          "message": "{{appStrings.generated.authentication.authentication_certificate_generator.home_phone_number_valid_enter_message}}"
                         }
                       ],
                       "onChanged": {
@@ -718,14 +725,7 @@
                             ]
                           }
                         ]
-                      },
-                      "maxLength": 11,
-                      "inputFormatters": [
-                        {
-                          "type": "allow",
-                          "rule": "[0-9]"
-                        }
-                      ]
+                      }
                     }
                   ],
                   "type": "column"
@@ -745,10 +745,10 @@
                 "enabledKey": "isAuthenticationCertificateInfoValid",
                 "enabled": false,
                 "onPressed": {
+                  "actionType": "navigate",
                   "fileName": "authentication_final",
-                  "navMode": "dart",
-                  "navigationStyle": "push",
-                  "actionType": "navigate"
+                  "navMode": "localJson",
+                  "navigationStyle": "push"
                 },
                 "style": {
                   "backgroundColor": "{{appColors.current.primary.color}}",
@@ -785,7 +785,7 @@
                   }
                 },
                 "child": {
-                  "data": "تکمیل فرآیند",
+                  "data": "{{appStrings.generated.authentication.authentication_certificate_generator.complete_process}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.primary.onPrimary}}",

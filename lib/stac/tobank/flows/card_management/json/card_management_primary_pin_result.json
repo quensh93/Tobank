@@ -1,4 +1,4 @@
-﻿{
+{
   "appBar": {
     "leading": {
       "padding": {
@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "نتیجه عملیات",
+      "data": "{{appStrings.generated.card_management.card_management_primary_pin_result.operation_result}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -99,7 +99,7 @@
           "type": "sizedBox"
         },
         {
-          "data": "عملیات با موفقیت ثبت شد",
+          "data": "{{appStrings.generated.card_management.card_management_primary_pin_result.operation_success_submit}}",
           "style": {
             "type": "custom",
             "color": "{{appColors.current.text.title}}",
@@ -115,7 +115,7 @@
           "type": "sizedBox"
         },
         {
-          "data": "درخواست شما با موفقیت ثبت گردید.",
+          "data": "{{appStrings.generated.card_management.card_management_primary_pin_result.successfully_request_submit}}",
           "style": {
             "type": "custom",
             "color": "{{appColors.current.text.hint}}",
@@ -159,7 +159,7 @@
             }
           },
           "child": {
-            "data": "بازگشت به کارت‌ها",
+            "data": "{{appStrings.generated.card_management.card_management_primary_pin_result.back_to_cards}}",
             "style": {
               "type": "custom",
               "fontSize": 14.0,

@@ -8,7 +8,7 @@ StacWidget transactionRealMenu() {
   return StacScaffold(
     appBar: StacAppBar(
       title: StacText(
-        data: 'منوی دیباگ تراکنش‌ها',
+        data: '{{appStrings.generated.transaction.transaction_menu.title}}',
         textDirection: StacTextDirection.rtl,
         style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
       ),
@@ -33,7 +33,7 @@ StacWidget transactionRealMenu() {
         mainAxisAlignment: StacMainAxisAlignment.center,
         children: [
           StacText(
-            data: 'مسیرهای ورود جریان',
+            data: '{{appStrings.promissory.debug.flowEntryPoints}}',
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
               fontSize: 18,
@@ -43,7 +43,12 @@ StacWidget transactionRealMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'transaction_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              navMode: NavModes.localJson,
+              pathOverride:
+                  'lib/stac/tobank/flows/transaction/json/transaction_intro.json',
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -52,7 +57,7 @@ StacWidget transactionRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از JSON محلی',
+              data: '{{appStrings.promissory.debug.loadLocalJson}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -61,7 +66,11 @@ StacWidget transactionRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'transaction_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'transaction_intro',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -70,7 +79,7 @@ StacWidget transactionRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از DART',
+              data: '{{appStrings.promissory.debug.loadDart}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,

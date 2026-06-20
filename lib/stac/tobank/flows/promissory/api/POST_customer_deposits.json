@@ -13,13 +13,13 @@
                     {
                         "DepositNumber": "110.9992.1765274.1",
                         "MainCustomerNumber": "1765274",
-                        "DepositTitle": "سپرده حقيقي سپرده سرمايه گذاري كوتاه مدت- توبانک",
+                        "DepositTitle": "{{appStrings.generated.promissory.POST_customer_deposits.deposit}}",
                         "DepositTypeNumber": "9992",
-                        "DepositTypeTitle": "سپرده سرمايه گذاري كوتاه مدت- توبانک- حقيقي",
-                        "CustomerRelationWithDepositPersian": "صاحب سپرده و امضاء",
+                        "DepositTypeTitle": "{{appStrings.generated.promissory.POST_customer_deposits.deposit_data}}",
+                        "CustomerRelationWithDepositPersian": "{{appStrings.generated.promissory.POST_customer_deposits.deposit_item}}",
                         "CustomerRelationWithDepositEnglish": "depositOwnerAndSignerRelationType",
                         "DepositState": "openState",
-                        "CurrencyName": "ريال",
+                        "CurrencyName": "{{appStrings.generated.promissory.POST_customer_deposits.currency_rial}}",
                         "CurrencySwiftCode": "IRR",
                         "WithdrawRight": "true",
                         "BranchCode": "110",
@@ -32,18 +32,18 @@
                             "depositNumber": "110.9992.1765274.1"
                         },
                         "deposite_kind": 1,
-                        "deposite_name": "کوتاه مدت"
+                        "deposite_name": "{{appStrings.generated.promissory.POST_customer_deposits.short_term_deposit_type}}"
                     },
                     {
                         "DepositNumber": "110.9992.1765274.2",
                         "MainCustomerNumber": "1765274",
-                        "DepositTitle": "سپرده قرض الحسنه پس انداز",
+                        "DepositTitle": "{{appStrings.generated.promissory.POST_customer_deposits.deposit_value}}",
                         "DepositTypeNumber": "9992",
-                        "DepositTypeTitle": "سپرده قرض الحسنه",
-                        "CustomerRelationWithDepositPersian": "صاحب سپرده",
+                        "DepositTypeTitle": "{{appStrings.generated.promissory.POST_customer_deposits.deposit_message}}",
+                        "CustomerRelationWithDepositPersian": "{{appStrings.generated.promissory.POST_customer_deposits.deposit_owner_relation}}",
                         "CustomerRelationWithDepositEnglish": "depositOwner",
                         "DepositState": "openState",
-                        "CurrencyName": "ريال",
+                        "CurrencyName": "{{appStrings.generated.promissory.POST_customer_deposits.currency_rial}}",
                         "CurrencySwiftCode": "IRR",
                         "WithdrawRight": "true",
                         "BranchCode": "110",
@@ -51,11 +51,11 @@
                         "shared": false,
                         "cardInfo": null,
                         "deposite_kind": 1,
-                        "deposite_name": "قرض الحسنه"
+                        "deposite_name": "{{appStrings.generated.promissory.POST_customer_deposits.gharz_al_hasaneh_type}}"
                     }
                 ]
             },
-            "message": "عملیات با موفقیت انجام شد",
+            "message": "{{appStrings.generated.promissory.POST_customer_deposits.operation_success}}",
             "success": true,
             "code": 0
         }

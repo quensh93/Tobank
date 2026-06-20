@@ -4,7 +4,11 @@ import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 
 StacWidget buildChargeRealAddButton({required String routeName}) {
   return StacFilledButton(
-    onPressed: NavigationAction(fileName: routeName, navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+    onPressed: NavigationAction(
+      fileName: routeName,
+      navMode: NavModes.dart,
+      navigationStyle: NavigationStyle.push,
+    ),
     style: StacButtonStyle(
       fixedSize: StacSize(148, 56),
       backgroundColor: '{{appColors.current.primary.color}}',
@@ -23,7 +27,7 @@ StacWidget buildChargeRealAddButton({required String routeName}) {
         ),
         StacSizedBox(width: 7),
         StacText(
-          data: 'شارژ جدید',
+          data: '{{appStrings.generated.charge.charge_intro.new_topup}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 16,
@@ -136,7 +140,8 @@ StacWidget buildChargeRealDuplicateBanner() {
         ),
         StacSizedBox(width: 8),
         StacText(
-          data: 'سیم‌کارت تکراری است',
+          data:
+              '{{appStrings.generated.charge.charge_intro.is_duplicate_sim_card}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 15,

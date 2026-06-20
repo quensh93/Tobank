@@ -12,7 +12,8 @@ StacWidget authenticationRealRegistration() {
       values: [
         {
           'key': 'authenticationSelectedJobTitle',
-          'value': 'حوزه فعالیت خود را انتخاب کنید',
+          'value':
+              '{{appStrings.generated.authentication.authentication_registration.activity_field_select}}',
         },
         {'key': 'authenticationHasSelectedJob', 'value': false},
       ],
@@ -49,7 +50,7 @@ StacWidget authenticationRealRegistration() {
                         ),
                         child: StacText(
                           data:
-                              'کاربر گرامی\nبا تکمیل اطلاعات زیر، مراحل احراز هویت شما به اتمام می‌رسد و می‌توانید از خدمات برنامه استفاده کنید.',
+                              '{{appStrings.generated.authentication.authentication_registration.intro_description}}',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.right,
                           style: StacCustomTextStyle(
@@ -62,7 +63,8 @@ StacWidget authenticationRealRegistration() {
                       ),
                       StacSizedBox(height: 32),
                       StacText(
-                        data: 'حوزه فعالیت',
+                        data:
+                            '{{appStrings.generated.authentication.authentication_registration.activity_field}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
@@ -82,7 +84,11 @@ StacWidget authenticationRealRegistration() {
                 child: StacCustomReactiveElevatedButton(
                   enabledKey: 'authenticationHasSelectedJob',
                   enabled: false,
-                  onPressed: NavigationAction(fileName: 'test', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                  onPressed: NavigationAction(
+                    fileName: 'test',
+                    navMode: NavModes.dart,
+                    navigationStyle: NavigationStyle.push,
+                  ),
                   style: StacButtonStyle(
                     backgroundColor: '{{appColors.current.primary.color}}',
                     foregroundColor: '{{appColors.current.primary.onPrimary}}',

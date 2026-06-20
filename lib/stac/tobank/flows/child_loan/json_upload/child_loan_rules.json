@@ -34,7 +34,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "تسهیلات فرزندآوری",
+        "data": "{{appStrings.generated.child_loan.child_loan_customer_check.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -106,7 +106,7 @@
                       "bottom": 16.0
                     },
                     "child": {
-                      "data": "شرایط و مقررات درخواست تسهیلات فرزندآوری",
+                      "data": "{{appStrings.generated.child_loan.child_loan_rules.title}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -133,7 +133,7 @@
                         "bottom": 14.0
                       },
                       "child": {
-                        "data": "۱. دارا بودن تابعیت کشور جمهوری اسلامی ایران\n۲. ثبت نام در سامانه بانک مرکزی به منظور اخذ کدرهگیری ده رقمی\n۳. پرداخت تسهیلات به پدر/قیم فرزندانی که در زمان ثبت درخواست در سامانه مربوطه از تاریخ تولد آنها بیشتر از ۲ سال نگذشته باشد\n۴. ثبت نام متقاضی و ضامن در سامانه نتا\n۵. نداشتن چک برگشتی و بدهی غیرجاری متقاضی\n۶. عدم وجود در لیست سیاه/مظنونین\n۷. ارائه اصل کلیه مدارک مورد نیاز در زمان مراجعه حضوری به بانک\n۸. تعلق وام در مورد تولد فرزندان دو قلو و بیشتر، به ازای هر فرزند و به صورت جداگانه\n۹. محدودیت نرخ باروری شهرستان محل زادگاه پدر یا فرزند به ۲.۵ درصد\n۱۰. کارمزد تسهیلات حسب مصوبات شورای پول و اعتبار حداکثر ۴ درصد به صورت سالانه",
+                        "data": "{{appStrings.generated.child_loan.child_loan_rules.fullContent}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -228,7 +228,7 @@
                   },
                   {
                     "child": {
-                      "data": "قوانین و مقررات تسهیلات فرزندآوری را قبول دارم",
+                      "data": "{{appStrings.generated.child_loan.child_loan_rules.loan_rules_child}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -319,7 +319,7 @@
               }
             },
             "child": {
-              "data": "مرحله بعد",
+              "data": "{{appStrings.generated.cartable.cartable_intro.next_step}}",
               "style": {
                 "type": "custom",
                 "color": "#FFFFFF",

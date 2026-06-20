@@ -24,7 +24,7 @@ StacWidget giftCardRealSelectDesign() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'کارت هدیه',
+        title: '{{appStrings.homePage.services.giftCard}}',
         backAction: const StacSequenceAction(
           actions: [
             StacSetValueAction(
@@ -49,7 +49,8 @@ StacWidget giftCardRealSelectDesign() {
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
           children: [
             StacText(
-              data: 'دسته‌بندی کارت هدیه را انتخاب کنید',
+              data:
+                  '{{appStrings.generated.gift_card.gift_card_select_design.title}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -61,13 +62,15 @@ StacWidget giftCardRealSelectDesign() {
             StacSizedBox(height: 18),
             _buildCategoryRow(
               left: _buildCategoryTile(
-                title: 'تبریک نوروز',
+                title:
+                    '{{appStrings.generated.gift_card.gift_card_custom_select_design.nowruz_greeting_title}}',
                 imageUrl: _internetImageFor('gift-category-nowruz'),
                 topColors: ['#1C4A95', '#5A39A5'],
                 plans: _categoryPlansNowruz(),
               ),
               right: _buildCategoryTile(
-                title: 'ماه‌های تولد',
+                title:
+                    '{{appStrings.generated.gift_card.gift_card_custom_select_design.month}}',
                 imageUrl: _internetImageFor('gift-category-birth-months'),
                 topColors: ['#2BA76E', '#2E7CC7'],
                 plans: _categoryPlansBirthMonths(),
@@ -76,13 +79,15 @@ StacWidget giftCardRealSelectDesign() {
             StacSizedBox(height: 8),
             _buildCategoryRow(
               left: _buildCategoryTile(
-                title: 'اعیاد مذهبی، ملی، فرهنگی',
+                title:
+                    '{{appStrings.generated.gift_card.gift_card_custom_select_design.national}}',
                 imageUrl: _internetImageFor('gift-category-national-events'),
                 topColors: ['#3866B4', '#E8A82B'],
                 plans: _categoryPlansNationalEvents(),
               ),
               right: _buildCategoryTile(
-                title: 'تبریک ازدواج',
+                title:
+                    '{{appStrings.generated.gift_card.gift_card_custom_select_design.wedding_greeting}}',
                 imageUrl: _internetImageFor('gift-category-wedding'),
                 topColors: ['#C48A3C', '#8E4A7A'],
                 plans: _categoryPlansWedding(),
@@ -91,13 +96,15 @@ StacWidget giftCardRealSelectDesign() {
             StacSizedBox(height: 8),
             _buildCategoryRow(
               left: _buildCategoryTile(
-                title: 'کارت هدیه موشی ۲',
+                title:
+                    '{{appStrings.generated.gift_card.gift_card_custom_select_design.gift_card}}',
                 imageUrl: _internetImageFor('gift-category-mouse'),
                 topColors: ['#DB4CB5', '#48BDD7'],
                 plans: _categoryPlansMouse(),
               ),
               right: _buildCategoryTile(
-                title: 'فصل‌های تولد',
+                title:
+                    '{{appStrings.generated.gift_card.gift_card_custom_select_design.birthday_seasons}}',
                 imageUrl: _internetImageFor('gift-category-seasons'),
                 topColors: ['#2E8D53', '#D08D2E'],
                 plans: _categoryPlansSeasons(),
@@ -106,13 +113,15 @@ StacWidget giftCardRealSelectDesign() {
             StacSizedBox(height: 8),
             _buildCategoryRow(
               left: _buildCategoryTile(
-                title: 'روزهای خاص',
+                title:
+                    '{{appStrings.generated.gift_card.gift_card_custom_select_design.day}}',
                 imageUrl: _internetImageFor('gift-category-special-days'),
                 topColors: ['#7E8A94', '#3A4C5C'],
                 plans: _categoryPlansSpecialDays(),
               ),
               right: _buildCategoryTile(
-                title: 'مکان‌های تاریخی',
+                title:
+                    '{{appStrings.generated.gift_card.gift_card_custom_select_design.date}}',
                 imageUrl: _internetImageFor('gift-category-historical-places'),
                 topColors: ['#8E4D66', '#A98941'],
                 plans: _categoryPlansHistoricalPlaces(),
@@ -286,7 +295,6 @@ StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
   );
 }
 
-
 List<Map<String, dynamic>> _withInternetPlanImages(
   List<Map<String, dynamic>> plans,
 ) {
@@ -311,42 +319,48 @@ List<Map<String, dynamic>> _categoryPlansBirthMonths() {
   return const [
     {
       'id': 'birth-month-farvardin',
-      'title': 'فروردین',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.farvardin_month}}',
       'primaryColor': '#BBE86A',
       'secondaryColor': '#79D070',
       'accentColor': '#5CBFA2',
     },
     {
       'id': 'birth-month-ordibehesht',
-      'title': 'اردیبهشت',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.ordibehesht_month}}',
       'primaryColor': '#B2E27D',
       'secondaryColor': '#85CF78',
       'accentColor': '#44B39C',
     },
     {
       'id': 'birth-month-khordad',
-      'title': 'خرداد',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.khordad_month}}',
       'primaryColor': '#B5E67D',
       'secondaryColor': '#78D07A',
       'accentColor': '#53B7A7',
     },
     {
       'id': 'birth-month-tir',
-      'title': 'تیر',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.tir_month}}',
       'primaryColor': '#BEE56C',
       'secondaryColor': '#87CE77',
       'accentColor': '#43AB9D',
     },
     {
       'id': 'birth-month-mordad',
-      'title': 'مرداد',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.mordad_month}}',
       'primaryColor': '#CAE178',
       'secondaryColor': '#89CB73',
       'accentColor': '#41A69A',
     },
     {
       'id': 'birth-month-shahrivar',
-      'title': 'شهریور',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.city}}',
       'primaryColor': '#BAE981',
       'secondaryColor': '#72CC77',
       'accentColor': '#45A79E',
@@ -358,42 +372,48 @@ List<Map<String, dynamic>> _categoryPlansNowruz() {
   return const [
     {
       'id': 'nowruz-1',
-      'title': 'بهار سبز',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.spring_green_theme}}',
       'primaryColor': '#3A6BC4',
       'secondaryColor': '#4E78C8',
       'accentColor': '#6A4CBC',
     },
     {
       'id': 'nowruz-2',
-      'title': 'تبریک نوروز',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.nowruz_greeting_title}}',
       'primaryColor': '#334FA1',
       'secondaryColor': '#515DBD',
       'accentColor': '#7147AF',
     },
     {
       'id': 'nowruz-3',
-      'title': 'هفت‌سین',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.haft_sin_theme}}',
       'primaryColor': '#235D9C',
       'secondaryColor': '#426FBB',
       'accentColor': '#6D50B4',
     },
     {
       'id': 'nowruz-4',
-      'title': 'سال نو مبارک',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.year}}',
       'primaryColor': '#2D5B9F',
       'secondaryColor': '#4C66B3',
       'accentColor': '#6B58B2',
     },
     {
       'id': 'nowruz-5',
-      'title': 'نوروزی',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.nowruz_theme}}',
       'primaryColor': '#2E59AA',
       'secondaryColor': '#4B68B7',
       'accentColor': '#744CB4',
     },
     {
       'id': 'nowruz-6',
-      'title': 'بهاریه',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.spring_theme}}',
       'primaryColor': '#3B62AA',
       'secondaryColor': '#5A6EC0',
       'accentColor': '#7B56BB',
@@ -405,42 +425,48 @@ List<Map<String, dynamic>> _categoryPlansNationalEvents() {
   return const [
     {
       'id': 'national-1',
-      'title': 'عید فطر',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.eid_fitr_theme}}',
       'primaryColor': '#3B73B8',
       'secondaryColor': '#5D8EC2',
       'accentColor': '#D8A63F',
     },
     {
       'id': 'national-2',
-      'title': 'روز معلم',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.day_message}}',
       'primaryColor': '#4478B7',
       'secondaryColor': '#6696CB',
       'accentColor': '#E1B54E',
     },
     {
       'id': 'national-3',
-      'title': 'روز پدر',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.father_day}}',
       'primaryColor': '#4572B5',
       'secondaryColor': '#5B8DC4',
       'accentColor': '#DCA64A',
     },
     {
       'id': 'national-4',
-      'title': 'روز مادر',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.mother_day}}',
       'primaryColor': '#3A67A8',
       'secondaryColor': '#6392C4',
       'accentColor': '#D9A04B',
     },
     {
       'id': 'national-5',
-      'title': 'روز دانشجو',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.day_label}}',
       'primaryColor': '#3F6CAF',
       'secondaryColor': '#6695C8',
       'accentColor': '#E2A931',
     },
     {
       'id': 'national-6',
-      'title': 'جشن ملی',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.national_message}}',
       'primaryColor': '#3F6FAF',
       'secondaryColor': '#6791C1',
       'accentColor': '#D6A841',
@@ -452,42 +478,48 @@ List<Map<String, dynamic>> _categoryPlansWedding() {
   return const [
     {
       'id': 'wedding-1',
-      'title': 'تبریک ازدواج',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.wedding_greeting}}',
       'primaryColor': '#D09D52',
       'secondaryColor': '#AE7C77',
       'accentColor': '#86578A',
     },
     {
       'id': 'wedding-2',
-      'title': 'سالگرد',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.anniversary_theme}}',
       'primaryColor': '#C79A66',
       'secondaryColor': '#A77A7E',
       'accentColor': '#8A538A',
     },
     {
       'id': 'wedding-3',
-      'title': 'عشق ماندگار',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.lasting_love_theme}}',
       'primaryColor': '#C49358',
       'secondaryColor': '#A4707A',
       'accentColor': '#7A4F81',
     },
     {
       'id': 'wedding-4',
-      'title': 'هدیه زوج',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.couple_gift_theme}}',
       'primaryColor': '#D39A5A',
       'secondaryColor': '#B07883',
       'accentColor': '#8D5185',
     },
     {
       'id': 'wedding-5',
-      'title': 'خانه بخت',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.bridal_home_theme}}',
       'primaryColor': '#CB9B60',
       'secondaryColor': '#A87E79',
       'accentColor': '#855888',
     },
     {
       'id': 'wedding-6',
-      'title': 'پیمان عاشقی',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.love_pact_theme}}',
       'primaryColor': '#C69863',
       'secondaryColor': '#A57573',
       'accentColor': '#875C88',
@@ -499,42 +531,48 @@ List<Map<String, dynamic>> _categoryPlansMouse() {
   return const [
     {
       'id': 'mouse2-1',
-      'title': 'موشی صورتی',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.pink_mouse_theme}}',
       'primaryColor': '#DD67BE',
       'secondaryColor': '#C54BB4',
       'accentColor': '#53B8D7',
     },
     {
       'id': 'mouse2-2',
-      'title': 'موشی آبی',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.blue_mouse_theme}}',
       'primaryColor': '#CC5EC1',
       'secondaryColor': '#B94BC6',
       'accentColor': '#48B2D4',
     },
     {
       'id': 'mouse2-3',
-      'title': 'موشی رنگی',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.colorful_mouse_theme}}',
       'primaryColor': '#DB67B3',
       'secondaryColor': '#B457C7',
       'accentColor': '#4AC0CD',
     },
     {
       'id': 'mouse2-4',
-      'title': 'هدیه کودک',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.child}}',
       'primaryColor': '#D652B7',
       'secondaryColor': '#C45FC2',
       'accentColor': '#52B7DB',
     },
     {
       'id': 'mouse2-5',
-      'title': 'شاد و رنگی',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.happy_colorful_theme}}',
       'primaryColor': '#D85ABF',
       'secondaryColor': '#BF56BE',
       'accentColor': '#5ABFD5',
     },
     {
       'id': 'mouse2-6',
-      'title': 'عروسکی',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.doll_theme}}',
       'primaryColor': '#D367BA',
       'secondaryColor': '#BD58C5',
       'accentColor': '#59B6CF',
@@ -546,42 +584,48 @@ List<Map<String, dynamic>> _categoryPlansSeasons() {
   return const [
     {
       'id': 'season-1',
-      'title': 'بهار',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.spring}}',
       'primaryColor': '#2C8F53',
       'secondaryColor': '#5DAA57',
       'accentColor': '#D39B3B',
     },
     {
       'id': 'season-2',
-      'title': 'تابستان',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.summer_theme}}',
       'primaryColor': '#4E9A4D',
       'secondaryColor': '#80AF4B',
       'accentColor': '#DE9B2C',
     },
     {
       'id': 'season-3',
-      'title': 'پاییز',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.autumn_theme}}',
       'primaryColor': '#5E8E4A',
       'secondaryColor': '#A08A46',
       'accentColor': '#CF7C31',
     },
     {
       'id': 'season-4',
-      'title': 'زمستان',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.winter_theme}}',
       'primaryColor': '#3E7E69',
       'secondaryColor': '#4D9CA6',
       'accentColor': '#91A9D9',
     },
     {
       'id': 'season-5',
-      'title': 'تولد بهاری',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.birthday}}',
       'primaryColor': '#348F62',
       'secondaryColor': '#63B969',
       'accentColor': '#D2A44D',
     },
     {
       'id': 'season-6',
-      'title': 'تولد زمستانی',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.birthday_option}}',
       'primaryColor': '#407697',
       'secondaryColor': '#5A93B8',
       'accentColor': '#9BB3D5',
@@ -593,42 +637,48 @@ List<Map<String, dynamic>> _categoryPlansSpecialDays() {
   return const [
     {
       'id': 'special-day-1',
-      'title': 'روز مادر',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.mother_day}}',
       'primaryColor': '#8494A0',
       'secondaryColor': '#6C7E8D',
       'accentColor': '#42556A',
     },
     {
       'id': 'special-day-2',
-      'title': 'روز پدر',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.father_day}}',
       'primaryColor': '#768A9A',
       'secondaryColor': '#617483',
       'accentColor': '#364A5E',
     },
     {
       'id': 'special-day-3',
-      'title': 'روز معلم',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.day_message}}',
       'primaryColor': '#7C93A1',
       'secondaryColor': '#647A8A',
       'accentColor': '#3E5668',
     },
     {
       'id': 'special-day-4',
-      'title': 'تشکر',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.thank_you_theme}}',
       'primaryColor': '#8897A2',
       'secondaryColor': '#6B7A88',
       'accentColor': '#45576A',
     },
     {
       'id': 'special-day-5',
-      'title': 'تقدیر',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.appreciation_theme}}',
       'primaryColor': '#798A96',
       'secondaryColor': '#5F7381',
       'accentColor': '#394D61',
     },
     {
       'id': 'special-day-6',
-      'title': 'روز خاص',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.day_description}}',
       'primaryColor': '#7F8C99',
       'secondaryColor': '#607484',
       'accentColor': '#3D4F61',
@@ -640,46 +690,51 @@ List<Map<String, dynamic>> _categoryPlansHistoricalPlaces() {
   return const [
     {
       'id': 'history-1',
-      'title': 'بافت تاریخی',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.date_message}}',
       'primaryColor': '#98536C',
       'secondaryColor': '#A27553',
       'accentColor': '#B99945',
     },
     {
       'id': 'history-2',
-      'title': 'طاق ایرانی',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.iranian_arch_theme}}',
       'primaryColor': '#92566A',
       'secondaryColor': '#9C7A53',
       'accentColor': '#AA8F49',
     },
     {
       'id': 'history-3',
-      'title': 'کاشی‌کاری',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.tilework_theme}}',
       'primaryColor': '#8B4D67',
       'secondaryColor': '#9C724F',
       'accentColor': '#B48943',
     },
     {
       'id': 'history-4',
-      'title': 'موزه',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.museum_theme}}',
       'primaryColor': '#9A5A73',
       'secondaryColor': '#A07D56',
       'accentColor': '#B9944F',
     },
     {
       'id': 'history-5',
-      'title': 'میراث کهن',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.ancient_heritage_theme}}',
       'primaryColor': '#8C4E63',
       'secondaryColor': '#9A7651',
       'accentColor': '#AE8F4B',
     },
     {
       'id': 'history-6',
-      'title': 'معماری ایرانی',
+      'title':
+          '{{appStrings.generated.gift_card.gift_card_custom_select_design.iranian_architecture_theme}}',
       'primaryColor': '#8E5772',
       'secondaryColor': '#A27651',
       'accentColor': '#B48D42',
     },
   ];
 }
-

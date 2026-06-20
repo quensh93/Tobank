@@ -1,4 +1,4 @@
-﻿/// Helper: Promissory Error State
+/// Helper: Promissory Error State
 Map<String, dynamic> buildPromissoryErrorState(String errorStateKey) {
   return {
     'type': 'registryReactive',
@@ -51,7 +51,8 @@ Map<String, dynamic> buildPromissoryErrorState(String errorStateKey) {
                 },
                 'child': {
                   'type': 'text',
-                  'data': 'بازگشت',
+                  'data':
+                      '{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}',
                   'style': {
                     'type': 'custom',
                     'fontSize': 16,

@@ -14,11 +14,11 @@ const List<String> _ibanValues = [
 ];
 
 const List<String> _ibanNames = [
-  'سجاد رحمانی پور',
-  'مینا عاشوری',
-  'محسن مقدم',
-  'یکانه سادات ترابی خرق',
-  'سید پارسا بنی طبا',
+  '{{appStrings.profile.real.destinations.depositItem4Title}}',
+  '{{appStrings.generated.transfer.transfer_amount.sample_recipient_name}}',
+  '{{appStrings.generated.transfer.transfer_amount.mohsen_moghadam_name}}',
+  '{{appStrings.generated.transfer.transfer_amount.sample_label}}',
+  '{{appStrings.generated.transfer.transfer_amount.sample_message}}',
 ];
 
 const List<String> _ibanVisibleKeys = [
@@ -30,39 +30,61 @@ const List<String> _ibanVisibleKeys = [
 ];
 
 const List<Map<String, String>> _inBankMyAccounts = [
-  {'number': '۱۱۰.۹۹۹۲.۱۷۹۳۸۵۸.۱', 'title': 'سپرده سرمایه گذاری کوتاه مدت'},
-  {'number': '۱۱۰.۷۹۱.۱۷۹۳۸۵۸.۱', 'title': 'حساب قرض الحسنه جاری حقیقی توبانک'},
+  {
+    'number': '{{appStrings.generated.transfer.transfer_amount.amount_value}}',
+    'title': '{{appStrings.generated.transfer.transfer_amount.deposit}}',
+  },
+  {
+    'number':
+        '{{appStrings.generated.transfer.transfer_amount.amount_value_text}}',
+    'title': '{{appStrings.homePage.deposits.accounts.thirdTitle}}',
+  },
 ];
 
 const List<Map<String, String>> _inBankOtherAccounts = [
-  {'number': '۱۱۰.۹۹۹۳.۷۶۳۴۰۵۰.۱', 'title': 'علیرضا حیدریان'},
-  {'number': '۱۱۰.۹۹۹۲.۱۷۹۴۸۸۵.۱', 'title': 'مهدی جمشید پور'},
+  {
+    'number': '{{appStrings.profile.real.destinations.depositItem2Subtitle}}',
+    'title': '{{appStrings.profile.real.destinations.depositItem2Title}}',
+  },
+  {
+    'number': '{{appStrings.profile.real.destinations.depositItem4Subtitle}}',
+    'title':
+        '{{appStrings.generated.transfer.transfer_amount.mahdi_jamshidpour_name}}',
+  },
 ];
 
 const List<Map<String, String>> _cardDestinations = [
   {
-    'number': '۵۰۵۴ ۱۶۱۰ ۱۸۱۶ ۸۰۵۸',
-    'title': 'سیدعلیرضا نعمتی شیل سر',
+    'number':
+        '{{appStrings.generated.transfer.transfer_amount.card_number_text}}',
+    'title':
+        '{{appStrings.generated.transfer.transfer_amount.seyed_alireza_nemati_name}}',
     'icon': 'assets/icons/ic_gardeshgari.svg',
   },
   {
-    'number': '۵۰۵۴ ۱۶۱۷ ۰۲۸۴ ۴۶۹۱',
-    'title': 'علی سینایی اصل',
+    'number':
+        '{{appStrings.generated.transfer.transfer_amount.card_number_label}}',
+    'title':
+        '{{appStrings.generated.profile.profile_destinations.ali_sinaei_asl_name}}',
     'icon': 'assets/icons/ic_gardeshgari.svg',
   },
   {
-    'number': '۵۰۵۴ ۱۶۱۷ ۰۲۹۹ ۴۷۱۰',
-    'title': 'گردشگری - شعبه مجازی',
+    'number':
+        '{{appStrings.generated.transfer.transfer_amount.card_number_item}}',
+    'title': '{{appStrings.profile.real.destinations.cardItem2Title}}',
     'icon': 'assets/icons/ic_gardeshgari.svg',
   },
   {
-    'number': '۵۰۲۲ ۹۱۳۱ ۰۰۹۳ ۹۴۶۷',
-    'title': 'ندا رحمانی پور',
+    'number':
+        '{{appStrings.generated.transfer.transfer_amount.card_number_value}}',
+    'title':
+        '{{appStrings.generated.transfer.transfer_amount.neda_rahmani_pour_name}}',
     'icon': 'assets/icons/ic_iranconcert_dark.svg',
   },
   {
-    'number': '۵۰۴۱ ۷۷۱۰ ۸۰۷۶ ۶۰۲۶',
-    'title': 'سجاد رحمانی پور',
+    'number':
+        '{{appStrings.generated.transfer.transfer_amount.sample_card_number}}',
+    'title': '{{appStrings.profile.real.destinations.depositItem4Title}}',
     'icon': 'assets/icons/ic_in.svg',
   },
 ];
@@ -83,8 +105,10 @@ const List<String> _cardVisibleKeys = [
   'transferApiCardVisible5',
 ];
 
-const String _defaultCardSourceName = 'سجاد رحمانی پور';
-const String _defaultCardSourceNumber = '۵۰۵۴ ۱۶۱۷ ۰۲۹۹ ۴۷۱۰';
+const String _defaultCardSourceName =
+    '{{appStrings.profile.real.destinations.depositItem4Title}}';
+const String _defaultCardSourceNumber =
+    '{{appStrings.generated.transfer.transfer_amount.card_number_item}}';
 const String _defaultCardSourceIcon = 'assets/icons/ic_gardeshgari.svg';
 
 @StacScreen(screenName: 'transfer_amount')
@@ -120,7 +144,7 @@ StacWidget transferRealAmount() {
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
         showSupport: true,
-        title: 'انتقال وجه',
+        title: '{{appStrings.menu.items.transfer}}',
       ),
       body: StacForm(
         child: StacPadding(
@@ -183,9 +207,18 @@ StacWidget _transferTabs() {
           labelColor: '{{appColors.current.text.title}}',
           unselectedLabelColor: '{{appColors.current.text.subtitle}}',
           tabs: const [
-            StacTab(text: 'کارت', height: 46),
-            StacTab(text: 'درون بانکی', height: 46),
-            StacTab(text: 'بین بانکی', height: 46),
+            StacTab(
+              text: '{{appStrings.profile.real.destinations.tabCard}}',
+              height: 46,
+            ),
+            StacTab(
+              text: '{{appStrings.generated.transfer.transfer_details.bank}}',
+              height: 46,
+            ),
+            StacTab(
+              text: '{{appStrings.generated.transfer.transfer_amount.bank}}',
+              height: 46,
+            ),
           ],
         ),
         StacPositioned(
@@ -258,7 +291,7 @@ StacWidget _inBankInputSection() {
     crossAxisAlignment: StacCrossAxisAlignment.stretch,
     children: [
       StacText(
-        data: 'شماره حساب',
+        data: '{{appStrings.generated.transfer.transfer_amount.title}}',
         textDirection: StacTextDirection.rtl,
         textAlign: StacTextAlign.right,
         style: StacCustomTextStyle(
@@ -284,7 +317,8 @@ StacWidget _inBankInputSection() {
           color: '{{appColors.current.text.title}}',
         ).toJson(),
         decoration: StacInputDecoration(
-          hintText: 'شماره حساب را وارد کنید',
+          hintText:
+              '{{appStrings.generated.transfer.transfer_amount.account_number_enter}}',
           hintStyle: StacCustomTextStyle(
             fontSize: 16,
             fontWeight: StacFontWeight.w500,
@@ -321,7 +355,7 @@ StacWidget _cardInputSection() {
     crossAxisAlignment: StacCrossAxisAlignment.stretch,
     children: [
       StacText(
-        data: 'شماره کارت مقصد',
+        data: '{{appStrings.generated.transfer.transfer_amount.card_number}}',
         textDirection: StacTextDirection.rtl,
         textAlign: StacTextAlign.right,
         style: StacCustomTextStyle(
@@ -347,7 +381,8 @@ StacWidget _cardInputSection() {
           color: '{{appColors.current.text.title}}',
         ).toJson(),
         decoration: StacInputDecoration(
-          hintText: 'شماره کارت مقصد را وارد یا انتخاب کنید',
+          hintText:
+              '{{appStrings.generated.transfer.transfer_amount.card_number_select_enter}}',
           hintStyle: StacCustomTextStyle(
             fontSize: 16,
             fontWeight: StacFontWeight.w500,
@@ -384,7 +419,8 @@ StacWidget _ibanInputSection() {
     crossAxisAlignment: StacCrossAxisAlignment.stretch,
     children: [
       StacText(
-        data: 'شماره شبا',
+        data:
+            '{{appStrings.generated.deposit_more_options.deposit_more_options_intro.iban_number}}',
         textDirection: StacTextDirection.rtl,
         textAlign: StacTextAlign.right,
         style: StacCustomTextStyle(
@@ -411,7 +447,8 @@ StacWidget _ibanInputSection() {
         ).toJson(),
         decoration: {
           ...StacInputDecoration(
-            hintText: 'شماره شبا را وارد کنید',
+            hintText:
+                '{{appStrings.generated.transfer.transfer_amount.iban_number_enter}}',
             hintStyle: StacCustomTextStyle(
               fontSize: 16,
               fontWeight: StacFontWeight.w500,
@@ -567,8 +604,10 @@ StacWidget _ibanListScrollable() {
           child: StacColumn(
             children: [
               _ibanCard(
-                displayIban: 'IR۸۳۰۷۰۰۰۰۱۰۰۰۱۱۷۸۹۴۳۰۴۰۰۱',
-                title: 'سجاد رحمانی پور',
+                displayIban:
+                    '{{appStrings.generated.transfer.transfer_amount.ir830700001000117894304001}}',
+                title:
+                    '{{appStrings.profile.real.destinations.depositItem4Title}}',
                 rawIbanNoPrefix: _ibanValues[0],
               ),
               StacSizedBox(height: 12),
@@ -580,8 +619,10 @@ StacWidget _ibanListScrollable() {
           child: StacColumn(
             children: [
               _ibanCard(
-                displayIban: 'IR۴۹۰۱۰۰۰۰۰۰۰۰۳۴۰۳۴۰۰۷۰۰۰۴',
-                title: 'مینا عاشوری',
+                displayIban:
+                    '{{appStrings.generated.transfer.transfer_amount.ir490100000000340340070004}}',
+                title:
+                    '{{appStrings.generated.transfer.transfer_amount.sample_recipient_name}}',
                 rawIbanNoPrefix: _ibanValues[1],
               ),
               StacSizedBox(height: 12),
@@ -593,8 +634,10 @@ StacWidget _ibanListScrollable() {
           child: StacColumn(
             children: [
               _ibanCard(
-                displayIban: 'IR۹۸۰۶۴۰۰۱۱۰۷۰۰۷۵۰۳۴۰۷۰۰۱',
-                title: 'محسن مقدم',
+                displayIban:
+                    '{{appStrings.generated.transfer.transfer_amount.ir98064001107007503407001}}',
+                title:
+                    '{{appStrings.generated.transfer.transfer_amount.mohsen_moghadam_name}}',
                 rawIbanNoPrefix: _ibanValues[2],
               ),
               StacSizedBox(height: 12),
@@ -606,8 +649,10 @@ StacWidget _ibanListScrollable() {
           child: StacColumn(
             children: [
               _ibanCard(
-                displayIban: 'IR۲۴۰۷۵۰۰۰۵۱۵۱۱۲۴۰۰۰۰۰۰۱۵۶',
-                title: 'یکانه سادات ترابی خرق',
+                displayIban:
+                    '{{appStrings.generated.transfer.transfer_amount.ir240750005151124000000156}}',
+                title:
+                    '{{appStrings.generated.transfer.transfer_amount.sample_label}}',
                 rawIbanNoPrefix: _ibanValues[3],
               ),
               StacSizedBox(height: 12),
@@ -619,8 +664,10 @@ StacWidget _ibanListScrollable() {
           child: StacColumn(
             children: [
               _ibanCard(
-                displayIban: 'IR۸۶۰۱۳۰۱۰۰۰۰۰۰۰۳۳۱۸۴۲۷۵۲',
-                title: 'سید پارسا بنی طبا',
+                displayIban:
+                    '{{appStrings.generated.transfer.transfer_amount.ir86013010000000331842752}}',
+                title:
+                    '{{appStrings.generated.transfer.transfer_amount.sample_message}}',
                 rawIbanNoPrefix: _ibanValues[4],
               ),
               StacSizedBox(height: 12),
@@ -767,7 +814,8 @@ StacWidget _inBankSourceTabs() {
                       ),
                       StacSizedBox(width: 6),
                       StacText(
-                        data: 'حساب‌های خودم',
+                        data:
+                            '{{appStrings.generated.transfer.transfer_amount.account}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.center,
                         style: StacCustomTextStyle(
@@ -816,7 +864,8 @@ StacWidget _inBankSourceTabs() {
                       ),
                       StacSizedBox(width: 6),
                       StacText(
-                        data: 'حساب‌های دیگران',
+                        data:
+                            '{{appStrings.generated.transfer.transfer_amount.account_text}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.center,
                         style: StacCustomTextStyle(
@@ -1047,8 +1096,9 @@ StacWidget _cardScanButton() {
       'fieldId': 'transferApiCardInput',
       'successAction': _cardFilterAction().toJson(),
       'failedAction': const StacCustomSnackBarAction(
-        title: 'خطا',
-        detail: 'اسکن کارت ناموفق بود.',
+        title: '{{appStrings.common.error}}',
+        detail:
+            '{{appStrings.generated.profile.profile_destinations.failed_card}}',
         duration: 2600,
       ).toJson(),
     }),
@@ -1062,7 +1112,7 @@ StacWidget _cardScanButton() {
       mainAxisAlignment: StacMainAxisAlignment.center,
       children: [
         StacText(
-          data: 'اسکن کارت',
+          data: '{{appStrings.profile.real.destinations.scanCard}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 18,
@@ -1093,7 +1143,7 @@ StacWidget _cardContinueButton() {
       foregroundColor: '{{appColors.current.text.onPrimary}}',
     ),
     child: StacText(
-      data: 'ادامه',
+      data: '{{appStrings.common.continue}}',
       textDirection: StacTextDirection.rtl,
       style: StacCustomTextStyle(
         fontSize: 19,
@@ -1113,7 +1163,10 @@ StacAction _cardContinueAction() {
             'key': 'transferApiCardDestinationNumber',
             'value': StacGetFormValueAction(id: 'transferApiCardInput'),
           },
-          {'key': 'transferApiCardDestinationName', 'value': 'کارت مقصد'},
+          {
+            'key': 'transferApiCardDestinationName',
+            'value': '{{appStrings.generated.transfer.transfer_amount.card}}',
+          },
           {
             'key': 'transferApiCardDestinationIcon',
             'value': 'assets/icons/ic_gardeshgari.svg',
@@ -1134,10 +1187,15 @@ StacAction _cardContinueAction() {
             .toList(),
         'cardNames': _cardDestinations.map((e) => e['title'] ?? '').toList(),
         'cardIcons': _cardDestinations.map((e) => e['icon'] ?? '').toList(),
-        'validAction': NavigationAction(fileName: 'transfer_card_details', navMode: NavModes.dart, navigationStyle: NavigationStyle.push).toJson(),
+        'validAction': NavigationAction(
+          fileName: 'transfer_card_details',
+          navMode: NavModes.dart,
+          navigationStyle: NavigationStyle.push,
+        ).toJson(),
         'invalidAction': const StacCustomSnackBarAction(
-          title: 'خطا',
-          detail: 'شماره کارت مقصد باید ۱۶ رقم باشد.',
+          title: '{{appStrings.common.error}}',
+          detail:
+              '{{appStrings.generated.transfer.transfer_amount.card_number_message}}',
           duration: 2600,
         ).toJson(),
       }),
@@ -1162,7 +1220,11 @@ StacWidget _interBankContinueButton() {
           key: 'transferApiTransferTypeTitle',
           value: '',
         ),
-        NavigationAction(fileName: 'transfer_details', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+        NavigationAction(
+          fileName: 'transfer_details',
+          navMode: NavModes.dart,
+          navigationStyle: NavigationStyle.push,
+        ),
       ],
     ),
     style: _continueButtonStyle(),
@@ -1178,9 +1240,13 @@ StacWidget _inBankContinueButton() {
       actions: [
         StacCustomSetValueAction(
           key: 'transferApiTransferTypeTitle',
-          value: 'درون بانکی',
+          value: '{{appStrings.generated.transfer.transfer_details.bank}}',
         ),
-        NavigationAction(fileName: 'transfer_in_bank_details', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+        NavigationAction(
+          fileName: 'transfer_in_bank_details',
+          navMode: NavModes.dart,
+          navigationStyle: NavigationStyle.push,
+        ),
       ],
     ),
     style: _continueButtonStyle(),
@@ -1209,7 +1275,7 @@ Map<String, dynamic> _continueButtonDisabledStyle() {
 
 StacText _continueButtonChild() {
   return StacText(
-    data: 'ادامه',
+    data: '{{appStrings.common.continue}}',
     style: StacCustomTextStyle(
       fontSize: 18,
       fontWeight: StacFontWeight.w700,
@@ -1217,4 +1283,3 @@ StacText _continueButtonChild() {
     ),
   );
 }
-

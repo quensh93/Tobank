@@ -45,7 +45,7 @@ StacWidget dashboardShell() {
           enableFeedback: false,
           items: [
             StacBottomNavigationBarItem(
-              label: '\u067e\u0631\u0648\u0641\u0627\u06cc\u0644',
+              label: '{{appStrings.menu.items.profile}}',
               icon: StacImage(
                 src: 'assets/icons/ic_profile_main.svg',
                 imageType: StacImageType.asset,
@@ -62,7 +62,7 @@ StacWidget dashboardShell() {
               ),
             ),
             StacBottomNavigationBarItem(
-              label: '\u06a9\u0627\u0631\u062a\u0627\u0628\u0644',
+              label: '{{appStrings.menu.items.inbox}}',
               icon: StacImage(
                 src: 'assets/icons/ic_cardboard.svg',
                 imageType: StacImageType.asset,
@@ -79,7 +79,8 @@ StacWidget dashboardShell() {
               ),
             ),
             StacBottomNavigationBarItem(
-              label: '\u062a\u0631\u0627\u06a9\u0646\u0634\u200c\u0647\u0627',
+              label:
+                  '{{appStrings.generated.dashboard.dashboard_shell.transaction}}',
               icon: StacImage(
                 src: 'assets/icons/ic_transaction_main.svg',
                 imageType: StacImageType.asset,
@@ -96,7 +97,7 @@ StacWidget dashboardShell() {
               ),
             ),
             StacBottomNavigationBarItem(
-              label: '\u062e\u0627\u0646\u0647',
+              label: '{{appStrings.home.title}}',
               icon: StacImage(
                 src: 'assets/icons/ic_home_main.svg',
                 imageType: StacImageType.asset,

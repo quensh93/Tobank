@@ -1,4 +1,4 @@
-﻿{
+{
   "type": "stateFull",
   "onInit": {
     "actionType": "setValue",
@@ -34,7 +34,7 @@
       ],
       "title": {
         "type": "text",
-        "data": "صدور کارت المثنی",
+        "data": "{{appStrings.generated.card_management.card_management_reissue_color.card_reissue}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -61,7 +61,7 @@
           "children": [
             {
               "type": "text",
-              "data": "شهر/شهرستان",
+              "data": "{{appStrings.generated.card_management.card_management_reissue_request.county_city}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
@@ -80,7 +80,7 @@
               "id": "reissue_city",
               "textDirection": "rtl",
               "textAlign": "right",
-              "initialValue": "تهران/تهران",
+              "initialValue": "{{appStrings.generated.card_management.card_management_reissue_request.sample_city_pair}}",
               "readOnly": true,
               "enabled": false,
               "style": {
@@ -124,7 +124,7 @@
             },
             {
               "type": "text",
-              "data": "شهرستان",
+              "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.county}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
@@ -143,34 +143,57 @@
               "id": "reissue_county",
               "textDirection": "rtl",
               "textAlign": "right",
+              "supportTextDirection": "rtl",
+              "autovalidateMode": "always",
+              "validatorRules": [
+                {
+                  "rule": "matches",
+                  "options": {
+                    "pattern": "^.*\\S.*$"
+                  },
+                  "message": "{{appStrings.generated.card_management.card_management_reissue_request.county_enter}}"
+                }
+              ],
               "onChanged": {
                 "actionType": "validateFields",
                 "resultKey": "cardsManagement.reissue.addressNextEnabled",
                 "fields": [
                   {
-                    "id": "reissue_county"
+                    "id": "reissue_county",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_street"
+                    "id": "reissue_street",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_alley"
+                    "id": "reissue_alley",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_plaque"
+                    "id": "reissue_plaque",
+                    "rule": "^[0-9۰-۹]+$"
                   },
                   {
-                    "id": "reissue_unit"
+                    "id": "reissue_unit",
+                    "rule": "^[0-9۰-۹]+$"
                   }
                 ]
               },
               "decoration": {
-                "hintText": "شهرستان خود را وارد نمایید",
+                "hintText": "{{appStrings.generated.card_management.card_management_reissue_request.county_enter_data}}",
                 "hintStyle": {
                   "textDirection": "rtl",
                   "style": {
                     "color": "{{appColors.current.text.hint}}",
                     "fontSize": 14
+                  }
+                },
+                "errorStyle": {
+                  "textDirection": "rtl",
+                  "textAlign": "right",
+                  "style": {
+                    "fontSize": 12
                   }
                 },
                 "enabledBorder": {
@@ -207,7 +230,7 @@
             },
             {
               "type": "text",
-              "data": "خیابان اصلی",
+              "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street_main}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
@@ -226,34 +249,57 @@
               "id": "reissue_street",
               "textDirection": "rtl",
               "textAlign": "right",
+              "supportTextDirection": "rtl",
+              "autovalidateMode": "always",
+              "validatorRules": [
+                {
+                  "rule": "matches",
+                  "options": {
+                    "pattern": "^.*\\S.*$"
+                  },
+                  "message": "{{appStrings.generated.card_management.card_management_reissue_request.street_main_enter}}"
+                }
+              ],
               "onChanged": {
                 "actionType": "validateFields",
                 "resultKey": "cardsManagement.reissue.addressNextEnabled",
                 "fields": [
                   {
-                    "id": "reissue_county"
+                    "id": "reissue_county",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_street"
+                    "id": "reissue_street",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_alley"
+                    "id": "reissue_alley",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_plaque"
+                    "id": "reissue_plaque",
+                    "rule": "^[0-9۰-۹]+$"
                   },
                   {
-                    "id": "reissue_unit"
+                    "id": "reissue_unit",
+                    "rule": "^[0-9۰-۹]+$"
                   }
                 ]
               },
               "decoration": {
-                "hintText": "خیابان اصلی خود را وارد نمایید",
+                "hintText": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.street_main_enter}}",
                 "hintStyle": {
                   "textDirection": "rtl",
                   "style": {
                     "color": "{{appColors.current.text.hint}}",
                     "fontSize": 14
+                  }
+                },
+                "errorStyle": {
+                  "textDirection": "rtl",
+                  "textAlign": "right",
+                  "style": {
+                    "fontSize": 12
                   }
                 },
                 "enabledBorder": {
@@ -290,7 +336,7 @@
             },
             {
               "type": "text",
-              "data": "خیابان فرعی",
+              "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
@@ -309,34 +355,57 @@
               "id": "reissue_alley",
               "textDirection": "rtl",
               "textAlign": "right",
+              "supportTextDirection": "rtl",
+              "autovalidateMode": "always",
+              "validatorRules": [
+                {
+                  "rule": "matches",
+                  "options": {
+                    "pattern": "^.*\\S.*$"
+                  },
+                  "message": "{{appStrings.generated.card_management.card_management_reissue_request.street_enter}}"
+                }
+              ],
               "onChanged": {
                 "actionType": "validateFields",
                 "resultKey": "cardsManagement.reissue.addressNextEnabled",
                 "fields": [
                   {
-                    "id": "reissue_county"
+                    "id": "reissue_county",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_street"
+                    "id": "reissue_street",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_alley"
+                    "id": "reissue_alley",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_plaque"
+                    "id": "reissue_plaque",
+                    "rule": "^[0-9۰-۹]+$"
                   },
                   {
-                    "id": "reissue_unit"
+                    "id": "reissue_unit",
+                    "rule": "^[0-9۰-۹]+$"
                   }
                 ]
               },
               "decoration": {
-                "hintText": "خیابان فرعی خود را وارد نمایید",
+                "hintText": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.street_enter}}",
                 "hintStyle": {
                   "textDirection": "rtl",
                   "style": {
                     "color": "{{appColors.current.text.hint}}",
                     "fontSize": 14
+                  }
+                },
+                "errorStyle": {
+                  "textDirection": "rtl",
+                  "textAlign": "right",
+                  "style": {
+                    "fontSize": 12
                   }
                 },
                 "enabledBorder": {
@@ -373,7 +442,7 @@
             },
             {
               "type": "text",
-              "data": "پلاک",
+              "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.plaque}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
@@ -392,35 +461,64 @@
               "id": "reissue_plaque",
               "textDirection": "rtl",
               "textAlign": "right",
+              "supportTextDirection": "rtl",
               "keyboardType": "number",
+              "autovalidateMode": "always",
+              "inputFormatters": [
+                {
+                  "type": "allow",
+                  "rule": "[0-9۰-۹]"
+                }
+              ],
+              "validatorRules": [
+                {
+                  "rule": "matches",
+                  "options": {
+                    "pattern": "^[0-9۰-۹]+$"
+                  },
+                  "message": "{{appStrings.generated.card_management.card_management_reissue_request.plaque_enter}}"
+                }
+              ],
               "onChanged": {
                 "actionType": "validateFields",
                 "resultKey": "cardsManagement.reissue.addressNextEnabled",
                 "fields": [
                   {
-                    "id": "reissue_county"
+                    "id": "reissue_county",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_street"
+                    "id": "reissue_street",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_alley"
+                    "id": "reissue_alley",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_plaque"
+                    "id": "reissue_plaque",
+                    "rule": "^[0-9۰-۹]+$"
                   },
                   {
-                    "id": "reissue_unit"
+                    "id": "reissue_unit",
+                    "rule": "^[0-9۰-۹]+$"
                   }
                 ]
               },
               "decoration": {
-                "hintText": "پلاک خود را وارد نمایید",
+                "hintText": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.plaque_enter}}",
                 "hintStyle": {
                   "textDirection": "rtl",
                   "style": {
                     "color": "{{appColors.current.text.hint}}",
                     "fontSize": 14
+                  }
+                },
+                "errorStyle": {
+                  "textDirection": "rtl",
+                  "textAlign": "right",
+                  "style": {
+                    "fontSize": 12
                   }
                 },
                 "enabledBorder": {
@@ -457,7 +555,7 @@
             },
             {
               "type": "text",
-              "data": "واحد",
+              "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.unit}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
@@ -476,35 +574,64 @@
               "id": "reissue_unit",
               "textDirection": "rtl",
               "textAlign": "right",
+              "supportTextDirection": "rtl",
               "keyboardType": "number",
+              "autovalidateMode": "always",
+              "inputFormatters": [
+                {
+                  "type": "allow",
+                  "rule": "[0-9۰-۹]"
+                }
+              ],
+              "validatorRules": [
+                {
+                  "rule": "matches",
+                  "options": {
+                    "pattern": "^[0-9۰-۹]+$"
+                  },
+                  "message": "{{appStrings.generated.card_management.card_management_reissue_request.unit_enter}}"
+                }
+              ],
               "onChanged": {
                 "actionType": "validateFields",
                 "resultKey": "cardsManagement.reissue.addressNextEnabled",
                 "fields": [
                   {
-                    "id": "reissue_county"
+                    "id": "reissue_county",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_street"
+                    "id": "reissue_street",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_alley"
+                    "id": "reissue_alley",
+                    "rule": "^.*\\S.*$"
                   },
                   {
-                    "id": "reissue_plaque"
+                    "id": "reissue_plaque",
+                    "rule": "^[0-9۰-۹]+$"
                   },
                   {
-                    "id": "reissue_unit"
+                    "id": "reissue_unit",
+                    "rule": "^[0-9۰-۹]+$"
                   }
                 ]
               },
               "decoration": {
-                "hintText": "واحد خود را وارد نمایید",
+                "hintText": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.unit_enter}}",
                 "hintStyle": {
                   "textDirection": "rtl",
                   "style": {
                     "color": "{{appColors.current.text.hint}}",
                     "fontSize": 14
+                  }
+                },
+                "errorStyle": {
+                  "textDirection": "rtl",
+                  "textAlign": "right",
+                  "style": {
+                    "fontSize": 12
                   }
                 },
                 "enabledBorder": {
@@ -592,7 +719,7 @@
               },
               "child": {
                 "type": "text",
-                "data": "تایید و ادامه",
+                "data": "{{appStrings.authentication.confirmAndContinue}}",
                 "style": {
                   "type": "custom",
                   "fontSize": 14.0,

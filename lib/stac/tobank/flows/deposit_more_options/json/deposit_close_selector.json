@@ -5,11 +5,11 @@
     "values": [
       {
         "key": "depositCloseSelector.depositNumber",
-        "value": "۱۱۹.۹۲۹۰.۱۶۱۲۹۸۸.۱"
+        "value": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.amount_value}}"
       },
       {
         "key": "depositCloseSelector.balance",
-        "value": "۰ ریال"
+        "value": "{{appStrings.generated.deposit_more_options.deposit_close_selector.rial}}"
       }
     ]
   },
@@ -34,7 +34,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "بستن سپرده",
+        "data": "{{appStrings.generated.deposit_more_options.deposit_close_confirm.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -110,7 +110,7 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "data": "شماره سپرده:",
+                        "data": "{{appStrings.generated.deposit_more_options.deposit_close_selector.deposit_number}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.subtitle}}",
@@ -144,7 +144,7 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "data": "موجودی سپرده:",
+                        "data": "{{appStrings.generated.deposit_more_options.deposit_close_selector.balance_deposit}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.subtitle}}",
@@ -224,7 +224,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "شما درخواست بستن سپرده زیر را دارید. آیا مطمئن هستید؟",
+                        "data": "{{appStrings.generated.deposit_more_options.deposit_close_selector.deposit_request}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -265,7 +265,7 @@
                             "textDirection": "rtl",
                             "children": [
                               {
-                                "data": "شماره سپرده",
+                                "data": "{{appStrings.generated.card_management.card_management_root.deposit_number}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -325,7 +325,7 @@
                                 }
                               },
                               "child": {
-                                "data": "انصراف",
+                                "data": "{{appStrings.common.cancel}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.button.primary.backgroundColor}}",
@@ -347,8 +347,8 @@
                             "child": {
                               "onPressed": {
                                 "actionType": "fingerPrint",
-                                "title": "احراز هویت",
-                                "description": "لطفا برای ادامه بستن سپرده، احراز هویت انجام دهید",
+                                "title": "{{appStrings.menu.items.authentication}}",
+                                "description": "{{appStrings.generated.deposit_more_options.deposit_close_selector.authentication_deposit_continue}}",
                                 "onSuccess": {
                                   "actionType": "sequence",
                                   "actions": [
@@ -358,15 +358,16 @@
                                     {
                                       "actionType": "navigate",
                                       "fileName": "deposit_close_result",
-                                      "navMode": "dart",
+                                      "navMode": "localJson",
+                                      "pathOverride": "lib/stac/tobank/flows/deposit_more_options/json/deposit_close_result.json",
                                       "navigationStyle": "push"
                                     }
                                   ]
                                 },
                                 "onFailure": {
                                   "actionType": "showSnackBar",
-                                  "title": "عدم احراز هویت",
-                                  "description": "احراز هویت انجام نشد. لطفا دوباره تلاش کنید.",
+                                  "title": "{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_failed_title}}",
+                                  "description": "{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_try_again}}",
                                   "type": "error"
                                 }
                               },
@@ -388,7 +389,7 @@
                                 }
                               },
                               "child": {
-                                "data": "بستن سپرده",
+                                "data": "{{appStrings.generated.deposit_more_options.deposit_close_confirm.title}}",
                                 "style": {
                                   "type": "custom",
                                   "fontSize": 18,
@@ -430,7 +431,7 @@
               }
             },
             "child": {
-              "data": "تایید و بستن سپرده",
+              "data": "{{appStrings.generated.deposit_more_options.deposit_close_selector.title}}",
               "style": {
                 "type": "custom",
                 "fontSize": 18,

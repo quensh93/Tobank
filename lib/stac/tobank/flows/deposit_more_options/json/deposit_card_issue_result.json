@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "آدرس دریافت کارت بانکی",
+      "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -94,7 +94,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "درخواست شما با موفقیت ثبت شد!",
+                  "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_result.title}}",
                   "style": {
                     "type": "custom",
                     "color": "#43A047",
@@ -110,7 +110,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "درخواست صدور کارت توسط همکاران ما بررسی می‌شود و نتیجه از طریق پیامک اطلاع‌رسانی خواهد شد.",
+                  "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_result.request_card_result}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.hint}}",
@@ -159,7 +159,7 @@
             }
           },
           "child": {
-            "data": "بازگشت",
+            "data": "{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.primary.onPrimary}}",

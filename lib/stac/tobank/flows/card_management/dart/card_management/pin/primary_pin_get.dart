@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
@@ -7,7 +7,12 @@ import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 StacWidget dashboardPrimaryPinGet() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildTobankFlowAppBar(title: 'دریافت رمز اول', showSupport: true, showBack: true),
+    appBar: buildTobankFlowAppBar(
+      title:
+          '{{appStrings.generated.card_management.card_management_root.get_first_pin_title}}',
+      showSupport: true,
+      showBack: true,
+    ),
     body: StacPadding(
       padding: StacEdgeInsets.all(16),
       child: StacColumn(
@@ -27,7 +32,8 @@ StacWidget dashboardPrimaryPinGet() {
               mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
               children: [
                 StacText(
-                  data: 'شماره کارت:',
+                  data:
+                      '{{appStrings.generated.card_management.card_management_primary_pin_get.card_number}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 14,
@@ -36,7 +42,8 @@ StacWidget dashboardPrimaryPinGet() {
                   ),
                 ),
                 StacText(
-                  data: '۵۰۵۴ - ۱۶۱۷ - ۰۳۰۲ - ۰۳۹۰',
+                  data:
+                      '{{appStrings.generated.card_management.secondary_pin_get.title}}',
                   textDirection: StacTextDirection.ltr,
                   style: StacCustomTextStyle(
                     fontSize: 14,
@@ -49,7 +56,11 @@ StacWidget dashboardPrimaryPinGet() {
           ),
           StacExpanded(child: StacSizedBox(height: 0)),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'card_management_primary_pin_result', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'card_management_primary_pin_result',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 8),
               minimumSize: const StacSize(0, 56),
@@ -62,7 +73,8 @@ StacWidget dashboardPrimaryPinGet() {
               ),
             ),
             child: StacText(
-              data: 'تایید و دریافت رمز اول',
+              data:
+                  '{{appStrings.generated.card_management.card_management_primary_pin_get.first_pin_confirm_receive}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
                 fontSize: 14,

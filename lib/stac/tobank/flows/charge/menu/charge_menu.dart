@@ -8,7 +8,7 @@ StacWidget chargeRealMenu() {
   return StacScaffold(
     appBar: StacAppBar(
       title: StacText(
-        data: 'منوی دیباگ شارژ',
+        data: '{{appStrings.generated.charge.charge_menu.title}}',
         textDirection: StacTextDirection.rtl,
         style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
       ),
@@ -32,7 +32,7 @@ StacWidget chargeRealMenu() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           StacText(
-            data: 'مسیرهای ورود جریان',
+            data: '{{appStrings.promissory.debug.flowEntryPoints}}',
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
               fontSize: 18,
@@ -48,7 +48,12 @@ StacWidget chargeRealMenu() {
                   key: 'crChargeFlowInitialized',
                   value: false,
                 ),
-                NavigationAction(fileName: 'charge_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
+                NavigationAction(
+                  navMode: NavModes.localJson,
+                  pathOverride:
+                      'lib/stac/tobank/flows/charge/json/charge_intro.json',
+                  navigationStyle: NavigationStyle.push,
+                ),
               ],
             ),
             style: StacButtonStyle(
@@ -59,7 +64,7 @@ StacWidget chargeRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از JSON محلی',
+              data: '{{appStrings.promissory.debug.loadLocalJson}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -74,7 +79,11 @@ StacWidget chargeRealMenu() {
                   key: 'crChargeFlowInitialized',
                   value: false,
                 ),
-                NavigationAction(fileName: 'charge_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                NavigationAction(
+                  fileName: 'charge_intro',
+                  navMode: NavModes.dart,
+                  navigationStyle: NavigationStyle.push,
+                ),
               ],
             ),
             style: StacButtonStyle(
@@ -85,7 +94,7 @@ StacWidget chargeRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از DART',
+              data: '{{appStrings.promissory.debug.loadDart}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -97,4 +106,3 @@ StacWidget chargeRealMenu() {
     ),
   );
 }
-

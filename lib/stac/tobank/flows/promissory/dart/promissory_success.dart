@@ -221,7 +221,11 @@ StacWidget _buildPdfSection() {
               textDirection: StacTextDirection.rtl,
               children: [
                 StacGestureDetector(
-                  onTap: NavigationAction(fileName: 'promissory_preview', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                  onTap: NavigationAction(
+                    fileName: 'promissory_preview',
+                    navMode: NavModes.dart,
+                    navigationStyle: NavigationStyle.push,
+                  ),
                   child: StacPadding(
                     padding: StacEdgeInsets.all(8),
                     child: StacImage(
@@ -256,4 +260,3 @@ StacWidget _buildPdfSection() {
     ),
   );
 }
-

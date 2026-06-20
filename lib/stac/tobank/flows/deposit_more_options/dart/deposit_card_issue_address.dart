@@ -31,7 +31,8 @@ StacWidget depositCardIssueAddress() {
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
-        title: 'آدرس دریافت کارت بانکی',
+        title:
+            '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.title}}',
         showSupport: true,
       ),
       body: StacForm(
@@ -40,7 +41,9 @@ StacWidget depositCardIssueAddress() {
           child: StacColumn(
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
             children: [
-              _addressLabel('کد پستی محل سکونت'),
+              _addressLabel(
+                '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.postal_code_place}}',
+              ),
               StacSizedBox(height: 10),
               _postalCodeRow(),
               StacSizedBox(height: 20),
@@ -49,64 +52,83 @@ StacWidget depositCardIssueAddress() {
                 child: StacColumn(
                   crossAxisAlignment: StacCrossAxisAlignment.stretch,
                   children: [
-                    _addressLabel('استان'),
+                    _addressLabel(
+                      '{{appStrings.generated.child_loan.child_loan_guarantee_address.province}}',
+                    ),
                     StacSizedBox(height: 8),
                     _addressField(
                       valueKey: 'depositCardIssue.province',
                       showClear: false,
                     ),
                     StacSizedBox(height: 14),
-                    _addressLabel('شهر'),
+                    _addressLabel(
+                      '{{appStrings.generated.child_loan.child_loan_guarantee_address.city}}',
+                    ),
                     StacSizedBox(height: 8),
                     _addressField(
                       valueKey: 'depositCardIssue.city',
                       showClear: false,
                     ),
                     StacSizedBox(height: 14),
-                    _addressLabel('شهرستان'),
+                    _addressLabel(
+                      '{{appStrings.generated.child_loan.child_loan_guarantee_address.county}}',
+                    ),
                     StacSizedBox(height: 8),
                     _editableAddressField(
                       id: 'deposit_card_issue_county',
                       valueKey: 'depositCardIssue.county',
                       inputFlagKey: 'depositCardIssue.hasCountyInput',
-                      hintText: 'مقدار شهرستان را وارد نمایید',
+                      hintText:
+                          '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.county_enter}}',
                     ),
                     StacSizedBox(height: 14),
-                    _addressLabel('خیابان اصلی'),
+                    _addressLabel(
+                      '{{appStrings.generated.child_loan.child_loan_guarantee_address.street_main}}',
+                    ),
                     StacSizedBox(height: 8),
                     _editableAddressField(
                       id: 'deposit_card_issue_main_street',
                       valueKey: 'depositCardIssue.mainStreet',
                       inputFlagKey: 'depositCardIssue.hasMainStreetInput',
-                      hintText: 'خیابان اصلی خود را وارد نمایید',
+                      hintText:
+                          '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.street_main_enter}}',
                     ),
                     StacSizedBox(height: 14),
-                    _addressLabel('خیابان فرعی'),
+                    _addressLabel(
+                      '{{appStrings.generated.child_loan.child_loan_guarantee_address.street}}',
+                    ),
                     StacSizedBox(height: 8),
                     _editableAddressField(
                       id: 'deposit_card_issue_sub_street',
                       valueKey: 'depositCardIssue.subStreet',
                       inputFlagKey: 'depositCardIssue.hasSubStreetInput',
-                      hintText: 'خیابان فرعی خود را وارد نمایید',
+                      hintText:
+                          '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.street_enter}}',
                     ),
                     StacSizedBox(height: 14),
-                    _addressLabel('پلاک'),
+                    _addressLabel(
+                      '{{appStrings.generated.child_loan.child_loan_guarantee_address.plaque}}',
+                    ),
                     StacSizedBox(height: 8),
                     _editableAddressField(
                       id: 'deposit_card_issue_plaque',
                       valueKey: 'depositCardIssue.plaque',
                       inputFlagKey: 'depositCardIssue.hasPlaqueInput',
-                      hintText: 'پلاک خود را وارد نمایید',
+                      hintText:
+                          '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.plaque_enter}}',
                       keyboardType: 'number',
                     ),
                     StacSizedBox(height: 14),
-                    _addressLabel('واحد'),
+                    _addressLabel(
+                      '{{appStrings.generated.child_loan.child_loan_guarantee_address.unit}}',
+                    ),
                     StacSizedBox(height: 8),
                     _editableAddressField(
                       id: 'deposit_card_issue_unit',
                       valueKey: 'depositCardIssue.unit',
                       inputFlagKey: 'depositCardIssue.hasUnitInput',
-                      hintText: 'واحد خود را وارد نمایید',
+                      hintText:
+                          '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.unit_enter}}',
                       keyboardType: 'number',
                     ),
                     StacSizedBox(height: 35),
@@ -116,7 +138,8 @@ StacWidget depositCardIssueAddress() {
                       'enabled': true,
                       'style': StacButtonStyle(
                         backgroundColor: '{{appColors.current.primary.color}}',
-                        foregroundColor: '{{appColors.current.primary.onPrimary}}',
+                        foregroundColor:
+                            '{{appColors.current.primary.onPrimary}}',
                         elevation: 0,
                         padding: StacEdgeInsets.symmetric(vertical: 23),
                         shape: StacRoundedRectangleBorder(
@@ -134,7 +157,7 @@ StacWidget depositCardIssueAddress() {
                         ),
                       ).toJson(),
                       'child': StacText(
-                        data: 'ادامه',
+                        data: '{{appStrings.common.continue}}',
                         textDirection: StacTextDirection.rtl,
                         style: StacCustomTextStyle(
                           fontSize: 18,
@@ -173,7 +196,9 @@ StacWidget _postalCodeRow() {
             actions: [
               StacCustomSetValueAction(
                 key: 'depositCardIssue.postalCode',
-                value: StacGetFormValueAction(id: 'deposit_card_issue_postal_code'),
+                value: StacGetFormValueAction(
+                  id: 'deposit_card_issue_postal_code',
+                ),
               ),
               const StacValidateFieldsAction(
                 resultKey: 'depositCardIssue.hasPostalCodeInput',
@@ -200,7 +225,7 @@ StacWidget _postalCodeRow() {
           ).toJson(),
           decoration: {
             ...StacInputDecoration(
-              hintText: 'کد پستی محل سکونت را وارد کنید',
+              hintText: '{{appStrings.profile.real.bankInfo.postalCodeHint}}',
               hintStyle: StacTextStyle(
                 fontSize: 14,
                 fontWeight: StacFontWeight.w500,
@@ -218,9 +243,18 @@ StacWidget _postalCodeRow() {
                     values: [
                       {'key': 'deposit_card_issue_postal_code', 'value': ''},
                       {'key': 'depositCardIssue.postalCode', 'value': ''},
-                      {'key': 'depositCardIssue.hasPostalCodeInput', 'value': false},
-                      {'key': 'depositCardIssue.isPostalCodeComplete', 'value': false},
-                      {'key': 'depositCardIssue.hasAddressData', 'value': false},
+                      {
+                        'key': 'depositCardIssue.hasPostalCodeInput',
+                        'value': false,
+                      },
+                      {
+                        'key': 'depositCardIssue.isPostalCodeComplete',
+                        'value': false,
+                      },
+                      {
+                        'key': 'depositCardIssue.hasAddressData',
+                        'value': false,
+                      },
                       {'key': 'depositCardIssue.province', 'value': ''},
                       {'key': 'depositCardIssue.city', 'value': ''},
                       {'key': 'depositCardIssue.county', 'value': ''},
@@ -228,17 +262,32 @@ StacWidget _postalCodeRow() {
                       {'key': 'depositCardIssue.subStreet', 'value': ''},
                       {'key': 'depositCardIssue.plaque', 'value': ''},
                       {'key': 'depositCardIssue.unit', 'value': ''},
-                      {'key': 'depositCardIssue.hasCountyInput', 'value': false},
-                      {'key': 'depositCardIssue.hasMainStreetInput', 'value': false},
-                      {'key': 'depositCardIssue.hasSubStreetInput', 'value': false},
-                      {'key': 'depositCardIssue.hasPlaqueInput', 'value': false},
+                      {
+                        'key': 'depositCardIssue.hasCountyInput',
+                        'value': false,
+                      },
+                      {
+                        'key': 'depositCardIssue.hasMainStreetInput',
+                        'value': false,
+                      },
+                      {
+                        'key': 'depositCardIssue.hasSubStreetInput',
+                        'value': false,
+                      },
+                      {
+                        'key': 'depositCardIssue.hasPlaqueInput',
+                        'value': false,
+                      },
                       {'key': 'depositCardIssue.hasUnitInput', 'value': false},
                       {'key': 'deposit_card_issue_county', 'value': ''},
                       {'key': 'deposit_card_issue_main_street', 'value': ''},
                       {'key': 'deposit_card_issue_sub_street', 'value': ''},
                       {'key': 'deposit_card_issue_plaque', 'value': ''},
                       {'key': 'deposit_card_issue_unit', 'value': ''},
-                      {'key': 'depositCardIssue.isAddressFormComplete', 'value': false},
+                      {
+                        'key': 'depositCardIssue.isAddressFormComplete',
+                        'value': false,
+                      },
                     ],
                   ),
                   child: StacPadding(
@@ -271,7 +320,8 @@ StacWidget _postalCodeRow() {
           ),
         ).toJson(),
         'disabledStyle': StacButtonStyle(
-          backgroundColor: '{{appColors.current.background.surfaceContainerHigh}}',
+          backgroundColor:
+              '{{appColors.current.background.surfaceContainerHigh}}',
           foregroundColor: '{{appColors.current.text.subtitle}}',
           elevation: 0,
           padding: StacEdgeInsets.symmetric(horizontal: 24, vertical: 21),
@@ -280,7 +330,7 @@ StacWidget _postalCodeRow() {
           ),
         ).toJson(),
         'child': StacText(
-          data: 'استعلام',
+          data: '{{appStrings.profile.real.bankInfo.inquiryButtonText}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 16,
@@ -291,11 +341,31 @@ StacWidget _postalCodeRow() {
         'onPressed': const StacCustomSetValueAction(
           values: [
             {'key': 'depositCardIssue.hasAddressData', 'value': true},
-            {'key': 'depositCardIssue.province', 'value': 'تهران'},
-            {'key': 'depositCardIssue.city', 'value': 'تهران'},
-            {'key': 'depositCardIssue.county', 'value': 'تهران'},
-            {'key': 'depositCardIssue.mainStreet', 'value': 'شهرک صدرا خیابان چهل و نهم'},
-            {'key': 'depositCardIssue.subStreet', 'value': 'خیابان نصر پنجم'},
+            {
+              'key': 'depositCardIssue.province',
+              'value':
+                  '{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}',
+            },
+            {
+              'key': 'depositCardIssue.city',
+              'value':
+                  '{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}',
+            },
+            {
+              'key': 'depositCardIssue.county',
+              'value':
+                  '{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}',
+            },
+            {
+              'key': 'depositCardIssue.mainStreet',
+              'value':
+                  '{{appStrings.generated.child_loan.child_loan_guarantee_address.street_city}}',
+            },
+            {
+              'key': 'depositCardIssue.subStreet',
+              'value':
+                  '{{appStrings.generated.child_loan.child_loan_guarantee_address.street_message}}',
+            },
             {'key': 'depositCardIssue.plaque', 'value': ''},
             {'key': 'depositCardIssue.unit', 'value': ''},
             {'key': 'depositCardIssue.hasCountyInput', 'value': true},
@@ -303,9 +373,21 @@ StacWidget _postalCodeRow() {
             {'key': 'depositCardIssue.hasSubStreetInput', 'value': true},
             {'key': 'depositCardIssue.hasPlaqueInput', 'value': false},
             {'key': 'depositCardIssue.hasUnitInput', 'value': false},
-            {'key': 'deposit_card_issue_county', 'value': 'تهران'},
-            {'key': 'deposit_card_issue_main_street', 'value': 'شهرک صدرا خیابان چهل و نهم'},
-            {'key': 'deposit_card_issue_sub_street', 'value': 'خیابان نصر پنجم'},
+            {
+              'key': 'deposit_card_issue_county',
+              'value':
+                  '{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}',
+            },
+            {
+              'key': 'deposit_card_issue_main_street',
+              'value':
+                  '{{appStrings.generated.child_loan.child_loan_guarantee_address.street_city}}',
+            },
+            {
+              'key': 'deposit_card_issue_sub_street',
+              'value':
+                  '{{appStrings.generated.child_loan.child_loan_guarantee_address.street_message}}',
+            },
             {'key': 'deposit_card_issue_plaque', 'value': ''},
             {'key': 'deposit_card_issue_unit', 'value': ''},
             {'key': 'depositCardIssue.isAddressFormComplete', 'value': false},
@@ -329,10 +411,7 @@ StacWidget _addressLabel(String label) {
   );
 }
 
-StacWidget _addressField({
-  required String valueKey,
-  required bool showClear,
-}) {
+StacWidget _addressField({required String valueKey, required bool showClear}) {
   return StacContainer(
     decoration: StacBoxDecoration(
       borderRadius: StacBorderRadius.all(12),
@@ -471,7 +550,7 @@ StacAction _continueAddressAction() {
           {
             'key': 'depositCardIssue.confirmAddressText',
             'value':
-                'استان {{depositCardIssue.province}}، شهر {{depositCardIssue.city}}، شهرستان {{depositCardIssue.county}}، خیابان اصلی {{depositCardIssue.mainStreet}}، خیابان فرعی {{depositCardIssue.subStreet}}، پلاک {{depositCardIssue.plaque}}، واحد {{depositCardIssue.unit}}',
+                '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.full_address_template_display}}',
           },
           {'key': 'depositCardIssue.continuePressed', 'value': true},
         ],
@@ -489,10 +568,7 @@ StacAction _continueAddressAction() {
             'type': 'container',
             'decoration': {
               'color': '{{appColors.current.background.surface}}',
-              'borderRadius': {
-                'topLeft': 24,
-                'topRight': 24,
-              },
+              'borderRadius': {'topLeft': 24, 'topRight': 24},
             },
             'child': {
               'type': 'padding',
@@ -517,7 +593,8 @@ StacAction _continueAddressAction() {
                   {'type': 'sizedBox', 'height': 26},
                   {
                     'type': 'text',
-                    'data': 'این آدرس را برای دریافت کارت تایید می‌کنید؟',
+                    'data':
+                        '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.confirm_address_receive_card}}',
                     'textDirection': 'rtl',
                     'textAlign': 'center',
                     'style': {
@@ -582,12 +659,14 @@ StacAction _continueAddressAction() {
                           },
                           'child': {
                             'type': 'text',
-                            'data': 'تایید آدرس',
+                            'data':
+                                '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.confirm_address}}',
                             'textDirection': 'rtl',
                             'style': {
                               'fontSize': 18,
                               'fontWeight': 'w700',
-                              'color': '{{appColors.current.primary.onPrimary}}',
+                              'color':
+                                  '{{appColors.current.primary.onPrimary}}',
                             },
                           },
                         },
@@ -604,7 +683,8 @@ StacAction _continueAddressAction() {
                           'style': {
                             'fixedSize': {'width': 999999, 'height': 50},
                             'side': {
-                              'color': '{{appColors.current.input.borderEnabled}}',
+                              'color':
+                                  '{{appColors.current.input.borderEnabled}}',
                               'width': 1,
                             },
                             'shape': {
@@ -619,7 +699,8 @@ StacAction _continueAddressAction() {
                           },
                           'child': {
                             'type': 'text',
-                            'data': 'اصلاح آدرس',
+                            'data':
+                                '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.address}}',
                             'textDirection': 'rtl',
                             'style': {
                               'fontSize': 18,
@@ -640,4 +721,3 @@ StacAction _continueAddressAction() {
     ],
   );
 }
-

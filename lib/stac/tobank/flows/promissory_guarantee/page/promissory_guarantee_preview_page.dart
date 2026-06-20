@@ -16,7 +16,7 @@ StacWidget promissoryGuaranteePreviewPage() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        title: 'نمایش سفته',
+        title: '{{appStrings.promissory.previewScreenTitle}}',
         showBack: true,
         showSupport: true,
       ),
@@ -56,7 +56,8 @@ StacWidget promissoryGuaranteePreviewPage() {
               onPressed: const StacCustomAction.fromJson({
                 'actionType': 'transferReceipt',
                 'mode': 'shareImage',
-                'title': 'سفته ضمانت',
+                'title':
+                    '{{appStrings.generated.promissory_guarantee.promissory_guarantee_preview_page.promissory_guarantee}}',
                 'pixelRatio': 3.0,
                 'boundaryKey': 'promissoryGuaranteePreviewContent',
               }),
@@ -68,7 +69,8 @@ StacWidget promissoryGuaranteePreviewPage() {
                 ),
               ),
               child: StacText(
-                data: 'ذخیره در گالری',
+                data:
+                    '{{appStrings.generated.charge.charge_payment_success.title}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacTextStyle(
                   fontSize: 18,
@@ -82,7 +84,8 @@ StacWidget promissoryGuaranteePreviewPage() {
               onPressed: const StacCustomAction.fromJson({
                 'actionType': 'transferReceipt',
                 'mode': 'shareImage',
-                'title': 'سفته ضمانت',
+                'title':
+                    '{{appStrings.generated.promissory_guarantee.promissory_guarantee_preview_page.promissory_guarantee}}',
                 'pixelRatio': 3.0,
                 'boundaryKey': 'promissoryGuaranteePreviewContent',
               }),
@@ -96,7 +99,8 @@ StacWidget promissoryGuaranteePreviewPage() {
                 ),
               ),
               child: StacText(
-                data: 'اشتراک‌گذاری',
+                data:
+                    '{{appStrings.generated.card_management.card_management_root.share}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacTextStyle(
                   fontSize: 18,

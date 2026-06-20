@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "کارت هدیه",
+      "data": "{{appStrings.homePage.services.giftCard}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -80,7 +80,7 @@
                 "type": "sizedBox"
               },
               {
-                "data": "شما کارتی خریداری نکرده‌اید",
+                "data": "{{appStrings.generated.gift_card.gift_card_intro.title}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.subtitle}}",
@@ -120,7 +120,8 @@
                       "continueAction": {
                         "actionType": "navigate",
                         "fileName": "gift_card_select_amount",
-                        "navMode": "dart",
+                        "navMode": "localJson",
+                        "pathOverride": "lib/stac/tobank/flows/gift_card/json/gift_card_select_amount.json",
                         "navigationStyle": "push"
                       }
                     },
@@ -172,7 +173,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "خرید کارت هدیه",
+                  "data": "{{appStrings.generated.gift_card.gift_card_intro.gift_card_buy}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.primary.onPrimary}}",

@@ -2,21 +2,21 @@
   "deposits": [
     {
       "id": "dep_001",
-      "title": "حساب جاری اصلی",
-      "depositNumber": "۱۲۳۴۵۶۷۸۹۰",
-      "shabaNumber": "IR۱۲۱۰۱۲۳۴۵۶۷۸۹۰۱۲۳۴۵۶۷۸۹۰۱"
+      "title": "{{appStrings.generated.promissory.request_promissory_deposit.account_main}}",
+      "depositNumber": "{{appStrings.generated.promissory.deposits_data.title}}",
+      "shabaNumber": "{{appStrings.generated.promissory.deposits_data.ir1210123456789012345678901}}"
     },
     {
       "id": "dep_002",
-      "title": "حساب پس‌انداز",
-      "depositNumber": "۰۹۸۷۶۵۰۴۳۲۱",
-      "shabaNumber": "IR۱۲۱۰۰۰۹۸۷۶۵۰۴۳۲۱۰۹۸۷۶۵۰۴۳۲۱۰"
+      "title": "{{appStrings.generated.promissory.request_promissory_deposit.account}}",
+      "depositNumber": "{{appStrings.generated.promissory.deposits_data.amount_value}}",
+      "shabaNumber": "{{appStrings.generated.promissory.deposits_data.ir1210009876504321098765043210}}"
     },
     {
       "id": "dep_003",
-      "title": "حساب قرض‌الحسنه",
-      "depositNumber": "۱۱۲۲۳۳۴۴۵۵",
-      "shabaNumber": "IR۱۲۱۰۱۱۲۲۳۳۴۴۵۵۰۱۱۲۲۳۳۴۴۵۵۶"
+      "title": "{{appStrings.generated.promissory.request_promissory_deposit.account_data}}",
+      "depositNumber": "{{appStrings.generated.promissory.deposits_data.amount_value_text}}",
+      "shabaNumber": "{{appStrings.generated.promissory.deposits_data.ir12101122334455011223344556}}"
     }
   ]
 }

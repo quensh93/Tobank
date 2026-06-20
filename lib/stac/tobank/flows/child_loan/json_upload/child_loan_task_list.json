@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "تسهیلات فرزندآوری",
+      "data": "{{appStrings.generated.child_loan.child_loan_customer_check.title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -91,7 +91,7 @@
                     "bottom": 16.0
                   },
                   "child": {
-                    "data": "اطلاعات محل سکونت متقاضی",
+                    "data": "{{appStrings.generated.cartable.cartable_detail.information_place}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -160,7 +160,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "در انتظار تکمیل",
+                              "data": "{{appStrings.generated.child_loan.child_loan_task_list.complete}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.secondary.color}}",
@@ -180,7 +180,7 @@
                           "textDirection": "rtl",
                           "children": [
                             {
-                              "data": "تکمیل",
+                              "data": "{{appStrings.generated.child_loan.child_loan_task_list.title}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -256,7 +256,7 @@
                     "bottom": 16.0
                   },
                   "child": {
-                    "data": "اطلاعات فرزند متقاضی",
+                    "data": "{{appStrings.generated.cartable.cartable_detail.information_child}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -325,7 +325,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "در انتظار تکمیل",
+                              "data": "{{appStrings.generated.child_loan.child_loan_task_list.complete}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.secondary.color}}",
@@ -345,7 +345,7 @@
                           "textDirection": "rtl",
                           "children": [
                             {
-                              "data": "تکمیل",
+                              "data": "{{appStrings.generated.child_loan.child_loan_task_list.title}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -421,7 +421,7 @@
                     "bottom": 16.0
                   },
                   "child": {
-                    "data": "مدارک متقاضی",
+                    "data": "{{appStrings.generated.cartable.cartable_detail.documents}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -490,7 +490,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "در انتظار تکمیل",
+                              "data": "{{appStrings.generated.child_loan.child_loan_task_list.complete}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.secondary.color}}",
@@ -510,7 +510,7 @@
                           "textDirection": "rtl",
                           "children": [
                             {
-                              "data": "تکمیل",
+                              "data": "{{appStrings.generated.child_loan.child_loan_task_list.title}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",

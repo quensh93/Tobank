@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "پرداخت اقساط خود",
+      "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -101,7 +101,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "مراجعه مستاجران حایز شرایط",
+                  "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.terms}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
@@ -117,7 +117,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "پرداخت بعدی: ۹ روز بعد",
+                  "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.next_payment_day}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.subtitle}}",
@@ -141,39 +141,39 @@
                         "values": [
                           {
                             "key": "loanDetail.appBarTitle",
-                            "value": "وام مراجعه مستاجران حایز شرایط"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.terms_loan}}"
                           },
                           {
                             "key": "loanDetail.approvedAmount",
-                            "value": "۱,۰۰۰,۰۰۰,۰۰۰ ریال"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.rial}}"
                           },
                           {
                             "key": "loanDetail.paidSummary",
-                            "value": "۴۰ از ۴۴ قسط پرداخت شده"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.payment}}"
                           },
                           {
                             "key": "loanDetail.settledAmount",
-                            "value": "۱,۱۱۷,۳۷۲,۰۰۰"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.amount_value}}"
                           },
                           {
                             "key": "loanDetail.debtAmount",
-                            "value": "۴۰۶,۲۳۳,۶۴۵"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.amount_value_text}}"
                           },
                           {
                             "key": "loanDetail.nextInstallmentTitle",
-                            "value": "قسط ۴۵"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.number_value_message}}"
                           },
                           {
                             "key": "loanDetail.nextInstallmentAmount",
-                            "value": "۲۵,۳۱۳,۰۰۰"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.amount_value_message}}"
                           },
                           {
                             "key": "loanDetail.settlementPayableAmount",
-                            "value": "۳۶۶,۹۶۳,۳۱۵"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.amount_value_label}}"
                           },
                           {
                             "key": "loanDetail.historyDate",
-                            "value": "۱۴۰۵/۰۳/۱۲"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.date_value}}"
                           },
                           {
                             "key": "loanDetail.progress",
@@ -185,7 +185,7 @@
                           },
                           {
                             "key": "loanDetail.totalInstallmentsLabel",
-                            "value": "۴۴"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.number_value_text}}"
                           },
                           {
                             "key": "loanDetail.paidInstallments",
@@ -197,7 +197,7 @@
                           },
                           {
                             "key": "loanDetail.remainingInstallmentsLabel",
-                            "value": "۴"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.number_value_item}}"
                           },
                           {
                             "key": "loanDetail.showUnpaidInstallments",
@@ -231,7 +231,7 @@
                     }
                   },
                   "child": {
-                    "data": "مشاهده جزئیات",
+                    "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.details}}",
                     "style": {
                       "type": "custom",
                       "fontSize": 16.0,
@@ -282,7 +282,7 @@
                       },
                       {
                         "child": {
-                          "data": "مهلت پرداخت بدون جریمه دیرکرد برای قسط ۴۵ تا پایان روز ۱۲ خرداد ۱۴۰۵ می‌باشد",
+                          "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.payment_until_day_description}}",
                           "style": {
                             "type": "custom",
                             "color": "#7A828F",
@@ -350,7 +350,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "قرض الحسنه طرح پارسا (۲ درصدی) - توبانک",
+                  "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.number_value}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
@@ -366,7 +366,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "پرداخت بعدی: ۲۰ روز بعد",
+                  "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.next_payment_day_message}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.subtitle}}",
@@ -390,39 +390,39 @@
                         "values": [
                           {
                             "key": "loanDetail.appBarTitle",
-                            "value": "وام قرض الحسنه طرح پارسا (۲ درصدی) - توبانک"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.loan}}"
                           },
                           {
                             "key": "loanDetail.approvedAmount",
-                            "value": "۷۵۰,۰۰۰,۰۰۰ ریال"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.rial_message}}"
                           },
                           {
                             "key": "loanDetail.paidSummary",
-                            "value": "۲۳ از ۳۶ قسط پرداخت شده"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.payment_message}}"
                           },
                           {
                             "key": "loanDetail.settledAmount",
-                            "value": "۸۴۱,۵۰۰,۰۰۰"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.amount_value_item}}"
                           },
                           {
                             "key": "loanDetail.debtAmount",
-                            "value": "۱۹۸,۵۰۰,۰۰۰"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.amount_value_alt}}"
                           },
                           {
                             "key": "loanDetail.nextInstallmentTitle",
-                            "value": "قسط ۱۳"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.number_value_label}}"
                           },
                           {
                             "key": "loanDetail.nextInstallmentAmount",
-                            "value": "۱۸,۴۸۰,۰۰۰"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.sample_amount_rial_option}}"
                           },
                           {
                             "key": "loanDetail.settlementPayableAmount",
-                            "value": "۱۸۱,۲۴۰,۰۰۰"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.sample_amount_rial}}"
                           },
                           {
                             "key": "loanDetail.historyDate",
-                            "value": "۱۴۰۵/۰۳/۲۳"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.date_value_text}}"
                           },
                           {
                             "key": "loanDetail.progress",
@@ -434,7 +434,7 @@
                           },
                           {
                             "key": "loanDetail.totalInstallmentsLabel",
-                            "value": "۳۶"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.number_value_alt}}"
                           },
                           {
                             "key": "loanDetail.paidInstallments",
@@ -446,7 +446,7 @@
                           },
                           {
                             "key": "loanDetail.remainingInstallmentsLabel",
-                            "value": "۱۳"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.remaining_installment_count}}"
                           },
                           {
                             "key": "loanDetail.showUnpaidInstallments",
@@ -480,7 +480,7 @@
                     }
                   },
                   "child": {
-                    "data": "مشاهده جزئیات",
+                    "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.details}}",
                     "style": {
                       "type": "custom",
                       "fontSize": 16.0,
@@ -531,7 +531,7 @@
                       },
                       {
                         "child": {
-                          "data": "مهلت پرداخت بدون جریمه دیرکرد برای قسط ۱۳ تا پایان روز ۲۳ خرداد ۱۴۰۵ می‌باشد",
+                          "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.payment_until_day_description_message}}",
                           "style": {
                             "type": "custom",
                             "color": "#7A828F",
@@ -599,7 +599,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "قرض الحسنه طرح پارسا (۲ درصدی) - توبانک",
+                  "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.number_value}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
@@ -615,7 +615,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "پرداخت بعدی: ۳۰ روز بعد",
+                  "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.next_payment_day_label}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.subtitle}}",
@@ -639,39 +639,39 @@
                         "values": [
                           {
                             "key": "loanDetail.appBarTitle",
-                            "value": "وام قرض الحسنه طرح پارسا (۲ درصدی) - توبانک"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.loan}}"
                           },
                           {
                             "key": "loanDetail.approvedAmount",
-                            "value": "۶۰۰,۰۰۰,۰۰۰ ریال"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.rial_label}}"
                           },
                           {
                             "key": "loanDetail.paidSummary",
-                            "value": "۱۸ از ۳۰ قسط پرداخت شده"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.payment_label}}"
                           },
                           {
                             "key": "loanDetail.settledAmount",
-                            "value": "۶۷۳,۲۰۰,۰۰۰"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.sample_amount_rial_message}}"
                           },
                           {
                             "key": "loanDetail.debtAmount",
-                            "value": "۱۵۶,۸۰۰,۰۰۰"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.sample_amount_rial_label}}"
                           },
                           {
                             "key": "loanDetail.nextInstallmentTitle",
-                            "value": "قسط ۱۲"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.number_value_description}}"
                           },
                           {
                             "key": "loanDetail.nextInstallmentAmount",
-                            "value": "۱۷,۳۰۰,۰۰۰"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.sample_amount_rial_sample}}"
                           },
                           {
                             "key": "loanDetail.settlementPayableAmount",
-                            "value": "۱۴۴,۳۷۰,۰۰۰"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.sample_amount_rial_theme}}"
                           },
                           {
                             "key": "loanDetail.historyDate",
-                            "value": "۱۴۰۵/۰۳/۲۷"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.date_value_label}}"
                           },
                           {
                             "key": "loanDetail.progress",
@@ -683,7 +683,7 @@
                           },
                           {
                             "key": "loanDetail.totalInstallmentsLabel",
-                            "value": "۳۰"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.paid_installment_count}}"
                           },
                           {
                             "key": "loanDetail.paidInstallments",
@@ -695,7 +695,7 @@
                           },
                           {
                             "key": "loanDetail.remainingInstallmentsLabel",
-                            "value": "۱۲"
+                            "value": "{{appStrings.generated.installment_payment.installment_payment_list_main.overdue_installment_count}}"
                           },
                           {
                             "key": "loanDetail.showUnpaidInstallments",
@@ -729,7 +729,7 @@
                     }
                   },
                   "child": {
-                    "data": "مشاهده جزئیات",
+                    "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.details}}",
                     "style": {
                       "type": "custom",
                       "fontSize": 16.0,
@@ -780,7 +780,7 @@
                       },
                       {
                         "child": {
-                          "data": "مهلت پرداخت بدون جریمه دیرکرد برای قسط ۱۲ تا پایان روز ۲۷ خرداد ۱۴۰۵ می‌باشد",
+                          "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.payment_until_day_description_label}}",
                           "style": {
                             "type": "custom",
                             "color": "#7A828F",

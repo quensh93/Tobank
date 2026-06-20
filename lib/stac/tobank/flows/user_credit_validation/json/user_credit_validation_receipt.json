@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "اعتبارسنجی",
+      "data": "{{appStrings.authentication.stepValidation}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -86,7 +86,7 @@
             "type": "sizedBox"
           },
           {
-            "data": "پرداخت موفق",
+            "data": "{{appStrings.promissory.paymentSuccessful}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.success.color}}",
@@ -102,7 +102,7 @@
             "type": "sizedBox"
           },
           {
-            "data": "عملیات پرداخت با موفقیت انجام شد",
+            "data": "{{appStrings.promissory.successfulMessage}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",
@@ -149,7 +149,7 @@
                     "children": [
                       {
                         "child": {
-                          "data": "مبلغ پرداخت",
+                          "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_receipt.amount_payment}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -168,7 +168,7 @@
                       },
                       {
                         "child": {
-                          "data": "۸۰,۰۰۰ ریال",
+                          "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_intro.rial}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -461,7 +461,7 @@
                     "children": [
                       {
                         "child": {
-                          "data": "تاریخ پرداخت",
+                          "data": "{{appStrings.promissory.payDate}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -480,7 +480,7 @@
                       },
                       {
                         "child": {
-                          "data": "۰۳ خرداد ۱۴۰۵ - ۱۰:۱۳",
+                          "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_receipt.amount_value}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -773,7 +773,7 @@
                     "children": [
                       {
                         "child": {
-                          "data": "کد پیگیری",
+                          "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_intro.code}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -792,7 +792,7 @@
                       },
                       {
                         "child": {
-                          "data": "۵۰۰۰ ۳۰۷۰ ۹۰۰۰ ۰۷۹۵ ۸۵۰۶",
+                          "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_receipt.card_number}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -1085,7 +1085,7 @@
                     "children": [
                       {
                         "child": {
-                          "data": "متقاضی",
+                          "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_intro.applicant_role}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -1104,7 +1104,7 @@
                       },
                       {
                         "child": {
-                          "data": "علیرضا حیدریان",
+                          "data": "{{appStrings.profile.real.destinations.depositItem2Title}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -1397,7 +1397,7 @@
                     "children": [
                       {
                         "child": {
-                          "data": "روش پرداخت",
+                          "data": "{{appStrings.promissory.paymentMethod}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -1416,7 +1416,7 @@
                       },
                       {
                         "child": {
-                          "data": "سپرده",
+                          "data": "{{appStrings.profile.real.destinations.tabDeposit}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -1482,7 +1482,7 @@
                     },
                     {
                       "child": {
-                        "data": "گزارش اعتبارسنجی",
+                        "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_intro.report_credit_validation}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -1545,7 +1545,7 @@
                       "onTap": {
                         "actionType": "transferReceipt",
                         "mode": "shareImage",
-                        "title": "گزارش اعتبارسنجی",
+                        "title": "{{appStrings.generated.user_credit_validation.user_credit_validation_intro.report_credit_validation}}",
                         "pixelRatio": 3.0,
                         "boundaryKey": "userCreditValidationReceiptContent"
                       },
@@ -1568,7 +1568,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "کاربر گرامی گزارش اعتبارسنجی شما در بخش گزارش‌ها نیز قابل مشاهده است",
+                  "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_receipt.user}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.subtitle}}",

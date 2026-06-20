@@ -25,7 +25,7 @@ StacWidget giftCardRealMessage() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: '???? ????',
+        title: '{{appStrings.homePage.services.giftCard}}',
       ),
       body: StacForm(
         child: StacColumn(
@@ -41,7 +41,7 @@ StacWidget giftCardRealMessage() {
                       textDirection: StacTextDirection.rtl,
                       children: [
                         StacText(
-                          data: '???? ????',
+                          data: '{{appStrings.homePage.services.giftCard}}',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.right,
                           style: StacCustomTextStyle(
@@ -86,7 +86,8 @@ StacWidget giftCardRealMessage() {
                         keyboardType: 'multiline',
                         textInputAction: 'newline',
                         decoration: StacInputDecoration(
-                          hintText: '??? ????????? ?? ??????? (?? ?? ???????)',
+                          hintText:
+                              '{{appStrings.generated.gift_card.gift_card_image_selector.custom_message_hint}}',
                           hintStyle: StacCustomTextStyle(
                             fontSize: 16,
                             fontWeight: StacFontWeight.w500,
@@ -129,7 +130,8 @@ StacWidget giftCardRealMessage() {
                       textDirection: StacTextDirection.rtl,
                       children: [
                         StacText(
-                          data: '??? ???\u200c??? ???????',
+                          data:
+                              '{{appStrings.generated.gift_card.gift_card_custom_message.default_replacement_text}}',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.right,
                           style: StacCustomTextStyle(
@@ -152,32 +154,36 @@ StacWidget giftCardRealMessage() {
                     ),
                     StacSizedBox(height: 14),
                     _buildPresetMessageCard(
-                      message: '????? ?????',
+                      message:
+                          '{{appStrings.generated.gift_card.gift_card_message.title}}',
                       selectedKey: 'giftCardRealMessageOption1Selected',
                       optionId: 1,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
-                      message: '?????? ????? ???? ?????',
+                      message:
+                          '{{appStrings.generated.gift_card.gift_card_message.birthday_message_sample}}',
                       selectedKey: 'giftCardRealMessageOption2Selected',
                       optionId: 2,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
                       message:
-                          '???? ?? ?? ?? ???? ????? ?????? ?? ?? ???? ? ??? ??',
+                          '{{appStrings.generated.gift_card.gift_card_message.birthday_joy_message}}',
                       selectedKey: 'giftCardRealMessageOption3Selected',
                       optionId: 3,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
-                      message: '?? ?????? ???? ??? ???? ???????? ???? ????',
+                      message:
+                          '{{appStrings.generated.gift_card.gift_card_message.birthday_daughter}}',
                       selectedKey: 'giftCardRealMessageOption4Selected',
                       optionId: 4,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
-                      message: '???????? ??????? ?? ?????? ??? ??????? ????',
+                      message:
+                          '{{appStrings.generated.gift_card.gift_card_message.heart}}',
                       selectedKey: 'giftCardRealMessageOption5Selected',
                       optionId: 5,
                     ),
@@ -236,7 +242,7 @@ StacWidget giftCardRealMessage() {
                   elevation: 0,
                 ).toJson(),
                 child: StacText(
-                  data: '?????',
+                  data: '{{appStrings.common.continue}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 18,
@@ -256,10 +262,11 @@ StacWidget giftCardRealMessage() {
 StacAction _giftCardMessageGuideBottomSheetAction() {
   return _proxyLegacyBottomSheetAction(const {
     'actionType': 'showGiftCardMessageGuideBottomSheet',
-    'title': '??????',
+    'title': '{{appStrings.authentication.guideLabel}}',
     'description':
-        '?? ???? ???? ??? ??????? ??? ?? ??????? ??????? ?? ?????? ???? ?? ?? ???? ??? ?????? ???? ?? ??? ?????? ???? ??? ??????? ??????? ?? ???',
-    'closeText': '????',
+        '{{appStrings.generated.gift_card.gift_card_message.select_login_text_until_bank_description}}',
+    'closeText':
+        '{{appStrings.generated.gift_card.gift_card_message.close_button}}',
   });
 }
 
@@ -278,7 +285,6 @@ StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
     ).toJson(),
   );
 }
-
 
 StacWidget _buildPresetMessageCard({
   required String message,
@@ -370,4 +376,3 @@ StacWidget _buildPresetMessageCard({
     ),
   );
 }
-

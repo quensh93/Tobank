@@ -6,8 +6,8 @@ import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 
 /// Postal code & address verification page.
-/// User enters postal code, clicks "استعلام" to look up the address,
-/// address section appears, then "تایید و ادامه" button becomes active.
+/// User enters postal code, clicks '{{appStrings.profile.real.bankInfo.inquiryButtonText}}' to look up the address,
+/// address section appears, then '{{appStrings.authentication.confirmAndContinue}}' button becomes active.
 @StacScreen(screenName: 'authentication_postal_code')
 StacWidget authenticationRealPostalCode() {
   return StacStatefulWidget(
@@ -107,7 +107,11 @@ StacWidget authenticationRealPostalCode() {
                       color: '{{appColors.current.primary.onPrimary}}',
                     ),
                   ).toJson(),
-                  'onPressed': NavigationAction(fileName: 'authentication_signature', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                  'onPressed': NavigationAction(
+                    fileName: 'authentication_signature',
+                    navMode: NavModes.dart,
+                    navigationStyle: NavigationStyle.push,
+                  ),
                 }),
               ),
             ],
@@ -118,7 +122,7 @@ StacWidget authenticationRealPostalCode() {
   );
 }
 
-/// Postal code label + text field + "استعلام" button
+/// Postal code label + text field + '{{appStrings.profile.real.bankInfo.inquiryButtonText}}' button
 StacWidget _buildPostalCodeSection() {
   return StacColumn(
     crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -218,7 +222,7 @@ StacWidget _buildPostalCodeSection() {
             ),
           ),
           StacSizedBox(width: 10),
-          // "استعلام" button
+          // '{{appStrings.profile.real.bankInfo.inquiryButtonText}}' button
           StacRawJsonWidget({
             'type': 'reactiveElevatedButton',
             'enabledKey': 'isPostalCodeComplete',
@@ -266,7 +270,7 @@ StacWidget _buildPostalCodeSection() {
                     {
                       'key': 'postalAddress',
                       'value':
-                          'استان تهران، شهرستان تهران، بخش مرکزی، شهر تهران، محله اختیاریه، خیابان شهید محمدعلی سنجابی، کوچه حسینیه،',
+                          '{{appStrings.generated.authentication.authentication_postal_code.county_street_province_city_description}}',
                     },
                     {'key': 'hasPostalAddress', 'value': true},
                     {'key': 'isPostalLoading', 'value': false},
@@ -281,7 +285,7 @@ StacWidget _buildPostalCodeSection() {
   );
 }
 
-/// Address section - shown after "استعلام" is clicked
+/// Address section - shown after '{{appStrings.profile.real.bankInfo.inquiryButtonText}}' is clicked
 StacWidget _buildAddressSection() {
   return StacRawJsonWidget({
     'type': 'visibility',
@@ -357,4 +361,3 @@ StacWidget _buildAddressSection() {
     ).toJson(),
   });
 }
-

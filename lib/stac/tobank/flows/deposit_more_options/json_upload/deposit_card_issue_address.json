@@ -94,7 +94,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "آدرس دریافت کارت بانکی",
+        "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -141,7 +141,7 @@
           "crossAxisAlignment": "stretch",
           "children": [
             {
-              "data": "کد پستی محل سکونت",
+              "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.postal_code_place}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
@@ -166,7 +166,7 @@
                     "textDirection": "rtl",
                     "textAlign": "right",
                     "decoration": {
-                      "hintText": "کد پستی محل سکونت را وارد کنید",
+                      "hintText": "{{appStrings.profile.real.bankInfo.postalCodeHint}}",
                       "hintStyle": {
                         "type": "custom",
                         "color": "{{appColors.current.text.hint}}",
@@ -404,7 +404,7 @@
                     }
                   },
                   "child": {
-                    "data": "استعلام",
+                    "data": "{{appStrings.profile.real.bankInfo.inquiryButtonText}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.primary.onPrimary}}",
@@ -423,23 +423,23 @@
                       },
                       {
                         "key": "depositCardIssue.province",
-                        "value": "تهران"
+                        "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}"
                       },
                       {
                         "key": "depositCardIssue.city",
-                        "value": "تهران"
+                        "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}"
                       },
                       {
                         "key": "depositCardIssue.county",
-                        "value": "تهران"
+                        "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}"
                       },
                       {
                         "key": "depositCardIssue.mainStreet",
-                        "value": "شهرک صدرا خیابان چهل و نهم"
+                        "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street_city}}"
                       },
                       {
                         "key": "depositCardIssue.subStreet",
-                        "value": "خیابان نصر پنجم"
+                        "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street_message}}"
                       },
                       {
                         "key": "depositCardIssue.plaque",
@@ -471,15 +471,15 @@
                       },
                       {
                         "key": "deposit_card_issue_county",
-                        "value": "تهران"
+                        "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.sample_city}}"
                       },
                       {
                         "key": "deposit_card_issue_main_street",
-                        "value": "شهرک صدرا خیابان چهل و نهم"
+                        "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street_city}}"
                       },
                       {
                         "key": "deposit_card_issue_sub_street",
-                        "value": "خیابان نصر پنجم"
+                        "value": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street_message}}"
                       },
                       {
                         "key": "deposit_card_issue_plaque",
@@ -510,7 +510,7 @@
                 "crossAxisAlignment": "stretch",
                 "children": [
                   {
-                    "data": "استان",
+                    "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.province}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -593,7 +593,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "شهر",
+                    "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.city}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -676,7 +676,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "شهرستان",
+                    "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.county}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -697,7 +697,7 @@
                     "textDirection": "rtl",
                     "textAlign": "right",
                     "decoration": {
-                      "hintText": "مقدار شهرستان را وارد نمایید",
+                      "hintText": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.county_enter}}",
                       "hintStyle": {
                         "type": "custom",
                         "color": "{{appColors.current.text.hint}}",
@@ -834,7 +834,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "خیابان اصلی",
+                    "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street_main}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -855,7 +855,7 @@
                     "textDirection": "rtl",
                     "textAlign": "right",
                     "decoration": {
-                      "hintText": "خیابان اصلی خود را وارد نمایید",
+                      "hintText": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.street_main_enter}}",
                       "hintStyle": {
                         "type": "custom",
                         "color": "{{appColors.current.text.hint}}",
@@ -992,7 +992,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "خیابان فرعی",
+                    "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.street}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -1013,7 +1013,7 @@
                     "textDirection": "rtl",
                     "textAlign": "right",
                     "decoration": {
-                      "hintText": "خیابان فرعی خود را وارد نمایید",
+                      "hintText": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.street_enter}}",
                       "hintStyle": {
                         "type": "custom",
                         "color": "{{appColors.current.text.hint}}",
@@ -1150,7 +1150,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "پلاک",
+                    "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.plaque}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -1171,7 +1171,7 @@
                     "textDirection": "rtl",
                     "textAlign": "right",
                     "decoration": {
-                      "hintText": "پلاک خود را وارد نمایید",
+                      "hintText": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.plaque_enter}}",
                       "hintStyle": {
                         "type": "custom",
                         "color": "{{appColors.current.text.hint}}",
@@ -1309,7 +1309,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "واحد",
+                    "data": "{{appStrings.generated.child_loan.child_loan_guarantee_address.unit}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -1330,7 +1330,7 @@
                     "textDirection": "rtl",
                     "textAlign": "right",
                     "decoration": {
-                      "hintText": "واحد خود را وارد نمایید",
+                      "hintText": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.unit_enter}}",
                       "hintStyle": {
                         "type": "custom",
                         "color": "{{appColors.current.text.hint}}",
@@ -1508,7 +1508,7 @@
                       }
                     },
                     "child": {
-                      "data": "ادامه",
+                      "data": "{{appStrings.common.continue}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -1526,7 +1526,7 @@
                           "values": [
                             {
                               "key": "depositCardIssue.confirmAddressText",
-                              "value": "استان __STAC_OPEN__depositCardIssue.province}}، شهر __STAC_OPEN__depositCardIssue.city}}، شهرستان __STAC_OPEN__depositCardIssue.county}}، خیابان اصلی __STAC_OPEN__depositCardIssue.mainStreet}}، خیابان فرعی __STAC_OPEN__depositCardIssue.subStreet}}، پلاک __STAC_OPEN__depositCardIssue.plaque}}، واحد __STAC_OPEN__depositCardIssue.unit}}"
+                              "value": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.full_address_template}}"
                             },
                             {
                               "key": "depositCardIssue.continuePressed",
@@ -1543,7 +1543,7 @@
                             "child": {
                               "type": "container",
                               "decoration": {
-                                "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                "color": "{{appColors.current.background.surface}}",
                                 "borderRadius": {
                                   "topLeft": 24,
                                   "topRight": 24
@@ -1569,7 +1569,7 @@
                                         "width": 44,
                                         "height": 5,
                                         "decoration": {
-                                          "color": "__STAC_OPEN__appColors.current.text.disabled}}",
+                                          "color": "{{appColors.current.text.disabled}}",
                                           "borderRadius": {
                                             "all": 999
                                           }
@@ -1582,13 +1582,13 @@
                                     },
                                     {
                                       "type": "text",
-                                      "data": "این آدرس را برای دریافت کارت تایید می‌کنید؟",
+                                      "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.confirm_address_receive_card}}",
                                       "textDirection": "rtl",
                                       "textAlign": "center",
                                       "style": {
                                         "fontSize": 20,
                                         "fontWeight": "w700",
-                                        "color": "__STAC_OPEN__appColors.current.text.title}}"
+                                        "color": "{{appColors.current.text.title}}"
                                       }
                                     },
                                     {
@@ -1597,13 +1597,13 @@
                                     },
                                     {
                                       "type": "text",
-                                      "data": "__STAC_OPEN__depositCardIssue.confirmAddressText}}",
+                                      "data": "{{depositCardIssue.confirmAddressText}}",
                                       "textDirection": "rtl",
                                       "textAlign": "center",
                                       "style": {
                                         "fontSize": 16,
                                         "fontWeight": "w500",
-                                        "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                        "color": "{{appColors.current.text.title}}",
                                         "height": 1.8
                                       }
                                     },
@@ -1635,8 +1635,8 @@
                                               ]
                                             },
                                             "style": {
-                                              "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
-                                              "foregroundColor": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                              "backgroundColor": "{{appColors.current.primary.color}}",
+                                              "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                                               "fixedSize": {
                                                 "width": 999999,
                                                 "height": 50
@@ -1654,12 +1654,12 @@
                                             },
                                             "child": {
                                               "type": "text",
-                                              "data": "تایید آدرس",
+                                              "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.confirm_address}}",
                                               "textDirection": "rtl",
                                               "style": {
                                                 "fontSize": 18,
                                                 "fontWeight": "w700",
-                                                "color": "__STAC_OPEN__appColors.current.primary.onPrimary}}"
+                                                "color": "{{appColors.current.primary.onPrimary}}"
                                               }
                                             }
                                           }
@@ -1682,7 +1682,7 @@
                                                 "height": 50
                                               },
                                               "side": {
-                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                 "width": 1
                                               },
                                               "shape": {
@@ -1697,12 +1697,12 @@
                                             },
                                             "child": {
                                               "type": "text",
-                                              "data": "اصلاح آدرس",
+                                              "data": "{{appStrings.generated.deposit_more_options.deposit_card_issue_address.address}}",
                                               "textDirection": "rtl",
                                               "style": {
                                                 "fontSize": 18,
                                                 "fontWeight": "w600",
-                                                "color": "__STAC_OPEN__appColors.current.text.title}}"
+                                                "color": "{{appColors.current.text.title}}"
                                               }
                                             }
                                           }

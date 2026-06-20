@@ -19,7 +19,8 @@ StacWidget childLoanChildCheckScreen() {
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
-        title: 'بارگذاری اطلاعات هویتی فرزند',
+        title:
+            '{{appStrings.generated.child_loan.child_loan_child_check.title}}',
         showBack: true,
         showSupport: true,
       ),
@@ -29,11 +30,13 @@ StacWidget childLoanChildCheckScreen() {
           child: StacColumn(
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
             children: [
-              _title('اطلاعات هویتی فرزند'),
+              _title(
+                '{{appStrings.generated.child_loan.child_loan_child_check.information_child}}',
+              ),
               StacSizedBox(height: 16),
               StacText(
                 data:
-                    'کاربر گرامی، لطفا تصویر تمامی صفحات شناسنامه فرزند خود را بارگذاری نمایید.',
+                    '{{appStrings.generated.child_loan.child_loan_child_check.upload_child_image_user}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacTextStyle(
@@ -45,21 +48,24 @@ StacWidget childLoanChildCheckScreen() {
               ),
               StacSizedBox(height: 20),
               _documentPickerCard(
-                title: 'صفحه اول و دوم شناسنامه',
+                title:
+                    '{{appStrings.generated.child_loan.child_loan_child_check.page}}',
                 hasImageKey: 'childLoanDoc1HasImage',
                 imageKey: 'childLoanDoc1Image',
                 imageNameKey: 'childLoanDoc1ImageName',
               ),
               StacSizedBox(height: 16),
               _documentPickerCard(
-                title: 'صفحه سوم و چهارم شناسنامه',
+                title:
+                    '{{appStrings.generated.child_loan.child_loan_child_check.page_text}}',
                 hasImageKey: 'childLoanDoc2HasImage',
                 imageKey: 'childLoanDoc2Image',
                 imageNameKey: 'childLoanDoc2ImageName',
               ),
               StacSizedBox(height: 16),
               _documentPickerCard(
-                title: 'صفحه پنجم و ششم شناسنامه',
+                title:
+                    '{{appStrings.generated.child_loan.child_loan_child_check.page_label}}',
                 hasImageKey: 'childLoanDoc3HasImage',
                 imageKey: 'childLoanDoc3Image',
                 imageNameKey: 'childLoanDoc3ImageName',
@@ -167,7 +173,7 @@ StacWidget _documentSourceRow({
     mainAxisAlignment: StacMainAxisAlignment.spaceEvenly,
     children: [
       _pickerAction(
-        title: 'دوربین',
+        title: '{{appStrings.authentication.cameraLabel}}',
         iconPath: '{{appAssets.icons.cameraCurrent}}',
         source: 'camera',
         hasImageKey: hasImageKey,
@@ -180,7 +186,7 @@ StacWidget _documentSourceRow({
         color: '{{appColors.current.input.borderEnabled}}',
       ),
       _pickerAction(
-        title: 'گالری',
+        title: '{{appStrings.authentication.galleryLabel}}',
         iconPath: '{{appAssets.icons.galleryCurrent}}',
         source: 'gallery',
         hasImageKey: hasImageKey,
@@ -316,7 +322,8 @@ StacWidget _uploadSuccessChip() {
         ),
         StacSizedBox(width: 6),
         StacText(
-          data: 'بارگذاری موفق',
+          data:
+              '{{appStrings.generated.child_loan.child_loan_child_check.upload_success}}',
           textDirection: StacTextDirection.rtl,
           style: StacTextStyle(
             fontSize: 12,
@@ -357,7 +364,8 @@ StacWidget _deleteDocumentButton({
         ),
         StacSizedBox(width: 6),
         StacText(
-          data: 'حذف',
+          data:
+              '{{appStrings.generated.authentication.authentication_selfie.delete}}',
           textDirection: StacTextDirection.rtl,
           style: StacTextStyle(
             fontSize: 13,
@@ -388,8 +396,9 @@ StacWidget _nextButton() {
   return StacCustomReactiveElevatedButton(
     enabledKey: 'childLoanChildCheckNextEnabled',
     onPressed: const StacFingerPrintAction(
-      title: 'احراز هویت',
-      description: 'لطفا برای ادامه از اثر انگشت استفاده کنید',
+      title: '{{appStrings.menu.items.authentication}}',
+      description:
+          '{{appStrings.generated.child_loan.child_loan_child_check.continue}}',
       onSuccess: {
         'actionType': 'sequence',
         'actions': [
@@ -400,8 +409,9 @@ StacWidget _nextButton() {
           },
           {
             'actionType': 'customSnackBar',
-            'title': 'ثبت',
-            'detail': 'مرحله با موفقیت ثبت شد',
+            'title': '{{appStrings.profile.real.destinations.submitTitle}}',
+            'detail':
+                '{{appStrings.generated.child_loan.child_loan_child_check.successfully_submit}}',
             'duration': 1800,
           },
           {'actionType': 'navigate', 'navigationStyle': 'pop'},
@@ -415,7 +425,7 @@ StacWidget _nextButton() {
       shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(14)),
     ).toJson(),
     child: StacText(
-      data: 'ثبت',
+      data: '{{appStrings.profile.real.destinations.submitTitle}}',
       textDirection: StacTextDirection.rtl,
       style: StacTextStyle(
         fontSize: 22,

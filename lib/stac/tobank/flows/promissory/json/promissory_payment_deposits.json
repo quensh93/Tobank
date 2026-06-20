@@ -897,17 +897,17 @@
                     },
                     {
                       "key": "payload.recipientBirthDate",
-                      "value": "__STAC_OPEN__replace(receiver.birthDate, '/', '')}}",
+                      "value": "{{replace(receiver.birthDate, '/', '')}}",
                       "condition": "recipientType"
                     },
                     {
                       "key": "payload.recipientNationalId",
-                      "value": "__STAC_OPEN__receiver.nationalCode}}",
+                      "value": "{{receiver.nationalCode}}",
                       "condition": "recipientType"
                     },
                     {
                       "key": "payload.recipientCellphone",
-                      "value": "__STAC_OPEN__removeLeadingZero(receiver.mobile)}}",
+                      "value": "{{removeLeadingZero(receiver.mobile)}}",
                       "condition": "recipientType"
                     },
                     {
@@ -921,12 +921,12 @@
                     },
                     {
                       "key": "payload.recipientNationalId",
-                      "value": "__STAC_OPEN__receiverIdentity.nationalId}}",
+                      "value": "{{receiverIdentity.nationalId}}",
                       "condition": "!recipientType"
                     },
                     {
                       "key": "payload.recipientCellphone",
-                      "value": "__STAC_OPEN__receiverIdentity.phone}}",
+                      "value": "{{receiverIdentity.phone}}",
                       "condition": "!recipientType"
                     }
                   ]
@@ -937,29 +937,29 @@
                   "method": "post",
                   "data": {
                     "issuerType": "I",
-                    "sourceAccount": "__STAC_OPEN__selectedDeposit.depositNumber}}",
-                    "issuerBirthDate": "__STAC_OPEN__replace(userData.birthDate, '/', '')}}",
-                    "issuerNN": "__STAC_OPEN__userData.nationalCode}}",
+                    "sourceAccount": "{{selectedDeposit.depositNumber}}",
+                    "issuerBirthDate": "{{replace(userData.birthDate, '/', '')}}",
+                    "issuerNN": "{{userData.nationalCode}}",
                     "issuerSanaCheck": true,
-                    "issuerCellphone": "__STAC_OPEN__removeLeadingZero(userData.mobile)}}",
-                    "issuerFullName": "__STAC_OPEN__userData.fullName}}",
-                    "issuerAccountNumber": "__STAC_OPEN__selectedDeposit.depositIban}}",
-                    "issuerAddress": "__STAC_OPEN__userData.address}}",
-                    "issuerPostalCode": "__STAC_OPEN__userData.postalCode}}",
-                    "recipientType": "__STAC_OPEN__payload.recipientType}}",
-                    "recipientBirthDate": "__STAC_OPEN__payload.recipientBirthDate}}",
-                    "recipientNationalId": "__STAC_OPEN__payload.recipientNationalId}}",
-                    "recipientCellphone": "__STAC_OPEN__payload.recipientCellphone}}",
-                    "recipientFullName": "__STAC_OPEN__receiverIdentity.fullName}}",
-                    "paymentPlace": "__STAC_OPEN__form.paymentPlace}}",
-                    "amount": "__STAC_OPEN__toInt(form.promissory_amount)}}",
-                    "dueDate": "__STAC_OPEN__replace(form.promissory_due_date, '/', '')}}",
-                    "description": "__STAC_OPEN__form.description}}",
-                    "transferable": "__STAC_OPEN__form.transferable}}"
+                    "issuerCellphone": "{{removeLeadingZero(userData.mobile)}}",
+                    "issuerFullName": "{{userData.fullName}}",
+                    "issuerAccountNumber": "{{selectedDeposit.depositIban}}",
+                    "issuerAddress": "{{userData.address}}",
+                    "issuerPostalCode": "{{userData.postalCode}}",
+                    "recipientType": "{{payload.recipientType}}",
+                    "recipientBirthDate": "{{payload.recipientBirthDate}}",
+                    "recipientNationalId": "{{payload.recipientNationalId}}",
+                    "recipientCellphone": "{{payload.recipientCellphone}}",
+                    "recipientFullName": "{{receiverIdentity.fullName}}",
+                    "paymentPlace": "{{form.paymentPlace}}",
+                    "amount": "{{toInt(form.promissory_amount)}}",
+                    "dueDate": "{{replace(form.promissory_due_date, '/', '')}}",
+                    "description": "{{form.description}}",
+                    "transferable": "{{form.transferable}}"
                   },
                   "headers": {
                     "accept": "application/json",
-                    "authorization": "__STAC_OPEN__auth.accessToken}}",
+                    "authorization": "{{auth.accessToken}}",
                     "content-type": "application/json"
                   },
                   "results": [
@@ -981,15 +981,15 @@
                               },
                               {
                                 "key": "form.unsigned_pdf_id",
-                                "value": "__STAC_OPEN__data_payload.unSignedPdfId}}"
+                                "value": "{{data_payload.unSignedPdfId}}"
                               },
                               {
                                 "key": "form.promissory_id",
-                                "value": "__STAC_OPEN__data_payload.id}}"
+                                "value": "{{data_payload.id}}"
                               },
                               {
                                 "key": "rawTransactionTime",
-                                "value": "__STAC_OPEN__data.meta.time}}"
+                                "value": "{{data.meta.time}}"
                               }
                             ]
                           },
@@ -1034,7 +1034,7 @@
                             "child": {
                               "type": "container",
                               "decoration": {
-                                "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                "color": "{{appColors.current.background.surfaceContainer}}",
                                 "borderRadius": {
                                   "topLeft": 8,
                                   "topRight": 8,
@@ -1042,7 +1042,7 @@
                                   "bottomRight": 8
                                 },
                                 "border": {
-                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                  "color": "{{appColors.current.input.borderEnabled}}",
                                   "width": 1
                                 }
                               },
@@ -1066,14 +1066,14 @@
                                       "children": [
                                         {
                                           "type": "text",
-                                          "data": "خطا",
+                                          "data": "{{appStrings.common.error}}",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 14,
                                             "fontWeight": "w700",
-                                            "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                            "color": "{{appColors.current.text.title}}",
                                             "height": 1.45
                                           }
                                         },
@@ -1083,14 +1083,14 @@
                                         },
                                         {
                                           "type": "text",
-                                          "data": "__STAC_OPEN__data.status.message.0}}",
+                                          "data": "{{data.status.message.0}}",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 13,
                                             "fontWeight": "w500",
-                                            "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                            "color": "{{appColors.current.text.subtitle}}",
                                             "height": 1.45
                                           }
                                         }
@@ -1106,7 +1106,7 @@
                                     "width": 1,
                                     "height": 20,
                                     "decoration": {
-                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "color": "{{appColors.current.input.borderEnabled}}",
                                       "borderRadius": {
                                         "topLeft": 999,
                                         "topRight": 999,
@@ -1125,7 +1125,7 @@
                                     "imageType": "asset",
                                     "width": 20,
                                     "height": 20,
-                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                    "color": "{{appColors.current.text.subtitle}}"
                                   }
                                 ]
                               }
@@ -1161,7 +1161,7 @@
                             "child": {
                               "type": "container",
                               "decoration": {
-                                "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                "color": "{{appColors.current.background.surfaceContainer}}",
                                 "borderRadius": {
                                   "topLeft": 8,
                                   "topRight": 8,
@@ -1169,7 +1169,7 @@
                                   "bottomRight": 8
                                 },
                                 "border": {
-                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                  "color": "{{appColors.current.input.borderEnabled}}",
                                   "width": 1
                                 }
                               },
@@ -1193,14 +1193,14 @@
                                       "children": [
                                         {
                                           "type": "text",
-                                          "data": "خطا",
+                                          "data": "{{appStrings.common.error}}",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 14,
                                             "fontWeight": "w700",
-                                            "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                            "color": "{{appColors.current.text.title}}",
                                             "height": 1.45
                                           }
                                         },
@@ -1210,14 +1210,14 @@
                                         },
                                         {
                                           "type": "text",
-                                          "data": "__STAC_OPEN__data.status.message.0}}",
+                                          "data": "{{data.status.message.0}}",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 13,
                                             "fontWeight": "w500",
-                                            "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                            "color": "{{appColors.current.text.subtitle}}",
                                             "height": 1.45
                                           }
                                         }
@@ -1233,7 +1233,7 @@
                                     "width": 1,
                                     "height": 20,
                                     "decoration": {
-                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "color": "{{appColors.current.input.borderEnabled}}",
                                       "borderRadius": {
                                         "topLeft": 999,
                                         "topRight": 999,
@@ -1252,7 +1252,7 @@
                                     "imageType": "asset",
                                     "width": 20,
                                     "height": 20,
-                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                    "color": "{{appColors.current.text.subtitle}}"
                                   }
                                 ]
                               }

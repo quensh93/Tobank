@@ -5,7 +5,8 @@ StacWidget biometricTestMenu() {
   return StacScaffold(
     appBar: StacAppBar(
       title: StacText(
-        data: 'تست بیومتریک',
+        data:
+            '{{appStrings.generated.biometric_test.biometric_test_menu.title}}',
         textDirection: StacTextDirection.rtl,
         style: StacCustomTextStyle(
           fontSize: 18,
@@ -34,9 +35,10 @@ StacWidget biometricTestMenu() {
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
           children: [
             _buildActionButton(
-              title: 'بررسی در دسترس بودن بیومتریک',
+              title:
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.availability_check_title}}',
               description:
-                  'فقط بررسی می‌کند که این پلتفرم اصولا امکان استفاده از بیومتریک یا Passkey را دارد یا نه.',
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.passkey}}',
               action: const StacAction(
                 jsonData: {
                   'actionType': 'biometricDebug',
@@ -46,9 +48,10 @@ StacWidget biometricTestMenu() {
             ),
             StacSizedBox(height: 12),
             _buildActionButton(
-              title: 'بررسی وضعیت ثبت بیومتریک',
+              title:
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.status_submit}}',
               description:
-                  'وضعیت ثبت فعلی را نشان می‌دهد و مشخص می‌کند ماژول از قبل برای کاربر فعال شده است یا نه.',
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.status_active_current_submit_user}}',
               action: const StacAction(
                 jsonData: {
                   'actionType': 'biometricDebug',
@@ -58,9 +61,10 @@ StacWidget biometricTestMenu() {
             ),
             StacSizedBox(height: 12),
             _buildActionButton(
-              title: 'بررسی وضعیت Passkey',
+              title:
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.status_passkey}}',
               description:
-                  'فقط وجود Credential واقعی WebAuthn/Passkey را چک می‌کند و Password fallback را حساب نمی‌کند.',
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.account_credential_real_web_authn}}',
               action: const StacAction(
                 jsonData: {
                   'actionType': 'biometricDebug',
@@ -70,24 +74,28 @@ StacWidget biometricTestMenu() {
             ),
             StacSizedBox(height: 12),
             _buildActionButton(
-              title: 'ایجاد Credential بیومتریک',
+              title:
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.credential}}',
               description:
-                  'مسیر اصلی ساخت Credential جدید برای کاربر. این مسیر فقط ثبت می‌کند و احراز هویت اجرایی انجام نمی‌دهد.',
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.authentication_new_main_credential_user}}',
               action: const StacAction(
                 jsonData: {
                   'actionType': 'biometricRegister',
-                  'title': 'ایجاد Credential بیومتریک',
+                  'title':
+                      '{{appStrings.generated.biometric_test.biometric_test_menu.credential}}',
                   'description':
-                      'این مسیر فقط Credential را ایجاد می‌کند و احراز هویت انجام نمی‌دهد.',
+                      '{{appStrings.generated.biometric_test.biometric_test_menu.authentication_credential}}',
                   'userId': 'biometric_test_user',
                   'passkeyOnly': true,
                   'onSuccess': {
                     'actionType': 'customSnackBar',
-                    'message': 'Credential بیومتریک ایجاد شد',
+                    'message':
+                        '{{appStrings.generated.biometric_test.biometric_test_menu.credential_text}}',
                   },
                   'onFailure': {
                     'actionType': 'customSnackBar',
-                    'message': 'ایجاد Credential بیومتریک ناموفق بود',
+                    'message':
+                        '{{appStrings.generated.biometric_test.biometric_test_menu.failed_credential}}',
                     'backgroundColor': '#B00020',
                   },
                 },
@@ -95,9 +103,10 @@ StacWidget biometricTestMenu() {
             ),
             StacSizedBox(height: 12),
             _buildActionButton(
-              title: 'ایجاد Credential بیومتریک (گزارش دیباگ)',
+              title:
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.credential_debug}}',
               description:
-                  'همان ثبت Credential است، با این تفاوت که نتیجه را در دیالوگ جزئیات‌دار برای تست سریع‌تر نشان می‌دهد.',
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.details_submit_credential_result}}',
               action: const StacAction(
                 jsonData: {
                   'actionType': 'biometricDebug',
@@ -108,9 +117,10 @@ StacWidget biometricTestMenu() {
             ),
             StacSizedBox(height: 12),
             _buildActionButton(
-              title: 'احراز هویت سرویسی (بدون ایجاد)',
+              title:
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.authentication}}',
               description:
-                  'فقط مسیر authenticate سرویس را صدا می‌زند. اگر چیزی ثبت نشده باشد، نباید Credential جدید بسازد.',
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.new_authenticate_submit_credential}}',
               action: const StacAction(
                 jsonData: {
                   'actionType': 'biometricDebug',
@@ -122,23 +132,27 @@ StacWidget biometricTestMenu() {
             ),
             StacSizedBox(height: 12),
             _buildActionButton(
-              title: 'احراز هویت با fingerPrint (بدون ایجاد)',
+              title:
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.authentication_finger_print}}',
               description:
-                  'همان اکشن اصلی STAC را تست می‌کند. این مسیر باید فقط احراز هویت کند و ثبت جدید انجام ندهد.',
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.authentication_new_main_stac_submit}}',
               action: const StacAction(
                 jsonData: {
                   'actionType': 'fingerPrint',
-                  'title': 'تست بیومتریک',
+                  'title':
+                      '{{appStrings.generated.biometric_test.biometric_test_menu.title}}',
                   'description':
-                      'برای ادامه، فقط احراز هویت انجام می‌شود و Credential جدید ساخته نمی‌شود.',
+                      '{{appStrings.generated.biometric_test.biometric_test_menu.authentication_continue_new_credential}}',
                   'userId': 'biometric_test_user',
                   'onSuccess': {
                     'actionType': 'customSnackBar',
-                    'message': 'احراز هویت موفق بود',
+                    'message':
+                        '{{appStrings.generated.biometric_test.biometric_test_menu.authentication_success}}',
                   },
                   'onFailure': {
                     'actionType': 'customSnackBar',
-                    'message': 'احراز هویت ناموفق بود یا لغو شد',
+                    'message':
+                        '{{appStrings.generated.biometric_test.biometric_test_menu.authentication_failed_cancel}}',
                     'backgroundColor': '#B00020',
                   },
                 },
@@ -146,9 +160,10 @@ StacWidget biometricTestMenu() {
             ),
             StacSizedBox(height: 12),
             _buildActionButton(
-              title: 'حذف Credential وب',
+              title:
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.delete_credential}}',
               description:
-                  'Credential ذخیره‌شده وب را پاک می‌کند تا بتوانی سناریوهای ثبت مجدد و عدم ثبت را تست کنی.',
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.save_credential_until_submit_again}}',
               action: const StacAction(
                 jsonData: {
                   'actionType': 'biometricDebug',
@@ -158,9 +173,10 @@ StacWidget biometricTestMenu() {
             ),
             StacSizedBox(height: 12),
             _buildActionButton(
-              title: 'تست لاگر بیومتریک',
+              title:
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.biometric}}',
               description:
-                  'چند لاگ نمونه از ماژول بیومتریک تولید می‌کند تا رفتار لاگر و ردیابی رویدادها بررسی شود.',
+                  '{{appStrings.generated.biometric_test.biometric_test_menu.until}}',
               action: const StacAction(
                 jsonData: {
                   'actionType': 'biometricDebug',

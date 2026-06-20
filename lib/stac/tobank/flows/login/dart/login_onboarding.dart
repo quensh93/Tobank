@@ -41,7 +41,11 @@ StacWidget loginOnboarding() {
             image: '{{appAssets.onboarding.page4}}',
           ),
         ],
-        onFinish: NavigationAction(fileName: 'login_form_dart', navMode: NavModes.dart, navigationStyle: NavigationStyle.push).toJson(),
+        onFinish: NavigationAction(
+          fileName: 'login_form_dart',
+          navMode: NavModes.dart,
+          navigationStyle: NavigationStyle.push,
+        ).toJson(),
       ),
     ),
   );

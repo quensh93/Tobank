@@ -8,22 +8,7 @@ const bool _showCardIssueByFlag = true;
 @StacScreen(screenName: 'deposit_more_options_intro')
 StacWidget depositMoreOptionsIntro() {
   return StacStatefulWidget(
-    onInit: StacSequenceAction(
-      actions: [
-        const StacCustomSetValueAction(
-          values: [
-            {'key': 'deposit_more_show_card_issue', 'value': _showCardIssueByFlag},
-          ],
-        ),
-        StacShowBottomSheetAction(
-          isScrollControlled: true,
-          useSafeArea: true,
-          backgroundColor: '{{appColors.current.background.surface}}',
-          barrierColor: '#8B000000',
-          sheet: _buildDepositServicesBottomSheet().toJson(),
-        ),
-      ],
-    ),
+    onInit: showDepositMoreOptionsBottomSheetAction(),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       body: StacCenter(
@@ -48,7 +33,8 @@ StacWidget depositMoreOptionsIntro() {
               ),
             ),
             child: StacText(
-              data: 'نمایش بیشتر (سپرده)',
+              data:
+                  '{{appStrings.generated.deposit_more_options.deposit_more_options_intro.title}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
                 fontSize: 16,
@@ -59,6 +45,28 @@ StacWidget depositMoreOptionsIntro() {
         ),
       ),
     ),
+  );
+}
+
+StacAction showDepositMoreOptionsBottomSheetAction() {
+  return StacSequenceAction(
+    actions: [
+      const StacCustomSetValueAction(
+        values: [
+          {
+            'key': 'deposit_more_show_card_issue',
+            'value': _showCardIssueByFlag,
+          },
+        ],
+      ),
+      StacShowBottomSheetAction(
+        isScrollControlled: true,
+        useSafeArea: true,
+        backgroundColor: '{{appColors.current.background.surface}}',
+        barrierColor: '#8B000000',
+        sheet: _buildDepositServicesBottomSheet().toJson(),
+      ),
+    ],
   );
 }
 
@@ -86,7 +94,8 @@ StacWidget _buildDepositServicesBottomSheet() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'خدمات سپرده',
+            data:
+                '{{appStrings.generated.deposit_more_options.deposit_more_options_intro.deposit_services}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -102,7 +111,8 @@ StacWidget _buildDepositServicesBottomSheet() {
               crossAxisAlignment: StacCrossAxisAlignment.stretch,
               children: [
                 _buildDepositServiceTile(
-                  title: 'صدور کارت',
+                  title:
+                      '{{appStrings.generated.deposit_more_options.deposit_more_options_intro.card}}',
                   iconPath: '{{appAssets.icons.requestCardCurrent}}',
                   onTap: const StacCloseDialogAction(
                     result: {
@@ -118,7 +128,8 @@ StacWidget _buildDepositServicesBottomSheet() {
             ).toJson(),
           ),
           _buildDepositServiceTile(
-            title: 'بستن سپرده',
+            title:
+                '{{appStrings.generated.deposit_more_options.deposit_close_confirm.title}}',
             iconPath: '{{appAssets.icons.closeDepositCurrent}}',
             onTap: const StacCloseDialogAction(
               result: {
@@ -131,7 +142,8 @@ StacWidget _buildDepositServicesBottomSheet() {
           ),
           StacSizedBox(height: 10),
           _buildDepositServiceTile(
-            title: 'جزئیات سپرده',
+            title:
+                '{{appStrings.generated.deposit_more_options.deposit_more_options_intro.details_deposit}}',
             iconPath: '{{appAssets.icons.depositDetailCurrent}}',
             onTap: _openDepositDetailsBottomSheetAction(),
           ),
@@ -208,11 +220,13 @@ StacAction _openDepositDetailsBottomSheetAction() {
           values: [
             {
               'key': 'depositMoreOptions.details.depositNumber',
-              'value': '۱۱۹.۹۲۹۰.۱۶۱۲۹۸۸.۱',
+              'value':
+                  '{{appStrings.generated.deposit_more_options.deposit_more_options_intro.amount_value}}',
             },
             {
               'key': 'depositMoreOptions.details.iban',
-              'value': 'IR۶۲۰۶۴۰۰۱۱۹۹۲۹۰۱۶۱۲۹۸۸۰۰۱',
+              'value':
+                  '{{appStrings.generated.deposit_more_options.deposit_more_options_intro.ir620640011992901612988001}}',
             },
           ],
         ),
@@ -252,7 +266,8 @@ StacWidget _buildDepositDetailsBottomSheet() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'جزئیات سپرده',
+            data:
+                '{{appStrings.generated.deposit_more_options.deposit_more_options_intro.details_deposit}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -263,14 +278,16 @@ StacWidget _buildDepositDetailsBottomSheet() {
           ),
           StacSizedBox(height: 24),
           _depositDetailsItem(
-            title: 'شماره سپرده',
+            title:
+                '{{appStrings.generated.card_management.card_management_root.deposit_number}}',
             valueKey: 'depositMoreOptions.details.depositNumber',
             rightIconAsset: '{{appAssets.icons.shareDepositCurrent}}',
             ltrValue: false,
           ),
           StacSizedBox(height: 16),
           _depositDetailsItem(
-            title: 'شماره شبا',
+            title:
+                '{{appStrings.generated.deposit_more_options.deposit_more_options_intro.iban_number}}',
             valueKey: 'depositMoreOptions.details.iban',
             rightIconAsset: '{{appAssets.icons.shareIbanCurrent}}',
             ltrValue: true,
@@ -379,4 +396,3 @@ StacWidget _depositDetailsItem({
     ),
   );
 }
-

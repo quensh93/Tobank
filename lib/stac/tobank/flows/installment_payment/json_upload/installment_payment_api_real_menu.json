@@ -17,7 +17,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "پرداخت اقساط api. واقعی",
+      "data": "{{appStrings.generated.installment_payment.installment_payment_api_real_menu.installment_payment_api_real}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -84,7 +84,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "پرداخت اقساط",
+                      "data": "{{appStrings.generated.installment_payment.installment_payment_receipt.title}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -109,7 +109,7 @@
                         },
                         "width": 999999.0,
                         "child": {
-                          "data": "پرداخت اقساط خود",
+                          "data": "{{appStrings.generated.installment_payment.installment_payment_list_main.title}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -155,7 +155,7 @@
                         },
                         "width": 999999.0,
                         "child": {
-                          "data": "پرداخت اقساط دیگران",
+                          "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.title}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -203,7 +203,7 @@
             }
           },
           "child": {
-            "data": "بارگزاری از دارت",
+            "data": "{{appStrings.generated.installment_payment.installment_payment_api_real_menu.dart}}",
             "style": {
               "type": "custom",
               "fontSize": 16.0,
@@ -233,7 +233,7 @@
             }
           },
           "child": {
-            "data": "بارگزاری از جیسون محلی",
+            "data": "{{appStrings.generated.installment_payment.installment_payment_api_real_menu.json_local}}",
             "style": {
               "type": "custom",
               "fontSize": 16.0,
@@ -263,7 +263,7 @@
             }
           },
           "child": {
-            "data": "بارگزاری از json api",
+            "data": "{{appStrings.generated.installment_payment.installment_payment_api_real_menu.json_api}}",
             "style": {
               "type": "custom",
               "fontSize": 16.0,

@@ -114,4 +114,3 @@ StacBoxDecoration _itemDecoration() {
     ),
   );
 }
-

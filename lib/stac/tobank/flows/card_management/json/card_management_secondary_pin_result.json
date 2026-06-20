@@ -1,4 +1,4 @@
-﻿{
+{
   "appBar": {
     "leading": {
       "padding": {
@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "تغییر رمز دوم",
+      "data": "{{appStrings.generated.card_management.card_management_root.change_second_pin_title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -97,7 +97,7 @@
           "type": "sizedBox"
         },
         {
-          "data": "درخواست موفق",
+          "data": "{{appStrings.generated.card_management.card_management_secondary_pin_result.successful_request}}",
           "style": {
             "type": "custom",
             "color": "#43A047",
@@ -113,7 +113,7 @@
           "type": "sizedBox"
         },
         {
-          "data": "رمز دوم کارت تغییر یافت",
+          "data": "{{appStrings.generated.card_management.card_management_secondary_pin_result.second_pin_card}}",
           "style": {
             "type": "custom",
             "color": "{{appColors.current.text.hint}}",
@@ -136,7 +136,7 @@
               "textDirection": "rtl",
               "children": [
                 {
-                  "data": "شماره کارت",
+                  "data": "{{appStrings.profile.real.destinations.cardNumberLabel}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.hint}}",
@@ -147,7 +147,7 @@
                   "type": "text"
                 },
                 {
-                  "data": "۵۰۵۴ - ۱۶۱۷ - ۰۳۰۲ - ۰۳۹۰",
+                  "data": "{{appStrings.generated.card_management.secondary_pin_get.title}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
@@ -181,7 +181,7 @@
           "textDirection": "rtl",
           "children": [
             {
-              "data": "رمز انتخابی",
+              "data": "{{appStrings.generated.card_management.card_management_secondary_pin_result.selected_pin}}",
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.hint}}",
@@ -258,7 +258,7 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "data": "نمایش رمز (mock)",
+                                  "data": "{{appStrings.generated.card_management.card_management_secondary_pin_result.show_pin_mock}}",
                                   "textDirection": "rtl",
                                   "textAlign": "right",
                                   "style": {
@@ -275,7 +275,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "data": "این قابلیت در نسخه واقعی فعال می‌شود.",
+                                  "data": "{{appStrings.generated.card_management.card_management_secondary_pin_result.active_real}}",
                                   "textDirection": "rtl",
                                   "textAlign": "right",
                                   "style": {
@@ -379,7 +379,7 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "data": "کپی رمز (mock)",
+                                  "data": "{{appStrings.generated.card_management.card_management_secondary_pin_result.copy_pin_mock}}",
                                   "textDirection": "rtl",
                                   "textAlign": "right",
                                   "style": {
@@ -396,7 +396,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "data": "این قابلیت در نسخه واقعی فعال می‌شود.",
+                                  "data": "{{appStrings.generated.card_management.card_management_secondary_pin_result.active_real}}",
                                   "textDirection": "rtl",
                                   "textAlign": "right",
                                   "style": {
@@ -485,7 +485,7 @@
             }
           },
           "child": {
-            "data": "بازگشت به لیست خدمات کارت",
+            "data": "{{appStrings.generated.card_management.card_management_reissue_receipt.back_list_services_card}}",
             "style": {
               "type": "custom",
               "fontSize": 14.0,

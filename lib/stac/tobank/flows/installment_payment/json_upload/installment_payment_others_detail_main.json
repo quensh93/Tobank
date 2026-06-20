@@ -17,7 +17,7 @@
       },
       {
         "key": "othersPayment.receiverName",
-        "value": "مهدی جمشیدپور"
+        "value": "{{appStrings.profile.real.userName}}"
       }
     ]
   },
@@ -42,7 +42,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "پرداخت اقساط دیگران",
+        "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -120,7 +120,7 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "data": "شماره تسهیلات",
+                          "data": "{{appStrings.generated.installment_payment.installment_payment_others_main.title}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -172,7 +172,7 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "data": "نوع تسهیلات",
+                          "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.loan}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -188,7 +188,7 @@
                         },
                         {
                           "child": {
-                            "data": "قرض الحسنه طرح پارسا (۲ درصدی)",
+                            "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.number_value}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -224,7 +224,7 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "data": "دریافت کننده",
+                          "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.receive}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -290,7 +290,7 @@
                 "crossAxisAlignment": "stretch",
                 "children": [
                   {
-                    "data": "مبلغ مورد نظر را وارد نمایید",
+                    "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.amount_enter}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -316,8 +316,8 @@
                       "formatThousands": true,
                       "thousandsSeparator": ",",
                       "decoration": {
-                        "hintText": "مبلغ دلخواه",
-                        "prefixText": "ریال",
+                        "hintText": "{{appStrings.generated.charge.charge_intro.amount}}",
+                        "prefixText": "{{appStrings.common.rial}}",
                         "prefixStyle": {
                           "fontSize": 18,
                           "fontWeight": "w700",
@@ -398,7 +398,7 @@
                             "destinationKey": "othersDetailAmountWords",
                             "divideBy": 10,
                             "minDigits": 2,
-                            "suffix": "تومان"
+                            "suffix": "{{appStrings.generated.installment_payment.installment_payment_detail_main.toman}}"
                           },
                           {
                             "actionType": "validateFields",
@@ -420,7 +420,7 @@
                       "formatThousands": true,
                       "thousandsSeparator": ",",
                       "decoration": {
-                        "hintText": "مبلغ دلخواه",
+                        "hintText": "{{appStrings.generated.charge.charge_intro.amount}}",
                         "enabledBorder": {
                           "type": "outlineInputBorder",
                           "borderSide": {
@@ -496,7 +496,7 @@
                             "destinationKey": "othersDetailAmountWords",
                             "divideBy": 10,
                             "minDigits": 2,
-                            "suffix": "تومان"
+                            "suffix": "{{appStrings.generated.installment_payment.installment_payment_detail_main.toman}}"
                           },
                           {
                             "actionType": "validateFields",
@@ -574,7 +574,7 @@
                           "title": "payment_others_detail",
                           "sheet": {
                             "decoration": {
-                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                              "color": "{{appColors.current.background.surface}}",
                               "borderRadius": {
                                 "topLeft": 16.0,
                                 "topRight": 16.0
@@ -594,7 +594,7 @@
                                   {
                                     "child": {
                                       "decoration": {
-                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                        "color": "{{appColors.current.input.borderEnabled}}",
                                         "borderRadius": {
                                           "topLeft": 999.0,
                                           "topRight": 999.0,
@@ -613,10 +613,10 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "پرداخت اقساط دیگران",
+                                    "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.title}}",
                                     "style": {
                                       "type": "custom",
-                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                      "color": "{{appColors.current.text.title}}",
                                       "fontSize": 18.0,
                                       "fontWeight": "w700"
                                     },
@@ -637,7 +637,7 @@
                                     },
                                     "decoration": {
                                       "border": {
-                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                        "color": "{{appColors.current.input.borderEnabled}}",
                                         "width": 1.0
                                       },
                                       "borderRadius": {
@@ -648,10 +648,10 @@
                                       }
                                     },
                                     "child": {
-                                      "data": "حساب‌ها",
+                                      "data": "{{appStrings.generated.charge.charge_payment.account}}",
                                       "style": {
                                         "type": "custom",
-                                        "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                        "color": "{{appColors.current.text.title}}",
                                         "fontSize": 18.0,
                                         "fontWeight": "w700"
                                       },
@@ -671,7 +671,7 @@
                                       "visible": "[[othersPaymentSheet.acc1Selected]]",
                                       "child": {
                                         "decoration": {
-                                          "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                          "color": "{{appColors.current.background.surface}}",
                                           "border": {
                                             "color": "#20C4D8",
                                             "width": 1.0
@@ -699,10 +699,10 @@
                                                 "children": [
                                                   {
                                                     "child": {
-                                                      "data": "سپرده ۶ ماهه کوتاه مدت توبانکی",
+                                                      "data": "{{appStrings.generated.charge.charge_payment.deposit}}",
                                                       "style": {
                                                         "type": "custom",
-                                                        "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                        "color": "{{appColors.current.text.title}}",
                                                         "fontSize": 17.0,
                                                         "fontWeight": "w700"
                                                       },
@@ -758,10 +758,10 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "شماره سپرده",
+                                                    "data": "{{appStrings.generated.card_management.card_management_root.deposit_number}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                      "color": "{{appColors.current.text.subtitle}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w500"
                                                     },
@@ -773,10 +773,10 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱",
+                                                    "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                      "color": "{{appColors.current.text.title}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w700"
                                                     },
@@ -794,10 +794,10 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "شماره کارت",
+                                                    "data": "{{appStrings.profile.real.destinations.cardNumberLabel}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                      "color": "{{appColors.current.text.subtitle}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w500"
                                                     },
@@ -809,10 +809,10 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "۵۵۹۴ - ۱۶۱۷ - ۱۲۳۴ - ۵۶۷۸",
+                                                    "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number_text}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                      "color": "{{appColors.current.text.title}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w700"
                                                     },
@@ -823,7 +823,7 @@
                                                 "type": "row"
                                               },
                                               {
-                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                 "height": 1.0,
                                                 "margin": {
                                                   "top": 10.0,
@@ -835,7 +835,7 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "قابل برداشت",
+                                                    "data": "{{appStrings.generated.charge.charge_payment.withdrawable_label}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "#13A780",
@@ -850,7 +850,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "۸۱۱,۱۲۴,۶۰۷ ریال",
+                                                    "data": "{{appStrings.generated.charge.charge_payment.rial_message}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "#13A780",
@@ -878,9 +878,9 @@
                                       },
                                       "replacement": {
                                         "decoration": {
-                                          "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                          "color": "{{appColors.current.background.surface}}",
                                           "border": {
-                                            "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                            "color": "{{appColors.current.input.borderEnabled}}",
                                             "width": 1.0
                                           },
                                           "borderRadius": {
@@ -906,10 +906,10 @@
                                                 "children": [
                                                   {
                                                     "child": {
-                                                      "data": "سپرده ۶ ماهه کوتاه مدت توبانکی",
+                                                      "data": "{{appStrings.generated.charge.charge_payment.deposit}}",
                                                       "style": {
                                                         "type": "custom",
-                                                        "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                        "color": "{{appColors.current.text.title}}",
                                                         "fontSize": 17.0,
                                                         "fontWeight": "w700"
                                                       },
@@ -965,10 +965,10 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "شماره سپرده",
+                                                    "data": "{{appStrings.generated.card_management.card_management_root.deposit_number}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                      "color": "{{appColors.current.text.subtitle}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w500"
                                                     },
@@ -980,10 +980,10 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱",
+                                                    "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                      "color": "{{appColors.current.text.title}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w700"
                                                     },
@@ -1001,10 +1001,10 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "شماره کارت",
+                                                    "data": "{{appStrings.profile.real.destinations.cardNumberLabel}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                      "color": "{{appColors.current.text.subtitle}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w500"
                                                     },
@@ -1016,10 +1016,10 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "۵۵۹۴ - ۱۶۱۷ - ۱۲۳۴ - ۵۶۷۸",
+                                                    "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number_text}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                      "color": "{{appColors.current.text.title}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w700"
                                                     },
@@ -1030,7 +1030,7 @@
                                                 "type": "row"
                                               },
                                               {
-                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                 "height": 1.0,
                                                 "margin": {
                                                   "top": 10.0,
@@ -1042,7 +1042,7 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "قابل برداشت",
+                                                    "data": "{{appStrings.generated.charge.charge_payment.withdrawable_label}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "#13A780",
@@ -1057,7 +1057,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "۸۱۱,۱۲۴,۶۰۷ ریال",
+                                                    "data": "{{appStrings.generated.charge.charge_payment.rial_message}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "#13A780",
@@ -1113,7 +1113,7 @@
                                       "visible": "[[othersPaymentSheet.acc2Selected]]",
                                       "child": {
                                         "decoration": {
-                                          "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                          "color": "{{appColors.current.background.surface}}",
                                           "border": {
                                             "color": "#20C4D8",
                                             "width": 1.0
@@ -1141,10 +1141,10 @@
                                                 "children": [
                                                   {
                                                     "child": {
-                                                      "data": "سپرده حقیقی سپرده سرمایه‌گذاری بلند مدت حقیقی ریالی زهرا حبیبی",
+                                                      "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.deposit_rial}}",
                                                       "style": {
                                                         "type": "custom",
-                                                        "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                        "color": "{{appColors.current.text.title}}",
                                                         "fontSize": 17.0,
                                                         "fontWeight": "w700"
                                                       },
@@ -1200,10 +1200,10 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "شماره سپرده",
+                                                    "data": "{{appStrings.generated.card_management.card_management_root.deposit_number}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                      "color": "{{appColors.current.text.subtitle}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w500"
                                                     },
@@ -1215,10 +1215,10 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱",
+                                                    "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                      "color": "{{appColors.current.text.title}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w700"
                                                     },
@@ -1236,10 +1236,10 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "شماره کارت",
+                                                    "data": "{{appStrings.profile.real.destinations.cardNumberLabel}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                      "color": "{{appColors.current.text.subtitle}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w500"
                                                     },
@@ -1251,10 +1251,10 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "۵۵۹۴ - ۱۶۱۷ - ۱۲۳۴ - ۵۶۷۸",
+                                                    "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number_text}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                      "color": "{{appColors.current.text.title}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w700"
                                                     },
@@ -1265,7 +1265,7 @@
                                                 "type": "row"
                                               },
                                               {
-                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                 "height": 1.0,
                                                 "margin": {
                                                   "top": 10.0,
@@ -1277,7 +1277,7 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "قابل برداشت",
+                                                    "data": "{{appStrings.generated.charge.charge_payment.withdrawable_label}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "#E31C3D",
@@ -1292,7 +1292,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "۷۴۵,۵۲۴,۶۰۷ ریال",
+                                                    "data": "{{appStrings.generated.charge.charge_payment.rial_label}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "#E31C3D",
@@ -1325,7 +1325,7 @@
                                                       }
                                                     },
                                                     "child": {
-                                                      "data": "موجودی ناکافی",
+                                                      "data": "{{appStrings.generated.installment_payment.installment_payment_detail_main.balance}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -1348,9 +1348,9 @@
                                       },
                                       "replacement": {
                                         "decoration": {
-                                          "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                          "color": "{{appColors.current.background.surface}}",
                                           "border": {
-                                            "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                            "color": "{{appColors.current.input.borderEnabled}}",
                                             "width": 1.0
                                           },
                                           "borderRadius": {
@@ -1376,10 +1376,10 @@
                                                 "children": [
                                                   {
                                                     "child": {
-                                                      "data": "سپرده حقیقی سپرده سرمایه‌گذاری بلند مدت حقیقی ریالی زهرا حبیبی",
+                                                      "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.deposit_rial}}",
                                                       "style": {
                                                         "type": "custom",
-                                                        "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                        "color": "{{appColors.current.text.title}}",
                                                         "fontSize": 17.0,
                                                         "fontWeight": "w700"
                                                       },
@@ -1435,10 +1435,10 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "شماره سپرده",
+                                                    "data": "{{appStrings.generated.card_management.card_management_root.deposit_number}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                      "color": "{{appColors.current.text.subtitle}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w500"
                                                     },
@@ -1450,10 +1450,10 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱",
+                                                    "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                      "color": "{{appColors.current.text.title}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w700"
                                                     },
@@ -1471,10 +1471,10 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "شماره کارت",
+                                                    "data": "{{appStrings.profile.real.destinations.cardNumberLabel}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                      "color": "{{appColors.current.text.subtitle}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w500"
                                                     },
@@ -1486,10 +1486,10 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "۵۵۹۴ - ۱۶۱۷ - ۱۲۳۴ - ۵۶۷۸",
+                                                    "data": "{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number_text}}",
                                                     "style": {
                                                       "type": "custom",
-                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                      "color": "{{appColors.current.text.title}}",
                                                       "fontSize": 15.0,
                                                       "fontWeight": "w700"
                                                     },
@@ -1500,7 +1500,7 @@
                                                 "type": "row"
                                               },
                                               {
-                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "color": "{{appColors.current.input.borderEnabled}}",
                                                 "height": 1.0,
                                                 "margin": {
                                                   "top": 10.0,
@@ -1512,7 +1512,7 @@
                                                 "textDirection": "rtl",
                                                 "children": [
                                                   {
-                                                    "data": "قابل برداشت",
+                                                    "data": "{{appStrings.generated.charge.charge_payment.withdrawable_label}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "#E31C3D",
@@ -1527,7 +1527,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "۷۴۵,۵۲۴,۶۰۷ ریال",
+                                                    "data": "{{appStrings.generated.charge.charge_payment.rial_label}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "#E31C3D",
@@ -1560,7 +1560,7 @@
                                                       }
                                                     },
                                                     "child": {
-                                                      "data": "موجودی ناکافی",
+                                                      "data": "{{appStrings.generated.installment_payment.installment_payment_detail_main.balance}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -1643,7 +1643,7 @@
                                         }
                                       },
                                       "child": {
-                                        "data": "تایید و پرداخت",
+                                        "data": "{{appStrings.promissory.confirmAndPay}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "#FFFFFF",
@@ -1674,7 +1674,7 @@
                                         }
                                       },
                                       "child": {
-                                        "data": "تایید و پرداخت",
+                                        "data": "{{appStrings.promissory.confirmAndPay}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "#98A2B3",
@@ -1738,7 +1738,7 @@
                       }
                     },
                     "child": {
-                      "data": "پرداخت",
+                      "data": "{{appStrings.generated.card_management.card_management_root.payment}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.primary.onPrimary}}",
@@ -1748,7 +1748,7 @@
                       "type": "text"
                     },
                     "loadingChild": {
-                      "data": "پرداخت",
+                      "data": "{{appStrings.generated.card_management.card_management_root.payment}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.primary.onPrimary}}",

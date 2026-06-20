@@ -69,7 +69,7 @@
         },
         "automaticallyImplyLeading": true,
         "title": {
-          "data": "۱۰ گردش آخر",
+          "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.turnover}}",
           "style": {
             "type": "alias",
             "value": "{{appStyles.appbarStyle}}"
@@ -138,7 +138,7 @@
                 "textDirection": "rtl",
                 "children": [
                   {
-                    "data": "شماره سپرده",
+                    "data": "{{appStrings.generated.card_management.card_management_root.deposit_number}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.subtitle}}",
@@ -148,7 +148,7 @@
                     "type": "text"
                   },
                   {
-                    "data": "۱۴۴.۹۹۶۶.۷۶۳۰۲۰.۱",
+                    "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.amount_value}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -244,7 +244,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "واریز وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -262,7 +262,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۱۰,۰۰۰ ریال",
+                                    "data": "{{appStrings.generated.transaction.transaction_intro.rial_label}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -281,7 +281,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۵/۰۲/۱۶ - ۱۰:۳۶",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.title}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -321,7 +321,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -337,7 +337,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "واریز وجه به سپرده از طریق انتقال داخلی بانک برای تکمیل موجودی حساب انجام شده است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.balance_deposit_account_money_transfer}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -448,7 +448,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "برداشت وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money_data}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -466,7 +466,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۱۰,۰۰۰ ریال",
+                                    "data": "{{appStrings.generated.transaction.transaction_intro.rial_label}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -485,7 +485,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۵/۰۲/۱۲ - ۰۴:۳۶",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.date_value}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -525,7 +525,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -541,7 +541,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "برداشت برای کارمزد دستور پرداخت پل با شماره پیگیری ۱۴۰۵۰۲۱۲۰۴۳۶۰۰۳۷۲۱۸۵۹۸ ثبت شده است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.fee_payment_number_submit}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -652,7 +652,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "واریز وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -670,7 +670,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۱۰,۰۰۰ ریال",
+                                    "data": "{{appStrings.generated.transaction.transaction_intro.rial_label}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -689,7 +689,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۵/۰۲/۰۲ - ۰۹:۱۳",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.date_value_text}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -729,7 +729,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -745,7 +745,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "واریز از مبدا کارت داخلی به این سپرده با هدف افزایش موجودی روزانه انجام شده است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.top_up_balance_deposit_card}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -856,7 +856,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "برداشت وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money_data}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -874,7 +874,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۲,۲۰۹,۳۵۳ ریال",
+                                    "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.rial}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -893,7 +893,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۴/۱۲/۱۲ - ۰۵:۱۶",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.date_value_label}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -933,7 +933,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -949,7 +949,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "برداشت وجه بابت انتقال به حساب مقصد بانک پاسارگاد با شناسه پیگیری ۹۸۷۶۵۴۳ ثبت شده است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.identifier_account_money_transfer_bank}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -1060,7 +1060,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "برداشت وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money_data}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1078,7 +1078,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۱۳۳,۹۶۲,۵۰۰ ریال",
+                                    "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.rial_data}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -1097,7 +1097,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۴/۱۲/۰۶ - ۱۷:۰۶",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.date_value_message}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -1137,7 +1137,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -1153,7 +1153,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "مبلغ بابت تسویه درخواست انتقال پایا از سپرده کسر شده و در انتظار نهایی‌سازی بین‌بانکی است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.deposit_amount_request_transfer}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -1264,7 +1264,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "واریز وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1282,7 +1282,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۸۴,۷۰۰,۰۰۰ ریال",
+                                    "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.rial_item}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -1301,7 +1301,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۴/۱۲/۰۶ - ۱۶:۵۹",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.date_value_item}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -1341,7 +1341,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -1357,7 +1357,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "واریز از طریق شعبه بانک برای تامین موجودی سپرده سرمایه‌گذاری ثبت شده است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.balance_deposit_bank_submit}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -1468,7 +1468,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "واریز وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1486,7 +1486,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۴۰,۰۰۰,۰۰۰ ریال",
+                                    "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.rial_value}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -1505,7 +1505,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۴/۱۲/۰۵ - ۱۱:۲۲",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.date_value_alt}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -1545,7 +1545,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -1561,7 +1561,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "واریز وجه از حساب مبدأ مشتری جهت تکمیل موجودی مورد نیاز این سپرده انجام شده است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.balance_deposit_account_money_customer}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -1672,7 +1672,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "برداشت وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money_data}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1690,7 +1690,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۷۵,۰۰۰,۰۰۰ ریال",
+                                    "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.rial_message}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -1709,7 +1709,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۴/۱۲/۰۴ - ۱۴:۰۷",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.sample_datetime}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -1749,7 +1749,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -1765,7 +1765,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "برداشت بابت انتقال وجه ساتنا به مقصد معرفی‌شده مشتری با ثبت موفق در سامانه انجام شده است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money_transfer_success_customer_submit}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -1876,7 +1876,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "واریز وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1894,7 +1894,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۴,۵۰۰,۰۰۰ ریال",
+                                    "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.sample_amount_rial}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -1913,7 +1913,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۴/۱۲/۰۳ - ۰۸:۲۸",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.sample_datetime_option}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -1953,7 +1953,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -1969,7 +1969,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "واریز خودکار سود یا برگشت وجه به این سپرده در ابتدای روز ثبت شده است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.deposit_money_day_submit}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -2080,7 +2080,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "برداشت وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money_data}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -2098,7 +2098,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۹,۹۰۰,۰۰۰ ریال",
+                                    "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.sample_amount_rial_option}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -2117,7 +2117,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۴/۱۲/۰۱ - ۱۹:۴۳",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.sample_datetime_message}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -2157,7 +2157,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -2173,7 +2173,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "برداشت وجه بابت انتقال کارت به کارت مشتری با شماره پیگیری ۵۵۱۲۴۳۰۱ انجام شده است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money_transfer_card_customer_number}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -2235,7 +2235,7 @@
         },
         "automaticallyImplyLeading": true,
         "title": {
-          "data": "گردش سپرده",
+          "data": "{{appStrings.homePage.deposits.quickActions.turnover}}",
           "style": {
             "type": "alias",
             "value": "{{appStyles.appbarStyle}}"
@@ -2304,7 +2304,7 @@
                 "textDirection": "rtl",
                 "children": [
                   {
-                    "data": "شماره سپرده",
+                    "data": "{{appStrings.generated.card_management.card_management_root.deposit_number}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.subtitle}}",
@@ -2314,7 +2314,7 @@
                     "type": "text"
                   },
                   {
-                    "data": "۱۴۴.۹۹۶۶.۷۶۳۰۲۰.۱",
+                    "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_intro.amount_value}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -2410,7 +2410,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "واریز وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -2428,7 +2428,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۱۰,۰۰۰ ریال",
+                                    "data": "{{appStrings.generated.transaction.transaction_intro.rial_label}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -2447,7 +2447,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۵/۰۲/۱۶ - ۱۰:۳۶",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.title}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -2487,7 +2487,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -2503,7 +2503,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "واریز وجه به سپرده از طریق انتقال داخلی بانک برای تکمیل موجودی حساب انجام شده است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.balance_deposit_account_money_transfer}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -2614,7 +2614,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "برداشت وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money_data}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -2632,7 +2632,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۱۰,۰۰۰ ریال",
+                                    "data": "{{appStrings.generated.transaction.transaction_intro.rial_label}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -2651,7 +2651,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۵/۰۲/۱۲ - ۰۴:۳۶",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.date_value}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -2691,7 +2691,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -2707,7 +2707,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "برداشت برای کارمزد دستور پرداخت پل با شماره پیگیری ۱۴۰۵۰۲۱۲۰۴۳۶۰۰۳۷۲۱۸۵۹۸ ثبت شده است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.fee_payment_number_submit}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -2818,7 +2818,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "data": "واریز وجه",
+                                      "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.money}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -2836,7 +2836,7 @@
                                     "type": "sizedBox"
                                   },
                                   {
-                                    "data": "۱۰,۰۰۰ ریال",
+                                    "data": "{{appStrings.generated.transaction.transaction_intro.rial_label}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -2855,7 +2855,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "۱۴۰۵/۰۲/۰۲ - ۰۹:۱۳",
+                                "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.date_value_text}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -2895,7 +2895,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "توضیحات:",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.description}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -2911,7 +2911,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "واریز از مبدا کارت داخلی به این سپرده با هدف افزایش موجودی روزانه انجام شده است.",
+                              "data": "{{appStrings.generated.deposit_turnover.deposit_turnover_transactions.top_up_balance_deposit_card}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",

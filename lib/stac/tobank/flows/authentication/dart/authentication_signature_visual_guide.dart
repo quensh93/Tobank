@@ -6,7 +6,8 @@ StacWidget authenticationRealSignatureVisualGuide() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: buildTobankFlowAppBar(
-      title: 'راهنمای تصویری امضا',
+      title:
+          '{{appStrings.generated.authentication.authentication_signature_visual_guide.title}}',
       showSupport: false,
     ),
     body: StacSafeArea(
@@ -69,7 +70,8 @@ StacWidget authenticationRealSignatureVisualGuide() {
                     ),
                   ),
                   child: StacText(
-                    data: 'بازگشت',
+                    data:
+                        '{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 16,

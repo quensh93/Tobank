@@ -69,11 +69,11 @@
       },
       {
         "key": "transferApiCardSourceName",
-        "value": "سجاد رحمانی پور"
+        "value": "{{appStrings.profile.real.destinations.depositItem4Title}}"
       },
       {
         "key": "transferApiCardSourceNumber",
-        "value": "۵۰۵۴ ۱۶۱۷ ۰۲۹۹ ۴۷۱۰"
+        "value": "{{appStrings.generated.transfer.transfer_amount.card_number_item}}"
       },
       {
         "key": "transferApiCardSourceIcon",
@@ -102,7 +102,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "انتقال وجه",
+        "data": "{{appStrings.menu.items.transfer}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -172,17 +172,17 @@
                     {
                       "tabs": [
                         {
-                          "text": "کارت",
+                          "text": "{{appStrings.profile.real.destinations.tabCard}}",
                           "height": 46.0,
                           "type": "tab"
                         },
                         {
-                          "text": "درون بانکی",
+                          "text": "{{appStrings.generated.transfer.transfer_details.bank}}",
                           "height": 46.0,
                           "type": "tab"
                         },
                         {
-                          "text": "بین بانکی",
+                          "text": "{{appStrings.generated.transfer.transfer_amount.bank}}",
                           "height": 46.0,
                           "type": "tab"
                         }
@@ -270,7 +270,7 @@
                           "crossAxisAlignment": "stretch",
                           "children": [
                             {
-                              "data": "شماره کارت مقصد",
+                              "data": "{{appStrings.generated.transfer.transfer_amount.card_number}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -291,7 +291,7 @@
                               "textDirection": "ltr",
                               "textAlign": "right",
                               "decoration": {
-                                "hintText": "شماره کارت مقصد را وارد یا انتخاب کنید",
+                                "hintText": "{{appStrings.generated.transfer.transfer_amount.card_number_select_enter}}",
                                 "hintStyle": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.hint}}",
@@ -462,7 +462,7 @@
                                               "crossAxisAlignment": "stretch",
                                               "children": [
                                                 {
-                                                  "data": "۵۰۵۴ ۱۶۱۰ ۱۸۱۶ ۸۰۵۸",
+                                                  "data": "{{appStrings.generated.transfer.transfer_amount.card_number_text}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -478,7 +478,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "سیدعلیرضا نعمتی شیل سر",
+                                                  "data": "{{appStrings.generated.transfer.transfer_amount.seyed_alireza_nemati_name}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -519,11 +519,11 @@
                                             },
                                             {
                                               "key": "transferApiCardDestinationNumber",
-                                              "value": "۵۰۵۴ ۱۶۱۰ ۱۸۱۶ ۸۰۵۸"
+                                              "value": "{{appStrings.generated.transfer.transfer_amount.card_number_text}}"
                                             },
                                             {
                                               "key": "transferApiCardDestinationName",
-                                              "value": "سیدعلیرضا نعمتی شیل سر"
+                                              "value": "{{appStrings.generated.transfer.transfer_amount.seyed_alireza_nemati_name}}"
                                             },
                                             {
                                               "key": "transferApiCardDestinationIcon",
@@ -605,7 +605,7 @@
                                               "crossAxisAlignment": "stretch",
                                               "children": [
                                                 {
-                                                  "data": "۵۰۵۴ ۱۶۱۷ ۰۲۸۴ ۴۶۹۱",
+                                                  "data": "{{appStrings.generated.transfer.transfer_amount.card_number_label}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -621,7 +621,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "علی سینایی اصل",
+                                                  "data": "{{appStrings.generated.profile.profile_destinations.ali_sinaei_asl_name}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -662,11 +662,11 @@
                                             },
                                             {
                                               "key": "transferApiCardDestinationNumber",
-                                              "value": "۵۰۵۴ ۱۶۱۷ ۰۲۸۴ ۴۶۹۱"
+                                              "value": "{{appStrings.generated.transfer.transfer_amount.card_number_label}}"
                                             },
                                             {
                                               "key": "transferApiCardDestinationName",
-                                              "value": "علی سینایی اصل"
+                                              "value": "{{appStrings.generated.profile.profile_destinations.ali_sinaei_asl_name}}"
                                             },
                                             {
                                               "key": "transferApiCardDestinationIcon",
@@ -748,7 +748,7 @@
                                               "crossAxisAlignment": "stretch",
                                               "children": [
                                                 {
-                                                  "data": "۵۰۵۴ ۱۶۱۷ ۰۲۹۹ ۴۷۱۰",
+                                                  "data": "{{appStrings.generated.transfer.transfer_amount.card_number_item}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -764,7 +764,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "گردشگری - شعبه مجازی",
+                                                  "data": "{{appStrings.profile.real.destinations.cardItem2Title}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -805,11 +805,11 @@
                                             },
                                             {
                                               "key": "transferApiCardDestinationNumber",
-                                              "value": "۵۰۵۴ ۱۶۱۷ ۰۲۹۹ ۴۷۱۰"
+                                              "value": "{{appStrings.generated.transfer.transfer_amount.card_number_item}}"
                                             },
                                             {
                                               "key": "transferApiCardDestinationName",
-                                              "value": "گردشگری - شعبه مجازی"
+                                              "value": "{{appStrings.profile.real.destinations.cardItem2Title}}"
                                             },
                                             {
                                               "key": "transferApiCardDestinationIcon",
@@ -891,7 +891,7 @@
                                               "crossAxisAlignment": "stretch",
                                               "children": [
                                                 {
-                                                  "data": "۵۰۲۲ ۹۱۳۱ ۰۰۹۳ ۹۴۶۷",
+                                                  "data": "{{appStrings.generated.transfer.transfer_amount.card_number_value}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -907,7 +907,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "ندا رحمانی پور",
+                                                  "data": "{{appStrings.generated.transfer.transfer_amount.neda_rahmani_pour_name}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -948,11 +948,11 @@
                                             },
                                             {
                                               "key": "transferApiCardDestinationNumber",
-                                              "value": "۵۰۲۲ ۹۱۳۱ ۰۰۹۳ ۹۴۶۷"
+                                              "value": "{{appStrings.generated.transfer.transfer_amount.card_number_value}}"
                                             },
                                             {
                                               "key": "transferApiCardDestinationName",
-                                              "value": "ندا رحمانی پور"
+                                              "value": "{{appStrings.generated.transfer.transfer_amount.neda_rahmani_pour_name}}"
                                             },
                                             {
                                               "key": "transferApiCardDestinationIcon",
@@ -1034,7 +1034,7 @@
                                               "crossAxisAlignment": "stretch",
                                               "children": [
                                                 {
-                                                  "data": "۵۰۴۱ ۷۷۱۰ ۸۰۷۶ ۶۰۲۶",
+                                                  "data": "{{appStrings.generated.transfer.transfer_amount.sample_card_number}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -1050,7 +1050,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "سجاد رحمانی پور",
+                                                  "data": "{{appStrings.profile.real.destinations.depositItem4Title}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1091,11 +1091,11 @@
                                             },
                                             {
                                               "key": "transferApiCardDestinationNumber",
-                                              "value": "۵۰۴۱ ۷۷۱۰ ۸۰۷۶ ۶۰۲۶"
+                                              "value": "{{appStrings.generated.transfer.transfer_amount.sample_card_number}}"
                                             },
                                             {
                                               "key": "transferApiCardDestinationName",
-                                              "value": "سجاد رحمانی پور"
+                                              "value": "{{appStrings.profile.real.destinations.depositItem4Title}}"
                                             },
                                             {
                                               "key": "transferApiCardDestinationIcon",
@@ -1160,7 +1160,7 @@
                                     },
                                     {
                                       "key": "transferApiCardDestinationName",
-                                      "value": "کارت مقصد"
+                                      "value": "{{appStrings.generated.transfer.transfer_amount.card}}"
                                     },
                                     {
                                       "key": "transferApiCardDestinationIcon",
@@ -1184,18 +1184,18 @@
                                     "5041771080766026"
                                   ],
                                   "cardDisplayValues": [
-                                    "۵۰۵۴ ۱۶۱۰ ۱۸۱۶ ۸۰۵۸",
-                                    "۵۰۵۴ ۱۶۱۷ ۰۲۸۴ ۴۶۹۱",
-                                    "۵۰۵۴ ۱۶۱۷ ۰۲۹۹ ۴۷۱۰",
-                                    "۵۰۲۲ ۹۱۳۱ ۰۰۹۳ ۹۴۶۷",
-                                    "۵۰۴۱ ۷۷۱۰ ۸۰۷۶ ۶۰۲۶"
+                                    "{{appStrings.generated.transfer.transfer_amount.card_number_text}}",
+                                    "{{appStrings.generated.transfer.transfer_amount.card_number_label}}",
+                                    "{{appStrings.generated.transfer.transfer_amount.card_number_item}}",
+                                    "{{appStrings.generated.transfer.transfer_amount.card_number_value}}",
+                                    "{{appStrings.generated.transfer.transfer_amount.sample_card_number}}"
                                   ],
                                   "cardNames": [
-                                    "سیدعلیرضا نعمتی شیل سر",
-                                    "علی سینایی اصل",
-                                    "گردشگری - شعبه مجازی",
-                                    "ندا رحمانی پور",
-                                    "سجاد رحمانی پور"
+                                    "{{appStrings.generated.transfer.transfer_amount.seyed_alireza_nemati_name}}",
+                                    "{{appStrings.generated.profile.profile_destinations.ali_sinaei_asl_name}}",
+                                    "{{appStrings.profile.real.destinations.cardItem2Title}}",
+                                    "{{appStrings.generated.transfer.transfer_amount.neda_rahmani_pour_name}}",
+                                    "{{appStrings.profile.real.destinations.depositItem4Title}}"
                                   ],
                                   "cardIcons": [
                                     "assets/icons/ic_gardeshgari.svg",
@@ -1265,7 +1265,7 @@
                                               "children": [
                                                 {
                                                   "type": "text",
-                                                  "data": "خطا",
+                                                  "data": "{{appStrings.common.error}}",
                                                   "textDirection": "rtl",
                                                   "textAlign": "right",
                                                   "style": {
@@ -1282,7 +1282,7 @@
                                                 },
                                                 {
                                                   "type": "text",
-                                                  "data": "شماره کارت مقصد باید ۱۶ رقم باشد.",
+                                                  "data": "{{appStrings.generated.transfer.transfer_amount.card_number_message}}",
                                                   "textDirection": "rtl",
                                                   "textAlign": "right",
                                                   "style": {
@@ -1351,7 +1351,7 @@
                               }
                             },
                             "child": {
-                              "data": "ادامه",
+                              "data": "{{appStrings.common.continue}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.onPrimary}}",
@@ -1427,7 +1427,7 @@
                                           "children": [
                                             {
                                               "type": "text",
-                                              "data": "خطا",
+                                              "data": "{{appStrings.common.error}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
@@ -1444,7 +1444,7 @@
                                             },
                                             {
                                               "type": "text",
-                                              "data": "اسکن کارت ناموفق بود.",
+                                              "data": "{{appStrings.generated.profile.profile_destinations.failed_card}}",
                                               "textDirection": "rtl",
                                               "textAlign": "right",
                                               "style": {
@@ -1516,7 +1516,7 @@
                               "mainAxisAlignment": "center",
                               "children": [
                                 {
-                                  "data": "اسکن کارت",
+                                  "data": "{{appStrings.profile.real.destinations.scanCard}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -1554,7 +1554,7 @@
                           "crossAxisAlignment": "stretch",
                           "children": [
                             {
-                              "data": "شماره حساب",
+                              "data": "{{appStrings.generated.transfer.transfer_amount.title}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -1575,7 +1575,7 @@
                               "textDirection": "ltr",
                               "textAlign": "right",
                               "decoration": {
-                                "hintText": "شماره حساب را وارد کنید",
+                                "hintText": "{{appStrings.generated.transfer.transfer_amount.account_number_enter}}",
                                 "hintStyle": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.hint}}",
@@ -1715,7 +1715,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "حساب‌های خودم",
+                                                    "data": "{{appStrings.generated.transfer.transfer_amount.account}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -1787,7 +1787,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "حساب‌های دیگران",
+                                                    "data": "{{appStrings.generated.transfer.transfer_amount.account_text}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -1889,7 +1889,7 @@
                                               "children": [
                                                 {
                                                   "child": {
-                                                    "data": "۱۱۰.۹۹۹۲.۱۷۹۳۸۵۸.۱",
+                                                    "data": "{{appStrings.generated.transfer.transfer_amount.amount_value}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -1908,7 +1908,7 @@
                                                 },
                                                 {
                                                   "child": {
-                                                    "data": "سپرده سرمایه گذاری کوتاه مدت",
+                                                    "data": "{{appStrings.generated.transfer.transfer_amount.deposit}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.subtitle}}",
@@ -1935,15 +1935,15 @@
                                                 "values": [
                                                   {
                                                     "key": "transferApiInBankAccountInput",
-                                                    "value": "۱۱۰.۹۹۹۲.۱۷۹۳۸۵۸.۱"
+                                                    "value": "{{appStrings.generated.transfer.transfer_amount.amount_value}}"
                                                   },
                                                   {
                                                     "key": "transferApiDestinationIban",
-                                                    "value": "۱۱۰.۹۹۹۲.۱۷۹۳۸۵۸.۱"
+                                                    "value": "{{appStrings.generated.transfer.transfer_amount.amount_value}}"
                                                   },
                                                   {
                                                     "key": "transferApiDestinationName",
-                                                    "value": "سپرده سرمایه گذاری کوتاه مدت"
+                                                    "value": "{{appStrings.generated.transfer.transfer_amount.deposit}}"
                                                   }
                                                 ]
                                               },
@@ -1992,7 +1992,7 @@
                                               "children": [
                                                 {
                                                   "child": {
-                                                    "data": "۱۱۰.۷۹۱.۱۷۹۳۸۵۸.۱",
+                                                    "data": "{{appStrings.generated.transfer.transfer_amount.amount_value_text}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2011,7 +2011,7 @@
                                                 },
                                                 {
                                                   "child": {
-                                                    "data": "حساب قرض الحسنه جاری حقیقی توبانک",
+                                                    "data": "{{appStrings.homePage.deposits.accounts.thirdTitle}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.subtitle}}",
@@ -2038,15 +2038,15 @@
                                                 "values": [
                                                   {
                                                     "key": "transferApiInBankAccountInput",
-                                                    "value": "۱۱۰.۷۹۱.۱۷۹۳۸۵۸.۱"
+                                                    "value": "{{appStrings.generated.transfer.transfer_amount.amount_value_text}}"
                                                   },
                                                   {
                                                     "key": "transferApiDestinationIban",
-                                                    "value": "۱۱۰.۷۹۱.۱۷۹۳۸۵۸.۱"
+                                                    "value": "{{appStrings.generated.transfer.transfer_amount.amount_value_text}}"
                                                   },
                                                   {
                                                     "key": "transferApiDestinationName",
-                                                    "value": "حساب قرض الحسنه جاری حقیقی توبانک"
+                                                    "value": "{{appStrings.homePage.deposits.accounts.thirdTitle}}"
                                                   }
                                                 ]
                                               },
@@ -2097,7 +2097,7 @@
                                               "children": [
                                                 {
                                                   "child": {
-                                                    "data": "۱۱۰.۹۹۹۳.۷۶۳۴۰۵۰.۱",
+                                                    "data": "{{appStrings.profile.real.destinations.depositItem2Subtitle}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2116,7 +2116,7 @@
                                                 },
                                                 {
                                                   "child": {
-                                                    "data": "علیرضا حیدریان",
+                                                    "data": "{{appStrings.profile.real.destinations.depositItem2Title}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.subtitle}}",
@@ -2143,15 +2143,15 @@
                                                 "values": [
                                                   {
                                                     "key": "transferApiInBankAccountInput",
-                                                    "value": "۱۱۰.۹۹۹۳.۷۶۳۴۰۵۰.۱"
+                                                    "value": "{{appStrings.profile.real.destinations.depositItem2Subtitle}}"
                                                   },
                                                   {
                                                     "key": "transferApiDestinationIban",
-                                                    "value": "۱۱۰.۹۹۹۳.۷۶۳۴۰۵۰.۱"
+                                                    "value": "{{appStrings.profile.real.destinations.depositItem2Subtitle}}"
                                                   },
                                                   {
                                                     "key": "transferApiDestinationName",
-                                                    "value": "علیرضا حیدریان"
+                                                    "value": "{{appStrings.profile.real.destinations.depositItem2Title}}"
                                                   }
                                                 ]
                                               },
@@ -2200,7 +2200,7 @@
                                               "children": [
                                                 {
                                                   "child": {
-                                                    "data": "۱۱۰.۹۹۹۲.۱۷۹۴۸۸۵.۱",
+                                                    "data": "{{appStrings.profile.real.destinations.depositItem4Subtitle}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2219,7 +2219,7 @@
                                                 },
                                                 {
                                                   "child": {
-                                                    "data": "مهدی جمشید پور",
+                                                    "data": "{{appStrings.generated.transfer.transfer_amount.mahdi_jamshidpour_name}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.subtitle}}",
@@ -2246,15 +2246,15 @@
                                                 "values": [
                                                   {
                                                     "key": "transferApiInBankAccountInput",
-                                                    "value": "۱۱۰.۹۹۹۲.۱۷۹۴۸۸۵.۱"
+                                                    "value": "{{appStrings.profile.real.destinations.depositItem4Subtitle}}"
                                                   },
                                                   {
                                                     "key": "transferApiDestinationIban",
-                                                    "value": "۱۱۰.۹۹۹۲.۱۷۹۴۸۸۵.۱"
+                                                    "value": "{{appStrings.profile.real.destinations.depositItem4Subtitle}}"
                                                   },
                                                   {
                                                     "key": "transferApiDestinationName",
-                                                    "value": "مهدی جمشید پور"
+                                                    "value": "{{appStrings.generated.transfer.transfer_amount.mahdi_jamshidpour_name}}"
                                                   }
                                                 ]
                                               },
@@ -2298,7 +2298,7 @@
                               {
                                 "actionType": "setValue",
                                 "key": "transferApiTransferTypeTitle",
-                                "value": "درون بانکی"
+                                "value": "{{appStrings.generated.transfer.transfer_details.bank}}"
                               },
                               {
                                 "actionType": "setValue",
@@ -2352,7 +2352,7 @@
                             }
                           },
                           "child": {
-                            "data": "ادامه",
+                            "data": "{{appStrings.common.continue}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.button.primary.foregroundColor}}",
@@ -2372,7 +2372,7 @@
                           "crossAxisAlignment": "stretch",
                           "children": [
                             {
-                              "data": "شماره شبا",
+                              "data": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.iban_number}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -2393,7 +2393,7 @@
                               "textDirection": "ltr",
                               "textAlign": "left",
                               "decoration": {
-                                "hintText": "شماره شبا را وارد کنید",
+                                "hintText": "{{appStrings.generated.transfer.transfer_amount.iban_number_enter}}",
                                 "hintStyle": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.hint}}",
@@ -2617,7 +2617,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "IR۸۳۰۷۰۰۰۰۱۰۰۰۱۱۷۸۹۴۳۰۴۰۰۱",
+                                                      "data": "{{appStrings.generated.transfer.transfer_amount.ir830700001000117894304001}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -2633,7 +2633,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "سجاد رحمانی پور",
+                                                      "data": "{{appStrings.profile.real.destinations.depositItem4Title}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -2665,7 +2665,7 @@
                                             {
                                               "actionType": "setValue",
                                               "key": "transferApiDestinationName",
-                                              "value": "سجاد رحمانی پور"
+                                              "value": "{{appStrings.profile.real.destinations.depositItem4Title}}"
                                             },
                                             {
                                               "actionType": "setValue",
@@ -2766,7 +2766,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "IR۴۹۰۱۰۰۰۰۰۰۰۰۳۴۰۳۴۰۰۷۰۰۰۴",
+                                                      "data": "{{appStrings.generated.transfer.transfer_amount.ir490100000000340340070004}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -2782,7 +2782,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "مینا عاشوری",
+                                                      "data": "{{appStrings.generated.transfer.transfer_amount.sample_recipient_name}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -2814,7 +2814,7 @@
                                             {
                                               "actionType": "setValue",
                                               "key": "transferApiDestinationName",
-                                              "value": "مینا عاشوری"
+                                              "value": "{{appStrings.generated.transfer.transfer_amount.sample_recipient_name}}"
                                             },
                                             {
                                               "actionType": "setValue",
@@ -2915,7 +2915,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "IR۹۸۰۶۴۰۰۱۱۰۷۰۰۷۵۰۳۴۰۷۰۰۱",
+                                                      "data": "{{appStrings.generated.transfer.transfer_amount.ir98064001107007503407001}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -2931,7 +2931,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "محسن مقدم",
+                                                      "data": "{{appStrings.generated.transfer.transfer_amount.mohsen_moghadam_name}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -2963,7 +2963,7 @@
                                             {
                                               "actionType": "setValue",
                                               "key": "transferApiDestinationName",
-                                              "value": "محسن مقدم"
+                                              "value": "{{appStrings.generated.transfer.transfer_amount.mohsen_moghadam_name}}"
                                             },
                                             {
                                               "actionType": "setValue",
@@ -3064,7 +3064,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "IR۲۴۰۷۵۰۰۰۵۱۵۱۱۲۴۰۰۰۰۰۰۱۵۶",
+                                                      "data": "{{appStrings.generated.transfer.transfer_amount.ir240750005151124000000156}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -3080,7 +3080,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "یکانه سادات ترابی خرق",
+                                                      "data": "{{appStrings.generated.transfer.transfer_amount.sample_label}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -3112,7 +3112,7 @@
                                             {
                                               "actionType": "setValue",
                                               "key": "transferApiDestinationName",
-                                              "value": "یکانه سادات ترابی خرق"
+                                              "value": "{{appStrings.generated.transfer.transfer_amount.sample_label}}"
                                             },
                                             {
                                               "actionType": "setValue",
@@ -3213,7 +3213,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "IR۸۶۰۱۳۰۱۰۰۰۰۰۰۰۳۳۱۸۴۲۷۵۲",
+                                                      "data": "{{appStrings.generated.transfer.transfer_amount.ir86013010000000331842752}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -3229,7 +3229,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "سید پارسا بنی طبا",
+                                                      "data": "{{appStrings.generated.transfer.transfer_amount.sample_message}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -3261,7 +3261,7 @@
                                             {
                                               "actionType": "setValue",
                                               "key": "transferApiDestinationName",
-                                              "value": "سید پارسا بنی طبا"
+                                              "value": "{{appStrings.generated.transfer.transfer_amount.sample_message}}"
                                             },
                                             {
                                               "actionType": "setValue",
@@ -3328,11 +3328,11 @@
                                   "860130100000003318427752"
                                 ],
                                 "destinationNames": [
-                                  "سجاد رحمانی پور",
-                                  "مینا عاشوری",
-                                  "محسن مقدم",
-                                  "یکانه سادات ترابی خرق",
-                                  "سید پارسا بنی طبا"
+                                  "{{appStrings.profile.real.destinations.depositItem4Title}}",
+                                  "{{appStrings.generated.transfer.transfer_amount.sample_recipient_name}}",
+                                  "{{appStrings.generated.transfer.transfer_amount.mohsen_moghadam_name}}",
+                                  "{{appStrings.generated.transfer.transfer_amount.sample_label}}",
+                                  "{{appStrings.generated.transfer.transfer_amount.sample_message}}"
                                 ],
                                 "destinationIbanKey": "transferApiDestinationIban",
                                 "destinationNameKey": "transferApiDestinationName"
@@ -3394,7 +3394,7 @@
                             }
                           },
                           "child": {
-                            "data": "ادامه",
+                            "data": "{{appStrings.common.continue}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.button.primary.foregroundColor}}",

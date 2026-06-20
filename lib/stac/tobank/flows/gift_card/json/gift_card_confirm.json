@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "کارت هدیه",
+      "data": "{{appStrings.homePage.services.giftCard}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -99,7 +99,7 @@
                           "crossAxisAlignment": "end",
                           "children": [
                             {
-                              "data": "کارت هدیه",
+                              "data": "{{appStrings.homePage.services.giftCard}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -130,7 +130,7 @@
                           "type": "column"
                         },
                         {
-                          "data": "{{giftCardRealCardCount1}} عدد",
+                          "data": "{{appStrings.generated.gift_card.gift_card_confirm.gift_card_real_card_count1}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -171,7 +171,7 @@
                                 "crossAxisAlignment": "end",
                                 "children": [
                                   {
-                                    "data": "کارت هدیه",
+                                    "data": "{{appStrings.homePage.services.giftCard}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -202,7 +202,7 @@
                                 "type": "column"
                               },
                               {
-                                "data": "{{giftCardRealCardCount2}} عدد",
+                                "data": "{{appStrings.generated.gift_card.gift_card_confirm.gift_card_real_card_count2}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -247,7 +247,7 @@
                                 "crossAxisAlignment": "end",
                                 "children": [
                                   {
-                                    "data": "کارت هدیه",
+                                    "data": "{{appStrings.homePage.services.giftCard}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -278,7 +278,7 @@
                                 "type": "column"
                               },
                               {
-                                "data": "{{giftCardRealCardCount3}} عدد",
+                                "data": "{{appStrings.generated.gift_card.gift_card_confirm.gift_card_real_card_count3}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -333,7 +333,7 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "data": "مبلغ کارت(های) هدیه",
+                          "data": "{{appStrings.generated.gift_card.gift_card_confirm.amount_card}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -376,7 +376,7 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "data": "هزینه صدور هر کارت",
+                          "data": "{{appStrings.generated.gift_card.gift_card_confirm.card}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -419,7 +419,7 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "data": "هزینه ارسال",
+                          "data": "{{appStrings.generated.gift_card.gift_card_confirm.send}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -462,7 +462,7 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "data": "نوع کارت هدیه",
+                          "data": "{{appStrings.generated.gift_card.gift_card_confirm.gift_card}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -505,7 +505,7 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "data": "نام تحویل گیرنده",
+                          "data": "{{appStrings.generated.gift_card.gift_card_confirm.receiver_name}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -548,7 +548,7 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "data": "موبایل تحویل گیرنده",
+                          "data": "{{appStrings.generated.gift_card.gift_card_confirm.receiver_mobile}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -591,7 +591,7 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "data": "تاریخ تحویل",
+                          "data": "{{appStrings.generated.gift_card.gift_card_receiver_info.date}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -634,7 +634,7 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "data": "ساعت تحویل",
+                          "data": "{{appStrings.generated.gift_card.gift_card_confirm.time}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -677,7 +677,7 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "data": "شهر تحویل گیرنده",
+                          "data": "{{appStrings.generated.gift_card.gift_card_confirm.receiver_city}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.subtitle}}",
@@ -715,7 +715,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "آدرس تحویل گیرنده",
+                      "data": "{{appStrings.generated.gift_card.gift_card_confirm.receiver_address}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.subtitle}}",
@@ -775,47 +775,47 @@
                 "actions": [
                   {
                     "actionType": "showGiftCardPaymentAccountsBottomSheet",
-                    "title": "کارت هدیه",
+                    "title": "{{appStrings.homePage.services.giftCard}}",
                     "paymentAmountKey": "giftCardRealSummaryPaymentAmount",
-                    "walletLabel": "کیف پول",
+                    "walletLabel": "{{appStrings.promissory.walletPayment}}",
                     "walletBalance": 226600,
-                    "accountsTitle": "حساب‌ها",
-                    "insufficientText": "موجودی ناکافی",
-                    "sufficientText": "موجودی کافی",
-                    "chargeButtonText": "شارژ حساب",
-                    "continueButtonText": "ادامه",
+                    "accountsTitle": "{{appStrings.generated.charge.charge_payment.account}}",
+                    "insufficientText": "{{appStrings.generated.installment_payment.installment_payment_detail_main.balance}}",
+                    "sufficientText": "{{appStrings.generated.gift_card.gift_card_confirm.balance}}",
+                    "chargeButtonText": "{{appStrings.generated.gift_card.gift_card_confirm.account_topup}}",
+                    "continueButtonText": "{{appStrings.common.continue}}",
                     "accounts": [
                       {
                         "id": "acc_1",
-                        "title": "سپرده حقیقی حساب قرض الحسنه جاری حقیقی- ریالی",
-                        "ownerName": "سید پارسا بنی طبا",
-                        "depositNumber": "۱۱۰.۷۰.۱۶/۲۹۸۸.۱",
+                        "title": "{{appStrings.generated.gift_card.gift_card_confirm.deposit_account_rial}}",
+                        "ownerName": "{{appStrings.generated.transfer.transfer_amount.sample_message}}",
+                        "depositNumber": "{{appStrings.generated.gift_card.gift_card_confirm.date_value}}",
                         "availableAmount": 66770
                       },
                       {
                         "id": "acc_2",
-                        "title": "سپرده حقیقی سپرده سرمایه گذاری کوتاه مدت",
-                        "ownerName": "توبانک- حقیقی ریالی سید پارسا بنی طبا",
-                        "depositNumber": "۱۱۰.۹۹۹۲.۱۶/۲۹۸۸.۱",
+                        "title": "{{appStrings.generated.gift_card.gift_card_confirm.deposit}}",
+                        "ownerName": "{{appStrings.generated.gift_card.gift_card_confirm.rial}}",
+                        "depositNumber": "{{appStrings.generated.gift_card.gift_card_confirm.date_value_text}}",
                         "availableAmount": 39148
                       },
                       {
                         "id": "acc_3",
-                        "title": "سپرده حقیقی سپرده سرمایه گذاری ویژه",
-                        "ownerName": "توبانک- حقیقی ریالی سید پارسا بنی طبا",
-                        "depositNumber": "۱۱۹.۹۲۹۰.۱۶/۲۹۸۸.۱",
+                        "title": "{{appStrings.generated.gift_card.gift_card_confirm.deposit_data}}",
+                        "ownerName": "{{appStrings.generated.gift_card.gift_card_confirm.rial}}",
+                        "depositNumber": "{{appStrings.generated.gift_card.gift_card_confirm.date_value_label}}",
                         "availableAmount": 9200000
                       }
                     ],
                     "continueAction": {
                       "actionType": "showResult",
-                      "title": "پرداخت",
-                      "content": "پرداخت با موفقیت انجام شد."
+                      "title": "{{appStrings.generated.card_management.card_management_root.payment}}",
+                      "content": "{{appStrings.generated.gift_card.gift_card_confirm.successfully_payment}}"
                     },
                     "chargeAction": {
                       "actionType": "showResult",
-                      "title": "شارژ حساب",
-                      "content": "برای ادامه، حساب خود را شارژ کنید."
+                      "title": "{{appStrings.generated.gift_card.gift_card_confirm.account_topup}}",
+                      "content": "{{appStrings.generated.gift_card.gift_card_confirm.continue_account_topup}}"
                     }
                   },
                   {
@@ -851,7 +851,7 @@
             }
           },
           "child": {
-            "data": "پرداخت {{giftCardRealSummaryPaymentLabel}}",
+            "data": "{{appStrings.generated.gift_card.gift_card_confirm.payment}}",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.primary.onPrimary}}",

@@ -5,7 +5,7 @@
     "values": [
       {
         "key": "authenticationSelectedJobTitle",
-        "value": "حوزه فعالیت خود را انتخاب کنید"
+        "value": "{{appStrings.generated.authentication.authentication_registration.activity_field_select}}"
       },
       {
         "key": "authenticationHasSelectedJob",
@@ -112,7 +112,7 @@
                         }
                       },
                       "child": {
-                        "data": "کاربر گرامی\nبا تکمیل اطلاعات زیر، مراحل احراز هویت شما به اتمام می‌رسد و می‌توانید از خدمات برنامه استفاده کنید.",
+                        "data": "{{appStrings.generated.authentication.authentication_registration.intro_description}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -131,7 +131,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "حوزه فعالیت",
+                      "data": "{{appStrings.generated.authentication.authentication_registration.activity_field}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -229,10 +229,10 @@
                 "enabledKey": "authenticationHasSelectedJob",
                 "enabled": false,
                 "onPressed": {
+                  "actionType": "navigate",
                   "fileName": "test",
-                  "navMode": "dart",
-                  "navigationStyle": "push",
-                  "actionType": "navigate"
+                  "navMode": "localJson",
+                  "navigationStyle": "push"
                 },
                 "style": {
                   "foregroundColor": "{{appColors.current.primary.onPrimary}}",

@@ -10,10 +10,7 @@ StacWidget depositTurnoverTransactions() {
     onInit: StacCustomSetValueAction(
       values: List.generate(
         _allTransactions.length,
-        (index) => {
-          'key': _expandedKey(index),
-          'value': false,
-        },
+        (index) => {'key': _expandedKey(index), 'value': false},
       ),
     ),
     child: StacCustomVisibility(
@@ -364,4 +361,3 @@ class _DepositTransaction {
   final bool isDeposit;
   final String expandedKey;
 }
-

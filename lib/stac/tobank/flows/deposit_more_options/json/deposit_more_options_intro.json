@@ -55,7 +55,7 @@
                   "type": "sizedBox"
                 },
                 {
-                  "data": "خدمات سپرده",
+                  "data": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.deposit_services}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
@@ -132,7 +132,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "صدور کارت",
+                                  "data": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.card}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -153,7 +153,8 @@
                             "result": {
                               "actionType": "navigate",
                               "fileName": "deposit_card_issue_address",
-                              "navMode": "dart",
+                              "navMode": "localJson",
+                              "pathOverride": "lib/stac/tobank/flows/deposit_more_options/json/deposit_card_issue_address.json",
                               "navigationStyle": "push"
                             }
                           },
@@ -231,7 +232,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "بستن سپرده",
+                            "data": "{{appStrings.generated.deposit_more_options.deposit_close_confirm.title}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -252,7 +253,8 @@
                       "result": {
                         "actionType": "navigate",
                         "fileName": "deposit_close_confirm",
-                        "navMode": "dart",
+                        "navMode": "localJson",
+                        "pathOverride": "lib/stac/tobank/flows/deposit_more_options/json/deposit_close_confirm.json",
                         "navigationStyle": "push"
                       }
                     },
@@ -326,7 +328,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "جزئیات سپرده",
+                            "data": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.details_deposit}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -352,11 +354,11 @@
                             "values": [
                               {
                                 "key": "depositMoreOptions.details.depositNumber",
-                                "value": "۱۱۹.۹۲۹۰.۱۶۱۲۹۸۸.۱"
+                                "value": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.amount_value}}"
                               },
                               {
                                 "key": "depositMoreOptions.details.iban",
-                                "value": "IR۶۲۰۶۴۰۰۱۱۹۹۲۹۰۱۶۱۲۹۸۸۰۰۱"
+                                "value": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.ir620640011992901612988001}}"
                               }
                             ]
                           },
@@ -403,7 +405,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "جزئیات سپرده",
+                                      "data": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.details_deposit}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -475,7 +477,7 @@
                                                 "crossAxisAlignment": "stretch",
                                                 "children": [
                                                   {
-                                                    "data": "شماره سپرده",
+                                                    "data": "{{appStrings.generated.card_management.card_management_root.deposit_number}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.subtitle}}",
@@ -623,7 +625,7 @@
                                                 "crossAxisAlignment": "stretch",
                                                 "children": [
                                                   {
-                                                    "data": "شماره شبا",
+                                                    "data": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.iban_number}}",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.subtitle}}",
@@ -805,7 +807,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "خدمات سپرده",
+                      "data": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.deposit_services}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -882,7 +884,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "صدور کارت",
+                                      "data": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.card}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -903,7 +905,8 @@
                                 "result": {
                                   "actionType": "navigate",
                                   "fileName": "deposit_card_issue_address",
-                                  "navMode": "dart",
+                                  "navMode": "localJson",
+                                  "pathOverride": "lib/stac/tobank/flows/deposit_more_options/json/deposit_card_issue_address.json",
                                   "navigationStyle": "push"
                                 }
                               },
@@ -981,7 +984,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "بستن سپرده",
+                                "data": "{{appStrings.generated.deposit_more_options.deposit_close_confirm.title}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -1002,7 +1005,8 @@
                           "result": {
                             "actionType": "navigate",
                             "fileName": "deposit_close_confirm",
-                            "navMode": "dart",
+                            "navMode": "localJson",
+                            "pathOverride": "lib/stac/tobank/flows/deposit_more_options/json/deposit_close_confirm.json",
                             "navigationStyle": "push"
                           }
                         },
@@ -1076,7 +1080,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "جزئیات سپرده",
+                                "data": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.details_deposit}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -1102,11 +1106,11 @@
                                 "values": [
                                   {
                                     "key": "depositMoreOptions.details.depositNumber",
-                                    "value": "۱۱۹.۹۲۹۰.۱۶۱۲۹۸۸.۱"
+                                    "value": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.amount_value}}"
                                   },
                                   {
                                     "key": "depositMoreOptions.details.iban",
-                                    "value": "IR۶۲۰۶۴۰۰۱۱۹۹۲۹۰۱۶۱۲۹۸۸۰۰۱"
+                                    "value": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.ir620640011992901612988001}}"
                                   }
                                 ]
                               },
@@ -1153,7 +1157,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "جزئیات سپرده",
+                                          "data": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.details_deposit}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1225,7 +1229,7 @@
                                                     "crossAxisAlignment": "stretch",
                                                     "children": [
                                                       {
-                                                        "data": "شماره سپرده",
+                                                        "data": "{{appStrings.generated.card_management.card_management_root.deposit_number}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.subtitle}}",
@@ -1373,7 +1377,7 @@
                                                     "crossAxisAlignment": "stretch",
                                                     "children": [
                                                       {
-                                                        "data": "شماره شبا",
+                                                        "data": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.iban_number}}",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.subtitle}}",
@@ -1519,7 +1523,7 @@
             }
           },
           "child": {
-            "data": "نمایش بیشتر (سپرده)",
+            "data": "{{appStrings.generated.deposit_more_options.deposit_more_options_intro.title}}",
             "style": {
               "type": "custom",
               "fontSize": 16,

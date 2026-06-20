@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
@@ -15,7 +15,8 @@ StacWidget dashboardSecondaryPinChange() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: buildTobankFlowAppBar(
-      title: 'تغییر رمز دوم',
+      title:
+          '{{appStrings.generated.card_management.card_management_root.change_second_pin_title}}',
       showSupport: true,
       showBack: true,
     ),
@@ -27,7 +28,8 @@ StacWidget dashboardSecondaryPinChange() {
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
           children: [
             StacText(
-              data: 'رعایت این موارد الزامیست...',
+              data:
+                  '{{appStrings.generated.card_management.card_management_primary_pin_change.requirements_title}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -37,14 +39,19 @@ StacWidget dashboardSecondaryPinChange() {
               ),
             ),
             StacSizedBox(height: 12),
-            _ruleRow(text: 'رمز دوم کارت باید حداقل ۵ و حداکثر ۱۲ رقم باشد'),
+            _ruleRow(
+              text:
+                  '{{appStrings.generated.card_management.card_management_secondary_pin_change.second_pin_card}}',
+            ),
             StacSizedBox(height: 8),
             _ruleRow(
-              text: 'انتخاب رمزهای ساده نظیر ۱۱۱۱۱ یا ۱۲۳۴۵۶ امکان پذیر نیست',
+              text:
+                  '{{appStrings.generated.card_management.card_management_secondary_pin_change.select_pin_not}}',
             ),
             StacSizedBox(height: 24),
             StacText(
-              data: 'رمز فعلی',
+              data:
+                  '{{appStrings.generated.card_management.card_management_primary_pin_change.current_pin}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -65,12 +72,14 @@ StacWidget dashboardSecondaryPinChange() {
                 {
                   'rule': 'matches',
                   'options': {'pattern': r'.+'},
-                  'message': 'رمز فعلی نمی‌تواند خالی باشد',
+                  'message':
+                      '{{appStrings.generated.card_management.card_management_primary_pin_change.current_pin_empty}}',
                 },
               ],
               onChanged: _validateSecondaryPinChangeAction(),
               decoration: {
-                'hintText': 'رمز عبور فعلی را وارد کنید',
+                'hintText':
+                    '{{appStrings.profile.real.changePassword.currentPasswordHint}}',
                 'hintStyle': {
                   'textDirection': 'rtl',
                   'style': {
@@ -105,7 +114,8 @@ StacWidget dashboardSecondaryPinChange() {
             ),
             StacSizedBox(height: 20),
             StacText(
-              data: 'رمز جدید',
+              data:
+                  '{{appStrings.generated.card_management.card_management_primary_pin_change.new_pin}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -126,12 +136,14 @@ StacWidget dashboardSecondaryPinChange() {
                 {
                   'rule': 'matches',
                   'options': {'pattern': r'.+'},
-                  'message': 'رمز جدید نمی‌تواند خالی باشد',
+                  'message':
+                      '{{appStrings.generated.card_management.card_management_primary_pin_change.new_pin_empty}}',
                 },
               ],
               onChanged: _validateSecondaryPinChangeAction(),
               decoration: {
-                'hintText': 'رمز جدید را وارد کنید',
+                'hintText':
+                    '{{appStrings.generated.card_management.card_management_primary_pin_change.new_pin_enter}}',
                 'hintStyle': {
                   'textDirection': 'rtl',
                   'style': {
@@ -166,7 +178,8 @@ StacWidget dashboardSecondaryPinChange() {
             ),
             StacSizedBox(height: 20),
             StacText(
-              data: 'تکرار رمز جدید',
+              data:
+                  '{{appStrings.generated.card_management.card_management_primary_pin_change.repeat_new_pin}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -187,17 +200,20 @@ StacWidget dashboardSecondaryPinChange() {
                 {
                   'rule': 'matches',
                   'options': {'pattern': r'.+'},
-                  'message': 'تکرار رمز جدید نمی‌تواند خالی باشد',
+                  'message':
+                      '{{appStrings.generated.card_management.card_management_primary_pin_change.repeat_new_pin_empty}}',
                 },
                 {
                   'rule': 'compare',
-                  'message': 'رمز جدید و تکرار رمز جدید باید یکسان باشند',
+                  'message':
+                      '{{appStrings.generated.card_management.card_management_primary_pin_change.repeat_new_pin_new_pin}}',
                   'options': {'fieldId': _secondaryPinNewFieldId},
                 },
               ],
               onChanged: _validateSecondaryPinChangeAction(),
               decoration: {
-                'hintText': 'رمز جدید را تکرار کنید',
+                'hintText':
+                    '{{appStrings.generated.card_management.card_management_primary_pin_change.new_pin_repeat}}',
                 'hintStyle': {
                   'textDirection': 'rtl',
                   'style': {
@@ -259,7 +275,8 @@ StacWidget dashboardSecondaryPinChange() {
                 ),
               ).toJson(),
               child: StacText(
-                data: 'تغییر رمز دوم',
+                data:
+                    '{{appStrings.generated.card_management.card_management_root.change_second_pin_title}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 14,

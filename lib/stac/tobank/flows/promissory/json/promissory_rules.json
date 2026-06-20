@@ -290,11 +290,11 @@
                 },
                 {
                   "actionType": "networkRequest",
-                  "url": "http://192.168.107.22:8280/api/digitalbanking/governance/v1.0/sana/__STAC_OPEN__userData.nationalCode}}/1",
+                  "url": "http://192.168.107.22:8280/api/digitalbanking/governance/v1.0/sana/{{userData.nationalCode}}/1",
                   "method": "get",
                   "headers": {
                     "accept": "application/json",
-                    "authorization": "__STAC_OPEN__auth.accessToken}}"
+                    "authorization": "{{auth.accessToken}}"
                   },
                   "results": [
                     {
@@ -335,7 +335,7 @@
                             "child": {
                               "type": "container",
                               "decoration": {
-                                "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                "color": "{{appColors.current.background.surfaceContainer}}",
                                 "borderRadius": {
                                   "topLeft": 8,
                                   "topRight": 8,
@@ -343,7 +343,7 @@
                                   "bottomRight": 8
                                 },
                                 "border": {
-                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                  "color": "{{appColors.current.input.borderEnabled}}",
                                   "width": 1
                                 }
                               },
@@ -367,14 +367,14 @@
                                       "children": [
                                         {
                                           "type": "text",
-                                          "data": "خطا",
+                                          "data": "{{appStrings.common.error}}",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 14,
                                             "fontWeight": "w700",
-                                            "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                            "color": "{{appColors.current.text.title}}",
                                             "height": 1.45
                                           }
                                         },
@@ -384,14 +384,14 @@
                                         },
                                         {
                                           "type": "text",
-                                          "data": "__STAC_OPEN__appStrings.promissory.serverConnectionError}}",
+                                          "data": "{{appStrings.promissory.serverConnectionError}}",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 13,
                                             "fontWeight": "w500",
-                                            "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                            "color": "{{appColors.current.text.subtitle}}",
                                             "height": 1.45
                                           }
                                         }
@@ -407,7 +407,7 @@
                                     "width": 1,
                                     "height": 20,
                                     "decoration": {
-                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "color": "{{appColors.current.input.borderEnabled}}",
                                       "borderRadius": {
                                         "topLeft": 999,
                                         "topRight": 999,
@@ -426,7 +426,7 @@
                                     "imageType": "asset",
                                     "width": 20,
                                     "height": 20,
-                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                    "color": "{{appColors.current.text.subtitle}}"
                                   }
                                 ]
                               }
@@ -454,7 +454,7 @@
                             "child": {
                               "type": "container",
                               "decoration": {
-                                "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                "color": "{{appColors.current.background.surfaceContainer}}",
                                 "borderRadius": {
                                   "topLeft": 8,
                                   "topRight": 8,
@@ -462,7 +462,7 @@
                                   "bottomRight": 8
                                 },
                                 "border": {
-                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                  "color": "{{appColors.current.input.borderEnabled}}",
                                   "width": 1
                                 }
                               },
@@ -486,14 +486,14 @@
                                       "children": [
                                         {
                                           "type": "text",
-                                          "data": "خطا",
+                                          "data": "{{appStrings.common.error}}",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 14,
                                             "fontWeight": "w700",
-                                            "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                            "color": "{{appColors.current.text.title}}",
                                             "height": 1.45
                                           }
                                         },
@@ -503,14 +503,14 @@
                                         },
                                         {
                                           "type": "text",
-                                          "data": "__STAC_OPEN__data.status.message.0}}",
+                                          "data": "{{data.status.message.0}}",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 13,
                                             "fontWeight": "w500",
-                                            "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                            "color": "{{appColors.current.text.subtitle}}",
                                             "height": 1.45
                                           }
                                         }
@@ -526,7 +526,7 @@
                                     "width": 1,
                                     "height": 20,
                                     "decoration": {
-                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "color": "{{appColors.current.input.borderEnabled}}",
                                       "borderRadius": {
                                         "topLeft": 999,
                                         "topRight": 999,
@@ -545,7 +545,7 @@
                                     "imageType": "asset",
                                     "width": 20,
                                     "height": 20,
-                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                    "color": "{{appColors.current.text.subtitle}}"
                                   }
                                 ]
                               }

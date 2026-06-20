@@ -8,7 +8,7 @@ StacWidget profileRealAbout() {
     appBar: buildTobankFlowAppBar(
       showSupport: true,
       showBack: true,
-      title: 'درباره ما',
+      title: '{{appStrings.profile.real.menu.aboutUs}}',
     ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -27,7 +27,7 @@ StacWidget profileRealAbout() {
           StacSizedBox(height: 16),
           StacCenter(
             child: StacText(
-              data: 'یک شعبه مجازی همراه شماست!',
+              data: '{{appStrings.profile.real.about.slogan}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 14,
@@ -40,16 +40,7 @@ StacWidget profileRealAbout() {
           StacPadding(
             padding: StacEdgeInsets.all(16),
             child: StacText(
-              data:
-                  'سوپر اپلیکیشن توبانک به عنوان محصول مشترک بانک گردشگری و شرکت نوین اندیشه '
-                  'و آرامش آفرینان پاسارگاد، جامع در حوزه پرداخت و خدمات شعبه مجازی بانک گردشگری است. '
-                  'این سوپر اپلیکیشن علاوه بر خدمات پرداخت همچون کارت به کارت، در بستر خدمات مالی، '
-                  'استعلام خلافی خودرو و قبوض‌های متنوع و پرداخت آن‌ها و خرید شارژ و بسته‌ی اینترنتی تلفن همراه، '
-                  'امکان احراز هویت و افتتاح سپرده آنلاین و رایگان در بانک گردشگری را نیز به مراجعه حضوری برای شما میسر می‌کند.\n\n'
-                  'امنیت، سرعت، سادگی، تجربه کاربری منحصر‌به‌فرد، پوشش طیف گسترده‌ای از سرویس‌های متنوع، '
-                  'یکی از بسترهای متفاوت دیگر و قابل اعتماد بودن، تمام آن چیزی است که مصرف‌کنندگان یک بستر خدماتی '
-                  'در حوزه مالی به آن نیاز دارند. با توبانک نیاز به جابه‌جایی و بکارگیری روش‌های متفاوت برای '
-                  'هرگونه پرداخت، اعم از نقد و انتقال پول و سرمایه‌گذاری برطرف می‌شود.',
+              data: '{{appStrings.profile.real.about.description}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(

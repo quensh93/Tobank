@@ -8,7 +8,7 @@
                 "id": 67890,
                 "isSuccess": true,
                 "amount": 163500,
-                "message": "پرداخت با موفقیت انجام شد"
+                "message": "{{appStrings.generated.promissory.POST_promissory_fee.successfully_payment}}"
             },
             "code": 0
         }

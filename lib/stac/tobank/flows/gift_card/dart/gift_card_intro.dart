@@ -11,7 +11,7 @@ StacWidget giftCardRealIntro() {
     appBar: buildTobankFlowAppBar(
       showSupport: true,
       showBack: true,
-      title: 'کارت هدیه',
+      title: '{{appStrings.homePage.services.giftCard}}',
     ),
     body: StacStack(
       children: [
@@ -31,7 +31,8 @@ StacWidget giftCardRealIntro() {
                 ),
                 StacSizedBox(height: 24),
                 StacText(
-                  data: 'شما کارتی خریداری نکرده‌اید',
+                  data:
+                      '{{appStrings.generated.gift_card.gift_card_intro.title}}',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.center,
                   style: StacCustomTextStyle(
@@ -70,7 +71,8 @@ StacWidget giftCardRealIntro() {
                   ),
                   StacSizedBox(width: 8),
                   StacText(
-                    data: 'خرید کارت هدیه',
+                    data:
+                        '{{appStrings.generated.gift_card.gift_card_intro.gift_card_buy}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 16,
@@ -115,6 +117,3 @@ StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
     ).toJson(),
   );
 }
-
-
-

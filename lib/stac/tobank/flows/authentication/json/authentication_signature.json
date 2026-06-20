@@ -129,7 +129,7 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "data": "دریافت امضا",
+                        "data": "{{appStrings.generated.authentication.authentication_signature.title}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -142,10 +142,10 @@
                       {
                         "onPressed": {
                           "actionType": "showGuideOptionsBottomSheet",
-                          "title": "راهنما",
+                          "title": "{{appStrings.authentication.guideLabel}}",
                           "options": [
                             {
-                              "title": "راهنمای تصویری",
+                              "title": "{{appStrings.generated.authentication.authentication_signature_guide.image}}",
                               "iconAsset": "{{appAssets.icons.visualTutorialCurrent}}",
                               "onTap": {
                                 "actionType": "launchUrl",
@@ -154,7 +154,7 @@
                               }
                             },
                             {
-                              "title": "راهنمای صوتی",
+                              "title": "{{appStrings.generated.authentication.authentication_signature_guide.audio_guide}}",
                               "iconAsset": "{{appAssets.icons.voiceTutorialCurrent}}",
                               "onTap": {
                                 "actionType": "playAudioUrl",
@@ -207,7 +207,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "راهنما",
+                              "data": "{{appStrings.authentication.guideLabel}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -230,7 +230,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "لطفا نمونه امضا خود را در کادر زیر وارد کنید و پس از تایید، دکمه تایید و ادامه را فشار دهید.",
+                    "data": "{{appStrings.generated.authentication.authentication_signature.continue_confirm_signature_enter}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.subtitle}}",
@@ -274,7 +274,7 @@
                           "child": {
                             "alignment": "centerEnd",
                             "child": {
-                              "data": "محل امضا",
+                              "data": "{{appStrings.promissory.signaturePlace}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -367,7 +367,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "حذف",
+                            "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -410,7 +410,7 @@
                   {
                     "actionType": "navigate",
                     "fileName": "authentication_certificate_generator",
-                    "navMode": "dart",
+                    "navMode": "localJson",
                     "navigationStyle": "push"
                   }
                 ]
@@ -450,7 +450,7 @@
                 }
               },
               "child": {
-                "data": "تایید و ادامه",
+                "data": "{{appStrings.authentication.confirmAndContinue}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.primary.onPrimary}}",

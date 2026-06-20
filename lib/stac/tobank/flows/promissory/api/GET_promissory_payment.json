@@ -8,7 +8,7 @@
                     "type": "appBar",
                     "title": {
                         "type": "text",
-                        "data": "انتخاب روش پرداخت",
+                        "data": "{{appStrings.generated.promissory.promissory_payment.select_payment}}",
                         "textDirection": "rtl",
                         "style": {
                             "type": "custom",
@@ -47,12 +47,12 @@
                                     "type": "listTile",
                                     "title": {
                                         "type": "text",
-                                        "data": "پرداخت از طریق کیف پول",
+                                        "data": "{{appStrings.generated.promissory.promissory_payment.payment_wallet_money}}",
                                         "textDirection": "rtl"
                                     },
                                     "subtitle": {
                                         "type": "text",
-                                        "data": "موجودی: کافی",
+                                        "data": "{{appStrings.generated.promissory.promissory_payment.balance}}",
                                         "textDirection": "rtl"
                                     },
                                     "leading": {
@@ -93,7 +93,7 @@
                                     "type": "listTile",
                                     "title": {
                                         "type": "text",
-                                        "data": "پرداخت اینترنتی (شاپرک)",
+                                        "data": "{{appStrings.generated.promissory.promissory_payment.payment_internet}}",
                                         "textDirection": "rtl"
                                     },
                                     "leading": {
@@ -103,8 +103,8 @@
                                     },
                                     "onTap": {
                                         "actionType": "showResult",
-                                        "title": "در حال توسعه",
-                                        "content": "این روش پرداخت فعلا غیرفعال است."
+                                        "title": "{{appStrings.generated.promissory.promissory_payment.under_development}}",
+                                        "content": "{{appStrings.generated.promissory.promissory_payment.inactive_payment}}"
                                     }
                                 }
                             }

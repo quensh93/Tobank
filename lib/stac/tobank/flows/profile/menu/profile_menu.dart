@@ -11,7 +11,7 @@ StacWidget profileRealMenu() {
   return StacScaffold(
     appBar: StacAppBar(
       title: StacText(
-        data: 'منوی دیباگ پروفایل',
+        data: '{{appStrings.generated.profile.profile_menu.title}}',
         textDirection: StacTextDirection.rtl,
         style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
       ),
@@ -36,7 +36,7 @@ StacWidget profileRealMenu() {
         mainAxisAlignment: StacMainAxisAlignment.center,
         children: [
           StacText(
-            data: 'مسیرهای ورود جریان',
+            data: '{{appStrings.promissory.debug.flowEntryPoints}}',
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
               fontSize: 18,
@@ -46,7 +46,11 @@ StacWidget profileRealMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'profile_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'profile_intro',
+              navMode: NavModes.localJson,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -55,7 +59,7 @@ StacWidget profileRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از JSON محلی',
+              data: '{{appStrings.promissory.debug.loadLocalJson}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -64,7 +68,11 @@ StacWidget profileRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'profile_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'profile_intro',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -73,7 +81,7 @@ StacWidget profileRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از DART',
+              data: '{{appStrings.promissory.debug.loadDart}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,

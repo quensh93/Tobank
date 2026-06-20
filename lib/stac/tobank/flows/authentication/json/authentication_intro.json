@@ -495,7 +495,7 @@
                                 "onPressed": {
                                   "actionType": "showRulesBottomSheet",
                                   "routeName": "authentication_rules",
-                                  "title": "شرایط و مقررات ارائه خدمات توبانک"
+                                  "title": "{{appStrings.authentication.serviceRulesTitle}}"
                                 },
                                 "style": {
                                   "foregroundColor": "{{appColors.current.secondary.color}}",
@@ -567,10 +567,10 @@
               "enabledKey": "isAuthenticationRulesAccepted",
               "enabled": false,
               "onPressed": {
+                "actionType": "navigate",
                 "fileName": "authentication_preregister",
-                "navMode": "dart",
-                "navigationStyle": "push",
-                "actionType": "navigate"
+                "navMode": "localJson",
+                "navigationStyle": "push"
               },
               "style": {
                 "backgroundColor": "{{appColors.current.primary.color}}",

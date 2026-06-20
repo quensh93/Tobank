@@ -54,7 +54,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "اینترنت",
+        "data": "{{appStrings.generated.internet_pakage.internet_pakage_add_sim.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -111,22 +111,22 @@
                     {
                       "tabs": [
                         {
-                          "text": "سایر",
+                          "text": "{{appStrings.generated.child_loan.child_loan_guarantee_address.other_option}}",
                           "height": 40.0,
                           "type": "tab"
                         },
                         {
-                          "text": "ماهانه",
+                          "text": "{{appStrings.generated.internet_pakage.internet_pakage_list.monthly_period}}",
                           "height": 40.0,
                           "type": "tab"
                         },
                         {
-                          "text": "هفتگی",
+                          "text": "{{appStrings.generated.internet_pakage.internet_pakage_list.sample_message}}",
                           "height": 40.0,
                           "type": "tab"
                         },
                         {
-                          "text": "روزانه",
+                          "text": "{{appStrings.generated.internet_pakage.internet_pakage_list.sample_label}}",
                           "height": 40.0,
                           "type": "tab"
                         }
@@ -268,7 +268,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -281,7 +281,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -299,7 +299,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -348,7 +348,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -361,7 +361,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -379,7 +379,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -443,11 +443,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -486,7 +486,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -499,7 +499,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -517,7 +517,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -566,7 +566,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -579,7 +579,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -597,7 +597,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -661,11 +661,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -704,7 +704,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -717,7 +717,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -735,7 +735,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -784,7 +784,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -797,7 +797,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -815,7 +815,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -879,11 +879,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -922,7 +922,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -935,7 +935,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -953,7 +953,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1002,7 +1002,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1015,7 +1015,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1033,7 +1033,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1097,11 +1097,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -1140,7 +1140,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1153,7 +1153,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1171,7 +1171,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1220,7 +1220,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1233,7 +1233,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1251,7 +1251,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1315,11 +1315,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -1358,7 +1358,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1371,7 +1371,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1389,7 +1389,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1438,7 +1438,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1451,7 +1451,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1469,7 +1469,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1533,11 +1533,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -1553,7 +1553,7 @@
                         "mainAxisSize": "min",
                         "children": [
                           {
-                            "src": "assets/icons/ic_internet_pakage_empty_list_light.svg",
+                            "src": "assets/icons/ic_package_empty_list_light.svg",
                             "imageType": "asset",
                             "width": 144.0,
                             "height": 144.0,
@@ -1561,7 +1561,7 @@
                             "type": "image"
                           },
                           {
-                            "data": "بسته‌ی اینترنتی ماهانه در حال موجود نمی‌باشد",
+                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -1614,7 +1614,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1627,7 +1627,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1645,7 +1645,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1694,7 +1694,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1707,7 +1707,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1725,7 +1725,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1789,11 +1789,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -1832,7 +1832,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1845,7 +1845,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1863,7 +1863,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1912,7 +1912,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -1925,7 +1925,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1943,7 +1943,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2007,11 +2007,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -2050,7 +2050,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2063,7 +2063,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -2081,7 +2081,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2130,7 +2130,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2143,7 +2143,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -2161,7 +2161,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2225,11 +2225,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -2268,7 +2268,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2281,7 +2281,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -2299,7 +2299,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2348,7 +2348,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2361,7 +2361,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -2379,7 +2379,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2443,11 +2443,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -2486,7 +2486,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2499,7 +2499,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -2517,7 +2517,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2566,7 +2566,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2579,7 +2579,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -2597,7 +2597,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2661,11 +2661,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -2704,7 +2704,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2717,7 +2717,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -2735,7 +2735,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2784,7 +2784,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2797,7 +2797,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -2815,7 +2815,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2879,11 +2879,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -2931,7 +2931,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -2944,7 +2944,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -2962,7 +2962,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3011,7 +3011,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3024,7 +3024,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -3042,7 +3042,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3106,11 +3106,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -3149,7 +3149,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3162,7 +3162,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -3180,7 +3180,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3229,7 +3229,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3242,7 +3242,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -3260,7 +3260,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3324,11 +3324,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -3367,7 +3367,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3380,7 +3380,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -3398,7 +3398,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3447,7 +3447,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3460,7 +3460,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -3478,7 +3478,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3542,11 +3542,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -3585,7 +3585,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3598,7 +3598,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -3616,7 +3616,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3665,7 +3665,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3678,7 +3678,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -3696,7 +3696,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3760,11 +3760,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -3803,7 +3803,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3816,7 +3816,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -3834,7 +3834,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3883,7 +3883,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -3896,7 +3896,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -3914,7 +3914,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3978,11 +3978,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -4021,7 +4021,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -4034,7 +4034,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -4052,7 +4052,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -4101,7 +4101,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "assets/icons/ic_internet_pakage.svg",
+                                          "src": "assets/icons/ic_package.svg",
                                           "imageType": "asset",
                                           "color": "{{appColors.current.text.disable}}",
                                           "width": 34.0,
@@ -4114,7 +4114,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات",
+                                            "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.packageTitle}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -4132,7 +4132,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "۵۳,۱۶۰",
+                                          "data": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -4196,11 +4196,11 @@
                                 },
                                 {
                                   "key": "crPkgSelectedAmount",
-                                  "value": "۱۵۰,۰۰۰"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}"
                                 },
                                 {
                                   "key": "crPkgSelectedName",
-                                  "value": "بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت"
+                                  "value": "{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}"
                                 }
                               ]
                             },
@@ -4243,7 +4243,7 @@
                       }
                     },
                     "child": {
-                      "data": "ادامه",
+                      "data": "{{appStrings.common.continue}}",
                       "style": {
                         "type": "custom",
                         "color": "#667085",
@@ -4264,7 +4264,7 @@
                   "child": {
                     "onPressed": {
                       "fileName": "internet_pakage_payment",
-                      "navMode": "dart",
+                      "navMode": "localJson",
                       "navigationStyle": "push",
                       "actionType": "navigate"
                     },
@@ -4287,7 +4287,7 @@
                       }
                     },
                     "child": {
-                      "data": "ادامه",
+                      "data": "{{appStrings.common.continue}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.primary.onPrimary}}",

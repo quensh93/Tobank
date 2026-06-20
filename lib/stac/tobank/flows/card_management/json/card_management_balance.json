@@ -50,7 +50,7 @@
       ],
       "title": {
         "type": "text",
-        "data": "دریافت موجودی",
+        "data": "{{appStrings.generated.card_management.card_management_balance.balance_receive}}",
         "textDirection": "rtl",
         "style": {
           "type": "alias",
@@ -77,7 +77,7 @@
           "children": [
             {
               "type": "text",
-              "data": "شماره کارت",
+              "data": "{{appStrings.profile.real.destinations.cardNumberLabel}}",
               "textDirection": "rtl",
               "textAlign": "right",
               "style": {
@@ -163,7 +163,7 @@
             },
             {
               "type": "text",
-              "data": "تاریخ انقضا",
+              "data": "{{appStrings.generated.transfer.transfer_confirm.date}}",
               "textDirection": "rtl",
               "textAlign": "right",
               "style": {
@@ -188,10 +188,10 @@
               "onTap": {
                 "actionType": "showCardExpireSelectBottomSheet",
                 "formFieldId": "balance_expiry",
-                "title": "تاریخ انقضای کارت را انتخاب نمایید",
-                "monthTitle": "ماه",
-                "yearTitle": "سال",
-                "confirmText": "تایید",
+                "title": "{{appStrings.generated.transfer.transfer_confirm.select_date_card}}",
+                "monthTitle": "{{appStrings.generated.transfer.transfer_confirm.month}}",
+                "yearTitle": "{{appStrings.generated.transfer.transfer_confirm.year}}",
+                "confirmText": "{{appStrings.common.confirm}}",
                 "onSelectedAction": {
                   "actionType": "validateFields",
                   "resultKey": "cardsManagement.balance.submitEnabled",
@@ -215,7 +215,7 @@
                 "color": "{{appColors.current.text.title}}"
               },
               "decoration": {
-                "hintText": "۰۵/۰۷",
+                "hintText": "{{appStrings.generated.card_management.cards_management.date_value_text}}",
                 "hintStyle": {
                   "type": "custom",
                   "color": "{{appColors.current.text.hint}}",
@@ -292,7 +292,7 @@
                 ]
               },
               "decoration": {
-                "hintText": "CVV2 را وارد نمایید",
+                "hintText": "{{appStrings.generated.transfer.transfer_confirm.cvv2_enter}}",
                 "hintStyle": {
                   "textDirection": "rtl",
                   "style": {
@@ -335,7 +335,7 @@
             },
             {
               "type": "text",
-              "data": "رمز پویا",
+              "data": "{{appStrings.generated.transfer.transfer_confirm.dynamic_pin}}",
               "textDirection": "rtl",
               "textAlign": "right",
               "style": {
@@ -377,7 +377,7 @@
                       ]
                     },
                     "decoration": {
-                      "hintText": "رمز پویا را وارد نمایید",
+                      "hintText": "{{appStrings.generated.transfer.transfer_confirm.dynamic_pin_enter}}",
                       "hintStyle": {
                         "textDirection": "rtl",
                         "style": {
@@ -462,7 +462,7 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "data": "رمز پویا ارسال شد",
+                                  "data": "{{appStrings.generated.card_management.card_management_balance.dynamic_pin_sent}}",
                                   "textDirection": "rtl",
                                   "textAlign": "right",
                                   "style": {
@@ -479,7 +479,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "data": "رمز پویا برای شماره همراه شما ارسال شد. (mock)",
+                                  "data": "{{appStrings.generated.card_management.card_management_balance.mobile_number_dynamic_pin_sent}}",
                                   "textDirection": "rtl",
                                   "textAlign": "right",
                                   "style": {
@@ -551,7 +551,7 @@
                   },
                   "child": {
                     "type": "text",
-                    "data": "رمز پویا",
+                    "data": "{{appStrings.generated.transfer.transfer_confirm.dynamic_pin}}",
                     "textDirection": "rtl",
                     "style": {
                       "type": "custom",
@@ -568,7 +568,7 @@
             },
             {
               "type": "text",
-              "data": "مبلغ ۱۴۱۴۰ ریال بابت کارمزد از حساب شما کسر خواهد شد",
+              "data": "{{appStrings.generated.card_management.card_management_balance.account_amount_rial_fee}}",
               "textDirection": "rtl",
               "textAlign": "center",
               "style": {
@@ -626,7 +626,7 @@
                           "children": [
                             {
                               "type": "text",
-                              "data": "موجودی دریافت شد",
+                              "data": "{{appStrings.generated.card_management.card_management_balance.balance_receive_data}}",
                               "textDirection": "rtl",
                               "textAlign": "right",
                               "style": {
@@ -643,7 +643,7 @@
                             },
                             {
                               "type": "text",
-                              "data": "موجودی کارت با موفقیت دریافت شد. (mock)",
+                              "data": "{{appStrings.generated.card_management.card_management_balance.successfully_balance_card_receive_mock}}",
                               "textDirection": "rtl",
                               "textAlign": "right",
                               "style": {
@@ -729,7 +729,7 @@
               },
               "child": {
                 "type": "text",
-                "data": "دریافت موجودی",
+                "data": "{{appStrings.generated.card_management.card_management_balance.balance_receive}}",
                 "textDirection": "rtl",
                 "style": {
                   "type": "custom",

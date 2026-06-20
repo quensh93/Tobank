@@ -42,7 +42,8 @@ StacWidget authenticationRealCertificateGenerator() {
                     children: [
                       StacSizedBox(height: 8),
                       StacText(
-                        data: 'لطفا اطلاعات تکمیلی مورد نیاز را وارد کنید',
+                        data:
+                            '{{appStrings.generated.authentication.authentication_certificate_generator.title}}',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
@@ -53,66 +54,78 @@ StacWidget authenticationRealCertificateGenerator() {
                         ),
                       ),
                       StacSizedBox(height: 28),
-                      _buildFieldLabel('نام به انگلیسی'),
+                      _buildFieldLabel(
+                        '{{appStrings.generated.authentication.authentication_certificate_generator.english_first_name}}',
+                      ),
                       StacSizedBox(height: 8),
                       _buildEnglishInfoField(
                         id: 'authentication_english_first_name',
                         hasValueKey: 'hasAuthenticationEnglishFirstNameInput',
-                        hintText: 'نام خود را به انگلیسی وارد کنید',
+                        hintText:
+                            '{{appStrings.generated.authentication.authentication_certificate_generator.first_name_english_enter}}',
                         keyboardType: 'text',
                         textInputAction: 'next',
                         validatorRule: r'^[A-Za-z ]{2,}$',
                         validatorMessage:
-                            'لطفا نام را به انگلیسی و به‌صورت صحیح وارد کنید',
+                            '{{appStrings.generated.authentication.authentication_certificate_generator.name_english_valid_enter_message}}',
                         inputFormatters: const [
                           {'type': 'allow', 'rule': '[A-Za-z ]'},
                         ],
                         maxLength: 40,
                       ),
                       StacSizedBox(height: 18),
-                      _buildFieldLabel('نام خانوادگی به انگلیسی'),
+                      _buildFieldLabel(
+                        '{{appStrings.generated.authentication.authentication_certificate_generator.english_last_name}}',
+                      ),
                       StacSizedBox(height: 8),
                       _buildEnglishInfoField(
                         id: 'authentication_english_last_name',
                         hasValueKey: 'hasAuthenticationEnglishLastNameInput',
-                        hintText: 'نام خانوادگی خود را به انگلیسی وارد کنید',
+                        hintText:
+                            '{{appStrings.generated.authentication.authentication_certificate_generator.last_name_english_enter}}',
                         keyboardType: 'text',
                         textInputAction: 'next',
                         validatorRule: r'^[A-Za-z ]{2,}$',
                         validatorMessage:
-                            'لطفا نام خانوادگی را به انگلیسی و به‌صورت صحیح وارد کنید',
+                            '{{appStrings.generated.authentication.authentication_certificate_generator.last_name_english_valid_enter_message}}',
                         inputFormatters: const [
                           {'type': 'allow', 'rule': '[A-Za-z ]'},
                         ],
                         maxLength: 60,
                       ),
                       StacSizedBox(height: 18),
-                      _buildFieldLabel('ایمیل'),
+                      _buildFieldLabel(
+                        '{{appStrings.generated.authentication.authentication_certificate_generator.email}}',
+                      ),
                       StacSizedBox(height: 8),
                       _buildEnglishInfoField(
                         id: 'authentication_email',
                         hasValueKey: 'hasAuthenticationEmailInput',
-                        hintText: 'ایمیل خود را وارد کنید',
+                        hintText:
+                            '{{appStrings.generated.authentication.authentication_certificate_generator.email_enter}}',
                         keyboardType: 'emailAddress',
                         textInputAction: 'next',
                         validatorRule:
                             r'^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$',
-                        validatorMessage: 'لطفا ایمیل معتبر وارد کنید',
+                        validatorMessage:
+                            '{{appStrings.generated.authentication.authentication_certificate_generator.email_enter_message}}',
                         maxLength: 80,
                       ),
                       StacSizedBox(height: 18),
-                      _buildFieldLabel('شماره تلفن منزل'),
+                      _buildFieldLabel(
+                        '{{appStrings.generated.authentication.authentication_certificate_generator.home_phone_number}}',
+                      ),
                       StacSizedBox(height: 8),
                       _buildEnglishInfoField(
                         id: 'authentication_home_phone',
                         hasValueKey: 'hasAuthenticationHomePhoneInput',
                         hintText:
-                            'شماره تلفن منزل را با پیش شماره استان وارد کنید',
+                            '{{appStrings.generated.authentication.authentication_certificate_generator.home_phone_number_province_prefix}}',
                         keyboardType: 'phone',
                         textInputAction: 'done',
                         validatorRule: r'^0\d{10}$',
                         validatorMessage:
-                            'لطفا شماره تلفن منزل را با پیش‌شماره صحیح وارد کنید',
+                            '{{appStrings.generated.authentication.authentication_certificate_generator.home_phone_number_valid_enter_message}}',
                         inputFormatters: const [
                           {'type': 'allow', 'rule': '[0-9]'},
                         ],
@@ -150,7 +163,8 @@ StacWidget authenticationRealCertificateGenerator() {
                     ),
                   ).toJson(),
                   child: StacText(
-                    data: 'تکمیل فرآیند',
+                    data:
+                        '{{appStrings.generated.authentication.authentication_certificate_generator.complete_process}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 18,

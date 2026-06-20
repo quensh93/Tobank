@@ -16,7 +16,8 @@ StacWidget childLoanRulesScreen() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        title: 'تسهیلات فرزندآوری',
+        title:
+            '{{appStrings.generated.child_loan.child_loan_customer_check.title}}',
         showBack: true,
         showSupport: true,
       ),
@@ -55,7 +56,8 @@ StacWidget _buildRulesCard() {
             StacPadding(
               padding: StacEdgeInsets.all(16),
               child: StacText(
-                data: 'شرایط و مقررات درخواست تسهیلات فرزندآوری',
+                data:
+                    '{{appStrings.generated.child_loan.child_loan_rules.title}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.center,
                 style: StacTextStyle(
@@ -74,16 +76,9 @@ StacWidget _buildRulesCard() {
                 padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 14),
                 child: StacText(
                   data:
-                      '۱. دارا بودن تابعیت کشور جمهوری اسلامی ایران\n'
-                      '۲. ثبت نام در سامانه بانک مرکزی به منظور اخذ کدرهگیری ده رقمی\n'
-                      '۳. پرداخت تسهیلات به پدر/قیم فرزندانی که در زمان ثبت درخواست در سامانه مربوطه از تاریخ تولد آنها بیشتر از ۲ سال نگذشته باشد\n'
-                      '۴. ثبت نام متقاضی و ضامن در سامانه نتا\n'
-                      '۵. نداشتن چک برگشتی و بدهی غیرجاری متقاضی\n'
-                      '۶. عدم وجود در لیست سیاه/مظنونین\n'
-                      '۷. ارائه اصل کلیه مدارک مورد نیاز در زمان مراجعه حضوری به بانک\n'
-                      '۸. تعلق وام در مورد تولد فرزندان دو قلو و بیشتر، به ازای هر فرزند و به صورت جداگانه\n'
-                      '۹. محدودیت نرخ باروری شهرستان محل زادگاه پدر یا فرزند به ۲.۵ درصد\n'
-                      '۱۰. کارمزد تسهیلات حسب مصوبات شورای پول و اعتبار حداکثر ۴ درصد به صورت سالانه',
+                      '{{appStrings.generated.child_loan.child_loan_rules.n}}'
+                      '{{appStrings.generated.child_loan.child_loan_rules.loan_registration_steps}}'
+                      '{{appStrings.generated.child_loan.child_loan_rules.loan_fee_money_description}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacTextStyle(
                     fontSize: 14,
@@ -151,7 +146,8 @@ StacWidget _buildRulesCheckbox() {
             StacSizedBox(width: 12),
             StacExpanded(
               child: StacText(
-                data: 'قوانین و مقررات تسهیلات فرزندآوری را قبول دارم',
+                data:
+                    '{{appStrings.generated.child_loan.child_loan_rules.loan_rules_child}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacTextStyle(
                   fontSize: 15,
@@ -183,7 +179,11 @@ StacWidget _buildNextButton() {
               {'key': 'crDetailVariantCompleteDocsEmpty', 'value': false},
             ],
           ),
-          NavigationAction(fileName: 'child_loan_customer_check', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+          NavigationAction(
+            fileName: 'child_loan_customer_check',
+            navMode: NavModes.dart,
+            navigationStyle: NavigationStyle.push,
+          ),
         ],
       ).toJson(),
       style: StacButtonStyle(
@@ -197,7 +197,7 @@ StacWidget _buildNextButton() {
         disabledForegroundColor: '{{appColors.current.text.subtitle}}',
       ).toJson(),
       child: StacText(
-        data: 'مرحله بعد',
+        data: '{{appStrings.generated.cartable.cartable_intro.next_step}}',
         style: StacTextStyle(
           fontSize: 18,
           fontWeight: StacFontWeight.w700,

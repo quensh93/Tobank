@@ -340,4 +340,3 @@ StacWidget _buildDetailRow(String keyText, String valueText) {
 }
 
 StacWidget _buildGap() => StacSizedBox(height: 16);
-

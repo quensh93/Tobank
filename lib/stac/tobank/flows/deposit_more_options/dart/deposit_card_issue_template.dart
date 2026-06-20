@@ -16,7 +16,8 @@ StacWidget depositCardIssueTemplate() {
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
-        title: 'آدرس دریافت کارت بانکی',
+        title:
+            '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.title}}',
         showSupport: true,
       ),
       body: StacPadding(
@@ -25,7 +26,8 @@ StacWidget depositCardIssueTemplate() {
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
           children: [
             StacText(
-              data: 'رنگ کارت خود را انتخاب کنید',
+              data:
+                  '{{appStrings.generated.deposit_more_options.deposit_card_issue_template.title}}',
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
@@ -43,8 +45,9 @@ StacWidget depositCardIssueTemplate() {
             StacExpanded(child: StacSizedBox(height: 0)),
             StacFilledButton(
               onPressed: StacFingerPrintAction(
-                title: 'احراز هویت',
-                description: 'لطفا برای ادامه صدور کارت، احراز هویت انجام دهید',
+                title: '{{appStrings.menu.items.authentication}}',
+                description:
+                    '{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_continue_card}}',
                 onSuccess: {
                   'actionType': 'navigate',
                   'fileName': 'deposit_card_issue_result',
@@ -53,8 +56,10 @@ StacWidget depositCardIssueTemplate() {
                 },
                 onFailure: {
                   'actionType': 'showSnackBar',
-                  'title': 'عدم احراز هویت',
-                  'description': 'احراز هویت انجام نشد. لطفا دوباره تلاش کنید.',
+                  'title':
+                      '{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_failed_title}}',
+                  'description':
+                      '{{appStrings.generated.deposit_more_options.deposit_card_issue_template.authentication_try_again}}',
                   'type': 'error',
                 },
               ),
@@ -68,7 +73,8 @@ StacWidget depositCardIssueTemplate() {
                 ),
               ),
               child: StacText(
-                data: 'انتخاب و ادامه',
+                data:
+                    '{{appStrings.generated.deposit_more_options.deposit_card_issue_template.select_continue}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 18,
@@ -84,4 +90,3 @@ StacWidget depositCardIssueTemplate() {
     ),
   );
 }
-

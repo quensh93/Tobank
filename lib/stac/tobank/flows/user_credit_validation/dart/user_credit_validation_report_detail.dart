@@ -10,7 +10,7 @@ StacWidget userCreditValidationReportDetail() {
     appBar: buildTobankFlowAppBar(
       showSupport: true,
       showBack: true,
-      title: 'اعتبارسنجی',
+      title: '{{appStrings.authentication.stepValidation}}',
     ),
     body: StacPadding(
       padding: StacEdgeInsets.all(16),
@@ -44,7 +44,8 @@ StacWidget userCreditValidationReportDetail() {
                       StacSizedBox(width: 10),
                       StacExpanded(
                         child: StacText(
-                          data: 'گزارش اعتبارسنجی',
+                          data:
+                              '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.report_credit_validation}}',
                           textDirection: StacTextDirection.rtl,
                           style: StacCustomTextStyle(
                             fontSize: 16,
@@ -54,7 +55,11 @@ StacWidget userCreditValidationReportDetail() {
                         ),
                       ),
                       StacGestureDetector(
-                        onTap: NavigationAction(fileName: 'user_credit_validation_preview', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                        onTap: NavigationAction(
+                          fileName: 'user_credit_validation_preview',
+                          navMode: NavModes.dart,
+                          navigationStyle: NavigationStyle.push,
+                        ),
                         child: StacPadding(
                           padding: StacEdgeInsets.all(6),
                           child: StacImage(
@@ -89,7 +94,8 @@ StacWidget userCreditValidationReportDetail() {
                   ),
                   StacSizedBox(height: 12),
                   StacText(
-                    data: 'مشاهده گزارش اعتبارسنجی',
+                    data:
+                        '{{appStrings.generated.user_credit_validation.user_credit_validation_report_detail.title}}',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.center,
                     style: StacCustomTextStyle(
@@ -110,7 +116,9 @@ StacWidget userCreditValidationReportDetail() {
 
 StacAction _shareValidationReportCardAction() {
   return const StacShowResultAction(
-    title: 'اشتراک‌گذاری',
-    content: 'اشتراک‌گذاری گزارش به زودی اضافه می‌شود',
+    title:
+        '{{appStrings.generated.card_management.card_management_root.share}}',
+    content:
+        '{{appStrings.generated.user_credit_validation.user_credit_validation_report_detail.share}}',
   );
 }

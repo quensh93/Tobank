@@ -1,4 +1,4 @@
-﻿// ignore_for_file: use_null_aware_elements
+// ignore_for_file: use_null_aware_elements
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/amount/amount_to_words_action.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
@@ -22,7 +22,7 @@ StacWidget transferRealInBankDetails() {
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
         showSupport: true,
-        title: 'انتقال وجه',
+        title: '{{appStrings.menu.items.transfer}}',
       ),
       body: StacForm(
         autovalidateMode: StacAutovalidateMode.onUserInteraction,
@@ -45,7 +45,8 @@ StacWidget transferRealInBankDetails() {
                       StacSizedBox(height: 8),
                       _textInput(
                         id: 'transferApiAmountInput',
-                        hint: 'مبلغ انتقال را به ریال وارد کنید',
+                        hint:
+                            '{{appStrings.generated.transfer.transfer_card_details.title}}',
                         textDirection: 'ltr',
                         textAlign: 'left',
                         hintTextDirection: 'rtl',
@@ -68,7 +69,8 @@ StacWidget transferRealInBankDetails() {
                               destinationKey: 'transferApiAmountWords',
                               divideBy: 10,
                               minDigits: 2,
-                              suffix: 'تومان',
+                              suffix:
+                                  '{{appStrings.generated.installment_payment.installment_payment_detail_main.toman}}',
                             ),
                             const StacCustomAction.fromJson({
                               'actionType': 'setTransferDetailsContinueEnabled',
@@ -81,25 +83,31 @@ StacWidget transferRealInBankDetails() {
                         ),
                       ),
                       StacSizedBox(height: 16),
-                      _label('بابت'),
+                      _label(
+                        '{{appStrings.generated.transfer.transfer_details.sample_message}}',
+                      ),
                       StacSizedBox(height: 8),
                       _reasonPickerInput(),
                       StacSizedBox(height: 16),
-                      _label('شناسه پرداخت'),
+                      _label(
+                        '{{appStrings.generated.transfer.transfer_details.identifier_payment}}',
+                      ),
                       StacSizedBox(height: 8),
                       _textInput(
                         id: 'transferApiPayIdInput',
-                        hint: 'شناسه پرداخت (اختیاری)',
+                        hint:
+                            '{{appStrings.generated.transfer.transfer_details.identifier_payment_message}}',
                         textDirection: 'ltr',
                         keyboardType: 'number',
                         digitsOnly: true,
                       ),
                       StacSizedBox(height: 16),
-                      _label('توضیحات'),
+                      _label('{{appStrings.promissory.descriptionLabel}}'),
                       StacSizedBox(height: 8),
                       _textInput(
                         id: 'transferApiDescriptionInput',
-                        hint: 'توضیحات تراکنش (اختیاری)',
+                        hint:
+                            '{{appStrings.generated.transfer.transfer_card_details.description_transaction}}',
                         textDirection: 'rtl',
                         keyboardType: 'text',
                         maxLines: 2,
@@ -132,7 +140,7 @@ StacWidget transferRealInBankDetails() {
                   foregroundColor: '{{appColors.current.text.hint}}',
                 ).toJson(),
                 child: StacText(
-                  data: 'ادامه',
+                  data: '{{appStrings.common.continue}}',
                   style: StacCustomTextStyle(
                     fontSize: 18,
                     fontWeight: StacFontWeight.w700,
@@ -155,7 +163,9 @@ StacWidget _amountLabelRow() {
     mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
     crossAxisAlignment: StacCrossAxisAlignment.start,
     children: [
-      _label('مبلغ'),
+      _label(
+        '{{appStrings.generated.installment_payment.installment_payment_detail_main.amount_text}}',
+      ),
       StacSizedBox(width: 8),
       StacExpanded(
         child: StacCustomRegistryReactive(
@@ -293,7 +303,8 @@ StacWidget _reasonPickerInput() {
                 },
               ).toJson(),
               replacement: StacText(
-                data: 'دلیل انتقال وجه',
+                data:
+                    '{{appStrings.generated.transfer.transfer_details.title}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacCustomTextStyle(
@@ -350,7 +361,8 @@ StacWidget _buildTransferInBankTypeBottomSheet() {
         ),
         StacSizedBox(height: 20),
         StacText(
-          data: 'روش انتقال خود را انتخاب کنید',
+          data:
+              '{{appStrings.generated.transfer.transfer_details.select_transfer}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.right,
           style: StacCustomTextStyle(
@@ -361,35 +373,42 @@ StacWidget _buildTransferInBankTypeBottomSheet() {
         ),
         StacSizedBox(height: 16),
         _transferTypeItem(
-          title: 'درون بانکی',
-          subtitle: 'انتقال در لحظه | کارمزد: رایگان',
+          title: '{{appStrings.generated.transfer.transfer_details.bank}}',
+          subtitle:
+              '{{appStrings.generated.transfer.transfer_in_bank_details.title}}',
           iconAsset: 'assets/icons/ic_gardeshgari.svg',
           enabled: true,
           onTap: _selectTransferTypeAndContinue(
-            'درون بانکی',
+            '{{appStrings.generated.transfer.transfer_details.bank}}',
             'transfer_in_bank_confirm',
           ),
         ),
         StacSizedBox(height: 12),
         _transferTypeItem(
-          title: 'پل',
-          subtitle: 'این روش برای انتقال درون بانکی فعال نیست',
+          title:
+              '{{appStrings.generated.transaction.transaction_intro.bridge_service}}',
+          subtitle:
+              '{{appStrings.generated.transfer.transfer_in_bank_details.active_transfer_bank_not}}',
           iconAsset: 'assets/icons/ic_bank_transfer_dark.svg',
           enabled: false,
           onTap: const StacNavigateAction(navigationStyle: NavigationStyle.pop),
         ),
         StacSizedBox(height: 12),
         _transferTypeItem(
-          title: 'پایا',
-          subtitle: 'این روش برای انتقال درون بانکی فعال نیست',
+          title:
+              '{{appStrings.generated.transaction.transaction_intro.sample_label}}',
+          subtitle:
+              '{{appStrings.generated.transfer.transfer_in_bank_details.active_transfer_bank_not}}',
           iconAsset: 'assets/icons/ic_bank_transfer_dark.svg',
           enabled: false,
           onTap: const StacNavigateAction(navigationStyle: NavigationStyle.pop),
         ),
         StacSizedBox(height: 12),
         _transferTypeItem(
-          title: 'ساتنا',
-          subtitle: 'این روش برای انتقال درون بانکی فعال نیست',
+          title:
+              '{{appStrings.generated.transfer.transfer_details.satna_method}}',
+          subtitle:
+              '{{appStrings.generated.transfer.transfer_in_bank_details.active_transfer_bank_not}}',
           iconAsset: 'assets/icons/ic_bank_transfer_dark.svg',
           enabled: false,
           onTap: const StacNavigateAction(navigationStyle: NavigationStyle.pop),
@@ -483,25 +502,29 @@ StacAction _selectTransferTypeAndContinue(String type, String routeName) {
         value: type,
       ),
       const StacNavigateAction(navigationStyle: NavigationStyle.pop),
-      NavigationAction(fileName: routeName, navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      NavigationAction(
+        fileName: routeName,
+        navMode: NavModes.dart,
+        navigationStyle: NavigationStyle.push,
+      ),
     ],
   );
 }
 
 StacWidget _buildTransferPurposeBottomSheet() {
   const purposes = [
-    'واریز حقوق',
-    'امور بیمه خدمات',
-    'امور درمانی',
-    'امور سرمایه گذاری و بورس',
-    'امور ارزی در چهارچوب ضوابط و مقررات',
-    'پرداخت قرض و تادیه دیون(قرض الحسنه، بدهی و ...)',
-    'امور بازنشستگی',
-    'معاملات اموال منقول',
-    'معاملات اموال غیر منقول',
-    'مدیریت نقدینگی',
-    'خرید کالا و خدمات',
-    'سایر',
+    '{{appStrings.generated.transfer.transfer_details.sample_label}}',
+    '{{appStrings.generated.transfer.transfer_details.services}}',
+    '{{appStrings.generated.transfer.transfer_details.treatment_purpose}}',
+    '{{appStrings.generated.transfer.transfer_details.investment_stock_purpose}}',
+    '{{appStrings.generated.transfer.transfer_details.currency_purpose}}',
+    '{{appStrings.generated.transfer.transfer_details.payment}}',
+    '{{appStrings.generated.transfer.transfer_details.retirement_purpose}}',
+    '{{appStrings.generated.transfer.transfer_details.movable_property_purpose}}',
+    '{{appStrings.generated.transfer.transfer_details.immovable_property_purpose}}',
+    '{{appStrings.generated.transfer.transfer_details.liquidity_management_purpose}}',
+    '{{appStrings.generated.transfer.transfer_details.buy_services}}',
+    '{{appStrings.generated.child_loan.child_loan_guarantee_address.other_option}}',
   ];
 
   return StacContainer(
@@ -527,7 +550,7 @@ StacWidget _buildTransferPurposeBottomSheet() {
         ),
         StacSizedBox(height: 24),
         StacText(
-          data: 'انتقال بابت:',
+          data: '{{appStrings.generated.transfer.transfer_details.transfer}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.right,
           style: StacCustomTextStyle(
@@ -596,4 +619,3 @@ StacAction _selectTransferPurposeAction(String purpose) {
     ],
   );
 }
-

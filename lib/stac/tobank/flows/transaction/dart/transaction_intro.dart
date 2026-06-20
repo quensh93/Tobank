@@ -59,11 +59,11 @@ StacWidget transactionRealIntro() {
 
 StacWidget _buildTopTabs() {
   return StacContainer(
-    margin: StacEdgeInsets.symmetric(horizontal: 20 , vertical: 10),
+    margin: StacEdgeInsets.symmetric(horizontal: 20, vertical: 10),
 
     decoration: StacBoxDecoration(
       color: '{{appColors.current.background.surfaceContainer}}',
-      borderRadius: StacBorderRadius.circular(12)
+      borderRadius: StacBorderRadius.circular(12),
     ),
     child: StacStack(
       children: [
@@ -85,8 +85,8 @@ StacWidget _buildTopTabs() {
           labelColor: '{{appColors.current.text.title}}',
           unselectedLabelColor: '{{appColors.current.text.hint}}',
           tabs: const [
-            StacTab(text: 'سپرده‌ها', height: 54),
-            StacTab(text: 'توبانک', height: 54),
+            StacTab(text: '{{appStrings.homePage.tabs.deposits}}', height: 54),
+            StacTab(text: '{{appStrings.splash.title}}', height: 54),
           ],
         ),
         StacPositioned(
@@ -123,23 +123,31 @@ StacWidget _buildToBankContent() {
                 child: StacColumn(
                   children: [
                     _buildTransactionCard(
-                      amount: '۱,۰۰۶,۰۰۰ ریال',
-                      title: 'پرداخت اقساط',
-                      subtitle: '۰۱ فروردین ۱۴۰۵ - ۱۱:۴۳',
+                      amount:
+                          '{{appStrings.generated.transaction.transaction_intro.rial}}',
+                      title:
+                          '{{appStrings.generated.installment_payment.installment_payment_receipt.title}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.title}}',
                       isSuccess: true,
                     ),
                     StacSizedBox(height: 10),
                     _buildTransactionCard(
-                      amount: '۳۸,۰۰۰ ریال',
-                      title: 'سرویس کارمزد سفته',
-                      subtitle: '۰۲ اسفند ۱۴۰۴ - ۱۵:۲۷',
+                      amount:
+                          '{{appStrings.generated.transaction.transaction_intro.rial_message}}',
+                      title:
+                          '{{appStrings.generated.transaction.transaction_intro.promissory_fee}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.amount_value}}',
                       isSuccess: true,
                     ),
                     StacSizedBox(height: 10),
                     _buildTransactionCard(
-                      amount: '۱۰,۰۰۰ ریال',
-                      title: 'کارت به کارت',
-                      subtitle: '۰۶ دی ۱۴۰۴ - ۱۱:۰۲',
+                      amount:
+                          '{{appStrings.generated.transaction.transaction_intro.rial_label}}',
+                      title: '{{appStrings.homePage.cards.cardToCard}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.amount_value_text}}',
                       isSuccess: true,
                     ),
                     StacSizedBox(height: 10),
@@ -152,23 +160,31 @@ StacWidget _buildToBankContent() {
                 child: StacColumn(
                   children: [
                     _buildTransactionCard(
-                      amount: '۳۱۳,۰۰۰ ریال',
-                      title: 'سرویس کارمزد سفته',
-                      subtitle: '۵۸ بهمن ۱۴۰۴ - ۱۰:۰۵',
+                      amount:
+                          '{{appStrings.generated.transaction.transaction_intro.rial_description}}',
+                      title:
+                          '{{appStrings.generated.transaction.transaction_intro.promissory_fee}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.amount_value_label}}',
                       isSuccess: false,
                     ),
                     StacSizedBox(height: 10),
                     _buildTransactionCard(
-                      amount: '۵۰,۰۰۰ ریال',
-                      title: 'شارژ کیف پول توبانک',
-                      subtitle: '۵۸ دی ۱۴۰۴ - ۱۴:۰۳',
+                      amount:
+                          '{{appStrings.generated.charge.charge_intro.rial}}',
+                      title:
+                          '{{appStrings.generated.transaction.transaction_intro.topup_wallet_money}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.amount_value_message}}',
                       isSuccess: false,
                     ),
                     StacSizedBox(height: 10),
                     _buildTransactionCard(
-                      amount: '۱۰,۰۰۰ ریال',
-                      title: 'کارت به کارت',
-                      subtitle: '۰۶ دی ۱۴۰۴ - ۱۵:۰۸',
+                      amount:
+                          '{{appStrings.generated.transaction.transaction_intro.rial_label}}',
+                      title: '{{appStrings.homePage.cards.cardToCard}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.amount_value_item}}',
                       isSuccess: false,
                     ),
                   ],
@@ -188,37 +204,52 @@ StacWidget _buildToBankContent() {
                 child: StacColumn(
                   children: [
                     _buildTransactionCard(
-                      amount: '۱۰,۰۰۰ ریال',
-                      title: 'تراکنش کیف پول',
-                      subtitle: '۰۳ دی ۱۴۰۴ - ۱۳:۳۰',
+                      amount:
+                          '{{appStrings.generated.transaction.transaction_intro.rial_label}}',
+                      title:
+                          '{{appStrings.generated.transaction.transaction_intro.transaction_wallet_money}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.amount_value_alt}}',
                       isSuccess: true,
                     ),
                     StacSizedBox(height: 10),
                     _buildTransactionCard(
-                      amount: '۸,۰۰۰ ریال',
-                      title: 'سرویس اعتبارسنجی',
-                      subtitle: '۰۱ دی ۱۴۰۴ - ۱۲:۰۱',
+                      amount:
+                          '{{appStrings.generated.transaction.transaction_intro.rial_hint}}',
+                      title:
+                          '{{appStrings.generated.transaction.transaction_intro.credit_validation_service}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.sample_number}}',
                       isSuccess: true,
                     ),
                     StacSizedBox(height: 10),
                     _buildTransactionCard(
-                      amount: '۸۰,۰۰۰ ریال',
-                      title: 'سرویس اعتبارسنجی',
-                      subtitle: '۲۶ آذر ۱۴۰۴ - ۱۱:۱۶',
+                      amount:
+                          '{{appStrings.generated.user_credit_validation.user_credit_validation_intro.rial}}',
+                      title:
+                          '{{appStrings.generated.transaction.transaction_intro.credit_validation_service}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.sample_number_option}}',
                       isSuccess: true,
                     ),
                     StacSizedBox(height: 10),
                     _buildTransactionCard(
-                      amount: '۱,۳۶۸,۵۰۰ ریال',
-                      title: 'سفارش کارت هدیه',
-                      subtitle: '۲۶ آذر ۱۴۰۴ - ۱۱:۵۰',
+                      amount:
+                          '{{appStrings.generated.transaction.transaction_intro.rial_value}}',
+                      title:
+                          '{{appStrings.generated.transaction.transaction_intro.gift_card}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.sample_number_message}}',
                       isSuccess: true,
                     ),
                     StacSizedBox(height: 10),
                     _buildTransactionCard(
-                      amount: '۱,۴۰۰,۰۰۰ ریال',
-                      title: 'تراکنش کیف پول',
-                      subtitle: '۲۶ آذر ۱۴۰۴ - ۱۱:۴۰',
+                      amount:
+                          '{{appStrings.generated.transaction.transaction_intro.sample_amount_rial}}',
+                      title:
+                          '{{appStrings.generated.transaction.transaction_intro.transaction_wallet_money}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.sample_number_label}}',
                       isSuccess: true,
                     ),
                     StacSizedBox(height: 10),
@@ -231,16 +262,22 @@ StacWidget _buildToBankContent() {
                 child: StacColumn(
                   children: [
                     _buildTransactionCard(
-                      amount: '۵۰,۰۰۰ ریال',
-                      title: 'شارژ کیف پول توبانک',
-                      subtitle: '۰۸ دی ۱۴۰۴ - ۱۴:۰۳',
+                      amount:
+                          '{{appStrings.generated.charge.charge_intro.rial}}',
+                      title:
+                          '{{appStrings.generated.transaction.transaction_intro.topup_wallet_money}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.sample_number_theme}}',
                       isSuccess: false,
                     ),
                     StacSizedBox(height: 10),
                     _buildTransactionCard(
-                      amount: '۲۵,۰۰۰ ریال',
-                      title: 'انتقال کیف پول',
-                      subtitle: '۰۸ دی ۱۴۰۴ - ۱۰:۱۶',
+                      amount:
+                          '{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_option}}',
+                      title:
+                          '{{appStrings.generated.transaction.transaction_filter.wallet_transfer}}',
+                      subtitle:
+                          '{{appStrings.generated.transaction.transaction_intro.sample_number_sample}}',
                       isSuccess: false,
                     ),
                   ],
@@ -262,7 +299,11 @@ StacWidget _buildToBankHeaderFilters() {
     textDirection: StacTextDirection.rtl,
     children: [
       StacGestureDetector(
-        onTap: NavigationAction(fileName: 'transaction_filter', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+        onTap: NavigationAction(
+          fileName: 'transaction_filter',
+          navMode: NavModes.dart,
+          navigationStyle: NavigationStyle.push,
+        ),
 
         child: StacContainer(
           height: 36,
@@ -286,7 +327,8 @@ StacWidget _buildToBankHeaderFilters() {
               ),
               StacSizedBox(width: 6),
               StacText(
-                data: 'فیلترها',
+                data:
+                    '{{appStrings.generated.transaction.transaction_intro.filter}}',
                 style: StacCustomTextStyle(
                   fontSize: 14,
                   fontWeight: StacFontWeight.w600,
@@ -305,7 +347,7 @@ StacWidget _buildToBankHeaderFilters() {
       ),
       StacSizedBox(width: 6),
       _buildToggleChip(
-        title: 'همه',
+        title: '{{appStrings.generated.cartable.cartable_intro.all_filter}}',
         selectedVisible: '[[trIntroChipAllSelected]]',
         onTap: const StacCustomSetValueAction(
           values: [
@@ -318,7 +360,8 @@ StacWidget _buildToBankHeaderFilters() {
       ),
       StacSizedBox(width: 8),
       _buildToggleChip(
-        title: 'تراکنش های کیف پول',
+        title:
+            '{{appStrings.generated.transaction.transaction_intro.transaction_wallet_money_text}}',
         selectedVisible: '[[trIntroChipWalletSelected]]',
         onTap: const StacCustomSetValueAction(
           values: [
@@ -398,44 +441,62 @@ StacWidget _buildDepositsContent() {
       children: [
         StacSizedBox(height: 14),
         _buildTransactionCard(
-          amount: '۲۹۹,۹۰۰,۰۰۰ ریال',
-          title: 'پل',
-          subtitle: 'انتقال به مهدی جمشیدپور',
+          amount:
+              '{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_message}}',
+          title:
+              '{{appStrings.generated.transaction.transaction_intro.bridge_service}}',
+          subtitle:
+              '{{appStrings.generated.transaction.transaction_intro.transfer}}',
           isSuccess: true,
         ),
         StacSizedBox(height: 10),
         _buildTransactionCard(
-          amount: '۵۰۰,۰۰۰,۰۰۰ ریال',
-          title: 'پل',
-          subtitle: 'انتقال به مهدی جمشیدپور',
+          amount:
+              '{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_label}}',
+          title:
+              '{{appStrings.generated.transaction.transaction_intro.bridge_service}}',
+          subtitle:
+              '{{appStrings.generated.transaction.transaction_intro.transfer}}',
           isSuccess: false,
         ),
         StacSizedBox(height: 10),
         _buildTransactionCard(
-          amount: '۵۰۰,۰۰۰,۰۰۰ ریال',
-          title: 'پل',
-          subtitle: 'انتقال به مهدی جمشیدپور',
+          amount:
+              '{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_label}}',
+          title:
+              '{{appStrings.generated.transaction.transaction_intro.bridge_service}}',
+          subtitle:
+              '{{appStrings.generated.transaction.transaction_intro.transfer}}',
           isSuccess: false,
         ),
         StacSizedBox(height: 10),
         _buildTransactionCard(
-          amount: '۱۰,۵۰۰,۰۰۰ ریال',
-          title: 'پل',
-          subtitle: 'انتقال به مهدی جمشیدپور',
+          amount:
+              '{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_theme}}',
+          title:
+              '{{appStrings.generated.transaction.transaction_intro.bridge_service}}',
+          subtitle:
+              '{{appStrings.generated.transaction.transaction_intro.transfer}}',
           isSuccess: true,
         ),
         StacSizedBox(height: 10),
         _buildTransactionCard(
-          amount: '۵۴۳,۸۰۰,۰۰۰ ریال',
-          title: 'پایا',
-          subtitle: 'انتقال به مهدی جمشیدپور',
+          amount:
+              '{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_sample}}',
+          title:
+              '{{appStrings.generated.transaction.transaction_intro.sample_label}}',
+          subtitle:
+              '{{appStrings.generated.transaction.transaction_intro.transfer}}',
           isSuccess: true,
         ),
         StacSizedBox(height: 10),
         _buildTransactionCard(
-          amount: '۵۴۳,۹۰۰,۰۰۰ ریال',
-          title: 'پایا',
-          subtitle: 'انتقال به مهدی جمشیدپور',
+          amount:
+              '{{appStrings.generated.transaction.transaction_intro.sample_amount_rial_secondary}}',
+          title:
+              '{{appStrings.generated.transaction.transaction_intro.sample_label}}',
+          subtitle:
+              '{{appStrings.generated.transaction.transaction_intro.transfer}}',
           isSuccess: false,
         ),
         StacSizedBox(height: 10),
@@ -526,4 +587,3 @@ StacWidget _buildTransactionCard({
     ),
   );
 }
-

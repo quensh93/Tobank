@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "لیست دعوت‌شدگان",
+      "data": "{{appStrings.profile.real.customerReferrals.title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -72,7 +72,7 @@
           "type": "sizedBox"
         },
         {
-          "data": "موردی یافت نشد",
+          "data": "{{appStrings.profile.real.customerReferrals.empty}}",
           "style": {
             "type": "custom",
             "color": "{{appColors.current.text.subtitle}}",

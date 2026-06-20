@@ -7,7 +7,7 @@ StacWidget dashboardRealMenu() {
   return StacScaffold(
     appBar: StacAppBar(
       title: StacText(
-        data: 'منوی دیباگ داشبورد',
+        data: '{{appStrings.generated.dashboard.dashboard_menu.title}}',
         textDirection: StacTextDirection.rtl,
         style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
       ),
@@ -32,7 +32,7 @@ StacWidget dashboardRealMenu() {
         mainAxisAlignment: StacMainAxisAlignment.center,
         children: [
           StacText(
-            data: 'مسیرهای ورود جریان',
+            data: '{{appStrings.promissory.debug.flowEntryPoints}}',
             textAlign: StacTextAlign.center,
             textDirection: StacTextDirection.rtl,
             style: StacTextStyle(
@@ -43,7 +43,11 @@ StacWidget dashboardRealMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'dashboard_shell', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'dashboard_shell',
+              navMode: NavModes.localJson,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -52,7 +56,7 @@ StacWidget dashboardRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از JSON محلی',
+              data: '{{appStrings.promissory.debug.loadLocalJson}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -61,7 +65,11 @@ StacWidget dashboardRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'dashboard_shell', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'dashboard_shell',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -70,7 +78,7 @@ StacWidget dashboardRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از DART',
+              data: '{{appStrings.promissory.debug.loadDart}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,

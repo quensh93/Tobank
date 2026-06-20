@@ -24,7 +24,8 @@ StacWidget packageRealInternetPakageList() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'اینترنت',
+        title:
+            '{{appStrings.generated.internet_pakage.internet_pakage_add_sim.title}}',
       ),
       body: StacSafeArea(
         top: false,
@@ -89,10 +90,26 @@ StacWidget _buildTabs() {
           labelColor: '{{appColors.current.text.title}}',
           unselectedLabelColor: '{{appColors.current.text.title}}',
           tabs: const [
-            StacTab(text: 'سایر', height: 40),
-            StacTab(text: 'ماهانه', height: 40),
-            StacTab(text: 'هفتگی', height: 40),
-            StacTab(text: 'روزانه', height: 40),
+            StacTab(
+              text:
+                  '{{appStrings.generated.child_loan.child_loan_guarantee_address.other_option}}',
+              height: 40,
+            ),
+            StacTab(
+              text:
+                  '{{appStrings.generated.internet_pakage.internet_pakage_list.monthly_period}}',
+              height: 40,
+            ),
+            StacTab(
+              text:
+                  '{{appStrings.generated.internet_pakage.internet_pakage_list.sample_message}}',
+              height: 40,
+            ),
+            StacTab(
+              text:
+                  '{{appStrings.generated.internet_pakage.internet_pakage_list.sample_label}}',
+              height: 40,
+            ),
           ],
         ),
         StacPositioned(
@@ -133,38 +150,50 @@ StacWidget _buildInternetPakageList() {
       children: [
         _internetPakageItem(
           selectedKey: 'crPkgSel1',
-          title: 'بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات',
-          amount: '۵۳,۱۶۰',
+          title:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.title}}',
+          amount:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}',
           onTap: _selectInternetPakage(1),
         ),
         _internetPakageItem(
           selectedKey: 'crPkgSel2',
-          title: 'بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات',
-          amount: '۵۳,۱۶۰',
+          title:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.title}}',
+          amount:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}',
           onTap: _selectInternetPakage(2),
         ),
         _internetPakageItem(
           selectedKey: 'crPkgSel3',
-          title: 'بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات',
-          amount: '۵۳,۱۶۰',
+          title:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.title}}',
+          amount:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}',
           onTap: _selectInternetPakage(3),
         ),
         _internetPakageItem(
           selectedKey: 'crPkgSel4',
-          title: 'بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات',
-          amount: '۵۳,۱۶۰',
+          title:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.title}}',
+          amount:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}',
           onTap: _selectInternetPakage(4),
         ),
         _internetPakageItem(
           selectedKey: 'crPkgSel5',
-          title: 'بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات',
-          amount: '۵۳,۱۶۰',
+          title:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.title}}',
+          amount:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}',
           onTap: _selectInternetPakage(5),
         ),
         _internetPakageItem(
           selectedKey: 'crPkgSel6',
-          title: 'بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت +\nمالیات',
-          amount: '۵۳,۱۶۰',
+          title:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.title}}',
+          amount:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value}}',
           onTap: _selectInternetPakage(6),
         ),
       ],
@@ -184,7 +213,7 @@ StacWidget _internetPakageItem({
       textDirection: StacTextDirection.rtl,
       children: [
         StacImage(
-          src: 'assets/icons/ic_internet_pakage.svg',
+          src: 'assets/icons/ic_package.svg',
           imageType: StacImageType.asset,
           width: 34,
           height: 34,
@@ -259,10 +288,15 @@ StacAction _selectInternetPakage(int index) {
       {'key': 'crPkgSel5', 'value': index == 5},
       {'key': 'crPkgSel6', 'value': index == 6},
       {'key': 'crPkgContinueEnabled', 'value': true},
-      {'key': 'crPkgSelectedAmount', 'value': '۱۵۰,۰۰۰'},
+      {
+        'key': 'crPkgSelectedAmount',
+        'value':
+            '{{appStrings.generated.internet_pakage.internet_pakage_list.amount_value_text}}',
+      },
       {
         'key': 'crPkgSelectedName',
-        'value': 'بسته اینترنت ۳۵ روزه ۲۵۰۰ مگابایت',
+        'value':
+            '{{appStrings.generated.internet_pakage.internet_pakage_list.internet_package}}',
       },
     ],
   );
@@ -274,14 +308,15 @@ StacWidget _buildMonthlyEmptyState() {
       mainAxisSize: StacMainAxisSize.min,
       children: [
         StacImage(
-          src: 'assets/icons/ic_internet_pakage_empty_list_light.svg',
+          src: 'assets/icons/ic_package_empty_list_light.svg',
           imageType: StacImageType.asset,
           width: 144,
           height: 144,
           fit: StacBoxFit.contain,
         ),
         StacText(
-          data: 'بسته‌ی اینترنتی ماهانه در حال موجود نمی‌باشد',
+          data:
+              '{{appStrings.generated.internet_pakage.internet_pakage_list.internet}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.center,
           style: StacCustomTextStyle(
@@ -300,7 +335,11 @@ StacWidget _buildContinueButton({required bool enabled}) {
     padding: StacEdgeInsets.only(bottom: 6),
     child: StacFilledButton(
       onPressed: enabled
-          ? NavigationAction(fileName: 'internet_pakage_payment', navMode: NavModes.dart, navigationStyle: NavigationStyle.push)
+          ? NavigationAction(
+              fileName: 'internet_pakage_payment',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            )
           : null,
       style: StacButtonStyle(
         fixedSize: StacSize(999999, 56),
@@ -316,7 +355,7 @@ StacWidget _buildContinueButton({required bool enabled}) {
         elevation: 0,
       ),
       child: StacText(
-        data: 'ادامه',
+        data: '{{appStrings.common.continue}}',
         textDirection: StacTextDirection.rtl,
         style: StacCustomTextStyle(
           fontSize: 16,

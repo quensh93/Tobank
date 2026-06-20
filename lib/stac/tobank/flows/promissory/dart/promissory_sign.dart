@@ -47,8 +47,9 @@ StacWidget promissoryRealSign() {
         ),
         // Real API call to get PDF base64
         StacNetworkRequestAction(
-          url:
-              SduiConfig.bizUrl('files/v1.0/{{form.unsigned_pdf_id}}/download/base64'),
+          url: SduiConfig.bizUrl(
+            'files/v1.0/{{form.unsigned_pdf_id}}/download/base64',
+          ),
           method: 'get',
           headers: {
             'accept': 'application/json',
@@ -291,8 +292,9 @@ StacWidget _buildSignButton() {
                               },
                               {
                                 'actionType': 'networkRequest',
-                                'url':
-                                    SduiConfig.bizUrl('files/v1.0/promissory/upload/base64'),
+                                'url': SduiConfig.bizUrl(
+                                  'files/v1.0/promissory/upload/base64',
+                                ),
                                 'method': 'post',
                                 'headers': {
                                   'accept': '*/*',
@@ -318,8 +320,9 @@ StacWidget _buildSignButton() {
                                       'actions': [
                                         {
                                           'actionType': 'networkRequest',
-                                          'url':
-                                              SduiConfig.bizUrl('collateral/v1.0/promissories/finalize/{{form.promissory_id}}'),
+                                          'url': SduiConfig.bizUrl(
+                                            'collateral/v1.0/promissories/finalize/{{form.promissory_id}}',
+                                          ),
                                           'method': 'post',
                                           'headers': {
                                             'accept': '*/*',
@@ -380,7 +383,14 @@ StacWidget _buildSignButton() {
                                                       },
                                                     ],
                                                   },
-                                                  NavigationAction(fileName: 'promissory_success', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushReplacement).toJson(),
+                                                  NavigationAction(
+                                                    fileName:
+                                                        'promissory_success',
+                                                    navMode: NavModes.dart,
+                                                    navigationStyle:
+                                                        NavigationStyle
+                                                            .pushReplacement,
+                                                  ).toJson(),
                                                 ],
                                               },
                                             },
@@ -395,7 +405,8 @@ StacWidget _buildSignButton() {
                                                     'value': false,
                                                   },
                                                   const StacCustomSnackBarAction(
-                                                    title: 'خطا',
+                                                    title:
+                                                        '{{appStrings.common.error}}',
                                                     detail:
                                                         '{{appStrings.promissory.signError}}',
                                                   ).toJson(),
@@ -418,7 +429,7 @@ StacWidget _buildSignButton() {
                                           'value': false,
                                         },
                                         const StacCustomSnackBarAction(
-                                          title: 'خطا',
+                                          title: '{{appStrings.common.error}}',
                                           detail:
                                               '{{appStrings.promissory.signError}}',
                                         ).toJson(),
@@ -430,7 +441,7 @@ StacWidget _buildSignButton() {
                             ],
                           },
                           onFailure: const StacCustomSnackBarAction(
-                            title: 'خطا',
+                            title: '{{appStrings.common.error}}',
                             detail: '{{appStrings.promissory.signError}}',
                           ).toJson(),
                         ).toJson(),
@@ -486,4 +497,3 @@ StacWidget _buildSignButton() {
     ),
   );
 }
-

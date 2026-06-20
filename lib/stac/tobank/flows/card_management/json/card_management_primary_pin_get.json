@@ -1,4 +1,4 @@
-﻿{
+{
   "appBar": {
     "leading": {
       "padding": {
@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "دریافت رمز اول",
+      "data": "{{appStrings.generated.card_management.card_management_root.get_first_pin_title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -88,7 +88,7 @@
             "textDirection": "rtl",
             "children": [
               {
-                "data": "شماره کارت:",
+                "data": "{{appStrings.generated.card_management.card_management_primary_pin_get.card_number}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.hint}}",
@@ -99,7 +99,7 @@
                 "type": "text"
               },
               {
-                "data": "۵۰۵۴ - ۱۶۱۷ - ۰۳۰۲ - ۰۳۹۰",
+                "data": "{{appStrings.generated.card_management.secondary_pin_get.title}}",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.title}}",
@@ -150,7 +150,7 @@
             }
           },
           "child": {
-            "data": "تایید و دریافت رمز اول",
+            "data": "{{appStrings.generated.card_management.card_management_primary_pin_get.first_pin_confirm_receive}}",
             "style": {
               "type": "custom",
               "fontSize": 14.0,

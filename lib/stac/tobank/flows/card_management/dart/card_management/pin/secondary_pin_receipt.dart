@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -8,7 +8,12 @@ import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 StacWidget dashboardSecondaryPinResult() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildTobankFlowAppBar(title: 'تغییر رمز دوم', showSupport: true, showBack: true),
+    appBar: buildTobankFlowAppBar(
+      title:
+          '{{appStrings.generated.card_management.card_management_root.change_second_pin_title}}',
+      showSupport: true,
+      showBack: true,
+    ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: StacColumn(
@@ -35,7 +40,8 @@ StacWidget dashboardSecondaryPinResult() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'درخواست موفق',
+            data:
+                '{{appStrings.generated.card_management.card_management_secondary_pin_result.successful_request}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -46,7 +52,8 @@ StacWidget dashboardSecondaryPinResult() {
           ),
           StacSizedBox(height: 8),
           StacText(
-            data: 'رمز دوم کارت تغییر یافت',
+            data:
+                '{{appStrings.generated.card_management.card_management_secondary_pin_result.second_pin_card}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -57,14 +64,19 @@ StacWidget dashboardSecondaryPinResult() {
           ),
           StacSizedBox(height: 32),
           _receiptDividerRow(
-            label: 'شماره کارت',
-            value: '۵۰۵۴ - ۱۶۱۷ - ۰۳۰۲ - ۰۳۹۰',
+            label: '{{appStrings.profile.real.destinations.cardNumberLabel}}',
+            value:
+                '{{appStrings.generated.card_management.secondary_pin_get.title}}',
           ),
           StacSizedBox(height: 16),
           _maskedPinRow(),
           StacSizedBox(height: 48),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'card_management_root', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
+            onPressed: NavigationAction(
+              fileName: 'card_management_root',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.pushAndRemoveAll,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 8),
               minimumSize: const StacSize(0, 56),
@@ -77,7 +89,8 @@ StacWidget dashboardSecondaryPinResult() {
               ),
             ),
             child: StacText(
-              data: 'بازگشت به لیست خدمات کارت',
+              data:
+                  '{{appStrings.generated.card_management.card_management_reissue_receipt.back_list_services_card}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
                 fontSize: 14,
@@ -134,7 +147,8 @@ StacWidget _maskedPinRow() {
     mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
     children: [
       StacText(
-        data: 'رمز انتخابی',
+        data:
+            '{{appStrings.generated.card_management.card_management_secondary_pin_result.selected_pin}}',
         textDirection: StacTextDirection.rtl,
         style: StacCustomTextStyle(
           fontSize: 14,
@@ -156,8 +170,10 @@ StacWidget _maskedPinRow() {
           StacSizedBox(width: 8),
           StacGestureDetector(
             onTap: const StacCustomSnackBarAction(
-              title: 'نمایش رمز (mock)',
-              detail: 'این قابلیت در نسخه واقعی فعال می‌شود.',
+              title:
+                  '{{appStrings.generated.card_management.card_management_secondary_pin_result.show_pin_mock}}',
+              detail:
+                  '{{appStrings.generated.card_management.card_management_secondary_pin_result.active_real}}',
               duration: 2000,
             ),
             child: StacImage(
@@ -171,8 +187,10 @@ StacWidget _maskedPinRow() {
           StacSizedBox(width: 8),
           StacGestureDetector(
             onTap: const StacCustomSnackBarAction(
-              title: 'کپی رمز (mock)',
-              detail: 'این قابلیت در نسخه واقعی فعال می‌شود.',
+              title:
+                  '{{appStrings.generated.card_management.card_management_secondary_pin_result.copy_pin_mock}}',
+              detail:
+                  '{{appStrings.generated.card_management.card_management_secondary_pin_result.active_real}}',
               duration: 2000,
             ),
             child: StacImage(

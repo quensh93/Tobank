@@ -62,7 +62,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "تسهیلات فرزندآوری",
+        "data": "{{appStrings.generated.child_loan.child_loan_customer_check.title}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -113,7 +113,7 @@
                 "crossAxisAlignment": "stretch",
                 "children": [
                   {
-                    "data": "بارگذاری اطلاعات هویتی متقاضی",
+                    "data": "{{appStrings.generated.child_loan.child_loan_customer_document.upload_information}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -129,7 +129,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "کاربر گرامی، لطفا تصویر صفحات شناسنامه درخواست شده را بارگذاری نمایید. توجه کنید تصاویر می‌بایست از اصل شناسنامه متقاضی باشد.",
+                    "data": "{{appStrings.generated.child_loan.child_loan_customer_document.upload_image_user_request_description}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.subtitle}}",
@@ -146,7 +146,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "نسبت متقاضی با فرزند:",
+                    "data": "{{appStrings.generated.child_loan.child_loan_customer_document.child}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -194,7 +194,7 @@
                                 "textDirection": "rtl",
                                 "children": [
                                   {
-                                    "data": "پدر",
+                                    "data": "{{appStrings.generated.child_loan.child_loan_customer_document.father}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -268,7 +268,7 @@
                                 "textDirection": "rtl",
                                 "children": [
                                   {
-                                    "data": "پدر",
+                                    "data": "{{appStrings.generated.child_loan.child_loan_customer_document.father}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -389,7 +389,7 @@
                                 "textDirection": "rtl",
                                 "children": [
                                   {
-                                    "data": "قیم قانونی",
+                                    "data": "{{appStrings.generated.child_loan.child_loan_customer_document.legal_guardian}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -463,7 +463,7 @@
                                 "textDirection": "rtl",
                                 "children": [
                                   {
-                                    "data": "قیم قانونی",
+                                    "data": "{{appStrings.generated.child_loan.child_loan_customer_document.legal_guardian}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -588,7 +588,7 @@
                                 },
                                 "color": "{{appColors.current.background.surfaceContainerLowest}}",
                                 "child": {
-                                  "data": "صفحه اول و دوم شناسنامه",
+                                  "data": "{{appStrings.generated.child_loan.child_loan_child_check.page}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -689,7 +689,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بارگذاری موفق",
+                                                      "data": "{{appStrings.generated.child_loan.child_loan_child_check.upload_success}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.secondary.color}}",
@@ -724,7 +724,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "حذف",
+                                                  "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -825,7 +825,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "دوربین",
+                                                  "data": "{{appStrings.authentication.cameraLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -922,7 +922,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "گالری",
+                                                  "data": "{{appStrings.authentication.galleryLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1018,7 +1018,7 @@
                                 },
                                 "color": "{{appColors.current.background.surfaceContainerLowest}}",
                                 "child": {
-                                  "data": "صفحه سوم و چهارم شناسنامه",
+                                  "data": "{{appStrings.generated.child_loan.child_loan_child_check.page_text}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -1119,7 +1119,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بارگذاری موفق",
+                                                      "data": "{{appStrings.generated.child_loan.child_loan_child_check.upload_success}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.secondary.color}}",
@@ -1154,7 +1154,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "حذف",
+                                                  "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -1255,7 +1255,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "دوربین",
+                                                  "data": "{{appStrings.authentication.cameraLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1352,7 +1352,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "گالری",
+                                                  "data": "{{appStrings.authentication.galleryLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1448,7 +1448,7 @@
                                 },
                                 "color": "{{appColors.current.background.surfaceContainerLowest}}",
                                 "child": {
-                                  "data": "صفحه پنجم و ششم شناسنامه",
+                                  "data": "{{appStrings.generated.child_loan.child_loan_child_check.page_label}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -1549,7 +1549,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بارگذاری موفق",
+                                                      "data": "{{appStrings.generated.child_loan.child_loan_child_check.upload_success}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.secondary.color}}",
@@ -1584,7 +1584,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "حذف",
+                                                  "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -1685,7 +1685,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "دوربین",
+                                                  "data": "{{appStrings.authentication.cameraLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1782,7 +1782,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "گالری",
+                                                  "data": "{{appStrings.authentication.galleryLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1888,7 +1888,7 @@
                                 },
                                 "color": "{{appColors.current.background.surfaceContainerLowest}}",
                                 "child": {
-                                  "data": "صفحه اول و دوم شناسنامه",
+                                  "data": "{{appStrings.generated.child_loan.child_loan_child_check.page}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -1989,7 +1989,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بارگذاری موفق",
+                                                      "data": "{{appStrings.generated.child_loan.child_loan_child_check.upload_success}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.secondary.color}}",
@@ -2024,7 +2024,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "حذف",
+                                                  "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -2125,7 +2125,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "دوربین",
+                                                  "data": "{{appStrings.authentication.cameraLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2222,7 +2222,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "گالری",
+                                                  "data": "{{appStrings.authentication.galleryLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2318,7 +2318,7 @@
                                 },
                                 "color": "{{appColors.current.background.surfaceContainerLowest}}",
                                 "child": {
-                                  "data": "صفحه سوم و چهارم شناسنامه",
+                                  "data": "{{appStrings.generated.child_loan.child_loan_child_check.page_text}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -2419,7 +2419,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بارگذاری موفق",
+                                                      "data": "{{appStrings.generated.child_loan.child_loan_child_check.upload_success}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.secondary.color}}",
@@ -2454,7 +2454,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "حذف",
+                                                  "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -2555,7 +2555,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "دوربین",
+                                                  "data": "{{appStrings.authentication.cameraLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2652,7 +2652,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "گالری",
+                                                  "data": "{{appStrings.authentication.galleryLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2748,7 +2748,7 @@
                                 },
                                 "color": "{{appColors.current.background.surfaceContainerLowest}}",
                                 "child": {
-                                  "data": "صفحه پنجم و ششم شناسنامه",
+                                  "data": "{{appStrings.generated.child_loan.child_loan_child_check.page_label}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -2849,7 +2849,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بارگذاری موفق",
+                                                      "data": "{{appStrings.generated.child_loan.child_loan_child_check.upload_success}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.secondary.color}}",
@@ -2884,7 +2884,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "حذف",
+                                                  "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -2985,7 +2985,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "دوربین",
+                                                  "data": "{{appStrings.authentication.cameraLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -3082,7 +3082,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "گالری",
+                                                  "data": "{{appStrings.authentication.galleryLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -3178,7 +3178,7 @@
                                 },
                                 "color": "{{appColors.current.background.surfaceContainerLowest}}",
                                 "child": {
-                                  "data": "مدرک قیمومت",
+                                  "data": "{{appStrings.generated.child_loan.child_loan_customer_document.document}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -3279,7 +3279,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بارگذاری موفق",
+                                                      "data": "{{appStrings.generated.child_loan.child_loan_child_check.upload_success}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.secondary.color}}",
@@ -3314,7 +3314,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "حذف",
+                                                  "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -3415,7 +3415,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "دوربین",
+                                                  "data": "{{appStrings.authentication.cameraLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -3512,7 +3512,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "گالری",
+                                                  "data": "{{appStrings.authentication.galleryLabel}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -3605,8 +3605,8 @@
               "enabledKey": "childLoanCustomerDocNextEnabled",
               "onPressed": {
                 "actionType": "fingerPrint",
-                "title": "احراز هویت",
-                "description": "لطفا برای ادامه از اثر انگشت استفاده کنید",
+                "title": "{{appStrings.menu.items.authentication}}",
+                "description": "{{appStrings.generated.child_loan.child_loan_child_check.continue}}",
                 "onSuccess": {
                   "actionType": "sequence",
                   "actions": [
@@ -3617,8 +3617,8 @@
                     },
                     {
                       "actionType": "customSnackBar",
-                      "title": "ثبت",
-                      "detail": "مدارک با موفقیت ثبت شد",
+                      "title": "{{appStrings.profile.real.destinations.submitTitle}}",
+                      "detail": "{{appStrings.generated.child_loan.child_loan_customer_document.successfully_documents_submit}}",
                       "duration": 1800
                     },
                     {
@@ -3646,7 +3646,7 @@
                 }
               },
               "child": {
-                "data": "ثبت",
+                "data": "{{appStrings.profile.real.destinations.submitTitle}}",
                 "style": {
                   "type": "custom",
                   "color": "#FFFFFF",

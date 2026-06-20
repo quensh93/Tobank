@@ -9,7 +9,7 @@ StacWidget profileRealContact() {
     appBar: buildTobankFlowAppBar(
       showSupport: true,
       showBack: true,
-      title: 'تماس با ما',
+      title: '{{appStrings.profile.real.menu.contactUs}}',
     ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.all(16),
@@ -17,16 +17,22 @@ StacWidget profileRealContact() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           _addressCard(
-            label: 'آدرس',
-            value: 'تهران، سعادت‌آباد، بلوار فرهنگ، نبش کوچه نور، پلاک ۶',
+            label: '{{appStrings.profile.real.bankInfo.addressLabel}}',
+            value: '{{appStrings.profile.real.contact.addressValue}}',
           ),
           StacSizedBox(height: 16),
-          _infoRowCard(label: 'کد پستی', value: '۱۹۹۷۷۴۴۵۳۷'),
-          StacSizedBox(height: 16),
-          _infoRowCard(label: 'پشتیبانی شعبه', value: 'داخلی ۳ - ۰۲۱۲۳۹۵۰'),
+          _infoRowCard(
+            label: '{{appStrings.profile.real.bankInfo.postalCodeLabel}}',
+            value: '{{appStrings.profile.real.contact.postalCodeValue}}',
+          ),
           StacSizedBox(height: 16),
           _infoRowCard(
-            label: 'اینستاگرام بانک گردشگری',
+            label: '{{appStrings.profile.real.contact.supportLabel}}',
+            value: '{{appStrings.profile.real.contact.supportValue}}',
+          ),
+          StacSizedBox(height: 16),
+          _infoRowCard(
+            label: '{{appStrings.profile.real.contact.instagramLabel}}',
             value: '@tourism.bank',
             isUnderlinedValue: true,
             valueTextDirection: StacTextDirection.ltr,
@@ -34,7 +40,7 @@ StacWidget profileRealContact() {
           StacSizedBox(height: 32),
           StacCenter(
             child: StacText(
-              data: 'ارتباط با توبانک',
+              data: '{{appStrings.profile.real.contact.connectTitle}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 16,
@@ -193,8 +199,8 @@ StacWidget _socialRow({required List<String> iconAssets}) {
             padding: StacEdgeInsets.symmetric(horizontal: 8),
             child: StacGestureDetector(
               onTap: const StacShowResultAction(
-                title: 'ارتباط با توبانک',
-                content: 'این بخش به زودی فعال می‌شود.',
+                title: '{{appStrings.profile.real.contact.connectTitle}}',
+                content: '{{appStrings.profile.real.comingSoon}}',
               ),
               child: StacContainer(
                 width: 48,

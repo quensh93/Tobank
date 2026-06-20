@@ -245,7 +245,10 @@ StacWidget _buildWalletPaymentOption() {
     onTap: StacSequenceAction(
       actions: [
         StacCustomSetValueAction(key: 'selectedPaymentMethod', value: 'wallet'),
-        StacCustomSetValueAction(key: 'paymentMethod', value: 'کیف پول'),
+        StacCustomSetValueAction(
+          key: 'paymentMethod',
+          value: '{{appStrings.promissory.walletPayment}}',
+        ),
         StacCustomSetValueAction(key: 'isPayEnabled', value: true),
         StacCustomSetValueAction(key: 'isDepositSelected', value: false),
         StacCustomSetValueAction(key: 'isWalletSelected', value: true),
@@ -321,7 +324,11 @@ StacWidget _buildDepositPaymentOption() {
           key: 'selectedPaymentMethod',
           value: 'deposit',
         ),
-        StacCustomSetValueAction(key: 'paymentMethod', value: 'حساب'),
+        StacCustomSetValueAction(
+          key: 'paymentMethod',
+          value:
+              '{{appStrings.generated.installment_payment.installment_payment_others_receipt.account}}',
+        ),
         StacCustomSetValueAction(key: 'isPayEnabled', value: true),
         StacCustomSetValueAction(key: 'isWalletSelected', value: false),
         StacCustomSetValueAction(key: 'isDepositSelected', value: true),
@@ -500,8 +507,9 @@ StacWidget _buildPaymentButtons() {
                             actions: [
                               const StacCloseDialogAction(),
                               StacNetworkRequestAction(
-                                url:
-                                    SduiConfig.bizUrl('collateral/v1.0/promissories/draft'),
+                                url: SduiConfig.bizUrl(
+                                  'collateral/v1.0/promissories/draft',
+                                ),
                                 method: 'post',
                                 headers: {
                                   'accept': 'application/json',
@@ -564,7 +572,12 @@ StacWidget _buildPaymentButtons() {
                                           'sourceKey': 'rawTransactionTime',
                                           'destinationKey': 'transactionTime',
                                         },
-                                        NavigationAction(fileName: 'promissory_sign', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushReplacement).toJson(),
+                                        NavigationAction(
+                                          fileName: 'promissory_sign',
+                                          navMode: NavModes.dart,
+                                          navigationStyle:
+                                              NavigationStyle.pushReplacement,
+                                        ).toJson(),
                                       ],
                                     ).toJson(),
                                   },
@@ -634,7 +647,11 @@ StacWidget _buildPaymentButtons() {
           child: StacCustomReactiveElevatedButton(
             enabledKey: 'isPayEnabled',
             enabled: false,
-            onPressed: NavigationAction(fileName: 'promissory_payment_deposits', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+            onPressed: NavigationAction(
+              fileName: 'promissory_payment_deposits',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               backgroundColor: '{{appColors.current.primary.color}}',
               elevation: 0,
@@ -659,4 +676,3 @@ StacWidget _buildPaymentButtons() {
     ],
   );
 }
-

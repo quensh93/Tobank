@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "نمایش اعتبارسنجی",
+      "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_preview.title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -98,7 +98,7 @@
                       "children": [
                         {
                           "child": {
-                            "data": "گزارش اعتبارسنجی حقیقی",
+                            "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_preview.real_credit_report_title}}",
                             "style": {
                               "type": "custom",
                               "color": "#2B3A55",
@@ -127,7 +127,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "تاریخ: ۱۴۰۵/۰۳/۰۳   ساعت: ۱۰:۱۳",
+                      "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_preview.date_time}}",
                       "style": {
                         "type": "custom",
                         "color": "#5B6578",
@@ -138,7 +138,7 @@
                       "type": "text"
                     },
                     {
-                      "data": "کد رهگیری: ۹۳۷۰۵۶۸۷۴۹۳۳",
+                      "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_preview.tracking_code}}",
                       "style": {
                         "type": "custom",
                         "color": "#5B6578",
@@ -186,7 +186,7 @@
                             "height": 120.0,
                             "child": {
                               "child": {
-                                "data": "۸۰",
+                                "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_preview.number_value}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "#2AA66B",
@@ -217,7 +217,7 @@
                                     "textDirection": "rtl",
                                     "children": [
                                       {
-                                        "data": "شماره ملی",
+                                        "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_preview.number_national}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "#6B7280",
@@ -234,7 +234,7 @@
                                         "type": "expanded"
                                       },
                                       {
-                                        "data": "۱۲۳۳۳۱۹۵۸۱",
+                                        "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_preview.amount_value}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "#1F2937",
@@ -258,7 +258,7 @@
                                     "textDirection": "rtl",
                                     "children": [
                                       {
-                                        "data": "نام",
+                                        "data": "{{appStrings.generated.promissory.promissory_confirm.name}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "#6B7280",
@@ -275,7 +275,7 @@
                                         "type": "expanded"
                                       },
                                       {
-                                        "data": "علیرضا",
+                                        "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_preview.sample_message}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "#1F2937",
@@ -299,7 +299,7 @@
                                     "textDirection": "rtl",
                                     "children": [
                                       {
-                                        "data": "نام خانوادگی",
+                                        "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_preview.last_name}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "#6B7280",
@@ -316,7 +316,7 @@
                                         "type": "expanded"
                                       },
                                       {
-                                        "data": "حیدریان",
+                                        "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_preview.sample_label}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "#1F2937",
@@ -376,7 +376,7 @@
                               }
                             },
                             "child": {
-                              "data": "عمده دلایل امتیاز",
+                              "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_preview.score_reasons_title}}",
                               "style": {
                                 "type": "custom",
                                 "color": "#FFFFFF",
@@ -397,7 +397,7 @@
                               "bottom": 10.0
                             },
                             "child": {
-                              "data": "بر اساس مبلغی بابت تراکنش‌های واریزی خرید کارتخوانی وی از سایر امور مالیاتی، بدهی فرد به طور میانگین کم ارزیابی شده است.",
+                              "data": "{{appStrings.generated.user_credit_validation.user_credit_validation_preview.transaction_amount_buy}}",
                               "style": {
                                 "type": "custom",
                                 "color": "#2B3A55",
@@ -438,7 +438,7 @@
                   "onPressed": {
                     "actionType": "transferReceipt",
                     "mode": "shareText",
-                    "title": "گزارش اعتبارسنجی",
+                    "title": "{{appStrings.generated.user_credit_validation.user_credit_validation_intro.report_credit_validation}}",
                     "pixelRatio": 3.0,
                     "boundaryKey": "userCreditValidationPreviewContent"
                   },
@@ -478,7 +478,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "اشتراک‌گذاری",
+                        "data": "{{appStrings.generated.card_management.card_management_root.share}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -504,7 +504,7 @@
                   "onPressed": {
                     "actionType": "transferReceipt",
                     "mode": "shareImage",
-                    "title": "گزارش اعتبارسنجی",
+                    "title": "{{appStrings.generated.user_credit_validation.user_credit_validation_intro.report_credit_validation}}",
                     "pixelRatio": 3.0,
                     "boundaryKey": "userCreditValidationPreviewContent"
                   },
@@ -544,7 +544,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "ذخیره",
+                        "data": "{{appStrings.promissory.saveButton}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",

@@ -22,7 +22,7 @@
         "tourism_bank_details": {
           "legal_national_number": "10320435268",
           "legal_phone_number": "02123952395",
-          "payment_address": "سعادت آباد ، بلوار فرهنگ ، نبش کوچه نور، پلاک 6"
+          "payment_address": "{{appStrings.generated.promissory.POST_sign_asset.plaque}}"
         }
       },
       "success": true,

@@ -9,15 +9,15 @@
       },
       {
         "key": "promissoryGuaranteeIssuerName",
-        "value": "زهرا حاجی ابراهیمی"
+        "value": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.sample_person_name}}"
       },
       {
         "key": "promissoryGuaranteeAmount",
-        "value": "۶۸۹,۰۰۰,۰۰۰ ریال"
+        "value": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_confirm_page.rial}}"
       },
       {
         "key": "promissoryGuaranteeDueDate",
-        "value": "عندالمطالبه"
+        "value": "{{appStrings.promissory.onDemand}}"
       },
       {
         "key": "promissoryGuaranteeNationalCode",
@@ -50,7 +50,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "ضمانت سفته",
+        "data": "{{appStrings.promissory.guaranteePromissory}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -148,7 +148,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "عملیات موفق",
+                        "data": "{{appStrings.generated.promissory.rules.success_operation}}",
                         "style": {
                           "type": "custom",
                           "color": "#24B76A",
@@ -164,7 +164,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "data": "ضمانت سفته شما با موفقیت ثبت شد!",
+                        "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.guarantee_promissory_successfully_submit}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -210,7 +210,7 @@
                               "children": [
                                 {
                                   "child": {
-                                    "data": "مبلغ سفته",
+                                    "data": "{{appStrings.promissory.amountLabel}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -504,7 +504,7 @@
                               "children": [
                                 {
                                   "child": {
-                                    "data": "نام صادرکننده",
+                                    "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.issuer_name}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -798,7 +798,7 @@
                               "children": [
                                 {
                                   "child": {
-                                    "data": "کد ملی صادرکننده",
+                                    "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.issuer_national_code}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -1092,7 +1092,7 @@
                               "children": [
                                 {
                                   "child": {
-                                    "data": "تاریخ پرداخت",
+                                    "data": "{{appStrings.promissory.payDate}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -1386,7 +1386,7 @@
                               "children": [
                                 {
                                   "child": {
-                                    "data": "شناسه یکتای سفته",
+                                    "data": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.identifier_promissory}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.subtitle}}",
@@ -1471,7 +1471,7 @@
                                       "type": "sizedBox"
                                     },
                                     {
-                                      "data": "سفته",
+                                      "data": "{{appStrings.promissory.promissory}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1538,7 +1538,7 @@
                                       "onTap": {
                                         "actionType": "transferReceipt",
                                         "mode": "shareImage",
-                                        "title": "رسید ضمانت سفته",
+                                        "title": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.guarantee_promissory_receipt}}",
                                         "pixelRatio": 3.0,
                                         "boundaryKey": "promissoryGuaranteeReceiptContent"
                                       },
@@ -1805,7 +1805,7 @@
                               "type": "sizedBox"
                             },
                             {
-                              "data": "کاربر گرامی سفته شما در بخش سفته‌های من نیز قابل دانلود است",
+                              "data": "{{appStrings.promissory.downloadMessage}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -1841,7 +1841,7 @@
                     "onPressed": {
                       "actionType": "transferReceipt",
                       "mode": "shareText",
-                      "title": "رسید ضمانت سفته",
+                      "title": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.guarantee_promissory_receipt}}",
                       "pixelRatio": 3.0,
                       "boundaryKey": "promissoryGuaranteeReceiptContent"
                     },
@@ -1881,7 +1881,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "اشتراک‌گذاری",
+                          "data": "{{appStrings.generated.card_management.card_management_root.share}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -1907,7 +1907,7 @@
                     "onPressed": {
                       "actionType": "transferReceipt",
                       "mode": "shareImage",
-                      "title": "رسید ضمانت سفته",
+                      "title": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.guarantee_promissory_receipt}}",
                       "pixelRatio": 3.0,
                       "boundaryKey": "promissoryGuaranteeReceiptContent"
                     },
@@ -1947,7 +1947,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "ذخیره در گالری",
+                          "data": "{{appStrings.generated.charge.charge_payment_success.title}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",

@@ -8,7 +8,8 @@ StacWidget packageRealMenu() {
   return StacScaffold(
     appBar: StacAppBar(
       title: StacText(
-        data: 'منوی دیباگ بسته اینترنت',
+        data:
+            '{{appStrings.generated.internet_pakage.internet_pakage_menu.title}}',
         textDirection: StacTextDirection.rtl,
         style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
       ),
@@ -32,7 +33,7 @@ StacWidget packageRealMenu() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           StacText(
-            data: 'مسیرهای ورود جریان',
+            data: '{{appStrings.promissory.debug.flowEntryPoints}}',
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
               fontSize: 18,
@@ -48,7 +49,11 @@ StacWidget packageRealMenu() {
                   key: 'crChargeFlowInitialized',
                   value: false,
                 ),
-                NavigationAction(fileName: 'internet_pakage_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
+                NavigationAction(
+                  fileName: 'internet_pakage_intro',
+                  navMode: NavModes.localJson,
+                  navigationStyle: NavigationStyle.push,
+                ),
               ],
             ),
             style: StacButtonStyle(
@@ -59,7 +64,7 @@ StacWidget packageRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از JSON محلی',
+              data: '{{appStrings.promissory.debug.loadLocalJson}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -74,7 +79,11 @@ StacWidget packageRealMenu() {
                   key: 'crChargeFlowInitialized',
                   value: false,
                 ),
-                NavigationAction(fileName: 'internet_pakage_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                NavigationAction(
+                  fileName: 'internet_pakage_intro',
+                  navMode: NavModes.dart,
+                  navigationStyle: NavigationStyle.push,
+                ),
               ],
             ),
             style: StacButtonStyle(
@@ -85,7 +94,7 @@ StacWidget packageRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از DART',
+              data: '{{appStrings.promissory.debug.loadDart}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -97,4 +106,3 @@ StacWidget packageRealMenu() {
     ),
   );
 }
-

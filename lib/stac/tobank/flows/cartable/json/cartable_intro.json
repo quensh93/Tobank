@@ -47,12 +47,12 @@
                 {
                   "tabs": [
                     {
-                      "text": "تاریخچه فعالیت‌ها",
+                      "text": "{{appStrings.generated.cartable.cartable_intro.date_active}}",
                       "height": 62.0,
                       "type": "tab"
                     },
                     {
-                      "text": "کارتابل",
+                      "text": "{{appStrings.menu.items.inbox}}",
                       "height": 62.0,
                       "type": "tab"
                     }
@@ -147,7 +147,7 @@
                                     "bottom": 6.0
                                   },
                                   "child": {
-                                    "data": "همه",
+                                    "data": "{{appStrings.generated.cartable.cartable_intro.all_filter}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.secondary.color}}",
@@ -182,7 +182,7 @@
                                     "bottom": 6.0
                                   },
                                   "child": {
-                                    "data": "همه",
+                                    "data": "{{appStrings.generated.cartable.cartable_intro.all_filter}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -257,7 +257,7 @@
                                     "bottom": 6.0
                                   },
                                   "child": {
-                                    "data": "درخواست‌های باز",
+                                    "data": "{{appStrings.generated.cartable.cartable_intro.request}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.secondary.color}}",
@@ -292,7 +292,7 @@
                                     "bottom": 6.0
                                   },
                                   "child": {
-                                    "data": "درخواست‌های باز",
+                                    "data": "{{appStrings.generated.cartable.cartable_intro.request}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -367,7 +367,7 @@
                                     "bottom": 6.0
                                   },
                                   "child": {
-                                    "data": "درخواست‌های بسته",
+                                    "data": "{{appStrings.generated.cartable.cartable_intro.request_package}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.secondary.color}}",
@@ -402,7 +402,7 @@
                                     "bottom": 6.0
                                   },
                                   "child": {
-                                    "data": "درخواست‌های بسته",
+                                    "data": "{{appStrings.generated.cartable.cartable_intro.request_package}}",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -495,7 +495,7 @@
                                               "crossAxisAlignment": "stretch",
                                               "children": [
                                                 {
-                                                  "data": "وام قرض الحسنه ازدواج",
+                                                  "data": "{{appStrings.generated.cartable.cartable_detail.loan}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -519,7 +519,7 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "وضعیت درخواست",
+                                                          "data": "{{appStrings.generated.cartable.cartable_intro.status_request}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -549,7 +549,7 @@
                                                       "type": "row"
                                                     },
                                                     {
-                                                      "data": "باز",
+                                                      "data": "{{appStrings.generated.cartable.cartable_detail.open_status}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -576,7 +576,7 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "تاریخ ثبت درخواست",
+                                                          "data": "{{appStrings.generated.cartable.cartable_intro.date_submit_request}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -606,7 +606,7 @@
                                                       "type": "row"
                                                     },
                                                     {
-                                                      "data": "۶ دی ۱۴۰۴",
+                                                      "data": "{{appStrings.generated.cartable.cartable_intro.amount_value}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -657,7 +657,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "جزئیات",
+                                                      "data": "{{appStrings.generated.card_management.card_management_root.details}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -697,7 +697,8 @@
                                                   },
                                                   {
                                                     "fileName": "cartable_detail",
-                                                    "navMode": "dart",
+                                                    "navMode": "localJson",
+                                                    "pathOverride": "lib/stac/tobank/flows/cartable/json/cartable_detail.json",
                                                     "actionType": "navigate"
                                                   }
                                                 ]
@@ -754,7 +755,7 @@
                                               "crossAxisAlignment": "stretch",
                                               "children": [
                                                 {
-                                                  "data": "تکمیل مدارک",
+                                                  "data": "{{appStrings.generated.cartable.cartable_detail.documents_complete}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -778,7 +779,7 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "وضعیت درخواست",
+                                                          "data": "{{appStrings.generated.cartable.cartable_intro.status_request}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -808,7 +809,7 @@
                                                       "type": "row"
                                                     },
                                                     {
-                                                      "data": "بسته",
+                                                      "data": "{{appStrings.generated.cartable.cartable_detail.package}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -835,7 +836,7 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "تاریخ ثبت درخواست",
+                                                          "data": "{{appStrings.generated.cartable.cartable_intro.date_submit_request}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -865,7 +866,7 @@
                                                       "type": "row"
                                                     },
                                                     {
-                                                      "data": "۲۴ فروردین ۱۴۰۵",
+                                                      "data": "{{appStrings.generated.cartable.cartable_intro.amount_value_message}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -916,7 +917,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "جزئیات",
+                                                      "data": "{{appStrings.generated.card_management.card_management_root.details}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -956,7 +957,8 @@
                                                   },
                                                   {
                                                     "fileName": "cartable_detail",
-                                                    "navMode": "dart",
+                                                    "navMode": "localJson",
+                                                    "pathOverride": "lib/stac/tobank/flows/cartable/json/cartable_detail.json",
                                                     "actionType": "navigate"
                                                   }
                                                 ]
@@ -1001,7 +1003,7 @@
                                               "crossAxisAlignment": "stretch",
                                               "children": [
                                                 {
-                                                  "data": "تکمیل مدارک",
+                                                  "data": "{{appStrings.generated.cartable.cartable_detail.documents_complete}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -1025,7 +1027,7 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "وضعیت درخواست",
+                                                          "data": "{{appStrings.generated.cartable.cartable_intro.status_request}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -1055,7 +1057,7 @@
                                                       "type": "row"
                                                     },
                                                     {
-                                                      "data": "بسته",
+                                                      "data": "{{appStrings.generated.cartable.cartable_detail.package}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1082,7 +1084,7 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "تاریخ ثبت درخواست",
+                                                          "data": "{{appStrings.generated.cartable.cartable_intro.date_submit_request}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -1112,7 +1114,7 @@
                                                       "type": "row"
                                                     },
                                                     {
-                                                      "data": "۲۳ فروردین ۱۴۰۵",
+                                                      "data": "{{appStrings.generated.cartable.cartable_intro.amount_value_label}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1163,7 +1165,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "جزئیات",
+                                                      "data": "{{appStrings.generated.card_management.card_management_root.details}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1203,7 +1205,8 @@
                                                   },
                                                   {
                                                     "fileName": "cartable_detail",
-                                                    "navMode": "dart",
+                                                    "navMode": "localJson",
+                                                    "pathOverride": "lib/stac/tobank/flows/cartable/json/cartable_detail.json",
                                                     "actionType": "navigate"
                                                   }
                                                 ]
@@ -1248,7 +1251,7 @@
                                               "crossAxisAlignment": "stretch",
                                               "children": [
                                                 {
-                                                  "data": "تکمیل مدارک",
+                                                  "data": "{{appStrings.generated.cartable.cartable_detail.documents_complete}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -1272,7 +1275,7 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "وضعیت درخواست",
+                                                          "data": "{{appStrings.generated.cartable.cartable_intro.status_request}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -1302,7 +1305,7 @@
                                                       "type": "row"
                                                     },
                                                     {
-                                                      "data": "بسته",
+                                                      "data": "{{appStrings.generated.cartable.cartable_detail.package}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1329,7 +1332,7 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "تاریخ ثبت درخواست",
+                                                          "data": "{{appStrings.generated.cartable.cartable_intro.date_submit_request}}",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -1359,7 +1362,7 @@
                                                       "type": "row"
                                                     },
                                                     {
-                                                      "data": "۲۳ فروردین ۱۴۰۵",
+                                                      "data": "{{appStrings.generated.cartable.cartable_intro.amount_value_label}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1410,7 +1413,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "جزئیات",
+                                                      "data": "{{appStrings.generated.card_management.card_management_root.details}}",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1450,7 +1453,8 @@
                                                   },
                                                   {
                                                     "fileName": "cartable_detail",
-                                                    "navMode": "dart",
+                                                    "navMode": "localJson",
+                                                    "pathOverride": "lib/stac/tobank/flows/cartable/json/cartable_detail.json",
                                                     "actionType": "navigate"
                                                   }
                                                 ]
@@ -1522,7 +1526,7 @@
                                   "crossAxisAlignment": "stretch",
                                   "children": [
                                     {
-                                      "data": "نوع درخواست: تسهیلات قرض الحسنه ازدواج",
+                                      "data": "{{appStrings.generated.cartable.cartable_intro.title}}",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -1541,7 +1545,7 @@
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "data": "مرحله بعد",
+                                          "data": "{{appStrings.generated.cartable.cartable_intro.next_step}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -1558,7 +1562,7 @@
                                         },
                                         {
                                           "child": {
-                                            "data": "اصلاح اطلاعات محل سکونت متقاضی",
+                                            "data": "{{appStrings.generated.cartable.cartable_intro.information_place}}",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1621,7 +1625,7 @@
                                                 "type": "sizedBox"
                                               },
                                               {
-                                                "data": "جزئیات",
+                                                "data": "{{appStrings.generated.card_management.card_management_root.details}}",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.title}}",
@@ -1661,7 +1665,8 @@
                                             },
                                             {
                                               "fileName": "cartable_detail",
-                                              "navMode": "dart",
+                                              "navMode": "localJson",
+                                              "pathOverride": "lib/stac/tobank/flows/cartable/json/cartable_detail.json",
                                               "actionType": "navigate"
                                             }
                                           ]
@@ -1701,7 +1706,7 @@
                                                 "type": "sizedBox"
                                               },
                                               {
-                                                "data": "ادامه فرآیند",
+                                                "data": "{{appStrings.generated.cartable.cartable_intro.continue_process}}",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.title}}",
@@ -1717,8 +1722,8 @@
                                         },
                                         "onTap": {
                                           "actionType": "showResult",
-                                          "title": "ادامه فرآیند",
-                                          "content": "ادامه فرآیند به زودی فعال می‌شود."
+                                          "title": "{{appStrings.generated.cartable.cartable_intro.continue_process}}",
+                                          "content": "{{appStrings.generated.cartable.cartable_intro.continue_active_process}}"
                                         },
                                         "type": "gestureDetector"
                                       },

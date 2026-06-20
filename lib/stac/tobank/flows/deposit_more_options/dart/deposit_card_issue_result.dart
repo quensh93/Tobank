@@ -6,7 +6,8 @@ StacWidget depositCardIssueResult() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: buildTobankFlowAppBar(
-      title: 'آدرس دریافت کارت بانکی',
+      title:
+          '{{appStrings.generated.deposit_more_options.deposit_card_issue_address.title}}',
       showSupport: true,
       showBack: false,
     ),
@@ -42,13 +43,13 @@ StacWidget depositCardIssueResult() {
                         imageType: StacImageType.asset,
                         width: 36,
                         height: 36,
-
                       ),
                     ),
                   ),
                   StacSizedBox(height: 16),
                   StacText(
-                    data: 'درخواست شما با موفقیت ثبت شد!',
+                    data:
+                        '{{appStrings.generated.deposit_more_options.deposit_card_issue_result.title}}',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.center,
                     style: StacCustomTextStyle(
@@ -60,7 +61,7 @@ StacWidget depositCardIssueResult() {
                   StacSizedBox(height: 10),
                   StacText(
                     data:
-                        'درخواست صدور کارت توسط همکاران ما بررسی می‌شود و نتیجه از طریق پیامک اطلاع‌رسانی خواهد شد.',
+                        '{{appStrings.generated.deposit_more_options.deposit_card_issue_result.request_card_result}}',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.center,
                     style: StacCustomTextStyle(
@@ -88,7 +89,8 @@ StacWidget depositCardIssueResult() {
               ),
             ),
             child: StacText(
-              data: 'بازگشت',
+              data:
+                  '{{appStrings.generated.authentication.authentication_signature_visual_guide.back}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 18,

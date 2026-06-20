@@ -26,7 +26,7 @@
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "نمایش سفته",
+        "data": "{{appStrings.promissory.previewScreenTitle}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -119,7 +119,7 @@
             "onPressed": {
               "actionType": "transferReceipt",
               "mode": "shareImage",
-              "title": "سفته ضمانت",
+              "title": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_preview_page.promissory_guarantee}}",
               "pixelRatio": 3.0,
               "boundaryKey": "promissoryGuaranteePreviewContent"
             },
@@ -143,7 +143,7 @@
               }
             },
             "child": {
-              "data": "ذخیره در گالری",
+              "data": "{{appStrings.generated.charge.charge_payment_success.title}}",
               "style": {
                 "type": "custom",
                 "color": "#D91F2A",
@@ -163,7 +163,7 @@
             "onPressed": {
               "actionType": "transferReceipt",
               "mode": "shareImage",
-              "title": "سفته ضمانت",
+              "title": "{{appStrings.generated.promissory_guarantee.promissory_guarantee_preview_page.promissory_guarantee}}",
               "pixelRatio": 3.0,
               "boundaryKey": "promissoryGuaranteePreviewContent"
             },
@@ -186,7 +186,7 @@
               }
             },
             "child": {
-              "data": "اشتراک‌گذاری",
+              "data": "{{appStrings.generated.card_management.card_management_root.share}}",
               "style": {
                 "type": "custom",
                 "color": "#FFFFFF",

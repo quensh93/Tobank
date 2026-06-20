@@ -137,6 +137,10 @@ flutter:
       flavors: [dev]
     - path: lib/stac/tobank/flows/card_management/json/
       flavors: [dev]
+    - path: lib/stac/tobank/flows/charge/json/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/child_loan/json/
+      flavors: [dev]
     - path: lib/stac/tobank/flows/home_page/json/
       flavors: [dev]
     - path: lib/stac/tobank/flows/transfer/json/
@@ -150,6 +154,8 @@ flutter:
     - path: lib/stac/tobank/flows/installment_payment/json/
       flavors: [dev]
     - path: lib/stac/tobank/flows/installment_payment/json_upload/
+      flavors: [dev]
+    - path: lib/stac/tobank/flows/cartable/json/
       flavors: [dev]
 
 

@@ -14,7 +14,8 @@ StacWidget promissoryGuaranteeInfoPage() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        title: 'ضمانت سفته api واقعی',
+        title:
+            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_info_page.guarantee_promissory_api_real}}',
         showBack: true,
         showSupport: true,
       ),
@@ -34,20 +35,26 @@ StacWidget promissoryGuaranteeInfoPage() {
                       StacSizedBox(height: 16),
                       _buildField(
                         id: 'guarantee_promissory_id',
-                        label: 'شناسه یکتای سفته',
-                        hint: 'شناسه یکتای سفته را وارد کنید',
+                        label:
+                            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.identifier_promissory}}',
+                        hint:
+                            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_info_page.identifier_promissory_enter}}',
                         maxLength: 20,
                         rule: r'^\d{1,20}$',
-                        message: 'شناسه یکتای سفته معتبر نیست',
+                        message:
+                            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_info_page.identifier_promissory_not}}',
                       ),
                       StacSizedBox(height: 16),
                       _buildField(
                         id: 'guarantee_promissory_national_code',
-                        label: 'کد ملی صادرکننده',
-                        hint: 'کد ملی صادرکننده را وارد کنید',
+                        label:
+                            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_final_page.issuer_national_code}}',
+                        hint:
+                            '{{appStrings.generated.promissory_guarantee.promissory_guarantee_info_page.issuer_national_code_enter}}',
                         maxLength: 10,
                         rule: r'^\d{10}$',
-                        message: 'کد ملی باید ۱۰ رقم باشد',
+                        message:
+                            '{{appStrings.generated.promissory.promissory_receiver.national_code}}',
                       ),
                     ],
                   ),
@@ -83,7 +90,8 @@ StacWidget promissoryGuaranteeInfoPage() {
                   ),
                 ).toJson(),
                 child: StacText(
-                  data: 'استعلام',
+                  data:
+                      '{{appStrings.profile.real.bankInfo.inquiryButtonText}}',
                   style: StacTextStyle(
                     fontSize: 18,
                     fontWeight: StacFontWeight.w700,

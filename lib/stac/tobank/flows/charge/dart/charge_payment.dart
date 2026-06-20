@@ -21,7 +21,7 @@ StacWidget chargeRealPayment() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'شارژ',
+        title: '{{appStrings.homePage.services.topUp}}',
       ),
       body: StacSafeArea(
         top: false,
@@ -67,7 +67,8 @@ StacWidget chargeRealPayment() {
                 textDirection: StacTextDirection.rtl,
                 children: [
                   StacText(
-                    data: 'مبلغ شارژ + مالیات',
+                    data:
+                        '{{appStrings.generated.charge.charge_payment.title}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 16,
@@ -77,7 +78,7 @@ StacWidget chargeRealPayment() {
                   ),
                   StacSizedBox(width: 8),
                   StacText(
-                    data: '{{crPkgSelectedAmount}} ریال',
+                    data: '{{appStrings.generated.charge.charge_payment.rial}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 20,
@@ -101,7 +102,8 @@ StacWidget chargeRealPayment() {
                   ),
                 ),
                 child: StacText(
-                  data: 'حساب‌ها',
+                  data:
+                      '{{appStrings.generated.charge.charge_payment.account}}',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -121,30 +123,43 @@ StacWidget chargeRealPayment() {
                       _accountCard(
                         selectedKey: 'crPayAcc1Sel',
                         onTap: _selectAccount(1),
-                        title: 'سپرده ۶ ماهه کوتاه مدت توبانکی',
-                        depositNo: '۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱',
-                        cardNo: '۵۵۹۴ - ۱۶۱۷ - ۱۲۳۴ - ۵۶۷۸',
-                        withdrawable: '۸۱۱,۱۲۴,۶۰۷ ریال',
+                        title:
+                            '{{appStrings.generated.charge.charge_payment.deposit}}',
+                        depositNo:
+                            '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}',
+                        cardNo:
+                            '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number_text}}',
+                        withdrawable:
+                            '{{appStrings.generated.charge.charge_payment.rial_message}}',
                       ),
                       StacSizedBox(height: 10),
                       _accountCard(
                         selectedKey: 'crPayAcc2Sel',
                         onTap: _selectAccount(2),
-                        title: 'سپرده حقیقی بلند مدت - زهرا حبیبی',
-                        depositNo: '۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱',
-                        cardNo: '۵۵۹۴ - ۱۶۱۷ - ۱۲۳۴ - ۵۶۷۸',
-                        withdrawable: '۷۴۵,۵۲۴,۶۰۷ ریال',
-                        warningBadge: 'موجودی ناکافی',
+                        title:
+                            '{{appStrings.generated.charge.charge_payment.deposit_text}}',
+                        depositNo:
+                            '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}',
+                        cardNo:
+                            '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number_text}}',
+                        withdrawable:
+                            '{{appStrings.generated.charge.charge_payment.rial_label}}',
+                        warningBadge:
+                            '{{appStrings.generated.installment_payment.installment_payment_detail_main.balance}}',
                         warningRed: true,
                       ),
                       StacSizedBox(height: 10),
                       _accountCard(
                         selectedKey: 'crPayAcc3Sel',
                         onTap: _selectAccount(3),
-                        title: 'سپرده کوتاه مدت روزشمار',
-                        depositNo: '۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱',
-                        cardNo: '۵۵۹۴ - ۱۶۱۷ - ۱۲۳۴ - ۵۶۷۸',
-                        withdrawable: '۶۲۱,۳۲۴,۶۰۷ ریال',
+                        title:
+                            '{{appStrings.generated.charge.charge_payment.deposit_label}}',
+                        depositNo:
+                            '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}',
+                        cardNo:
+                            '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number_text}}',
+                        withdrawable:
+                            '{{appStrings.generated.charge.charge_payment.rial_description}}',
                       ),
                     ],
                   ),
@@ -195,7 +210,7 @@ StacWidget _walletCard() {
         ),
         StacSizedBox(width: 8),
         StacText(
-          data: 'کیف پول',
+          data: '{{appStrings.promissory.walletPayment}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 16,
@@ -205,7 +220,7 @@ StacWidget _walletCard() {
         ),
         StacExpanded(child: StacSizedBox()),
         StacText(
-          data: '۲,۰۰۰,۰۰۰ ریال',
+          data: '{{appStrings.generated.charge.charge_payment.rial_text}}',
           textDirection: StacTextDirection.ltr,
           style: StacCustomTextStyle(
             fontSize: 16,
@@ -240,17 +255,38 @@ StacWidget _buildPayButton({required bool enabled}) {
                     'key': 'crPayReceiptAmount',
                     'value': '{{crPkgSelectedAmount}}',
                   },
-                  {'key': 'crPayReceiptTime', 'value': '۱۰ مهر ۱۴۰۳ - ۱۴:۵۳'},
+                  {
+                    'key': 'crPayReceiptTime',
+                    'value':
+                        '{{appStrings.generated.charge.charge_payment.amount_value}}',
+                  },
                   {
                     'key': 'crPayReceiptPackage',
-                    'value': 'خرید شارژ {{crActiveSimOperator}}',
+                    'value':
+                        '{{appStrings.generated.charge.charge_payment.buy_topup}}',
                   },
-                  {'key': 'crPayReceiptVia', 'value': 'سپرده'},
-                  {'key': 'crPayReceiptFrom', 'value': '۱۱۰.۷۰۰.۲۱۰.۱۲۴۱۵۷۱.۱'},
-                  {'key': 'crPayReceiptTracking', 'value': '۶۹۴۱۲۴۵۸۸'},
+                  {
+                    'key': 'crPayReceiptVia',
+                    'value':
+                        '{{appStrings.profile.real.destinations.tabDeposit}}',
+                  },
+                  {
+                    'key': 'crPayReceiptFrom',
+                    'value':
+                        '{{appStrings.generated.installment_payment.installment_payment_others_detail_main.card_number}}',
+                  },
+                  {
+                    'key': 'crPayReceiptTracking',
+                    'value':
+                        '{{appStrings.generated.internet_pakage.internet_pakage_payment.amount_value}}',
+                  },
                 ],
               ),
-              NavigationAction(fileName: 'charge_payment_success', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+              NavigationAction(
+                fileName: 'charge_payment_success',
+                navMode: NavModes.dart,
+                navigationStyle: NavigationStyle.push,
+              ),
             ],
           )
         : null,
@@ -266,7 +302,8 @@ StacWidget _buildPayButton({required bool enabled}) {
       elevation: 0,
     ),
     child: StacText(
-      data: 'پرداخت',
+      data:
+          '{{appStrings.generated.card_management.card_management_root.payment}}',
       textDirection: StacTextDirection.rtl,
       style: StacCustomTextStyle(
         fontSize: 16,
@@ -338,9 +375,16 @@ StacWidget _accountCard({
           ],
         ),
         StacSizedBox(height: 10),
-        _metaRow(label: 'شماره سپرده', value: depositNo),
+        _metaRow(
+          label:
+              '{{appStrings.generated.card_management.card_management_root.deposit_number}}',
+          value: depositNo,
+        ),
         StacSizedBox(height: 8),
-        _metaRow(label: 'شماره کارت', value: cardNo),
+        _metaRow(
+          label: '{{appStrings.profile.real.destinations.cardNumberLabel}}',
+          value: cardNo,
+        ),
         StacContainer(
           margin: StacEdgeInsets.only(top: 10, bottom: 10),
           height: 1,
@@ -350,7 +394,8 @@ StacWidget _accountCard({
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              data: 'قابل برداشت',
+              data:
+                  '{{appStrings.generated.charge.charge_payment.withdrawable_label}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 15,
@@ -445,4 +490,3 @@ StacWidget _metaRow({required String label, required String value}) {
     ],
   );
 }
-

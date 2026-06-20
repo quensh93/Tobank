@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
@@ -7,7 +7,12 @@ import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 StacWidget dashboardPrimaryPinResult() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildTobankFlowAppBar(title: 'نتیجه عملیات', showSupport: true, showBack: true),
+    appBar: buildTobankFlowAppBar(
+      title:
+          '{{appStrings.generated.card_management.card_management_primary_pin_result.operation_result}}',
+      showSupport: true,
+      showBack: true,
+    ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: StacColumn(
@@ -34,7 +39,8 @@ StacWidget dashboardPrimaryPinResult() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'عملیات با موفقیت ثبت شد',
+            data:
+                '{{appStrings.generated.card_management.card_management_primary_pin_result.operation_success_submit}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -45,7 +51,8 @@ StacWidget dashboardPrimaryPinResult() {
           ),
           StacSizedBox(height: 8),
           StacText(
-            data: 'درخواست شما با موفقیت ثبت گردید.',
+            data:
+                '{{appStrings.generated.card_management.card_management_primary_pin_result.successfully_request_submit}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -56,7 +63,11 @@ StacWidget dashboardPrimaryPinResult() {
           ),
           StacSizedBox(height: 48),
           StacFilledButton(
-            onPressed: NavigationAction(fileName: 'card_management_root', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
+            onPressed: NavigationAction(
+              fileName: 'card_management_root',
+              navMode: NavModes.dart,
+              navigationStyle: NavigationStyle.pushAndRemoveAll,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 8),
               minimumSize: const StacSize(0, 56),
@@ -69,7 +80,8 @@ StacWidget dashboardPrimaryPinResult() {
               ),
             ),
             child: StacText(
-              data: 'بازگشت به کارت‌ها',
+              data:
+                  '{{appStrings.generated.card_management.card_management_primary_pin_result.back_to_cards}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
                 fontSize: 14,

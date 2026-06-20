@@ -7,7 +7,8 @@ import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 StacWidget guaranteePromissoryApiRealMenu() {
   return StacScaffold(
     appBar: buildTobankFlowAppBar(
-      title: 'ضمانت سفته (API واقعی)',
+      title:
+          '{{appStrings.generated.promissory_guarantee.guarantee_promissory_api_real_menu.title}}',
       showBack: true,
       showSupport: true,
     ),
@@ -31,7 +32,7 @@ StacWidget guaranteePromissoryApiRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگذاری از JSON محلی',
+              data: '{{appStrings.promissory.debug.loadLocalJson}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -53,7 +54,8 @@ StacWidget guaranteePromissoryApiRealMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'بارگزاری از دارت',
+              data:
+                  '{{appStrings.generated.installment_payment.installment_payment_api_real_menu.dart}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
