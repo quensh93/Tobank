@@ -91,7 +91,7 @@ class FlowSourceResolver {
         'method': 'post',
         'headers': {'Content-Type': 'application/json', 'Accept': '*/*'},
         'body': {
-          'operator': 'is',
+          'operator': 'contains',
           'dimension': {'app': 'mobile'},
         },
       };

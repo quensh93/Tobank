@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tobank_sdui/dev/screens/promissory_real_flow_screen.dart';
 import 'package:tobank_sdui/dev/screens/tobank_stac_dart_screen.dart';
 
+import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/stac_core/parsers/widgets/loader/promissory_real_loader_parser.dart';
 import '../../core/helpers/logger.dart';
 import '../widgets/menu_card.dart';
@@ -124,6 +125,16 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
           onTap: () => _navigateToPage(
             const PromissoryRealLoaderScreen(),
             '/main-flow-api',
+          ),
+        ),
+        const SizedBox(height: 8),
+        MenuCard(
+          icon: Icons.dashboard,
+          title: 'Dashboard Flow API JSON',
+          subtitle: 'Fetch dashboard_shell from API',
+          onTap: () => _navigateToPage(
+            PromissoryRealLoaderScreen(pathKey: SduiConfig.dashboardShell),
+            '/dashboard-flow-api',
           ),
         ),
       ],

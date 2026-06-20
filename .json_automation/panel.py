@@ -9,6 +9,7 @@ Run:
 """
 from __future__ import annotations
 
+import datetime as _dt
 import json
 import os
 import re
@@ -230,14 +231,16 @@ def has_mobile_dim(rec: dict) -> bool:
 
 
 # dimension.type discriminator
-DIM_FOLDER = {"type": "folder"}            # namespace nodes
-DIM_CONFIG = {"app": ["mobile"], "type": "config"}   # assets/strings/colors
-DIM_SCREEN = {"app": ["mobile"], "type": "screen"}   # page jsons
+DIM_FOLDER = {"type": "folder"}                       # namespace nodes
+DIM_CONFIG = {"app": "mobile", "type": "config"}      # assets/strings/colors
+DIM_SCREEN = {"app": "mobile", "type": "screen"}      # page jsons
 
 
 def record_type(rec: dict) -> str:
     dim = rec.get("dimension")
     t = dim.get("type", "") if isinstance(dim, dict) else ""
+    if isinstance(t, list):
+        t = t[0] if t else ""
     if t:
         return t
     # server omits dimension.type: infer from childrenCount.
@@ -246,6 +249,23 @@ def record_type(rec: dict) -> str:
     if isinstance(cc, int):
         return "folder" if cc > 0 else "config"
     return ""
+
+
+TEHRAN_OFFSET = _dt.timedelta(hours=3, minutes=30)
+
+
+def fmt_ts(iso: str | None) -> str:
+    """Server UTC ISO8601 -> Tehran (+3:30) 'YYYY-MM-DD HH:MM'. '-' if missing."""
+    if not iso or not isinstance(iso, str):
+        return "-"
+    s = iso.strip()
+    # parse UTC: strip zone, take 'YYYY-MM-DDTHH:MM:SS'
+    core = s.replace("Z", "")[:19]
+    try:
+        dt = _dt.datetime.strptime(core, "%Y-%m-%dT%H:%M:%S")
+        return (dt + TEHRAN_OFFSET).strftime("%Y-%m-%d %H:%M")
+    except ValueError:
+        return s.replace("T", " ")[:16]
 
 
 def sanitize(name: str) -> str:
@@ -778,6 +798,7 @@ def do_upload(crumb: str, kind: str, items: list[str]) -> None:
     print()
     base = CFG.path_key.strip(".")
     uploaded_pks = []  # successful pathKeys, for verify pass
+    uploaded_vals: dict[str, Any] = {}  # pk -> value sent, for content verify
     for it in items:
         if kind == "config":
             path = ASSET_FILES[it]
@@ -805,52 +826,104 @@ def do_upload(crumb: str, kind: str, items: list[str]) -> None:
             log("ERR", f"{it}: invalid json ({e})")
             rows.append((key, "ERR", file_url(full_pk)))
             continue
+        mtime = _dt.datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m-%d %H:%M:%S")
         leaf_dim = DIM_CONFIG if kind == "config" else DIM_SCREEN
-        step(f"POST {key} (parentId={pid[:8]}..., build={CFG.build}, type={leaf_dim['type']})")
+        step(f"POST {key} (parentId={pid[:8]}..., build={CFG.build}, dim={leaf_dim}, file mtime={mtime})")
         ok, msg, _ = add_config(key, title, pid, value, dimension=leaf_dim)
         if ok:
             log("OK", f"{key} -> {msg}")
             rows.append((key, "OK", file_url(full_pk)))
             uploaded_pks.append(full_pk)
+            uploaded_vals[full_pk] = value
         else:
             log("ERR", f"{key} -> {msg}")
             rows.append((key, "ERR", file_url(full_pk)))
     summary(rows)
     pause()
     if uploaded_pks:
-        verify_uploads(crumb, uploaded_pks)
+        verify_uploads(crumb, uploaded_pks, uploaded_vals)
 
 
-def verify_uploads(crumb: str, path_keys: list[str]) -> None:
-    """Re-GET uploaded configs (no save). Show full url + time/version info."""
+def _canon(obj: Any) -> str:
+    """Canonical JSON (sorted keys, no whitespace) for content equality."""
+    return json.dumps(obj, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+
+
+def resolve_server_value(pk: str) -> Any:
+    """Fetch the live value the APP would get: POST resolve with CFG operator+dimension.
+    Returns content[0]['value'] or None. Raises FetchError on transport error."""
+    url = f"{_resolved_base()}/v1.0/configs/resolve/{pk}/{CFG.build}"
+    try:
+        dim = json.loads(CFG.dimension)
+    except json.JSONDecodeError:
+        dim = {"app": "mobile"}
+    res = http_json(url, method="POST",
+                    body={"operator": CFG.operator, "dimension": dim},
+                    timeout=CFG.timeout)
+    data = res.get("data", {}) if isinstance(res, dict) else {}
+    content = data.get("content") if isinstance(data, dict) else None
+    if content:
+        return content[0].get("value")
+    return None
+
+
+def verify_uploads(crumb: str, path_keys: list[str],
+                   uploaded_vals: dict[str, Any] | None = None) -> None:
+    """Re-fetch each uploaded config the SAME way the app does and compare the
+    live server value against the exact value we just uploaded. Content mismatch
+    => loud MISMATCH (catches stale files, failed writes, wrong lineage)."""
     screen(crumb + " > verify")
-    log("INFO", f"verify {len(path_keys)} uploaded file(s) via re-fetch (no save)")
+    log("INFO", f"verify {len(path_keys)} uploaded file(s) via resolve + content compare")
     print()
+    uploaded_vals = uploaded_vals or {}
+    rows = []
+    print("  " + paint("VERIFY", C.B))
+    print(paint("  " + "-" * 78, C.DIM))
+    print(f"  {'file':<20}{'match':<8}{'rev':<5}{'updatedOn':<22}url")
+    print(paint("  " + "-" * 78, C.DIM))
+    # metadata (rev/updatedOn) via /all
     try:
         by = {record_pathkey(c): c for c in fetch_all_configs()}
     except FetchError as e:
         log("ERR", str(e)); pause(); return
-    rows = []
-    print()
-    print("  " + paint("VERIFY", C.B))
-    print(paint("  " + "-" * 74, C.DIM))
-    print(f"  {'file':<22}{'rev':<5}{'createdOn':<22}updatedOn")
-    print(paint("  " + "-" * 74, C.DIM))
+    all_ok = True
     for pk in path_keys:
         leaf = pk.rsplit(".", 1)[-1]
         c = by.get(pk)
-        if not c:
-            print(f"  {leaf:<22}{paint('MISSING', C.RED)}")
-            rows.append((leaf, "MISS", file_url(pk)))
-            continue
-        rev = str(c.get("reversion", "?"))
-        created = str(c.get("createdOn", "-"))[:19]
-        updated = str(c.get("updatedOn", "-"))[:19]
-        print(f"  {leaf:<22}{rev:<5}{created:<22}{updated}")
-        log("INFO", f"  url {file_url(pk)}")
-        rows.append((leaf, "OK", file_url(pk)))
+        rev = str(c.get("reversion", "?")) if c else "?"
+        updated = str(c.get("updatedOn", "-"))[:19] if c else "-"
+        # content compare
+        match = "?"
+        if pk in uploaded_vals:
+            try:
+                live = resolve_server_value(pk)
+            except FetchError as e:
+                live = None
+                log("ERR", f"{leaf}: resolve failed ({e})")
+            if live is None:
+                match = paint("MISSING", C.RED); all_ok = False
+            elif _canon(live) == _canon(uploaded_vals[pk]):
+                match = paint("OK", C.GREEN)
+            else:
+                match = paint("MISMATCH", C.RED); all_ok = False
+        mcol = match + " " * max(0, 8 - _vislen(match))
+        print(f"  {leaf:<20}{mcol}{rev:<5}{updated:<22}{paint(file_url(pk), C.DIM)}")
+        status = "OK" if "OK" in match else ("MISS" if "MISSING" in match else
+                 ("MISMATCH" if "MISMATCH" in match else "OK"))
+        rows.append((leaf, status, file_url(pk)))
+    print(paint("  " + "-" * 78, C.DIM))
+    if all_ok:
+        log("OK", "all uploaded values match live server content")
+    else:
+        log("ERR", "CONTENT MISMATCH: server value != uploaded file. "
+                   "Save the file then re-upload; check duplicates/lineage.")
     summary(rows)
     pause()
+
+
+def _vislen(s: str) -> int:
+    """Visible length ignoring ANSI color codes."""
+    return len(re.sub(r"\x1b\[[0-9;]*m", "", s))
 
 
 def built_files() -> list[str]:
@@ -1150,13 +1223,13 @@ def run_map(crumb: str) -> None:
     base_depth = base.count(".")
     counts = {"folder": 0, "config": 0, "screen": 0, "?": 0}
     txt_lines, json_rows = [], []
-    NAME_W, TYPE_W, REV_W, DUP_W = 34, 8, 4, 4
+    NAME_W, TYPE_W, REV_W, DUP_W, UPD_W = 34, 8, 4, 4, 18
     print()
     print("  " + paint(f"MAP  {base}", C.B))
-    print(paint("  " + "-" * 100, C.DIM))
-    hdr = f"  {'name':<{NAME_W}}{'type':<{TYPE_W}}{'rev':<{REV_W}}{'dup':<{DUP_W}}url"
+    print(paint("  " + "-" * 118, C.DIM))
+    hdr = f"  {'name':<{NAME_W}}{'type':<{TYPE_W}}{'rev':<{REV_W}}{'dup':<{DUP_W}}{'updated':<{UPD_W}}url"
     print(paint(hdr, C.B))
-    print(paint("  " + "-" * 100, C.DIM))
+    print(paint("  " + "-" * 118, C.DIM))
     for pk in pks:
         c = bypk[pk]
         t = record_type(c) or "?"
@@ -1166,14 +1239,17 @@ def run_map(crumb: str) -> None:
         name = ("  " * depth) + seg
         rev = str(c.get("reversion", "?"))
         dn = str(dup[pk])
+        upd = fmt_ts(c.get("updatedOn") or c.get("createdOn"))
         url = file_url(pk)
-        txt_lines.append(f"{name:<{NAME_W}}{('[' + t + ']'):<{TYPE_W}}{rev:<{REV_W}}{dn:<{DUP_W}}{url}")
+        txt_lines.append(f"{name:<{NAME_W}}{('[' + t + ']'):<{TYPE_W}}{rev:<{REV_W}}{dn:<{DUP_W}}{upd:<{UPD_W}}{url}")
         dupc = paint(dn.ljust(DUP_W), C.RED) if dup[pk] > 1 else dn.ljust(DUP_W)
         print(f"  {name:<{NAME_W}}{paint(t.ljust(TYPE_W), _type_color(t))}"
-              f"{rev:<{REV_W}}{dupc}{paint(url, C.DIM)}")
+              f"{rev:<{REV_W}}{dupc}{paint(upd.ljust(UPD_W), C.CYAN)}{paint(url, C.DIM)}")
         json_rows.append({"pathKey": pk, "type": t, "url": url, "id": c.get("id"),
                           "reversion": c.get("reversion"),
                           "childrenCount": c.get("childrenCount"),
+                          "updatedOn": c.get("updatedOn"),
+                          "createdOn": c.get("createdOn"),
                           "duplicates": dup[pk]})
     print(paint("  " + "-" * 100, C.DIM))
     log("INFO", f"folders={counts['folder']} configs={counts['config']} "

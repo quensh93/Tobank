@@ -53,8 +53,8 @@ class SduiConfig {
   /// Includes the `/api/digitalbanking` path segment.
   static const String bizBaseUrl = String.fromEnvironment(
     'SDUI_BIZ_BASE_URL',
-    defaultValue: 'http://192.168.107.22:8280/api/digitalbanking',
-    //defaultValue: 'https://stage-esb.arshamnovin.ir/api/digitalbanking',
+    //defaultValue: 'http://192.168.107.22:8280/api/digitalbanking',
+    defaultValue: 'https://stage-esb.arshamnovin.ir/api/digitalbanking',
   );
 
   /// Build a full digitalbanking URL from a relative [path].
@@ -91,13 +91,13 @@ class SduiConfig {
   // --- The 3 design configs (loaded into StacRegistry as tokens) ---
 
   /// pathKey for the strings config (`{{appStrings.*}}`).
-  static String get strings => pathKey('strings');
+  static String get strings => 'ipaam.form.mobile.config.strings';
 
   /// pathKey for the colors config (`{{appColors.*}}`).
-  static String get colors => pathKey('colors');
+  static String get colors => 'ipaam.form.mobile.config.colors';
 
   /// pathKey for the assets config (`{{appAssets.*}}`).
-  static String get assets => pathKey('assets');
+  static String get assets => 'ipaam.form.mobile.config.assets';
 
   // --- Feature flags ---
 
@@ -116,4 +116,7 @@ class SduiConfig {
 
   /// pathKey for the main API-flow splash screen.
   static String get loginRealSplash => pathKey('login_real_splash');
+
+  /// pathKey for the dashboard shell screen.
+  static String get dashboardShell => 'ipaam.form.mobile.dashboard.dashboard_shell';
 }

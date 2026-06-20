@@ -24,7 +24,9 @@ class PromissoryRealLoaderParser extends StacParser<Map<String, dynamic>> {
 
 /// The actual Flutter widget that fetches and renders SDUI from API
 class PromissoryRealLoaderScreen extends StatefulWidget {
-  const PromissoryRealLoaderScreen({super.key});
+  const PromissoryRealLoaderScreen({super.key, this.pathKey});
+
+  final String? pathKey;
 
   @override
   State<PromissoryRealLoaderScreen> createState() =>
@@ -94,7 +96,7 @@ class _PromissoryRealLoaderScreenState
       await _loadRealConfigs();
 
       final sduiJson = await _configApiService.fetchSduiConfig(
-        pathKey: SduiConfig.loginRealSplash,
+        pathKey: widget.pathKey ?? SduiConfig.loginRealSplash,
         build: SduiConfig.configBuild,
       );
 
@@ -148,7 +150,7 @@ class _PromissoryRealLoaderScreenState
   Widget _buildLoadingScreen(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('سفته (API واقعی)'),
+        title: const Text('دریافت اطلاعات'),
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -172,7 +174,7 @@ class _PromissoryRealLoaderScreenState
   Widget _buildErrorScreen(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('سفته (API واقعی)'),
+        title: const Text('دریافت اطلاعات'),
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -222,7 +224,7 @@ class _PromissoryRealLoaderScreenState
 
       return Scaffold(
         appBar: AppBar(
-          title: const Text('سفته (API واقعی)'),
+          title: const Text('دریافت اطلاعات'),
           centerTitle: true,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
@@ -264,7 +266,7 @@ class _PromissoryRealLoaderScreenState
   Widget _buildEmptyScreen(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('سفته (API واقعی)'),
+        title: const Text('دریافت اطلاعات'),
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
