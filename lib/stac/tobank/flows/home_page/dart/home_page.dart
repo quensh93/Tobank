@@ -71,8 +71,7 @@ StacWidget _buildHeader() {
       StacImage(
         src: '{{appAssets.current.icons.tobankRed}}',
         imageType: StacImageType.asset,
-        width: 18,
-        height: 18,
+        width: 100,
       ),
       StacRow(
         children: [

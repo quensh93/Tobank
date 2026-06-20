@@ -78,8 +78,7 @@
                       {
                         "src": "{{appAssets.current.icons.tobankRed}}",
                         "imageType": "asset",
-                        "width": 18.0,
-                        "height": 18.0,
+                        "width": 100.0,
                         "type": "image"
                       },
                       {
