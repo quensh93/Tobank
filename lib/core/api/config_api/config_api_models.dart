@@ -167,7 +167,7 @@ class ConfigApiRequest {
   ConfigApiRequest({
     required this.pathKey,
     required this.build,
-    this.operator = 'is',
+    this.operator = 'contains',
     this.dimension = const {'app': 'mobile'},
     this.page = 0,
     this.size = 10,

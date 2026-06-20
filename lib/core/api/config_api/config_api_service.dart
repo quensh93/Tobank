@@ -58,14 +58,14 @@ class ConfigApiService {
   /// [pathKey] - The path key for the configuration (e.g., 'flutter_key_1.flutter_promissory_key_1')
   /// [build] - The build version number
   /// [dimension] - Optional dimension filter (default: {'app': 'mobile'})
-  /// [operator] - Optional operator (default: 'is')
+  /// [operator] - Optional operator (default: 'contains')
   ///
   /// Throws [ConfigApiException] on failure
   Future<Map<String, dynamic>> fetchSduiConfig({
     required String pathKey,
     required int build,
     Map<String, String>? dimension,
-    String operator = 'is',
+    String operator = 'contains',
   }) async {
     final request = ConfigApiRequest(
       pathKey: pathKey,
@@ -158,7 +158,7 @@ class ConfigApiService {
     required String pathKey,
     required int build,
     Map<String, String>? dimension,
-    String operator = 'is',
+    String operator = 'contains',
   }) async {
     final request = ConfigApiRequest(
       pathKey: pathKey,

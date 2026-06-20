@@ -1,47 +1,90 @@
 [
   {
     "pathKey": "ipaam.form.mobile",
-    "type": "?",
+    "type": "folder",
     "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile/1",
     "id": "aaaa8508-74c2-427d-9bfd-74825dd4f6b3",
     "reversion": 1,
-    "childrenCount": 1,
+    "childrenCount": 2,
+    "updatedOn": "2026-06-17T05:49:29.358838Z",
+    "createdOn": "2026-06-17T05:49:29.358838Z",
     "duplicates": 1
   },
   {
     "pathKey": "ipaam.form.mobile.config",
-    "type": "?",
+    "type": "folder",
     "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config/1",
     "id": "ec9f3bd1-bd67-4091-bd63-6060b2843925",
     "reversion": 1,
-    "childrenCount": 9,
+    "childrenCount": 19,
+    "updatedOn": "2026-06-17T07:25:49.304018Z",
+    "createdOn": "2026-06-17T07:25:49.304018Z",
     "duplicates": 1
   },
   {
     "pathKey": "ipaam.form.mobile.config.assets",
-    "type": "?",
+    "type": "config",
     "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config.assets/1",
-    "id": "ee0ef741-5aeb-4f22-95b8-01303de3566c",
-    "reversion": 3,
+    "id": "168b2087-23b1-4a22-8f17-0153d691980a",
+    "reversion": 4,
     "childrenCount": 0,
-    "duplicates": 3
+    "updatedOn": "2026-06-20T06:02:05.082929Z",
+    "createdOn": "2026-06-20T06:02:05.082929Z",
+    "duplicates": 4
   },
   {
     "pathKey": "ipaam.form.mobile.config.colors",
-    "type": "?",
+    "type": "config",
     "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config.colors/1",
-    "id": "3180853e-38ba-4b8b-980e-c4a309516817",
-    "reversion": 3,
+    "id": "4914c231-dcaa-436a-a5d6-b7f7145f96b2",
+    "reversion": 4,
     "childrenCount": 0,
-    "duplicates": 3
+    "updatedOn": "2026-06-20T06:02:05.626261Z",
+    "createdOn": "2026-06-20T06:02:05.626261Z",
+    "duplicates": 4
+  },
+  {
+    "pathKey": "ipaam.form.mobile.config.probe_type",
+    "type": "screen",
+    "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config.probe_type/1",
+    "id": "1589ed4d-943a-4b8f-b039-ee19e51b030c",
+    "reversion": 1,
+    "childrenCount": 0,
+    "updatedOn": "2026-06-20T05:59:23.416208Z",
+    "createdOn": "2026-06-20T05:59:23.416208Z",
+    "duplicates": 1
   },
   {
     "pathKey": "ipaam.form.mobile.config.strings",
-    "type": "?",
+    "type": "config",
     "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.config.strings/1",
-    "id": "7090489a-7446-4994-b31f-06fc8cc36900",
-    "reversion": 3,
+    "id": "d02cb0ef-19db-42f0-95ba-25602f0366ce",
+    "reversion": 10,
     "childrenCount": 0,
-    "duplicates": 3
+    "updatedOn": "2026-06-20T06:26:32.367184Z",
+    "createdOn": "2026-06-20T06:26:32.367184Z",
+    "duplicates": 10
+  },
+  {
+    "pathKey": "ipaam.form.mobile.dashboard",
+    "type": "folder",
+    "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.dashboard/1",
+    "id": "38eac876-e3d7-48cb-a922-ac5dcc9cc364",
+    "reversion": 1,
+    "childrenCount": 4,
+    "updatedOn": "2026-06-20T05:22:09.074231Z",
+    "createdOn": "2026-06-20T05:22:09.074231Z",
+    "duplicates": 1
+  },
+  {
+    "pathKey": "ipaam.form.mobile.dashboard.dashboard_shell",
+    "type": "screen",
+    "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/value/ipaam.form.mobile.dashboard.dashboard_shell/1",
+    "id": "98d71394-9ffc-4b41-b533-994408fe8dd0",
+    "reversion": 4,
+    "childrenCount": 0,
+    "updatedOn": "2026-06-20T06:06:49.069385Z",
+    "createdOn": "2026-06-20T06:06:49.069385Z",
+    "duplicates": 4
   }
 ]
