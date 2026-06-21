@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:ispect/ispect.dart';
 import '../bootstrap/app_root.dart';
+import '../services/biometric/biometric_service.dart';
 import '../../debug_panel/state/debug_panel_settings_state.dart';
 import '../../debug_panel/state/device_preview_state.dart';
 import '../../debug_panel/widgets/custom_logs/screens/logs_screen.dart';
@@ -301,6 +302,36 @@ final ispectPanelItemsProvider = Provider<List<DraggablePanelItem>>((ref) {
             },
           ),
         );
+      },
+    ),
+
+    // Create Biometric Credential (acts like the "Create Credential" button)
+    DraggablePanelItem(
+      icon: Icons.fingerprint,
+      enableBadge: false,
+      description: 'Biometric',
+      onTap: (_) async {
+        const userId = 'biometric_test_user';
+
+        final registered = await BiometricService.register(
+          userId: userId,
+          passkeyOnly: true,
+        );
+
+        final ctx = AppRoot.mainAppNavigatorKey.currentContext;
+        if (ctx != null && ctx.mounted) {
+          ScaffoldMessenger.of(ctx).showSnackBar(
+            SnackBar(
+              content: Text(
+                registered
+                    ? 'Biometric credential created'
+                    : 'Biometric credential creation failed',
+              ),
+              backgroundColor:
+                  registered ? Colors.green : const Color(0xFFB00020),
+            ),
+          );
+        }
       },
     ),
   ];

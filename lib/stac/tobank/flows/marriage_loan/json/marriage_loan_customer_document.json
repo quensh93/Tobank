@@ -1,0 +1,2571 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "marriageLoanNoSmartNationalCard",
+        "value": false
+      },
+      {
+        "key": "marriageLoanPaperTrackingCode",
+        "value": ""
+      },
+      {
+        "key": "marriageLoanDoc1HasImage",
+        "value": false
+      },
+      {
+        "key": "marriageLoanDoc2HasImage",
+        "value": false
+      },
+      {
+        "key": "marriageLoanDoc3HasImage",
+        "value": false
+      },
+      {
+        "key": "marriageLoanDoc4HasImage",
+        "value": false
+      },
+      {
+        "key": "marriageLoanDoc5HasImage",
+        "value": false
+      },
+      {
+        "key": "marriageLoanDocNextEnabled",
+        "value": false
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "automaticallyImplyLeading": true,
+      "title": {
+        "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.title}}",
+        "style": {
+          "type": "custom",
+          "color": "{{appColors.current.text.title}}",
+          "fontSize": 13.0,
+          "fontWeight": "w700"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "child": {
+              "padding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.upload_title}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 18.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 14.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.upload_description}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.subtitle}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w500",
+                      "height": 1.7
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 20.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.no_smart_national_card}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 16.0,
+                          "fontWeight": "w700"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "type": "reactiveSwitch",
+                        "valueKey": "marriageLoanNoSmartNationalCard",
+                        "onChanged": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "marriageLoanDoc4HasImage",
+                                  "value": false
+                                },
+                                {
+                                  "key": "marriageLoanDoc5HasImage",
+                                  "value": false
+                                },
+                                {
+                                  "key": "marriageLoanDoc4Image",
+                                  "value": ""
+                                },
+                                {
+                                  "key": "marriageLoanDoc5Image",
+                                  "value": ""
+                                },
+                                {
+                                  "key": "marriageLoanPaperTrackingCode",
+                                  "value": ""
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "marriageLoanDocNextEnabled",
+                                  "value": false
+                                },
+                                {
+                                  "key": "marriageLoanDocNextEnabled",
+                                  "value": true,
+                                  "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                },
+                                {
+                                  "key": "marriageLoanDocNextEnabled",
+                                  "value": true,
+                                  "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "type": "visibility",
+                    "visible": "[[marriageLoanNoSmartNationalCard]]",
+                    "child": {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "height": 20.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.paper_tracking_code_title}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "type": "textFormField",
+                              "id": "marriage_loan_paper_tracking_code",
+                              "textDirection": "ltr",
+                              "textAlign": "right",
+                              "supportTextDirection": "rtl",
+                              "decoration": {
+                                "hintText": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.paper_tracking_code_hint}}",
+                                "hintStyle": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.hint}}",
+                                  "fontSize": 16.0,
+                                  "fontWeight": "w500"
+                                },
+                                "counterText": "",
+                                "contentPadding": {
+                                  "horizontal": 16,
+                                  "vertical": 14
+                                }
+                              },
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w700"
+                              },
+                              "keyboardType": "number",
+                              "maxLength": 10,
+                              "inputFormatters": [
+                                {
+                                  "type": "allow",
+                                  "rule": "[0-9]"
+                                }
+                              ],
+                              "onChanged": {
+                                "actionType": "setValue",
+                                "key": "marriageLoanPaperTrackingCode",
+                                "value": "{{form.marriage_loan_paper_tracking_code}}"
+                              }
+                            }
+                          ],
+                          "type": "column"
+                        }
+                      ],
+                      "type": "column"
+                    }
+                  },
+                  {
+                    "height": 20.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "decoration": {
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1.0
+                      },
+                      "borderRadius": {
+                        "topLeft": 10.0,
+                        "topRight": 10.0,
+                        "bottomLeft": 10.0,
+                        "bottomRight": 10.0
+                      }
+                    },
+                    "child": {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "padding": {
+                            "left": 16.0,
+                            "top": 16.0,
+                            "right": 16.0,
+                            "bottom": 16.0
+                          },
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.birth_certificate_page_1_2}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "height": 1.0,
+                          "type": "container"
+                        },
+                        {
+                          "padding": {
+                            "left": 16.0,
+                            "top": 14.0,
+                            "right": 16.0,
+                            "bottom": 14.0
+                          },
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "type": "visibility",
+                                "visible": "[[marriageLoanDoc1HasImage]]",
+                                "child": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "crossAxisAlignment": "center",
+                                  "textDirection": "rtl",
+                                  "children": [
+                                    {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "center",
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "borderRadius": {
+                                            "topLeft": 2.0,
+                                            "topRight": 2.0,
+                                            "bottomLeft": 2.0,
+                                            "bottomRight": 2.0
+                                          },
+                                          "child": {
+                                            "type": "image",
+                                            "src": "{{marriageLoanDoc1Image}}",
+                                            "registryKey": "marriageLoanDoc1Image",
+                                            "fit": "cover",
+                                            "width": 56,
+                                            "height": 56
+                                          },
+                                          "type": "clipRRect"
+                                        },
+                                        {
+                                          "width": 10.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "padding": {
+                                            "left": 10.0,
+                                            "top": 6.0,
+                                            "right": 10.0,
+                                            "bottom": 6.0
+                                          },
+                                          "decoration": {
+                                            "color": "{{appColors.current.secondary.secondaryContainer}}",
+                                            "borderRadius": {
+                                              "topLeft": 8.0,
+                                              "topRight": 8.0,
+                                              "bottomLeft": 8.0,
+                                              "bottomRight": 8.0
+                                            }
+                                          },
+                                          "child": {
+                                            "mainAxisSize": "min",
+                                            "textDirection": "rtl",
+                                            "children": [
+                                              {
+                                                "decoration": {
+                                                  "color": "{{appColors.current.secondary.color}}",
+                                                  "borderRadius": {
+                                                    "topLeft": 999.0,
+                                                    "topRight": 999.0,
+                                                    "bottomLeft": 999.0,
+                                                    "bottomRight": 999.0
+                                                  }
+                                                },
+                                                "width": 14.0,
+                                                "height": 14.0,
+                                                "type": "container"
+                                              },
+                                              {
+                                                "width": 6.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.upload_success}}",
+                                                "style": {
+                                                  "type": "custom",
+                                                  "color": "{{appColors.current.secondary.color}}",
+                                                  "fontSize": 14.0,
+                                                  "fontWeight": "w600"
+                                                },
+                                                "textDirection": "rtl",
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "type": "row"
+                                          },
+                                          "type": "container"
+                                        }
+                                      ],
+                                      "type": "row"
+                                    },
+                                    {
+                                      "child": {
+                                        "mainAxisSize": "min",
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "src": "{{appAssets.icons.deleteCurrent}}",
+                                            "imageType": "asset",
+                                            "width": 20.0,
+                                            "height": 20.0,
+                                            "type": "image"
+                                          },
+                                          {
+                                            "width": 6.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.title}}",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "onTap": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "marriageLoanDoc1Image",
+                                                "value": ""
+                                              },
+                                              {
+                                                "key": "marriageLoanDoc1HasImage",
+                                                "value": false
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "type": "gestureDetector"
+                                    }
+                                  ],
+                                  "type": "row"
+                                }
+                              },
+                              {
+                                "type": "visibility",
+                                "visible": "[[!marriageLoanDoc1HasImage]]",
+                                "child": {
+                                  "mainAxisAlignment": "spaceEvenly",
+                                  "textDirection": "rtl",
+                                  "children": [
+                                    {
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "decoration": {
+                                              "color": "{{appColors.current.error.withOpacity(0.1)}}",
+                                              "border": {
+                                                "color": "{{appColors.current.error}}",
+                                                "width": 2.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 34.0,
+                                            "height": 34.0,
+                                            "child": {
+                                              "child": {
+                                                "src": "{{appAssets.icons.cameraCurrent}}",
+                                                "imageType": "asset",
+                                                "color": "{{appColors.current.error}}",
+                                                "width": 31.0,
+                                                "height": 31.0,
+                                                "type": "image"
+                                              },
+                                              "type": "center"
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "width": 10.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "{{appStrings.authentication.cameraLabel}}",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.subtitle}}",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "onTap": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "pickFile",
+                                            "fileType": "image",
+                                            "allowMultiple": false,
+                                            "targetKey": "marriageLoanDoc1Image",
+                                            "hasValueKey": "marriageLoanDoc1HasImage",
+                                            "fileNameKey": "marriageLoanDoc1ImageName",
+                                            "source": "camera",
+                                            "cropImage": true,
+                                            "cropMaxWidth": 1000,
+                                            "cropMaxHeight": 1000,
+                                            "cropCompressQuality": 80,
+                                            "previewBeforeConfirm": false
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "type": "gestureDetector"
+                                    },
+                                    {
+                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                      "width": 1.0,
+                                      "height": 28.0,
+                                      "type": "container"
+                                    },
+                                    {
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "decoration": {
+                                              "color": "{{appColors.current.secondary.withOpacity(0.1)}}",
+                                              "border": {
+                                                "color": "{{appColors.current.secondary}}",
+                                                "width": 2.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 34.0,
+                                            "height": 34.0,
+                                            "child": {
+                                              "child": {
+                                                "src": "{{appAssets.icons.galleryCurrent}}",
+                                                "imageType": "asset",
+                                                "color": "{{appColors.current.secondary}}",
+                                                "width": 31.0,
+                                                "height": 31.0,
+                                                "type": "image"
+                                              },
+                                              "type": "center"
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "width": 10.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "{{appStrings.authentication.galleryLabel}}",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.subtitle}}",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "onTap": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "pickFile",
+                                            "fileType": "image",
+                                            "allowMultiple": false,
+                                            "targetKey": "marriageLoanDoc1Image",
+                                            "hasValueKey": "marriageLoanDoc1HasImage",
+                                            "fileNameKey": "marriageLoanDoc1ImageName",
+                                            "source": "gallery",
+                                            "cropImage": true,
+                                            "cropMaxWidth": 1000,
+                                            "cropMaxHeight": 1000,
+                                            "cropCompressQuality": 80,
+                                            "previewBeforeConfirm": false
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "type": "gestureDetector"
+                                    }
+                                  ],
+                                  "type": "row"
+                                }
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "padding"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "clipBehavior": "antiAlias",
+                    "type": "container"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "decoration": {
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1.0
+                      },
+                      "borderRadius": {
+                        "topLeft": 10.0,
+                        "topRight": 10.0,
+                        "bottomLeft": 10.0,
+                        "bottomRight": 10.0
+                      }
+                    },
+                    "child": {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "padding": {
+                            "left": 16.0,
+                            "top": 16.0,
+                            "right": 16.0,
+                            "bottom": 16.0
+                          },
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.birth_certificate_page_3_4}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "height": 1.0,
+                          "type": "container"
+                        },
+                        {
+                          "padding": {
+                            "left": 16.0,
+                            "top": 14.0,
+                            "right": 16.0,
+                            "bottom": 14.0
+                          },
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "type": "visibility",
+                                "visible": "[[marriageLoanDoc2HasImage]]",
+                                "child": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "crossAxisAlignment": "center",
+                                  "textDirection": "rtl",
+                                  "children": [
+                                    {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "center",
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "borderRadius": {
+                                            "topLeft": 2.0,
+                                            "topRight": 2.0,
+                                            "bottomLeft": 2.0,
+                                            "bottomRight": 2.0
+                                          },
+                                          "child": {
+                                            "type": "image",
+                                            "src": "{{marriageLoanDoc2Image}}",
+                                            "registryKey": "marriageLoanDoc2Image",
+                                            "fit": "cover",
+                                            "width": 56,
+                                            "height": 56
+                                          },
+                                          "type": "clipRRect"
+                                        },
+                                        {
+                                          "width": 10.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "padding": {
+                                            "left": 10.0,
+                                            "top": 6.0,
+                                            "right": 10.0,
+                                            "bottom": 6.0
+                                          },
+                                          "decoration": {
+                                            "color": "{{appColors.current.secondary.secondaryContainer}}",
+                                            "borderRadius": {
+                                              "topLeft": 8.0,
+                                              "topRight": 8.0,
+                                              "bottomLeft": 8.0,
+                                              "bottomRight": 8.0
+                                            }
+                                          },
+                                          "child": {
+                                            "mainAxisSize": "min",
+                                            "textDirection": "rtl",
+                                            "children": [
+                                              {
+                                                "decoration": {
+                                                  "color": "{{appColors.current.secondary.color}}",
+                                                  "borderRadius": {
+                                                    "topLeft": 999.0,
+                                                    "topRight": 999.0,
+                                                    "bottomLeft": 999.0,
+                                                    "bottomRight": 999.0
+                                                  }
+                                                },
+                                                "width": 14.0,
+                                                "height": 14.0,
+                                                "type": "container"
+                                              },
+                                              {
+                                                "width": 6.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.upload_success}}",
+                                                "style": {
+                                                  "type": "custom",
+                                                  "color": "{{appColors.current.secondary.color}}",
+                                                  "fontSize": 14.0,
+                                                  "fontWeight": "w600"
+                                                },
+                                                "textDirection": "rtl",
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "type": "row"
+                                          },
+                                          "type": "container"
+                                        }
+                                      ],
+                                      "type": "row"
+                                    },
+                                    {
+                                      "child": {
+                                        "mainAxisSize": "min",
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "src": "{{appAssets.icons.deleteCurrent}}",
+                                            "imageType": "asset",
+                                            "width": 20.0,
+                                            "height": 20.0,
+                                            "type": "image"
+                                          },
+                                          {
+                                            "width": 6.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.title}}",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "onTap": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "marriageLoanDoc2Image",
+                                                "value": ""
+                                              },
+                                              {
+                                                "key": "marriageLoanDoc2HasImage",
+                                                "value": false
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "type": "gestureDetector"
+                                    }
+                                  ],
+                                  "type": "row"
+                                }
+                              },
+                              {
+                                "type": "visibility",
+                                "visible": "[[!marriageLoanDoc2HasImage]]",
+                                "child": {
+                                  "mainAxisAlignment": "spaceEvenly",
+                                  "textDirection": "rtl",
+                                  "children": [
+                                    {
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "decoration": {
+                                              "color": "{{appColors.current.error.withOpacity(0.1)}}",
+                                              "border": {
+                                                "color": "{{appColors.current.error}}",
+                                                "width": 2.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 34.0,
+                                            "height": 34.0,
+                                            "child": {
+                                              "child": {
+                                                "src": "{{appAssets.icons.cameraCurrent}}",
+                                                "imageType": "asset",
+                                                "color": "{{appColors.current.error}}",
+                                                "width": 31.0,
+                                                "height": 31.0,
+                                                "type": "image"
+                                              },
+                                              "type": "center"
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "width": 10.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "{{appStrings.authentication.cameraLabel}}",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.subtitle}}",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "onTap": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "pickFile",
+                                            "fileType": "image",
+                                            "allowMultiple": false,
+                                            "targetKey": "marriageLoanDoc2Image",
+                                            "hasValueKey": "marriageLoanDoc2HasImage",
+                                            "fileNameKey": "marriageLoanDoc2ImageName",
+                                            "source": "camera",
+                                            "cropImage": true,
+                                            "cropMaxWidth": 1000,
+                                            "cropMaxHeight": 1000,
+                                            "cropCompressQuality": 80,
+                                            "previewBeforeConfirm": false
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "type": "gestureDetector"
+                                    },
+                                    {
+                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                      "width": 1.0,
+                                      "height": 28.0,
+                                      "type": "container"
+                                    },
+                                    {
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "decoration": {
+                                              "color": "{{appColors.current.secondary.withOpacity(0.1)}}",
+                                              "border": {
+                                                "color": "{{appColors.current.secondary}}",
+                                                "width": 2.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 34.0,
+                                            "height": 34.0,
+                                            "child": {
+                                              "child": {
+                                                "src": "{{appAssets.icons.galleryCurrent}}",
+                                                "imageType": "asset",
+                                                "color": "{{appColors.current.secondary}}",
+                                                "width": 31.0,
+                                                "height": 31.0,
+                                                "type": "image"
+                                              },
+                                              "type": "center"
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "width": 10.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "{{appStrings.authentication.galleryLabel}}",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.subtitle}}",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "onTap": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "pickFile",
+                                            "fileType": "image",
+                                            "allowMultiple": false,
+                                            "targetKey": "marriageLoanDoc2Image",
+                                            "hasValueKey": "marriageLoanDoc2HasImage",
+                                            "fileNameKey": "marriageLoanDoc2ImageName",
+                                            "source": "gallery",
+                                            "cropImage": true,
+                                            "cropMaxWidth": 1000,
+                                            "cropMaxHeight": 1000,
+                                            "cropCompressQuality": 80,
+                                            "previewBeforeConfirm": false
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "type": "gestureDetector"
+                                    }
+                                  ],
+                                  "type": "row"
+                                }
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "padding"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "clipBehavior": "antiAlias",
+                    "type": "container"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "decoration": {
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1.0
+                      },
+                      "borderRadius": {
+                        "topLeft": 10.0,
+                        "topRight": 10.0,
+                        "bottomLeft": 10.0,
+                        "bottomRight": 10.0
+                      }
+                    },
+                    "child": {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "padding": {
+                            "left": 16.0,
+                            "top": 16.0,
+                            "right": 16.0,
+                            "bottom": 16.0
+                          },
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.birth_certificate_page_5_6}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "height": 1.0,
+                          "type": "container"
+                        },
+                        {
+                          "padding": {
+                            "left": 16.0,
+                            "top": 14.0,
+                            "right": 16.0,
+                            "bottom": 14.0
+                          },
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "type": "visibility",
+                                "visible": "[[marriageLoanDoc3HasImage]]",
+                                "child": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "crossAxisAlignment": "center",
+                                  "textDirection": "rtl",
+                                  "children": [
+                                    {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "center",
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "borderRadius": {
+                                            "topLeft": 2.0,
+                                            "topRight": 2.0,
+                                            "bottomLeft": 2.0,
+                                            "bottomRight": 2.0
+                                          },
+                                          "child": {
+                                            "type": "image",
+                                            "src": "{{marriageLoanDoc3Image}}",
+                                            "registryKey": "marriageLoanDoc3Image",
+                                            "fit": "cover",
+                                            "width": 56,
+                                            "height": 56
+                                          },
+                                          "type": "clipRRect"
+                                        },
+                                        {
+                                          "width": 10.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "padding": {
+                                            "left": 10.0,
+                                            "top": 6.0,
+                                            "right": 10.0,
+                                            "bottom": 6.0
+                                          },
+                                          "decoration": {
+                                            "color": "{{appColors.current.secondary.secondaryContainer}}",
+                                            "borderRadius": {
+                                              "topLeft": 8.0,
+                                              "topRight": 8.0,
+                                              "bottomLeft": 8.0,
+                                              "bottomRight": 8.0
+                                            }
+                                          },
+                                          "child": {
+                                            "mainAxisSize": "min",
+                                            "textDirection": "rtl",
+                                            "children": [
+                                              {
+                                                "decoration": {
+                                                  "color": "{{appColors.current.secondary.color}}",
+                                                  "borderRadius": {
+                                                    "topLeft": 999.0,
+                                                    "topRight": 999.0,
+                                                    "bottomLeft": 999.0,
+                                                    "bottomRight": 999.0
+                                                  }
+                                                },
+                                                "width": 14.0,
+                                                "height": 14.0,
+                                                "type": "container"
+                                              },
+                                              {
+                                                "width": 6.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.upload_success}}",
+                                                "style": {
+                                                  "type": "custom",
+                                                  "color": "{{appColors.current.secondary.color}}",
+                                                  "fontSize": 14.0,
+                                                  "fontWeight": "w600"
+                                                },
+                                                "textDirection": "rtl",
+                                                "type": "text"
+                                              }
+                                            ],
+                                            "type": "row"
+                                          },
+                                          "type": "container"
+                                        }
+                                      ],
+                                      "type": "row"
+                                    },
+                                    {
+                                      "child": {
+                                        "mainAxisSize": "min",
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "src": "{{appAssets.icons.deleteCurrent}}",
+                                            "imageType": "asset",
+                                            "width": 20.0,
+                                            "height": 20.0,
+                                            "type": "image"
+                                          },
+                                          {
+                                            "width": 6.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.title}}",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "onTap": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "marriageLoanDoc3Image",
+                                                "value": ""
+                                              },
+                                              {
+                                                "key": "marriageLoanDoc3HasImage",
+                                                "value": false
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "type": "gestureDetector"
+                                    }
+                                  ],
+                                  "type": "row"
+                                }
+                              },
+                              {
+                                "type": "visibility",
+                                "visible": "[[!marriageLoanDoc3HasImage]]",
+                                "child": {
+                                  "mainAxisAlignment": "spaceEvenly",
+                                  "textDirection": "rtl",
+                                  "children": [
+                                    {
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "decoration": {
+                                              "color": "{{appColors.current.error.withOpacity(0.1)}}",
+                                              "border": {
+                                                "color": "{{appColors.current.error}}",
+                                                "width": 2.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 34.0,
+                                            "height": 34.0,
+                                            "child": {
+                                              "child": {
+                                                "src": "{{appAssets.icons.cameraCurrent}}",
+                                                "imageType": "asset",
+                                                "color": "{{appColors.current.error}}",
+                                                "width": 31.0,
+                                                "height": 31.0,
+                                                "type": "image"
+                                              },
+                                              "type": "center"
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "width": 10.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "{{appStrings.authentication.cameraLabel}}",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.subtitle}}",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "onTap": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "pickFile",
+                                            "fileType": "image",
+                                            "allowMultiple": false,
+                                            "targetKey": "marriageLoanDoc3Image",
+                                            "hasValueKey": "marriageLoanDoc3HasImage",
+                                            "fileNameKey": "marriageLoanDoc3ImageName",
+                                            "source": "camera",
+                                            "cropImage": true,
+                                            "cropMaxWidth": 1000,
+                                            "cropMaxHeight": 1000,
+                                            "cropCompressQuality": 80,
+                                            "previewBeforeConfirm": false
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "type": "gestureDetector"
+                                    },
+                                    {
+                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                      "width": 1.0,
+                                      "height": 28.0,
+                                      "type": "container"
+                                    },
+                                    {
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "decoration": {
+                                              "color": "{{appColors.current.secondary.withOpacity(0.1)}}",
+                                              "border": {
+                                                "color": "{{appColors.current.secondary}}",
+                                                "width": 2.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 34.0,
+                                            "height": 34.0,
+                                            "child": {
+                                              "child": {
+                                                "src": "{{appAssets.icons.galleryCurrent}}",
+                                                "imageType": "asset",
+                                                "color": "{{appColors.current.secondary}}",
+                                                "width": 31.0,
+                                                "height": 31.0,
+                                                "type": "image"
+                                              },
+                                              "type": "center"
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "width": 10.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "{{appStrings.authentication.galleryLabel}}",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.subtitle}}",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "onTap": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "pickFile",
+                                            "fileType": "image",
+                                            "allowMultiple": false,
+                                            "targetKey": "marriageLoanDoc3Image",
+                                            "hasValueKey": "marriageLoanDoc3HasImage",
+                                            "fileNameKey": "marriageLoanDoc3ImageName",
+                                            "source": "gallery",
+                                            "cropImage": true,
+                                            "cropMaxWidth": 1000,
+                                            "cropMaxHeight": 1000,
+                                            "cropCompressQuality": 80,
+                                            "previewBeforeConfirm": false
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                              },
+                                              {
+                                                "key": "marriageLoanDocNextEnabled",
+                                                "value": true,
+                                                "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      "type": "gestureDetector"
+                                    }
+                                  ],
+                                  "type": "row"
+                                }
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "padding"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "clipBehavior": "antiAlias",
+                    "type": "container"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "visibility",
+                    "visible": "[[!marriageLoanNoSmartNationalCard]]",
+                    "child": {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "decoration": {
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.0
+                            },
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 16.0,
+                                  "right": 16.0,
+                                  "bottom": 16.0
+                                },
+                                "decoration": {
+                                  "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                  "borderRadius": {
+                                    "topLeft": 10.0,
+                                    "topRight": 10.0
+                                  }
+                                },
+                                "child": {
+                                  "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.national_card_front}}",
+                                  "style": {
+                                    "type": "custom",
+                                    "color": "{{appColors.current.text.title}}",
+                                    "fontSize": 16.0,
+                                    "fontWeight": "w700"
+                                  },
+                                  "textAlign": "right",
+                                  "textDirection": "rtl",
+                                  "type": "text"
+                                },
+                                "type": "container"
+                              },
+                              {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "height": 1.0,
+                                "type": "container"
+                              },
+                              {
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 14.0,
+                                  "right": 16.0,
+                                  "bottom": 14.0
+                                },
+                                "child": {
+                                  "crossAxisAlignment": "stretch",
+                                  "children": [
+                                    {
+                                      "type": "visibility",
+                                      "visible": "[[marriageLoanDoc4HasImage]]",
+                                      "child": {
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "crossAxisAlignment": "center",
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "mainAxisSize": "min",
+                                            "crossAxisAlignment": "center",
+                                            "textDirection": "rtl",
+                                            "children": [
+                                              {
+                                                "borderRadius": {
+                                                  "topLeft": 2.0,
+                                                  "topRight": 2.0,
+                                                  "bottomLeft": 2.0,
+                                                  "bottomRight": 2.0
+                                                },
+                                                "child": {
+                                                  "type": "image",
+                                                  "src": "{{marriageLoanDoc4Image}}",
+                                                  "registryKey": "marriageLoanDoc4Image",
+                                                  "fit": "cover",
+                                                  "width": 56,
+                                                  "height": 56
+                                                },
+                                                "type": "clipRRect"
+                                              },
+                                              {
+                                                "width": 10.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "padding": {
+                                                  "left": 10.0,
+                                                  "top": 6.0,
+                                                  "right": 10.0,
+                                                  "bottom": 6.0
+                                                },
+                                                "decoration": {
+                                                  "color": "{{appColors.current.secondary.secondaryContainer}}",
+                                                  "borderRadius": {
+                                                    "topLeft": 8.0,
+                                                    "topRight": 8.0,
+                                                    "bottomLeft": 8.0,
+                                                    "bottomRight": 8.0
+                                                  }
+                                                },
+                                                "child": {
+                                                  "mainAxisSize": "min",
+                                                  "textDirection": "rtl",
+                                                  "children": [
+                                                    {
+                                                      "decoration": {
+                                                        "color": "{{appColors.current.secondary.color}}",
+                                                        "borderRadius": {
+                                                          "topLeft": 999.0,
+                                                          "topRight": 999.0,
+                                                          "bottomLeft": 999.0,
+                                                          "bottomRight": 999.0
+                                                        }
+                                                      },
+                                                      "width": 14.0,
+                                                      "height": 14.0,
+                                                      "type": "container"
+                                                    },
+                                                    {
+                                                      "width": 6.0,
+                                                      "type": "sizedBox"
+                                                    },
+                                                    {
+                                                      "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.upload_success}}",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.secondary.color}}",
+                                                        "fontSize": 14.0,
+                                                        "fontWeight": "w600"
+                                                      },
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    }
+                                                  ],
+                                                  "type": "row"
+                                                },
+                                                "type": "container"
+                                              }
+                                            ],
+                                            "type": "row"
+                                          },
+                                          {
+                                            "child": {
+                                              "mainAxisSize": "min",
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "src": "{{appAssets.icons.deleteCurrent}}",
+                                                  "imageType": "asset",
+                                                  "width": 20.0,
+                                                  "height": 20.0,
+                                                  "type": "image"
+                                                },
+                                                {
+                                                  "width": 6.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "fontSize": 16.0,
+                                                    "fontWeight": "w600"
+                                                  },
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "onTap": {
+                                              "actionType": "sequence",
+                                              "actions": [
+                                                {
+                                                  "actionType": "setValue",
+                                                  "values": [
+                                                    {
+                                                      "key": "marriageLoanDoc4Image",
+                                                      "value": ""
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDoc4HasImage",
+                                                      "value": false
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "actionType": "setValue",
+                                                  "values": [
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": false
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": true,
+                                                      "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": true,
+                                                      "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            "type": "gestureDetector"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      }
+                                    },
+                                    {
+                                      "type": "visibility",
+                                      "visible": "[[!marriageLoanDoc4HasImage]]",
+                                      "child": {
+                                        "mainAxisAlignment": "spaceEvenly",
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "child": {
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "decoration": {
+                                                    "color": "{{appColors.current.error.withOpacity(0.1)}}",
+                                                    "border": {
+                                                      "color": "{{appColors.current.error}}",
+                                                      "width": 2.0
+                                                    },
+                                                    "borderRadius": {
+                                                      "topLeft": 8.0,
+                                                      "topRight": 8.0,
+                                                      "bottomLeft": 8.0,
+                                                      "bottomRight": 8.0
+                                                    }
+                                                  },
+                                                  "width": 34.0,
+                                                  "height": 34.0,
+                                                  "child": {
+                                                    "child": {
+                                                      "src": "{{appAssets.icons.cameraCurrent}}",
+                                                      "imageType": "asset",
+                                                      "color": "{{appColors.current.error}}",
+                                                      "width": 31.0,
+                                                      "height": 31.0,
+                                                      "type": "image"
+                                                    },
+                                                    "type": "center"
+                                                  },
+                                                  "type": "container"
+                                                },
+                                                {
+                                                  "width": 10.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "{{appStrings.authentication.cameraLabel}}",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.subtitle}}",
+                                                    "fontSize": 16.0,
+                                                    "fontWeight": "w600"
+                                                  },
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "onTap": {
+                                              "actionType": "sequence",
+                                              "actions": [
+                                                {
+                                                  "actionType": "pickFile",
+                                                  "fileType": "image",
+                                                  "allowMultiple": false,
+                                                  "targetKey": "marriageLoanDoc4Image",
+                                                  "hasValueKey": "marriageLoanDoc4HasImage",
+                                                  "fileNameKey": "marriageLoanDoc4ImageName",
+                                                  "source": "camera",
+                                                  "cropImage": true,
+                                                  "cropMaxWidth": 1000,
+                                                  "cropMaxHeight": 1000,
+                                                  "cropCompressQuality": 80,
+                                                  "previewBeforeConfirm": false
+                                                },
+                                                {
+                                                  "actionType": "setValue",
+                                                  "values": [
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": false
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": true,
+                                                      "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": true,
+                                                      "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            "type": "gestureDetector"
+                                          },
+                                          {
+                                            "color": "{{appColors.current.input.borderEnabled}}",
+                                            "width": 1.0,
+                                            "height": 28.0,
+                                            "type": "container"
+                                          },
+                                          {
+                                            "child": {
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "decoration": {
+                                                    "color": "{{appColors.current.secondary.withOpacity(0.1)}}",
+                                                    "border": {
+                                                      "color": "{{appColors.current.secondary}}",
+                                                      "width": 2.0
+                                                    },
+                                                    "borderRadius": {
+                                                      "topLeft": 8.0,
+                                                      "topRight": 8.0,
+                                                      "bottomLeft": 8.0,
+                                                      "bottomRight": 8.0
+                                                    }
+                                                  },
+                                                  "width": 34.0,
+                                                  "height": 34.0,
+                                                  "child": {
+                                                    "child": {
+                                                      "src": "{{appAssets.icons.galleryCurrent}}",
+                                                      "imageType": "asset",
+                                                      "color": "{{appColors.current.secondary}}",
+                                                      "width": 31.0,
+                                                      "height": 31.0,
+                                                      "type": "image"
+                                                    },
+                                                    "type": "center"
+                                                  },
+                                                  "type": "container"
+                                                },
+                                                {
+                                                  "width": 10.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "{{appStrings.authentication.galleryLabel}}",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.subtitle}}",
+                                                    "fontSize": 16.0,
+                                                    "fontWeight": "w600"
+                                                  },
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "onTap": {
+                                              "actionType": "sequence",
+                                              "actions": [
+                                                {
+                                                  "actionType": "pickFile",
+                                                  "fileType": "image",
+                                                  "allowMultiple": false,
+                                                  "targetKey": "marriageLoanDoc4Image",
+                                                  "hasValueKey": "marriageLoanDoc4HasImage",
+                                                  "fileNameKey": "marriageLoanDoc4ImageName",
+                                                  "source": "gallery",
+                                                  "cropImage": true,
+                                                  "cropMaxWidth": 1000,
+                                                  "cropMaxHeight": 1000,
+                                                  "cropCompressQuality": 80,
+                                                  "previewBeforeConfirm": false
+                                                },
+                                                {
+                                                  "actionType": "setValue",
+                                                  "values": [
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": false
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": true,
+                                                      "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": true,
+                                                      "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            "type": "gestureDetector"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      }
+                                    }
+                                  ],
+                                  "type": "column"
+                                },
+                                "type": "padding"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "clipBehavior": "antiAlias",
+                          "type": "container"
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "decoration": {
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.0
+                            },
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 16.0,
+                                  "right": 16.0,
+                                  "bottom": 16.0
+                                },
+                                "decoration": {
+                                  "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                  "borderRadius": {
+                                    "topLeft": 10.0,
+                                    "topRight": 10.0
+                                  }
+                                },
+                                "child": {
+                                  "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.national_card_back}}",
+                                  "style": {
+                                    "type": "custom",
+                                    "color": "{{appColors.current.text.title}}",
+                                    "fontSize": 16.0,
+                                    "fontWeight": "w700"
+                                  },
+                                  "textAlign": "right",
+                                  "textDirection": "rtl",
+                                  "type": "text"
+                                },
+                                "type": "container"
+                              },
+                              {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "height": 1.0,
+                                "type": "container"
+                              },
+                              {
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 14.0,
+                                  "right": 16.0,
+                                  "bottom": 14.0
+                                },
+                                "child": {
+                                  "crossAxisAlignment": "stretch",
+                                  "children": [
+                                    {
+                                      "type": "visibility",
+                                      "visible": "[[marriageLoanDoc5HasImage]]",
+                                      "child": {
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "crossAxisAlignment": "center",
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "mainAxisSize": "min",
+                                            "crossAxisAlignment": "center",
+                                            "textDirection": "rtl",
+                                            "children": [
+                                              {
+                                                "borderRadius": {
+                                                  "topLeft": 2.0,
+                                                  "topRight": 2.0,
+                                                  "bottomLeft": 2.0,
+                                                  "bottomRight": 2.0
+                                                },
+                                                "child": {
+                                                  "type": "image",
+                                                  "src": "{{marriageLoanDoc5Image}}",
+                                                  "registryKey": "marriageLoanDoc5Image",
+                                                  "fit": "cover",
+                                                  "width": 56,
+                                                  "height": 56
+                                                },
+                                                "type": "clipRRect"
+                                              },
+                                              {
+                                                "width": 10.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "padding": {
+                                                  "left": 10.0,
+                                                  "top": 6.0,
+                                                  "right": 10.0,
+                                                  "bottom": 6.0
+                                                },
+                                                "decoration": {
+                                                  "color": "{{appColors.current.secondary.secondaryContainer}}",
+                                                  "borderRadius": {
+                                                    "topLeft": 8.0,
+                                                    "topRight": 8.0,
+                                                    "bottomLeft": 8.0,
+                                                    "bottomRight": 8.0
+                                                  }
+                                                },
+                                                "child": {
+                                                  "mainAxisSize": "min",
+                                                  "textDirection": "rtl",
+                                                  "children": [
+                                                    {
+                                                      "decoration": {
+                                                        "color": "{{appColors.current.secondary.color}}",
+                                                        "borderRadius": {
+                                                          "topLeft": 999.0,
+                                                          "topRight": 999.0,
+                                                          "bottomLeft": 999.0,
+                                                          "bottomRight": 999.0
+                                                        }
+                                                      },
+                                                      "width": 14.0,
+                                                      "height": 14.0,
+                                                      "type": "container"
+                                                    },
+                                                    {
+                                                      "width": 6.0,
+                                                      "type": "sizedBox"
+                                                    },
+                                                    {
+                                                      "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.upload_success}}",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.secondary.color}}",
+                                                        "fontSize": 14.0,
+                                                        "fontWeight": "w600"
+                                                      },
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    }
+                                                  ],
+                                                  "type": "row"
+                                                },
+                                                "type": "container"
+                                              }
+                                            ],
+                                            "type": "row"
+                                          },
+                                          {
+                                            "child": {
+                                              "mainAxisSize": "min",
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "src": "{{appAssets.icons.deleteCurrent}}",
+                                                  "imageType": "asset",
+                                                  "width": 20.0,
+                                                  "height": 20.0,
+                                                  "type": "image"
+                                                },
+                                                {
+                                                  "width": 6.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "{{appStrings.generated.authentication.authentication_selfie.delete}}",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "fontSize": 16.0,
+                                                    "fontWeight": "w600"
+                                                  },
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "onTap": {
+                                              "actionType": "sequence",
+                                              "actions": [
+                                                {
+                                                  "actionType": "setValue",
+                                                  "values": [
+                                                    {
+                                                      "key": "marriageLoanDoc5Image",
+                                                      "value": ""
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDoc5HasImage",
+                                                      "value": false
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "actionType": "setValue",
+                                                  "values": [
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": false
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": true,
+                                                      "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": true,
+                                                      "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            "type": "gestureDetector"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      }
+                                    },
+                                    {
+                                      "type": "visibility",
+                                      "visible": "[[!marriageLoanDoc5HasImage]]",
+                                      "child": {
+                                        "mainAxisAlignment": "spaceEvenly",
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "child": {
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "decoration": {
+                                                    "color": "{{appColors.current.error.withOpacity(0.1)}}",
+                                                    "border": {
+                                                      "color": "{{appColors.current.error}}",
+                                                      "width": 2.0
+                                                    },
+                                                    "borderRadius": {
+                                                      "topLeft": 8.0,
+                                                      "topRight": 8.0,
+                                                      "bottomLeft": 8.0,
+                                                      "bottomRight": 8.0
+                                                    }
+                                                  },
+                                                  "width": 34.0,
+                                                  "height": 34.0,
+                                                  "child": {
+                                                    "child": {
+                                                      "src": "{{appAssets.icons.cameraCurrent}}",
+                                                      "imageType": "asset",
+                                                      "color": "{{appColors.current.error}}",
+                                                      "width": 31.0,
+                                                      "height": 31.0,
+                                                      "type": "image"
+                                                    },
+                                                    "type": "center"
+                                                  },
+                                                  "type": "container"
+                                                },
+                                                {
+                                                  "width": 10.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "{{appStrings.authentication.cameraLabel}}",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.subtitle}}",
+                                                    "fontSize": 16.0,
+                                                    "fontWeight": "w600"
+                                                  },
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "onTap": {
+                                              "actionType": "sequence",
+                                              "actions": [
+                                                {
+                                                  "actionType": "pickFile",
+                                                  "fileType": "image",
+                                                  "allowMultiple": false,
+                                                  "targetKey": "marriageLoanDoc5Image",
+                                                  "hasValueKey": "marriageLoanDoc5HasImage",
+                                                  "fileNameKey": "marriageLoanDoc5ImageName",
+                                                  "source": "camera",
+                                                  "cropImage": true,
+                                                  "cropMaxWidth": 1000,
+                                                  "cropMaxHeight": 1000,
+                                                  "cropCompressQuality": 80,
+                                                  "previewBeforeConfirm": false
+                                                },
+                                                {
+                                                  "actionType": "setValue",
+                                                  "values": [
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": false
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": true,
+                                                      "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": true,
+                                                      "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            "type": "gestureDetector"
+                                          },
+                                          {
+                                            "color": "{{appColors.current.input.borderEnabled}}",
+                                            "width": 1.0,
+                                            "height": 28.0,
+                                            "type": "container"
+                                          },
+                                          {
+                                            "child": {
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "decoration": {
+                                                    "color": "{{appColors.current.secondary.withOpacity(0.1)}}",
+                                                    "border": {
+                                                      "color": "{{appColors.current.secondary}}",
+                                                      "width": 2.0
+                                                    },
+                                                    "borderRadius": {
+                                                      "topLeft": 8.0,
+                                                      "topRight": 8.0,
+                                                      "bottomLeft": 8.0,
+                                                      "bottomRight": 8.0
+                                                    }
+                                                  },
+                                                  "width": 34.0,
+                                                  "height": 34.0,
+                                                  "child": {
+                                                    "child": {
+                                                      "src": "{{appAssets.icons.galleryCurrent}}",
+                                                      "imageType": "asset",
+                                                      "color": "{{appColors.current.secondary}}",
+                                                      "width": 31.0,
+                                                      "height": 31.0,
+                                                      "type": "image"
+                                                    },
+                                                    "type": "center"
+                                                  },
+                                                  "type": "container"
+                                                },
+                                                {
+                                                  "width": 10.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "{{appStrings.authentication.galleryLabel}}",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.subtitle}}",
+                                                    "fontSize": 16.0,
+                                                    "fontWeight": "w600"
+                                                  },
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "onTap": {
+                                              "actionType": "sequence",
+                                              "actions": [
+                                                {
+                                                  "actionType": "pickFile",
+                                                  "fileType": "image",
+                                                  "allowMultiple": false,
+                                                  "targetKey": "marriageLoanDoc5Image",
+                                                  "hasValueKey": "marriageLoanDoc5HasImage",
+                                                  "fileNameKey": "marriageLoanDoc5ImageName",
+                                                  "source": "gallery",
+                                                  "cropImage": true,
+                                                  "cropMaxWidth": 1000,
+                                                  "cropMaxHeight": 1000,
+                                                  "cropCompressQuality": 80,
+                                                  "previewBeforeConfirm": false
+                                                },
+                                                {
+                                                  "actionType": "setValue",
+                                                  "values": [
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": false
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": true,
+                                                      "condition": "!marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage && marriageLoanDoc4HasImage && marriageLoanDoc5HasImage"
+                                                    },
+                                                    {
+                                                      "key": "marriageLoanDocNextEnabled",
+                                                      "value": true,
+                                                      "condition": "marriageLoanNoSmartNationalCard && marriageLoanDoc1HasImage && marriageLoanDoc2HasImage && marriageLoanDoc3HasImage"
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            "type": "gestureDetector"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      }
+                                    }
+                                  ],
+                                  "type": "column"
+                                },
+                                "type": "padding"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "clipBehavior": "antiAlias",
+                          "type": "container"
+                        }
+                      ],
+                      "type": "column"
+                    }
+                  },
+                  {
+                    "height": 24.0,
+                    "type": "sizedBox"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "singleChildScrollView"
+            },
+            "type": "expanded"
+          },
+          {
+            "padding": {
+              "left": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "child": {
+              "type": "reactiveElevatedButton",
+              "enabledKey": "marriageLoanDocNextEnabled",
+              "onPressed": {
+                "actionType": "fingerPrint",
+                "title": "احراز هویت",
+                "description": "برای ثبت مدارک متقاضی احراز هویت کنید",
+                "onSuccess": {
+                  "actionType": "sequence",
+                  "actions": [
+                    {
+                      "actionType": "setValue",
+                      "key": "marriageLoanTaskSpouseFlowCompleted",
+                      "value": true
+                    },
+                    {
+                      "actionType": "customSnackBar",
+                      "title": "ثبت مدارک",
+                      "detail": "مدارک متقاضی با موفقیت ثبت شد",
+                      "duration": 1800
+                    },
+                    {
+                      "actionType": "navigate",
+                      "navigationStyle": "pop"
+                    }
+                  ]
+                }
+              },
+              "style": {
+                "backgroundColor": "{{appColors.current.primary.color}}",
+                "disabledBackgroundColor": "{{appColors.current.input.borderEnabled}}",
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 56.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 14.0,
+                    "topRight": 14.0,
+                    "bottomLeft": 14.0,
+                    "bottomRight": 14.0
+                  }
+                }
+              },
+              "child": {
+                "data": "{{appStrings.generated.marriage_loan.marriage_loan_customer_document.submit}}",
+                "style": {
+                  "type": "custom",
+                  "color": "#FFFFFF",
+                  "fontSize": 16.0,
+                  "fontWeight": "w700"
+                },
+                "textDirection": "rtl",
+                "type": "text"
+              }
+            },
+            "type": "padding"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "form"
+    },
+    "type": "scaffold"
+  }
+}

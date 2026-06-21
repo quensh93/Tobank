@@ -1,7 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 
-
 /// Raw JSON widget helper
 /// Use this when you need to construct a widget from a raw JSON map
 /// or when a specific builder is not available.
@@ -132,6 +131,7 @@ class StacCustomTextFormField extends StacWidget {
     this.id,
     this.textDirection,
     this.textAlign,
+    this.textAlignVertical,
     this.supportTextDirection,
     this.autovalidateMode,
     this.formatThousands,
@@ -155,6 +155,7 @@ class StacCustomTextFormField extends StacWidget {
   final String? id;
   final String? textDirection;
   final String? textAlign;
+  final String? textAlignVertical;
   final String? supportTextDirection;
   final String? autovalidateMode;
   final bool? formatThousands;
@@ -183,6 +184,7 @@ class StacCustomTextFormField extends StacWidget {
     if (id != null) 'id': id,
     if (textDirection != null) 'textDirection': textDirection,
     if (textAlign != null) 'textAlign': textAlign,
+    if (textAlignVertical != null) 'textAlignVertical': textAlignVertical,
     if (supportTextDirection != null)
       'supportTextDirection': supportTextDirection,
     if (autovalidateMode != null) 'autovalidateMode': autovalidateMode,

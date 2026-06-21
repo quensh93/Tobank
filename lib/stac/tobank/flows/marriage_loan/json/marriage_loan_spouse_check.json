@@ -1,0 +1,408 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "marriageLoanSpouseCanContinue",
+        "value": false
+      },
+      {
+        "key": "marriageLoanSpouseLoading",
+        "value": false
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "automaticallyImplyLeading": true,
+      "title": {
+        "data": "{{appStrings.generated.marriage_loan.marriage_loan_spouse_check.title}}",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "backgroundColor": "#FFFFFF",
+    "body": {
+      "autovalidateMode": "always",
+      "child": {
+        "padding": {
+          "left": 16.0,
+          "top": 16.0,
+          "right": 16.0,
+          "bottom": 16.0
+        },
+        "child": {
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
+              "data": "{{appStrings.generated.marriage_loan.marriage_loan_spouse_check.identity_information}}",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 18.0,
+                "fontWeight": "w700"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            {
+              "height": 28.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "{{appStrings.generated.marriage_loan.marriage_loan_spouse_check.national_code}}",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 17.0,
+                "fontWeight": "w700"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "padding": {
+                "left": 12.0,
+                "top": 0.0,
+                "right": 12.0,
+                "bottom": 0.0
+              },
+              "decoration": {
+                "color": "{{appColors.current.background.surfaceContainer}}",
+                "border": {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "width": 1.0
+                },
+                "borderRadius": {
+                  "topLeft": 10.0,
+                  "topRight": 10.0,
+                  "bottomLeft": 10.0,
+                  "bottomRight": 10.0
+                }
+              },
+              "child": {
+                "type": "textFormField",
+                "id": "marriage_loan_spouse_national_code",
+                "textDirection": "ltr",
+                "textAlign": "right",
+                "decoration": {
+                  "hintText": "{{appStrings.generated.marriage_loan.marriage_loan_spouse_check.national_code_hint}}",
+                  "hintStyle": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.hint}}",
+                    "fontSize": 16.0,
+                    "fontWeight": "w500"
+                  },
+                  "counterText": "",
+                  "border": {
+                    "type": "none"
+                  },
+                  "enabledBorder": {
+                    "type": "none"
+                  },
+                  "focusedBorder": {
+                    "type": "none"
+                  },
+                  "contentPadding": {
+                    "horizontal": 8,
+                    "vertical": 16
+                  }
+                },
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.text.title}}",
+                  "fontSize": 16.0,
+                  "fontWeight": "w600"
+                },
+                "keyboardType": "number",
+                "maxLength": 10,
+                "inputFormatters": [
+                  {
+                    "type": "allow",
+                    "rule": "[0-9۰-۹]"
+                  }
+                ],
+                "onChanged": {
+                  "actionType": "validateFields",
+                  "resultKey": "marriageLoanSpouseCanContinue",
+                  "fields": [
+                    {
+                      "id": "marriage_loan_spouse_national_code",
+                      "rule": "^[0-9۰-۹]{10}$"
+                    },
+                    {
+                      "id": "marriage_loan_spouse_birthdate",
+                      "rule": "^.+$"
+                    }
+                  ]
+                }
+              },
+              "type": "container"
+            },
+            {
+              "height": 28.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "{{appStrings.generated.marriage_loan.marriage_loan_spouse_check.birthdate}}",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 17.0,
+                "fontWeight": "w700"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 12.0,
+                  "top": 0.0,
+                  "right": 12.0,
+                  "bottom": 0.0
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1.0
+                  },
+                  "borderRadius": {
+                    "topLeft": 10.0,
+                    "topRight": 10.0,
+                    "bottomLeft": 10.0,
+                    "bottomRight": 10.0
+                  }
+                },
+                "height": 56.0,
+                "child": {
+                  "alignment": "center",
+                  "children": [
+                    {
+                      "type": "textFormField",
+                      "id": "marriage_loan_spouse_birthdate",
+                      "textDirection": "rtl",
+                      "textAlign": "right",
+                      "textAlignVertical": "center",
+                      "decoration": {
+                        "hintText": "{{appStrings.generated.marriage_loan.marriage_loan_spouse_check.birthdate_hint}}",
+                        "hintTextAlign": "right",
+                        "hintTextDirection": "rtl",
+                        "hintStyle": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.hint}}",
+                          "fontSize": 16.0,
+                          "fontWeight": "w500"
+                        },
+                        "border": {
+                          "type": "none"
+                        },
+                        "enabledBorder": {
+                          "type": "none"
+                        },
+                        "focusedBorder": {
+                          "type": "none"
+                        },
+                        "disabledBorder": {
+                          "type": "none"
+                        },
+                        "contentPadding": {
+                          "left": 56,
+                          "top": 0,
+                          "right": 12,
+                          "bottom": 0
+                        }
+                      },
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w600"
+                      },
+                      "keyboardType": "text",
+                      "readOnly": true,
+                      "enabled": false
+                    },
+                    {
+                      "left": 6.0,
+                      "top": 0.0,
+                      "bottom": 0.0,
+                      "child": {
+                        "child": {
+                          "src": "assets/icons/ic_calendar.svg",
+                          "imageType": "asset",
+                          "color": "{{appColors.current.secondary.color}}",
+                          "width": 28.0,
+                          "height": 28.0,
+                          "type": "image"
+                        },
+                        "type": "center"
+                      },
+                      "type": "positioned"
+                    }
+                  ],
+                  "type": "stack"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "persianDatePicker",
+                "formFieldId": "marriage_loan_spouse_birthdate",
+                "firstDate": "1300/01/01",
+                "lastDate": "1450/12/29",
+                "onDateSelected": {
+                  "actionType": "validateFields",
+                  "resultKey": "marriageLoanSpouseCanContinue",
+                  "fields": [
+                    {
+                      "id": "marriage_loan_spouse_national_code",
+                      "rule": "^[0-9۰-۹]{10}$"
+                    },
+                    {
+                      "id": "marriage_loan_spouse_birthdate",
+                      "rule": "^.+$"
+                    }
+                  ]
+                }
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "height": 48.0,
+              "type": "sizedBox"
+            },
+            {
+              "type": "reactiveElevatedButton",
+              "enabledKey": "marriageLoanSpouseCanContinue",
+              "loadingKey": "marriageLoanSpouseLoading",
+              "onPressed": {
+                "actionType": "fingerPrint",
+                "title": "احراز هویت",
+                "description": "برای تکمیل اطلاعات همسر متقاضی احراز هویت کنید",
+                "onSuccess": {
+                  "actionType": "sequence",
+                  "actions": [
+                    {
+                      "actionType": "setValue",
+                      "key": "marriageLoanTaskSpouseCompleted",
+                      "value": true
+                    },
+                    {
+                      "actionType": "customSnackBar",
+                      "title": "ثبت اطلاعات",
+                      "detail": "اطلاعات همسر متقاضی با موفقیت ثبت شد",
+                      "duration": 1800
+                    },
+                    {
+                      "actionType": "navigate",
+                      "fileName": "marriage_loan_customer_document",
+                      "navMode": "{{marriageLoanFlowNavMode}}",
+                      "navigationStyle": "pushReplacement"
+                    }
+                  ]
+                }
+              },
+              "style": {
+                "foregroundColor": "#FFFFFF",
+                "backgroundColor": "{{appColors.current.primary.color}}",
+                "disabledForegroundColor": "{{appColors.current.text.subtitle}}",
+                "disabledBackgroundColor": "{{appColors.current.input.borderEnabled}}",
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 56.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 10.0,
+                    "topRight": 10.0,
+                    "bottomLeft": 10.0,
+                    "bottomRight": 10.0
+                  }
+                }
+              },
+              "child": {
+                "data": "{{appStrings.generated.marriage_loan.marriage_loan_spouse_check.next_step}}",
+                "style": {
+                  "type": "custom",
+                  "color": "#FFFFFF",
+                  "fontSize": 18.0,
+                  "fontWeight": "w700"
+                },
+                "textDirection": "rtl",
+                "type": "text"
+              }
+            },
+            {
+              "height": 24.0,
+              "type": "sizedBox"
+            }
+          ],
+          "type": "column"
+        },
+        "type": "singleChildScrollView"
+      },
+      "type": "form"
+    },
+    "type": "scaffold"
+  }
+}

@@ -140,10 +140,10 @@ flutter:
       flavors: [dev]
     - path: lib/stac/tobank/flows/child_loan/json/
       flavors: [dev]
+    - path: lib/stac/tobank/flows/marriage_loan/json/
     - path: lib/stac/tobank/flows/home_page/json/
       flavors: [dev]
     - path: lib/stac/tobank/flows/transfer/json/
-      flavors: [dev]
     - path: lib/stac/tobank/flows/gift_card/json/
       flavors: [dev]
     - path: lib/stac/tobank/flows/internet_pakage/json/

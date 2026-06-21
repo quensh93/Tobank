@@ -20,6 +20,7 @@ class FlowRegistry {
     'home_page',
     'installment_payment',
     'login',
+    'marriage_loan',
     'notification',
     'internet_pakage',
     'profile',

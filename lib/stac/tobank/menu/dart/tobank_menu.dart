@@ -16,12 +16,12 @@ const bool _showInstallmentPaymentApiReal = false;
 
 //Sp7
 const bool _showChildLoanApiReal = false;
+const bool _showMarriageLoanApiReal = true;
 const bool _showGuaranteePromissoryApiReal = false;
 
 ///sp5
 const bool _showDepositTurnoverApiReal = false;
 const bool _showDepositMoreOptions = true;
-
 
 const bool _showNotificationApiReal = true;
 const bool _showDashboardRealNavigation = true;
@@ -64,7 +64,6 @@ StacWidget tobankMenuDart() {
     body: StacListView(
       padding: StacEdgeInsets.all(16),
       children: [
-
         if (_showAuthentication)
           _buildMenuItemCard(
             title: 'لاگین',
@@ -117,6 +116,11 @@ StacWidget tobankMenuDart() {
           _buildSingleButtonMenuItemCard(
             title: 'تسهیلات فرزندآوری',
             widgetType: 'child_loan_api_real_menu',
+          ),
+        if (_showMarriageLoanApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'تسهیلات ازدواج',
+            widgetType: 'marriage_loan_menu',
           ),
         if (_showNotificationApiReal)
           _buildSingleButtonMenuItemCard(
@@ -323,12 +327,24 @@ StacWidget _buildButtonWidget({
   StacAction? onPressed;
   if (buttonType == 'dart') {
     if (widgetType != null && widgetType.isNotEmpty && widgetType != 'null') {
-      onPressed = NavigationAction(fileName: widgetType, navMode: NavModes.dart, navigationStyle: NavigationStyle.push);
+      onPressed = NavigationAction(
+        fileName: widgetType,
+        navMode: NavModes.dart,
+        navigationStyle: NavigationStyle.push,
+      );
     } else if (hasValidPath) {
-      onPressed = NavigationAction(navMode: NavModes.localJson, pathOverride: path, navigationStyle: NavigationStyle.push);
+      onPressed = NavigationAction(
+        navMode: NavModes.localJson,
+        pathOverride: path,
+        navigationStyle: NavigationStyle.push,
+      );
     }
   } else if (hasValidPath) {
-    onPressed = NavigationAction(navMode: NavModes.localJson, pathOverride: path, navigationStyle: NavigationStyle.push);
+    onPressed = NavigationAction(
+      navMode: NavModes.localJson,
+      pathOverride: path,
+      navigationStyle: NavigationStyle.push,
+    );
   }
 
   final isEnabled =

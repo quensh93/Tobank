@@ -5,6 +5,7 @@ import '../../services/stac_widget_resolver.dart';
 import '../../services/navigation/stac_navigation_service.dart';
 import '../../navigation/nav_modes.dart';
 import '../../navigation/flow_source_resolver.dart';
+import '../../utils/variable_resolver.dart' as variable_resolver;
 import '../../../core/helpers/logger.dart';
 
 /// Tracks navigation stack so logs show meaningful source and destination.
@@ -29,7 +30,8 @@ class NavLogger {
       );
       if (_stack.isNotEmpty) _stack.removeLast();
       _stack.add(dest);
-    } else if (style == 'pushAndRemoveAll' || style == 'pushNamedAndRemoveAll') {
+    } else if (style == 'pushAndRemoveAll' ||
+        style == 'pushNamedAndRemoveAll') {
       AppLogger.dc(
         LogCategory.stacNavigation,
         '🗺️ [$style - $navMode] $from → (page) $dest',
@@ -54,10 +56,7 @@ class NavLogger {
 
   static void logClose(String type, [String? name]) {
     final label = name != null ? '($type) $name' : '($type)';
-    AppLogger.dc(
-      LogCategory.stacNavigation,
-      '🗺️ [close] $label',
-    );
+    AppLogger.dc(LogCategory.stacNavigation, '🗺️ [close] $label');
   }
 }
 
@@ -69,15 +68,23 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
 
   @override
   StacNavigateAction getModel(Map<String, dynamic> json) {
+    final resolved = variable_resolver.resolveVariablesPreservingTypes(
+      Map<String, dynamic>.from(json),
+      StacRegistry.instance,
+    );
+    if (resolved is Map<String, dynamic>) {
+      json = resolved;
+    }
+
     final fileNameRaw = json['fileName'] as String?;
-    final fileName =
-        (fileNameRaw != null && fileNameRaw.isNotEmpty) ? fileNameRaw : null;
+    final fileName = (fileNameRaw != null && fileNameRaw.isNotEmpty)
+        ? fileNameRaw
+        : null;
     final navMode = NavModes.fromJson(json['navMode']);
     final pathOverrideRaw = json['pathOverride'] as String?;
-    final pathOverride =
-        (pathOverrideRaw != null && pathOverrideRaw.isNotEmpty)
-            ? pathOverrideRaw
-            : null;
+    final pathOverride = (pathOverrideRaw != null && pathOverrideRaw.isNotEmpty)
+        ? pathOverrideRaw
+        : null;
     final navStyle = json['navigationStyle']?.toString() ?? 'push';
 
     if (navMode != null && (fileName != null || pathOverride != null)) {
@@ -111,7 +118,9 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
       return model.widgetJson!['_originalWidgetType'] as String? ?? 'dart';
     } else if (model.assetPath != null && model.assetPath!.isNotEmpty) {
       final filename = model.assetPath!.split('/').last;
-      return filename.endsWith('.json') ? filename.replaceAll('.json', '') : filename;
+      return filename.endsWith('.json')
+          ? filename.replaceAll('.json', '')
+          : filename;
     } else if (model.request != null) {
       return model.request!.url;
     } else if (model.routeName != null) {
@@ -129,10 +138,10 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
     final resolvedNavMode = model.widgetJson != null
         ? 'dart'
         : model.assetPath != null && model.assetPath!.isNotEmpty
-            ? 'localJson'
-            : model.request != null
-                ? 'apiJson'
-                : 'route';
+        ? 'localJson'
+        : model.request != null
+        ? 'apiJson'
+        : 'route';
     NavLogger.logNav(style, resolvedNavMode, dest);
 
     if (model.widgetJson != null) {

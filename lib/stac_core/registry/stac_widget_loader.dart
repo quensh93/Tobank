@@ -16,7 +16,6 @@ import '../../../stac/tobank/flows/home_page/dart/travel_services_page.dart'
 import '../../../stac/tobank/flows/home_page/dart/acceptor_services_page.dart'
     as acceptor_services_page_dart;
 
-
 // Promissory Real (API) import
 import '../../../stac/tobank/flows/promissory/dart/promissory_intro.dart'
     as promissory_dart;
@@ -49,8 +48,7 @@ import '../../../stac/tobank/flows/promissory/dart/promissory_success.dart'
 import '../../../stac/tobank/flows/promissory/dart/promissory_issuer.dart'
     as promissory_issuer_dart;
 
-import '../../../stac/tobank/flows/login/dart/login.dart'
-    as login_screen_dart;
+import '../../../stac/tobank/flows/login/dart/login.dart' as login_screen_dart;
 import '../../../stac/tobank/flows/promissory/menu/promissory_menu.dart'
     as promissory_debug_dart;
 import '../../../stac/tobank/flows/authentication/menu/authentication_menu.dart'
@@ -143,6 +141,24 @@ import '../../../stac/tobank/flows/child_loan/dart/child_loan_guarantee_address.
     as child_loan_guarantee_address_dart;
 import '../../../stac/tobank/flows/child_loan/dart/child_loan_child_check.dart'
     as child_loan_child_check_dart;
+import '../../../stac/tobank/flows/marriage_loan/menu/marriage_loan_menu.dart'
+    as marriage_loan_menu_dart;
+import '../../../stac/tobank/flows/marriage_loan/dart/marriage_loan_rules.dart'
+    as marriage_loan_rules_dart;
+import '../../../stac/tobank/flows/marriage_loan/dart/marriage_loan_customer_check.dart'
+    as marriage_loan_customer_check_dart;
+import '../../../stac/tobank/flows/marriage_loan/dart/marriage_loan_amount_detail.dart'
+    as marriage_loan_amount_detail_dart;
+import '../../../stac/tobank/flows/marriage_loan/dart/marriage_loan_task_list.dart'
+    as marriage_loan_task_list_dart;
+import '../../../stac/tobank/flows/marriage_loan/dart/marriage_loan_spouse_check.dart'
+    as marriage_loan_spouse_check_dart;
+import '../../../stac/tobank/flows/marriage_loan/dart/marriage_loan_applicant_document.dart'
+    as marriage_loan_applicant_document_dart;
+import '../../../stac/tobank/flows/marriage_loan/dart/marriage_loan_marriage_license.dart'
+    as marriage_loan_marriage_license_dart;
+import '../../../stac/tobank/flows/marriage_loan/dart/marriage_loan_customer_document.dart'
+    as marriage_loan_customer_document_dart;
 import '../../../stac/tobank/flows/installment_payment/dart/installment_payment_list_main.dart'
     as installment_payment_list_main_dart;
 import '../../../stac/tobank/flows/installment_payment/dart/installment_payment_detail_main.dart'
@@ -298,8 +314,8 @@ class StacWidgetLoader {
   /// Extensible - new widget types can be registered without modifying this class.
   static final Map<String, Map<String, dynamic> Function()> _widgetLoaders =
       const bool.fromEnvironment('API', defaultValue: false)
-          ? <String, Map<String, dynamic> Function()>{}
-          : _buildDevWidgetLoaders();
+      ? <String, Map<String, dynamic> Function()>{}
+      : _buildDevWidgetLoaders();
 
   /// Dev-only Dart screen registry. Built only when `API` is false.
   ///
@@ -308,13 +324,16 @@ class StacWidgetLoader {
   /// body plus every referenced screen builder class from the release binary.
   static Map<String, Map<String, dynamic> Function()>
   _buildDevWidgetLoaders() => {
-    'user_credit_validation_receipt': () =>
-        user_credit_validation_receipt_dart.userCreditValidationReceipt().toJson(),
-    'user_credit_validation_preview': () =>
-        user_credit_validation_preview_dart.userCreditValidationPreview().toJson(),
-    'user_credit_validation_report_detail': () => user_credit_validation_report_detail_dart
-        .userCreditValidationReportDetail()
+    'user_credit_validation_receipt': () => user_credit_validation_receipt_dart
+        .userCreditValidationReceipt()
         .toJson(),
+    'user_credit_validation_preview': () => user_credit_validation_preview_dart
+        .userCreditValidationPreview()
+        .toJson(),
+    'user_credit_validation_report_detail': () =>
+        user_credit_validation_report_detail_dart
+            .userCreditValidationReportDetail()
+            .toJson(),
     'tobank_user_credit_validation': () =>
         user_credit_validation_menu_dart.userCreditValidationMenu().toJson(),
     'tobank_menu_dart': () => tobank_menu_dart.tobankMenuDart().toJson(),
@@ -328,10 +347,7 @@ class StacWidgetLoader {
     'tobank_acceptor_services_page': () =>
         acceptor_services_page_dart.tobankAcceptorServicesPage().toJson(),
 
-
     'tobank_onboarding': () => login_onboarding_dart.loginOnboarding().toJson(),
-
-
 
     // Promissory Real (Real API) - fetches SDUI from real backend
     'promissory_menu': () =>
@@ -402,6 +418,32 @@ class StacWidgetLoader {
         .toJson(),
     'child_loan_child_check': () =>
         child_loan_child_check_dart.childLoanChildCheckScreen().toJson(),
+    'marriage_loan_menu': () =>
+        marriage_loan_menu_dart.marriageLoanMenu().toJson(),
+    'marriage_loan_rules': () =>
+        marriage_loan_rules_dart.marriageLoanRulesScreen().toJson(),
+    'marriage_loan_customer_check': () => marriage_loan_customer_check_dart
+        .marriageLoanCustomerCheckScreen()
+        .toJson(),
+    'marriage_loan_amount_detail': () => marriage_loan_amount_detail_dart
+        .marriageLoanAmountDetailScreen()
+        .toJson(),
+    'marriage_loan_task_list': () =>
+        marriage_loan_task_list_dart.marriageLoanTaskListScreen().toJson(),
+    'marriage_loan_spouse_check': () => marriage_loan_spouse_check_dart
+        .marriageLoanSpouseCheckScreen()
+        .toJson(),
+    'marriage_loan_applicant_document': () =>
+        marriage_loan_applicant_document_dart
+            .marriageLoanApplicantDocumentScreen()
+            .toJson(),
+    'marriage_loan_marriage_license': () => marriage_loan_marriage_license_dart
+        .marriageLoanMarriageLicenseScreen()
+        .toJson(),
+    'marriage_loan_customer_document': () =>
+        marriage_loan_customer_document_dart
+            .marriageLoanCustomerDocumentScreen()
+            .toJson(),
     'installment_payment_list_main': () => installment_payment_list_main_dart
         .installmentPaymentListMain()
         .toJson(),
@@ -464,10 +506,9 @@ class StacWidgetLoader {
         secondary_pin_receipt_dart.dashboardSecondaryPinResult().toJson(),
     'card_management_reissue_request': () =>
         reissue_request_dart.dashboardCardReissueRequest().toJson(),
-    'card_management_reissue_color': () =>
-        reissue_select_card_color_dart
-            .dashboardCardReissueSelectCardColor()
-            .toJson(),
+    'card_management_reissue_color': () => reissue_select_card_color_dart
+        .dashboardCardReissueSelectCardColor()
+        .toJson(),
     'card_management_reissue_receipt': () =>
         reissue_receipt_dart.dashboardCardReissueReceipt().toJson(),
     'card_management_balance': () =>
@@ -520,13 +561,20 @@ class StacWidgetLoader {
     'charge_payment': () => charge_payment_dart.chargeRealPayment().toJson(),
     'charge_payment_success': () =>
         charge_payment_success_dart.chargeRealPaymentSuccess().toJson(),
-    'internet_pakage_menu': () => internet_pakage_menu_dart.packageRealMenu().toJson(),
-    'internet_pakage_intro': () => internet_pakage_intro_dart.packageRealIntro().toJson(),
-    'internet_pakage_add_sim': () => internet_pakage_add_sim_dart.packageRealAddSim().toJson(),
-    'internet_pakage_list': () => internet_pakage_list_dart.packageRealInternetPakageList().toJson(),
-    'internet_pakage_payment': () => internet_pakage_payment_dart.packageRealPayment().toJson(),
+    'internet_pakage_menu': () =>
+        internet_pakage_menu_dart.packageRealMenu().toJson(),
+    'internet_pakage_intro': () =>
+        internet_pakage_intro_dart.packageRealIntro().toJson(),
+    'internet_pakage_add_sim': () =>
+        internet_pakage_add_sim_dart.packageRealAddSim().toJson(),
+    'internet_pakage_list': () =>
+        internet_pakage_list_dart.packageRealInternetPakageList().toJson(),
+    'internet_pakage_payment': () =>
+        internet_pakage_payment_dart.packageRealPayment().toJson(),
     'internet_pakage_payment_success': () =>
-        internet_pakage_payment_success_dart.packageRealPaymentSuccess().toJson(),
+        internet_pakage_payment_success_dart
+            .packageRealPaymentSuccess()
+            .toJson(),
     'gift_card_message': () =>
         gift_card_message_dart.giftCardRealMessage().toJson(),
     'gift_card_receiver_info': () =>
@@ -554,9 +602,8 @@ class StacWidgetLoader {
             .toJson(),
     'authentication_selfie': () =>
         authentication_selfie_dart.authenticationRealSelfie().toJson(),
-    'authentication_postal_code': () => authentication_postal_code_dart
-        .authenticationRealPostalCode()
-        .toJson(),
+    'authentication_postal_code': () =>
+        authentication_postal_code_dart.authenticationRealPostalCode().toJson(),
     'authentication_rules': () =>
         authentication_rules_dart.authenticationRealRules().toJson(),
     'authentication_signature': () =>
@@ -565,10 +612,9 @@ class StacWidgetLoader {
         authentication_certificate_generator_dart
             .authenticationRealCertificateGenerator()
             .toJson(),
-    'authentication_signature_guide': () =>
-        authentication_signature_guide_dart
-            .authenticationRealSignatureGuide()
-            .toJson(),
+    'authentication_signature_guide': () => authentication_signature_guide_dart
+        .authenticationRealSignatureGuide()
+        .toJson(),
     'authentication_signature_visual_guide': () =>
         authentication_signature_visual_guide_dart
             .authenticationRealSignatureVisualGuide()

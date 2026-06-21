@@ -8,6 +8,7 @@ StacAppBar buildTobankFlowAppBar({
   bool backOnRight = false,
   StacAction? backAction,
   String backIconSrc = '{{appAssets.icons.arrowBack}}',
+  StacTextStyle? titleStyle,
 }) {
   final resolvedBackAction =
       backAction ??
@@ -42,7 +43,7 @@ StacAppBar buildTobankFlowAppBar({
     title: StacText(
       data: title,
       textDirection: StacTextDirection.rtl,
-      style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
+      style: titleStyle ?? StacAliasTextStyle('{{appStyles.appbarStyle}}'),
     ),
     centerTitle: true,
     automaticallyImplyLeading: !backOnRight && (showBack || showSupport),
