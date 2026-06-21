@@ -10,6 +10,7 @@ const bool _showProfileApiReal = true;
 const bool _showCartableApiReal = true;
 const bool _showTransactionApiReal = true;
 
+
 //sp6
 const bool _showDepositMoreOptions = false;
 const bool _showInstallmentPaymentApiReal = false;
@@ -22,10 +23,7 @@ const bool _showGuaranteePromissoryApiReal = false;
 const bool _showCreditScoringApiReal = false;
 const bool _showMarriageLoanApiReal = false;
 
-///sp5
 const bool _showDepositTurnoverApiReal = true;
-
-
 const bool _showNotificationApiReal = true;
 const bool _showDashboardRealNavigation = true;
 const bool _showCardManagementReal = true;
