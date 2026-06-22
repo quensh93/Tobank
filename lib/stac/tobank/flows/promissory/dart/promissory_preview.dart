@@ -1,5 +1,5 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_build_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -28,7 +28,7 @@ StacWidget promissoryRealPreview() {
         ),
         // Fetch PDF base64 from the endpoint
         StacNetworkRequestAction(
-          url: SduiConfig.bizUrl(
+          url: SduiBuildConfig.bizUrl(
             'files/v1.0/{{serverSignedPdfId}}/download/base64',
           ),
           method: 'get',

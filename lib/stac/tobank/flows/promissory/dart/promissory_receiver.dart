@@ -1,5 +1,5 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_build_config.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -850,7 +850,7 @@ StacWidget promissoryRealReceiver() {
                       // Call identity API (real) then navigate on success
                       {
                         'actionType': 'networkRequest',
-                        'url': SduiConfig.bizUrl(
+                        'url': SduiBuildConfig.bizUrl(
                           'customers/v1.0/identity/{{receiver.nationalCode}}/{{receiver.birthDateCompact}}',
                         ),
                         'method': 'get',
@@ -1091,7 +1091,7 @@ StacWidget promissoryRealReceiver() {
                       // Call identity API (real) then navigate on success
                       {
                         'actionType': 'networkRequest',
-                        'url': SduiConfig.bizUrl(
+                        'url': SduiBuildConfig.bizUrl(
                           'customers/v1.0/identity/{{receiver.legalNationalId}}',
                         ),
                         'method': 'get',

@@ -1,4 +1,4 @@
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_build_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -27,7 +27,7 @@ StacWidget promissoryRealIssuer() {
         ],
       ),
       StacNetworkRequestAction(
-        url: SduiConfig.bizUrl('customers/v1.0/info/{{userData.nationalCode}}'),
+        url: SduiBuildConfig.bizUrl('customers/v1.0/info/{{userData.nationalCode}}'),
         method: 'get',
         dataBind: 'fetchCustomerInfo',
         headers: {

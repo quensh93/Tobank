@@ -1,5 +1,5 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_build_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -28,7 +28,7 @@ StacWidget promissoryRealPaymentDeposits() {
         ],
       ),
       StacNetworkRequestAction(
-        url: SduiConfig.bizUrl(
+        url: SduiBuildConfig.bizUrl(
           'deposits/v1.0/customer/{{userData.nationalCode}}',
         ),
         method: 'get',
@@ -184,7 +184,7 @@ StacWidget promissoryRealPaymentDeposits() {
         ],
       ).toJson(),
       StacNetworkRequestAction(
-        url: SduiConfig.bizUrl('collateral/v1.0/promissories/draft'),
+        url: SduiBuildConfig.bizUrl('collateral/v1.0/promissories/draft'),
         method: 'post',
         headers: {
           'accept': 'application/json',

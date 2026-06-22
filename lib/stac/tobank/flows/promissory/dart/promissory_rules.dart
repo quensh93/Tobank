@@ -1,5 +1,5 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_build_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -192,7 +192,7 @@ StacWidget _buildContinueButton() {
           {'actionType': 'setValue', 'key': 'isSanaLoading', 'value': true},
           {
             'actionType': 'networkRequest',
-            'url': SduiConfig.bizUrl(
+            'url': SduiBuildConfig.bizUrl(
               'governance/v1.0/sana/{{userData.nationalCode}}/1',
             ),
             'method': 'get',

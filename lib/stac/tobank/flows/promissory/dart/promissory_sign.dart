@@ -1,5 +1,5 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_build_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -47,7 +47,7 @@ StacWidget promissoryRealSign() {
         ),
         // Real API call to get PDF base64
         StacNetworkRequestAction(
-          url: SduiConfig.bizUrl(
+          url: SduiBuildConfig.bizUrl(
             'files/v1.0/{{form.unsigned_pdf_id}}/download/base64',
           ),
           method: 'get',
@@ -292,7 +292,7 @@ StacWidget _buildSignButton() {
                               },
                               {
                                 'actionType': 'networkRequest',
-                                'url': SduiConfig.bizUrl(
+                                'url': SduiBuildConfig.bizUrl(
                                   'files/v1.0/promissory/upload/base64',
                                 ),
                                 'method': 'post',
@@ -320,7 +320,7 @@ StacWidget _buildSignButton() {
                                       'actions': [
                                         {
                                           'actionType': 'networkRequest',
-                                          'url': SduiConfig.bizUrl(
+                                          'url': SduiBuildConfig.bizUrl(
                                             'collateral/v1.0/promissories/finalize/{{form.promissory_id}}',
                                           ),
                                           'method': 'post',
